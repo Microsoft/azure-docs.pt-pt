@@ -2,20 +2,19 @@
 title: Monitorização e alerta | do Azure Key Vault Microsoft Docs
 description: Crie um painel de instrumentos para monitorizar a saúde do seu cofre e configurar alertas.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/06/2020
-ms.author: sudbalas
-ms.openlocfilehash: 684c2f3bc7a15d7652ef271fd01872dc2149827d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 03/31/2021
+ms.author: mbaldwin
+ms.openlocfilehash: f8f9dd6d51b974ebd31804daf0402ca5535ffc92
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059603"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751585"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitorização e alerta para Azure Key Vault
 

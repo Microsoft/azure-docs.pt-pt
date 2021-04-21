@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 769a63819925caa50ff364869b8d9a14c3258a2e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3d8f20f598243754e3fd39f649e7c84d55b64817
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102214546"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751675"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>Quickstart: Azure Key Vault biblioteca secreta de clientes para JavaScript (versão 4)
 
@@ -154,7 +154,7 @@ const { SecretClient } = require("@azure/keyvault-secrets");
 
 Neste arranque rápido, o utilizador com sessão é utilizado para autenticar o cofre de chaves, que é o método preferido para o desenvolvimento local. Para aplicações implantadas no Azure, a identidade gerida deve ser atribuída ao Serviço de Aplicações ou Máquina Virtual, para obter mais informações, consulte [a Visão Geral da Identidade Gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-Por exemplo, o nome do seu cofre-chave é expandido para o cofre uri chave, no formato "https:// \<your-key-vault-name\> .vault.azure.net". Este exemplo está a utilizar a classe ['DefaultAzureCredential)'](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) da [Azure Identity Library,](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)que nos permite usar o mesmo código em diferentes ambientes com diferentes opções para fornecer identidade. Para obter mais informações sobre a autenticação no cofre da chave, consulte [o Guia do Programador.](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)
+Por exemplo, o nome do seu cofre-chave é expandido para o cofre uri chave, no formato "https:// \<your-key-vault-name\> .vault.azure.net". Este exemplo está a utilizar a classe ['DefaultAzureCredential)'](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) da [Azure Identity Library,](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)que nos permite usar o mesmo código em diferentes ambientes com diferentes opções para fornecer identidade. Para obter mais informações sobre a autenticação no Cofre de Chaves, consulte [o Guia do Desenvolvedor.](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)
 
 Adicione o seguinte código à função 'main()»
 
@@ -285,6 +285,6 @@ Neste arranque rápido, criaste um cofre, armazenaste um segredo e recuperaste e
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
 - Leia uma [visão geral dos segredos do cofre da chave Azure](about-secrets.md)
-- Como [garantir o acesso a um cofre chave](../general/secure-your-key-vault.md)
+- Como [garantir o acesso a um cofre chave](../general/security-overview.md)
 - Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
 - Reveja a visão geral da [segurança do Cofre-Chave](../general/security-overview.md)

@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 04/09/2021
 ms.custom: generated
-ms.openlocfilehash: c89e6ed98e0a71f530cefda4cc1f42a27996d805
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: f4112d4b9bf55e45ec865f5c8606ead9088a7983
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518512"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752395"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -1513,7 +1513,7 @@ Permite-lhe gerir serviços de backup, exceto remoção de backup, criação de 
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectedItems/read | Devolve a lista de todos os Itens Protegidos. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectionContainers/read | Devolve todos os contentores pertencentes à subscrição |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupUsageSummaries/read | Retorna resumos para itens protegidos e servidores protegidos para um Serviço de Recuperação . |
-> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Cofres/certificados/write | A operação 'Certificado de Recurso de atualização' atualiza o certificado de credencial de recurso/cofre. |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Cofres/certificados/write | A operação 'Certificado de Recurso de actualização' atualiza o certificado de credencial de recurso/cofre. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/extendedInformation/read | A operação Get Extended Info obtém informações estendidas de um objeto que representa o recurso Azure do tipo ?cofre? |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/extendedInformation/write | A operação Get Extended Info obtém informações estendidas de um objeto que representa o recurso Azure do tipo ?cofre? |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/read | Recebe os alertas para o cofre dos serviços de recuperação. |
@@ -8210,7 +8210,7 @@ Efetue qualquer ação nos certificados de um cofre chave, exceto gerir permiss�
 
 ### <a name="key-vault-contributor"></a>Contribuidor do Cofre Chave
 
-Gerencie os cofres chave, mas não lhe permite atribuir funções no Azure RBAC, e não lhe permite aceder a segredos, chaves ou certificados. [Saiba mais](../key-vault/general/secure-your-key-vault.md)
+Gerencie os cofres chave, mas não lhe permite atribuir funções no Azure RBAC, e não lhe permite aceder a segredos, chaves ou certificados. [Saiba mais](../key-vault/general/security-overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -11012,7 +11012,7 @@ Permite-lhe gerir o serviço de Recuperação de Sítios exceto a criação de a
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | Obtenha a definição de rede virtual |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/alocedStamp/read | GetAllocatedStamp é uma operação interna utilizada pelo serviço |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/allocateStamp/action | Alocarmps é uma operação interna utilizada pelo serviço |
-> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Cofres/certificados/write | A operação 'Certificado de Recurso de atualização' atualiza o certificado de credencial de recurso/cofre. |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Cofres/certificados/write | A operação 'Certificado de Recurso de actualização' atualiza o certificado de credencial de recurso/cofre. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/extendedInformation/* | Criar e gerir informações estendidas relacionadas com o cofre |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/read | A operação Get Vault obtém um objeto que representa o recurso Azure do tipo 'cofre' |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/refreshContainers/read |  |

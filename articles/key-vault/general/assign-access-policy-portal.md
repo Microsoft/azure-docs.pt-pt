@@ -3,19 +3,18 @@ title: Atribuir uma política de acesso a aazure key vault (Portal)
 description: Como usar o portal Azure para atribuir uma política de acesso ao Cofre chave a um principal de segurança ou identidade de aplicação.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a64a91e6f41f3fba7584630380ffb878979b4389
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 443b269e7155fc206ee50e7907a7acded2c22f53
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968769"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751495"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Atribua uma política de acesso ao Cofre de Chaves utilizando o portal Azure
 
@@ -55,5 +54,5 @@ Para obter mais informações sobre a criação de grupos no Azure Ative Directo
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Segurança do Cofre Azure Key: Gestão de identidade e acesso](security-overview.md#identity-management)
-- [Prenda o cofre da chave.](secure-your-key-vault.md)
+- [Prenda o cofre da chave.](security-overview.md)
 - [Guia de desenvolvedores do Azure Key Vault](developers-guide.md)

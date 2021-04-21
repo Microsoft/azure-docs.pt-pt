@@ -7,12 +7,12 @@ ms.date: 04/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7d9575bedbdce96ef59e9b1d77b9034162bc16bf
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 6032300bd203db78e8cd147cf79300d6dcd9b1dc
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107730486"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751693"
 ---
 # <a name="transform-data-for-iot-central"></a>Transformar dados para ioT Central
 
@@ -51,7 +51,7 @@ Para transformar os dados do dispositivo na entrada, existem duas opções:
 
 - **IoT Edge**: Utilize um módulo IoT Edge para transformar dados de dispositivos a jusante antes de enviar os dados para a sua aplicação IoT Central.
 
-- **Ponte do dispositivo IoT Central**: A [ponte do dispositivo IoT Central](https://github.com/Azure/iotc-device-bridge) liga outras nuvens de dispositivos IoT, como sigfox, particle, e The Things Network, à IoT Central. A ponte do dispositivo utiliza uma função Azure para reencaminhar os dados e pode personalizar a função para transformar os dados do dispositivo.
+- **Ponte do dispositivo IoT Central**: A [ponte do dispositivo IoT Central](howto-build-iotc-device-bridge.md) liga outras nuvens de dispositivos IoT, como sigfox, particle, e The Things Network, à IoT Central. A ponte do dispositivo utiliza uma função Azure para reencaminhar os dados e pode personalizar a função para transformar os dados do dispositivo.
 
 ### <a name="use-iot-edge-to-transform-device-data"></a>Use ioT Edge para transformar dados do dispositivo
 

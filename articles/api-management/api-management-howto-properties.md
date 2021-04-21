@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 2bc9b1c5724fa7bab1fdf5ac9332d87ba03a6d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0e076f3b248942870ba58a51c85c3df1f1277a4
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100545824"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750613"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Utilizar valores nomeados nas políticas de gestão da API da Azure
 
@@ -42,7 +42,7 @@ Os valores secretos podem ser armazenados como cordas encriptadas na API Managem
 A utilização de segredos chave do cofre é recomendada porque ajuda a melhorar a segurança da API Management:
 
 * Segredos armazenados em cofres chave podem ser reutilizados em todos os serviços
-* As [políticas](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) de acesso granular podem ser aplicadas aos segredos
+* As [políticas](../key-vault/general/security-overview.md#privileged-access) de acesso granular podem ser aplicadas aos segredos
 * Os segredos atualizados no cofre da chave são automaticamente rodados na Gestão da API. Após a atualização no cofre chave, um valor nomeado na Gestão da API é atualizado dentro de 4 horas. Também pode atualizar manualmente o segredo utilizando o portal Azure ou através da gestão REST API.
 
 ### <a name="prerequisites-for-key-vault-integration"></a>Pré-requisitos para a integração do cofre-chave

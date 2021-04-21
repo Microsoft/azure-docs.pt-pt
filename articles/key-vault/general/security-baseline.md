@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 305fdd3a0b8e0c876924c6e1f090424e67571af0
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 1f56de94df4fd5d4dd154ae8485edb9eed88364c
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968710"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753349"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de segurança Azure para Key Vault
 
@@ -136,7 +136,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Ingerir registos via Azure Monitor para agregar dados de segurança gerados pelo Azure Key Vault. Dentro do Azure Monitor, utilize o espaço de trabalho Azure Log Analytics para consultar e realizar análises, e utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo. Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
-- [Registo do Azure Key Vault](/azure/key-vault/key-vault-logging)
+- [Azure Key Vault logging](/azure/key-vault/key-vault-logging)
 
 - [Quickstart: Como embarcar Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
@@ -148,7 +148,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Ative as definições de diagnóstico nos seus casos de Azure Key Vault para acesso a registos de auditoria, segurança e diagnóstico. Os registos de atividade, que estão automaticamente disponíveis, incluem fonte de evento, data, utilizador, marcação de tempo, endereços de origem, endereços de destino e outros elementos úteis.
 
-- [Registo do Azure Key Vault](/azure/key-vault/key-vault-logging)
+- [Azure Key Vault logging](/azure/key-vault/key-vault-logging)
 
 **Responsabilidade**: Cliente
 
@@ -208,7 +208,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 - [Registo de uma candidatura com Azure AD](/azure/key-vault/key-vault-manage-with-cli2#registering-an-application-with-azure-active-directory)
 
-- [Acesso seguro a um cofre de chaves](secure-your-key-vault.md)
+- [Acesso seguro a um cofre de chaves](security-overview.md)
 
 **Responsabilidade**: Cliente
 
@@ -368,11 +368,11 @@ Após as regras de firewall estarem em vigor, só pode efetuar operações de pl
 
 **Orientação**: Todos os dados armazenados dentro do Cofre da Chave Azure são considerados sensíveis. Use os controlos de acesso do avião de acesso do Azure Key Vault para controlar o acesso aos segredos do Cofre da Chave Azure. Também pode utilizar a firewall incorporada do Key Vault para controlar o acesso na camada de rede. Para monitorizar o acesso ao Cofre da Chave Azure, ative as Definições de Diagnóstico do Cofre de Chaves e envie registos para uma conta de armazenamento Azure ou espaço de trabalho Log Analytics.
 
-- [Acesso seguro a um cofre de chaves](secure-your-key-vault.md)
+- [Acesso seguro a um cofre de chaves](security-overview.md)
 
 - [Configurar firewalls de cofre de chaves Azure e redes virtuais](/azure/key-vault/key-vault-network-security)
 
-- [Registo do Azure Key Vault](/azure/key-vault/key-vault-logging)
+- [Azure Key Vault logging](/azure/key-vault/key-vault-logging)
 
 **Responsabilidade**: Cliente
 
@@ -382,7 +382,7 @@ Após as regras de firewall estarem em vigor, só pode efetuar operações de pl
 
 **Orientação**: Acesso seguro à gestão e plano de dados das suas instâncias Azure Key Vault.
 
-- [Acesso seguro a um cofre de chaves](secure-your-key-vault.md)
+- [Acesso seguro a um cofre de chaves](security-overview.md)
 
 **Responsabilidade**: Cliente
 
@@ -424,7 +424,7 @@ Após as regras de firewall estarem em vigor, só pode efetuar operações de pl
 
 - [Obtenha subscrições que a conta corrente pode aceder](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
 
-- [Controlo de acesso baseado em funções Azure (RBAC)](../../role-based-access-control/overview.md)
+- [Controlo de acesso baseado em funções do Azure (RBAC)](../../role-based-access-control/overview.md)
 
 **Responsabilidade**: Cliente
 

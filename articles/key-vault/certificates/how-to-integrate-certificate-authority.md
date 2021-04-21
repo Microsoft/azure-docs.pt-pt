@@ -3,19 +3,18 @@ title: Integrar o Key Vault com a Autoridade de Certificação DigiCert
 description: Como integrar o Cofre-Chave com a DigiCert Certificate Authority
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: c36353448c140450044f352062c3349939e3f7b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4351526c77961856b118bdeae07cecf48340f5fe
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98789015"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749317"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrar o Key Vault com a Autoridade de Certificação DigiCert
 
@@ -129,7 +128,7 @@ Se o certificado emitido estiver em estado de 'desactivado' no portal Azure, pro
  ![Operação de certificado](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Error message 'Please efetuar uma fusão para completar este pedido de certificado.'
-Precisaria de fundir a RSE assinada pela AC para completar este pedido. Saiba mais [aqui](./create-certificate-signing-request.md)
+Precisaria de fundir a RSE assinada pela AC para completar este pedido. Saber mais [aqui](./create-certificate-signing-request.md)
 
 Para obter mais informações, consulte as operações do [Certificado na referência API do Cofre-Chave](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 

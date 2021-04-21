@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/29/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: fac2eb75d210a34f4c5cd50c4649921aadfcd5ee
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 43b0304ec6ac4266c3727990bf013c3dcfe523a3
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588501"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750253"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
@@ -111,9 +111,9 @@ Para novas **versões menores** de Kubernetes:
   * A AKS usa [o Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) para alertar os utilizadores se uma nova versão causar problemas no seu cluster devido às APIs precídas. O Azure Advisor também é utilizado para alertar o utilizador se atualmente estiverem sem suporte.
   * A AKS publica uma [notificação de saúde](../service-health/service-health-overview.md) de serviço disponível para todos os utilizadores com acesso a AKS e portal, e envia um e-mail aos administradores de subscrição com as datas de remoção da versão planeadas.
 
-    ````
-    To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
-    ````
+    > [!NOTE]
+    > Para saber quem são os seus administradores de subscrição ou para alterá-lo, consulte para [gerir as subscrições do Azure](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
+    
   * Os **utilizadores têm 30 dias** desde a remoção da versão para atualizar para uma versão menor suportada para continuar a receber suporte.
 
 Para novas **versões** de patch de Kubernetes:

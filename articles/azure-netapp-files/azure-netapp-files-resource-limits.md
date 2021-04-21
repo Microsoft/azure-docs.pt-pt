@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 04/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 9b061184f97abeea79912aadbae2c2b188206c72
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f023bfa2b3941f7d667f4be34a8ee8dc1ed9a9c3
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058005"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750199"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
 
@@ -56,7 +56,7 @@ Para mais informações, consulte [as PERGUNTAS Frequentes de Gestão de Capacid
 
 ## <a name="maxfiles-limits"></a>Limites máximos <a name="maxfiles"></a> 
 
-Os volumes de ficheiros Azure NetApp têm um limite chamado *maxfiles*. O limite máximo é o número de ficheiros que um volume pode conter. O limite máximo para um volume de Ficheiros Azure NetApp é indexado com base no tamanho (quota) do volume. O limite máximo para um volume aumenta ou diminui à taxa de 20 milhões de ficheiros por TiB do tamanho do volume provisionado. 
+Os volumes de ficheiros Azure NetApp têm um limite chamado *maxfiles*. O limite máximo é o número de ficheiros que um volume pode conter. Os sistemas de ficheiros Linux referem-se ao limite como *inodes*. O limite máximo para um volume de Ficheiros Azure NetApp é indexado com base no tamanho (quota) do volume. O limite máximo para um volume aumenta ou diminui à taxa de 20 milhões de ficheiros por TiB do tamanho do volume provisionado. 
 
 O serviço ajusta dinamicamente o limite máximo para um volume baseado no seu tamanho a provisionado. Por exemplo, um volume configurado inicialmente com um tamanho de 1 TiB teria um limite máximo de 20 milhões. Alterações subsequentes ao tamanho do volume resultariam num reajustamento automático do limite máximo baseado nas seguintes regras: 
 
@@ -68,7 +68,9 @@ O serviço ajusta dinamicamente o limite máximo para um volume baseado no seu t
 |    > 3 TiB mas <= 4 TiB    |    80 milhões     |
 |    > 4 TiB                 |    100 milhões    |
 
-Se já alocou pelo menos 4 TiB de quota para um volume, pode iniciar um pedido de [apoio](#limit_increase) para aumentar o limite máximo para além de 100 milhões. Por cada 100 milhões de ficheiros que aumenta (ou uma fração dos mesmos), é necessário aumentar a quota de volume correspondente em 4 TiB.  Por exemplo, se aumentar o limite máximo de 100 milhões de ficheiros para 200 milhões de ficheiros (ou qualquer número no meio), precisa de aumentar a quota de volume de 4 TiB para 8 TiB.
+Se já alocou pelo menos 4 TiB de quota para um volume, pode iniciar um pedido de [apoio](#limit_increase) para aumentar o limite máximo (inodes) para além dos 100 milhões. Por cada 100 milhões de ficheiros que aumenta (ou uma fração dos mesmos), é necessário aumentar a quota de volume correspondente em 4 TiB.  Por exemplo, se aumentar o limite máximo de 100 milhões de ficheiros para 200 milhões de ficheiros (ou qualquer número no meio), precisa de aumentar a quota de volume de 4 TiB para 8 TiB.
+
+Pode aumentar o limite máximo para 500 milhões se a sua quota de volume for de pelo menos 20 TiB. <!-- ANF-11854 --> 
 
 ## <a name="request-limit-increase"></a>Aumento do limite de pedido <a name="limit_increase"></a> 
 

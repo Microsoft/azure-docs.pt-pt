@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 03/09/2021
 ms.author: ambapat
-ms.openlocfilehash: c2548b1669366564809ed2fde725cb3399922a29
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ecfcff00e6f44f5c739513c063baaa3fa02a3db
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104803607"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753308"
 ---
 O serviço Azure Key Vault suporta dois tipos de recursos: Cofres e HSMs geridos. As duas secções seguintes descrevem os limites de serviço para cada uma delas, respectivamente.
 
@@ -65,7 +65,7 @@ Quando fizer uma cópia de segurança de um objeto de cofre, como um segredo, ch
 #### <a name="azure-private-link-integration"></a>Integração de Azure Private Link
 
 > [!NOTE]
-> O número de cofres-chave com pontos finais privados ativados por subscrição é um limite ajustável. O limite abaixo indicado é o limite de predefinição. Se pretender solicitar um aumento limite para o seu serviço, por favor envie um e-mail para akv-privatelink@microsoft.com . Aprovaremos estes pedidos caso a caso.
+> O número de cofres-chave com pontos finais privados ativados por subscrição é um limite ajustável. O limite abaixo indicado é o limite de predefinição. Se pretender solicitar um aumento limite para o seu serviço, por favor crie um pedido de apoio e será avaliado caso a caso.
 
 | Recurso | Limite |
 | -------- | -----:|

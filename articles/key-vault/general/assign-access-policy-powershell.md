@@ -3,19 +3,18 @@ title: Atribuir uma política de acesso a Azure Key Vault
 description: Como utilizar o portal Azure, Azure CLI ou Azure PowerShell para atribuir uma política de acesso ao Cofre chave a um principal de segurança ou identidade de aplicação.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4637715b2ba885d58ebb4c5f3ed40a79be2f815b
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 1c7c31f38d6a59f4ded17e1e1fd7e985ce59922a
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968735"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751423"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Atribua uma política de acesso ao Cofre de Chaves utilizando o Azure PowerShell
 
@@ -80,5 +79,5 @@ Só é necessário incluir `-PermissionsToSecrets` , e ao atribuir `-Permissions
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Segurança do Cofre Azure Key: Gestão de identidade e acesso](security-overview.md#identity-management)
-- [Prenda o cofre da chave.](secure-your-key-vault.md)
+- [Prenda o cofre da chave.](security-overview.md)
 - [Guia de desenvolvedores do Azure Key Vault](developers-guide.md)

@@ -3,19 +3,18 @@ title: Crie um cofre de chaves Azure e uma política de acesso ao cofre usando o
 description: Este artigo mostra como criar cofres chave Azure e políticas de acesso ao cofre usando um modelo de Gestor de Recursos Azure.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 3/14/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e489efd335d2a46a0e55d4ceb9bdee809ae6c39d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e70906cbf26c899744bfbe137da4ce9cfa651b20
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104595248"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753151"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Como criar uma política de acesso a cofre e cofre Azure utilizando um modelo de Gestor de Recursos
 
@@ -218,6 +217,6 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Acesso seguro a um cofre de chaves](secure-your-key-vault.md)
+- [Acesso seguro a um cofre de chaves](security-overview.md)
 - [Autenticar para um cofre de chaves](authentication.md)
 - [Guia do Programador do Azure Key Vault](developers-guide.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: iangithinji
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: d81ad34c81a451f1faecb6cb33c0cc427567f122
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 202ccf6f540ec78c2bb30e0f0a0173609bba578c
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379609"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751459"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opções únicas de inscrição em Azure AD
 
@@ -86,13 +86,12 @@ Com o início de s based password, os utilizadores acedem à aplicação com um 
 
 O sign-on único baseado em palavra-passe utiliza o processo de autenticação existente fornecido pela aplicação. Quando ativa o sign-on único da palavra-passe para uma aplicação, o Azure AD recolhe e armazena de forma segura os nomes de utilizador e as palavras-passe para a aplicação. As credenciais do utilizador são armazenadas num estado encriptado no diretório.
 
+Além disso, o Administrador pode ativar políticas de acesso condicional AD Azure ou autenticação de vários fatores para SSO baseado em palavras-passe.
+
 Escolha o único sinal de sôm- insi por palavra-passe quando:
 
 - Uma aplicação não suporta um único protocolo de inscrição da SAML.
 - Uma aplicação autentica-se com um nome de utilizador e palavra-passe em vez de acesso a tokens e cabeçalhos.
-
->[!NOTE]
->Não é possível aplicar políticas de acesso condicional ou autenticação de vários fatores para SSO baseado em palavras-passe.
 
 O único sinal baseado em palavra-passe é suportado para qualquer aplicação baseada na nuvem que tenha uma página de surgiusinseção baseada em HTML. O utilizador pode utilizar qualquer um dos seguintes navegadores:
 

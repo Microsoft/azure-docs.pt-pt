@@ -3,12 +3,12 @@ title: Explicação conceptual dos fundamentos do Defender-IoT-micro-agente para
 description: Saiba o básico sobre o defender-ioT-micro-agente para conceitos Azure RTOS e fluxo de trabalho.
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 83557930aeeccbb557382583e4d6666a000ce52c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 04b86d401bcb9fc919c36b28cf4f80ea3bfd7030
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779278"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750487"
 ---
 # <a name="defender-iot-micro-agent-for-azure-rtos-preview"></a>Defender-IoT-micro-agente para Azure RTOS (pré-visualização)
 
@@ -16,7 +16,7 @@ Utilize este artigo para obter uma melhor compreensão do defender-ioT-micro-age
 
 ## <a name="azure-rtos-iot-defender-iot-micro-agent"></a>Azure RTOS IoT Defender-IoT-micro-agente
 
-O Defender-IoT-micro-agente da Azure RTOS fornece uma solução de segurança abrangente para dispositivos Azure RTOS como parte da oferta netX Duo. Dentro da oferta netX Duo, a Azure RTOS envia com o Azure IoT Defender-IoT-micro-agente incorporado, e fornece cobertura para ameaças comuns nos seus dispositivos do sistema operativo em tempo real uma vez ativados. 
+O Defender-IoT-micro-agente da Azure RTOS fornece uma solução de segurança abrangente para dispositivos Azure RTOS como parte da oferta netX Duo. Dentro da oferta netX Duo, a Azure RTOS envia com o Azure IoT Defender-IoT-micro-agente incorporado, e fornece cobertura para ameaças comuns nos seus dispositivos do sistema operativo em tempo real uma vez ativados.
 
 O Defender-IoT-micro-agent para Azure RTOS funciona em segundo plano e proporciona uma experiência de utilizador perfeita, ao mesmo tempo que envia mensagens de segurança usando as ligações únicas de cada cliente ao seu IoT Hub. O Defender-IoT-micro-agente para Azure RTOS é ativado por padrão.  
 

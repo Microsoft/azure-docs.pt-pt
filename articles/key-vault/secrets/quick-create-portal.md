@@ -3,7 +3,6 @@ title: Início Rápido do Azure - Definir e obter um segredo do Key Vault com o 
 description: Início Rápido que mostra como definir e obter um segredo do Azure Key Vault com o portal do Azure
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: secrets
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 904c00c26171854a32234d7b6ba5cac81ac43e5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba5b375f75d2655045e62583679839c8dd2a5720
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936673"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752449"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com o portal do Azure
 
@@ -82,7 +81,7 @@ Quando já não for necessário, elimine o grupo de recursos, que elimina o Key 
 Neste arranque rápido, criaste um Cofre-Chave e guardaste um segredo nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
-- Ler [Acesso seguro a um cofre de chaves](../general/secure-your-key-vault.md)
+- Ler [Acesso seguro a um cofre de chaves](../general/security-overview.md)
 - Ver [utilizar o cofre de chaves com app Service Web App](../general/tutorial-net-create-vault-azure-web-app.md)
 - Ver [Use Key Vault com aplicação implantada em VM](../general/tutorial-net-virtual-machine.md)
 - Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)

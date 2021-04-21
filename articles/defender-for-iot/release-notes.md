@@ -2,13 +2,13 @@
 title: Novidades no Azure Defender para ioT
 description: Este artigo permite-lhe saber quais as novidades no mais recente lançamento do Defender for IoT.
 ms.topic: overview
-ms.date: 4/6/2021
-ms.openlocfilehash: df6a43dc68acd025b1c65877c65d1b7e947f210b
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.date: 04/19/2021
+ms.openlocfilehash: da5358ccf0f69ca2ba8f5722b75889b6b7c92c07
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739391"
+ms.locfileid: "107752611"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>O que há de novo no Azure Defender para ioT?
 
@@ -16,30 +16,76 @@ Este artigo lista novas funcionalidades e melhorias de funcionalidades para Defe
 
 As funcionalidades notadas estão em PREVIEW. Os [Termos Complementares de Pré-visualização do Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluem termos legais adicionais aplicáveis às funcionalidades do Azure que estão em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
 
-## <a name="versioning-and-support-for-azure-defender-for-iot"></a>Versão e suporte para Azure Defender para IoT 
+## <a name="april-2021"></a>abril de 2021
 
-Abaixo estão os suportes, quebrando as políticas de mudança para Defender para IoT, e as versões de Azure Defender para IoT que estão atualmente disponíveis. 
+### <a name="work-with-automatic-threat-intelligence-updates-public-preview"></a>Trabalhar com atualizações automáticas de inteligência de ameaça (Visualização pública)
 
-### <a name="servicing-information-and-timelines"></a>Informação de manutenção e cronogramas 
+Os novos pacotes de inteligência de ameaças podem agora ser automaticamente empurrados para sensores ligados à nuvem, uma vez que são lançados pelo Microsoft Defender para IoT. Isto além de descarregar pacotes de inteligência de ameaças e depois enviá-los para sensores.
 
-A Microsoft planeia lançar atualizações para o Azure Defender para IoT pelo menos uma vez por trimestre. Cada versão de disponibilidade geral (GA) do sensor Azure Defender para IoT, e nas instalações a consola de gestão é suportada até nove meses após o seu lançamento. As correções e as novas funcionalidades serão aplicadas na versão atual da GA que estão atualmente em suporte, e não serão aplicadas às versões ga mais antigas.
+Trabalhar com atualizações automáticas ajuda a reduzir os esforços operacionais e a garantir uma maior segurança. Ativar a atualização automática, a bordo do sensor ligado à nuvem no portal Defender para IoT, com o **alternador de Atualizações automáticas de Inteligência** de Ameaças ligados.
 
-### <a name="versions-and-support-dates"></a>Versões e datas de suporte
+Se quiser ter uma abordagem mais conservadora para atualizar os seus dados de inteligência de ameaça, pode empurrar manualmente pacotes do portal Azure Defender para ioT para sensores ligados à nuvem apenas quando sentir que é necessário.
+Isto dá-lhe a capacidade de controlar quando um pacote é instalado, sem a necessidade de descarregar e depois carregá-lo para os seus sensores. Empurre manualmente atualizações para os sensores da página Defender para **Sites e Sensores** IoT.
 
-| Versão | Data de lançamento | Data de fim do suporte |
-|--|--|--|
-| 10,0 | 01/2021 | 10/2021 |
+Também pode rever as seguintes informações sobre pacotes de inteligência de ameaças:
+
+- Versão do pacote instalada
+- Modo de atualização de inteligência de ameaça 
+- Estado de atualização de inteligência de ameaça
+
+### <a name="view-cloud-connected-sensor-information-public-preview"></a>Ver informações de sensores ligados à nuvem (Visualização pública)
+
+Consulte informações operacionais importantes sobre sensores ligados à nuvem na página **'Sites e Sensores'.**
+
+- A versão sensor instalada
+- O estado de ligação do sensor à nuvem.
+- A última vez que o sensor foi detetado a ligar-se à nuvem.
+
+### <a name="alert-api-enhancements"></a>Melhorias da API de alerta
+
+Novos campos estão disponíveis para utilizadores que trabalhem com APIs de alerta.
+
+**Consola de gestão no local**
+
+- Endereço de origem e destino
+- Passos de remediação
+- O nome do sensor definido pelo utilizador
+- O nome da zona associada ao sensor 
+- O nome do site associado ao sensor
+
+**Sensor**
+
+- Endereço de origem e destino
+- Passos de remediação
+
+A versão 2 da API é necessária ao trabalhar com os novos campos.
+
+### <a name="features-delivered-as-generally-available-ga"></a>Funcionalidades entregues como Geralmente Disponíveis (GA)
+
+As seguintes funcionalidades estavam anteriormente disponíveis para visualização pública, e estão agora geralmente disponíveis (GA)características:
+
+- Sensor - regras de alerta personalizadas melhoradas
+- Consola de gestão no local - alertas de exportação
+- Adicionar segunda interface de rede à consola de gestão de instalações
+- Construtor de dispositivos - novo micro agente
+
 ## <a name="march-2021"></a>março de 2021
 
-### <a name="sensor---enhanced-custom-alert-rules-public-preview"></a>Sensor - regras de alerta personalizadas melhoradas (visualização pública)
+### <a name="sensor---enhanced-custom-alert-rules-public-preview"></a>Sensor - regras de alerta personalizadas melhoradas (Visualização pública)
 
 Agora pode criar regras de alerta personalizadas com base no dia, foi detetada a atividade da rede de dias e de período de tempo.  Trabalhar com as condições de regra do dia e do tempo é útil, por exemplo, nos casos em que a gravidade do alerta é derivada no momento em que o evento de alerta ocorre. Por exemplo, crie uma regra personalizada que desencadeie um alerta de alta gravidade quando a atividade da rede é detetada num fim de semana ou à noite.
 
 Esta funcionalidade encontra-se disponível no sensor com o lançamento da versão 10.2.
 
-### <a name="on-premises-management-console---export-alerts-public-preview"></a>Consola de gestão no local - alertas de exportação (visualização pública)
+### <a name="on-premises-management-console---export-alerts-public-preview"></a>Consola de gestão no local - alertas de exportação (Visualização pública)
 
 As informações de alerta podem agora ser exportadas para um ficheiro .csv a partir da consola de gestão no local. Pode exportar informações de todos os alertas detetados ou exportar informações com base na vista filtrada.
+
+Esta funcionalidade encontra-se disponível na consola de gestão no local com o lançamento da versão 10.2.
+
+### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>Adicionar segunda interface de rede à consola de gestão on-in (Visualização pública)
+
+Pode agora aumentar a segurança da sua implementação adicionando uma segunda interface de rede à sua consola de gestão no local. Esta funcionalidade permite que a sua gestão no local tenha os seus sensores conectados numa rede segura, permitindo ao utilizador aceder à consola de gestão no local através de uma segunda interface de rede separada.
 
 Esta funcionalidade encontra-se disponível na consola de gestão no local com o lançamento da versão 10.2.
 

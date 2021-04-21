@@ -9,16 +9,16 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: e05940cecd8ebdc4e61281406aafd5edc266cabc
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 77a2fc900e3888575fb6411a8c2b76b2c639d719
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483134"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748593"
 ---
 # <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Criar e configurar um cofre chave para encriptação de disco Azure
 
-A Azure Disk Encryption usa o Cofre da Chave Azure para controlar e gerir chaves e segredos de encriptação de discos.  Para obter mais informações sobre cofres chave, consulte [Começar com o Cofre da Chave Azure](../key-vault/general/overview.md) e Proteger o cofre da [chave.](../key-vault/general/secure-your-key-vault.md)
+A Azure Disk Encryption usa o Cofre da Chave Azure para controlar e gerir chaves e segredos de encriptação de discos.  Para obter mais informações sobre os cofres chave, consulte Começar com as funcionalidades de segurança [Azure Key Vault](../key-vault/general/overview.md) e [Azure Key Vault](../key-vault/general/security-overview.md).
 
 Criar e configurar um cofre chave para uso com encriptação de disco Azure envolve três passos:
 

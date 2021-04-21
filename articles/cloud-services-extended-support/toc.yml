@@ -1,4 +1,4 @@
-- name: Documentação dos Serviços de Nuvem (suporte alargado)
+- name: Documentação dos Serviços cloud Azure (suporte alargado)
   href: index.yml
 - name: Descrição Geral
   items:
@@ -10,15 +10,15 @@
       href: cloud-services-model-and-package.md
 - name: Tutoriais
   items:
-    - name: Implementar um Serviço de Nuvem - Portal
+    - name: Implementar um serviço em nuvem - Portal
       href: deploy-portal.md
-    - name: Implementar um Serviço cloud - PowerShell
+    - name: Implementar um serviço em nuvem - PowerShell
       href: deploy-powershell.md
-    - name: Implementar um serviço de nuvem - modelo
+    - name: Implementar um serviço de nuvem - Modelo
       href: deploy-template.md
-    - name: Implementar um Serviço de Cloud - SDK
+    - name: Implementar um serviço de nuvem - SDK
       href: deploy-sdk.md
-    - name: Implementar um Serviço de Nuvem - Estúdio Visual
+    - name: Implementar um serviço em nuvem - Visual Studio
       href: /visualstudio/azure/cloud-services-extended-support?context=%2fazure%2fcloud-services-extended-support%2fcontext%2fcontext
   expanded: true
 - name: Conceitos
@@ -53,7 +53,7 @@
           href: schema-cscfg-networkconfiguration.md
 - name: Procedimento
   items:
-    - name: Migrar para serviços na Nuvem (suporte alargado)
+    - name: Migrar para a Azure Cloud Services (suporte alargado)
       items:
         - name: Descrição geral da migração
           href: in-place-migration-overview.md
@@ -77,9 +77,9 @@
       href: configure-scaling.md
     - name: Certificados
       href: certificates-and-key-vault.md
-    - name: Gerar modelo ARM usando o Portal
+    - name: Gerar modelo ARM usando o portal
       href: generate-template-portal.md
-    - name: Trocar dois serviços na nuvem
+    - name: Trocar implementações de serviços em nuvem
       href: swap-cloud-service.md
     - name: Anular detalhes da SKU
       href: override-sku.md
@@ -91,13 +91,13 @@
           href: faq.md
 - name: Amostras
   items:
-    - name: Modelos de amostra
+    - name: Modelos de exemplo
       href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
-    - name: Criar um novo Serviço cloud
+    - name: Criar um novo serviço de nuvem
       href: sample-create-cloud-service.md
-    - name: Obtenha detalhes do Serviço cloud
+    - name: Obtenha detalhes do serviço na nuvem
       href: sample-get-cloud-service.md
-    - name: Redefinir um serviço de cloud
+    - name: Redefinir um serviço de nuvem
       href: sample-reset-cloud-service.md
 - name: Referência
   items:
@@ -107,7 +107,7 @@
       href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
     - name: Cmdlets do PowerShell
       href: /powershell/module/az.cloudservice/#cloudservice
-    - name: Referência do modelo de braço
+    - name: Referência do modelo do Resource Manager
       href: /azure/templates/microsoft.compute/cloudservices
     - name: REST
       href: /rest/api/compute/cloudservices

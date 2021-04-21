@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: f587de4ee2ce051cb771db90d7f9ce00ce66b07f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36ce494c7fd51a1341834d5c231e32e60c5a32b9
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772710"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751999"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Utilize chaves de encriptação geridas pelo cliente para cache Azure HPC
 
@@ -56,7 +56,7 @@ Permissões de acesso ao cofre chave:
 
 * O utilizador que cria a Cache Azure HPC deve ter permissões equivalentes à [função de contribuinte Key Vault](../role-based-access-control/built-in-roles.md#key-vault-contributor). As mesmas permissões são necessárias para configurar e gerir o Azure Key Vault.
 
-  Leia [Acesso seguro a um cofre chave](../key-vault/general/secure-your-key-vault.md) para mais informações.
+  Leia [Acesso seguro a um cofre chave](../key-vault/general/security-overview.md) para mais informações.
 
 ## <a name="1-set-up-azure-key-vault"></a>1. Configurar o Cofre da Chave Azure
 

@@ -9,18 +9,42 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 7c22381d547029aedc5965d07033e8800fcbddc3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 1de495253dacac5aeab7dcff95f74aeed11782a8
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313152"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750739"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
 Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para obter o conteúdo completo de referência SDK, visite a página de referência principal do Azure Machine Learning para a página de referência [**python.**](/python/api/overview/azure/ml/intro)
 
 __Feed RSS__: Seja notificado quando esta página for atualizada copiando e colando o seguinte URL no seu leitor de feed: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## <a name="2021-04-19"></a>2021-04-19
+
+### <a name="azure-machine-learning-sdk-for-python-v1270"></a>Azure Machine Learning SDK para Python v1.27.0
++ **Correções e melhorias de bugs**
+  + **azureml-core**
+    + Acrescentou a capacidade de sobrepor o valor de tempo limite padrão para o envio de artefactos através da variável ambiente "AZUREML_ARTIFACTS_DEFAULT_TIMEOUT".
+    + Corrigiu um bug onde as definições de estivador no objeto ambiente no ScriptRunConfig não são respeitadas.
+    + Permitir a partilha de um conjunto de dados ao copiá-lo para um destino.
+    + Adicionei um modo personalizado ao OutputDatasetConfig para permitir a passagem de Datasets criados em pipelines através de uma função de link. Estes melhoramentos de suporte feitos para permitir a partição tabular para PRS.
+    + Adicione um novo tipo de computação KubernetesCompute ao azureml-core.
+  + **azureml-pipeline-core**
+    + Adicionar um modo personalizado ao OutputDatasetConfig e permitir que um utilizador passe através de Conjuntos de Dados criados em pipelines através de uma função de link. Os destinos de caminho de arquivo suportam espaços reservados. Estes suportam as melhorias feitas para permitir a partição tabular para o PRS.
+    + Adição de novo tipo de computação KubernetesCompute azureml-core.
+  + **azureml-pipeline-steps**
+    + Adição de novo tipo de computação KubernetesCompute azureml-core.
+  + **azureml-synapse**
+    + Atualizar url UI de faísca em widget de azureml sinapse
+  + **azureml-train-automl-client**
+    + O marcador de STL para a tarefa de previsão utiliza agora uma deteção de sazonalidade mais robusta com base na frequência das séries horárias.
+  + **azureml-train-core**
+    + Bug fixo onde as definições do estivador no objeto ambiente não são respeitadas.
+    + Adição de novo tipo de computação KubernetesCompute azureml-core.
 
 
 ## <a name="2021-04-05"></a>2021-04-05

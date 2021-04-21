@@ -7,20 +7,20 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: fc054d1294b55ddd3937ebc7b91643aa349cd8ea
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: fe88933049ad39de57f879789e8c1b86ed7a54f5
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122191"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753277"
 ---
 # <a name="azure-key-vault-security"></a>Segurança do Azure Key Vault
 
-Você usa o Cofre de Chaves Azure para proteger chaves de encriptação e segredos como certificados, cadeias de conexão e senhas na nuvem. Ao armazenar dados críticos sensíveis e empresariais, é necessário tomar medidas para maximizar a segurança dos seus cofres e os dados armazenados nos mesmos.
+O Azure Key Vault protege chaves e segredos de encriptação (tais como certificados, cadeias de ligação e palavras-passe) na nuvem. No entanto, ao armazenar dados críticos sensíveis e empresariais, deve tomar medidas para maximizar a segurança dos seus cofres e os dados armazenados nos mesmos.
 
-Este artigo fornece uma visão geral das funcionalidades de segurança e das melhores práticas para o Azure Key Vault. 
+Este artigo fornece uma visão geral das funcionalidades de segurança e das melhores práticas para o Azure Key Vault.
 
 > [!NOTE]
 > Para obter uma lista completa das recomendações de segurança do Azure Key Vault consulte a [linha de base de segurança para o Cofre da Chave Azure](security-baseline.md).
@@ -29,7 +29,7 @@ Este artigo fornece uma visão geral das funcionalidades de segurança e das mel
 
 Pode reduzir a exposição dos seus cofres especificando quais endereços IP têm acesso aos mesmos. Os pontos finais de serviço de rede virtual para Azure Key Vault permitem-lhe restringir o acesso a uma rede virtual especificada. Os pontos finais também permitem restringir o acesso a uma lista de intervalos de endereços IPv4 (versão 4 do protocolo de internet). Qualquer utilizador que se conecte ao cofre de fora dessas fontes é negado acesso.  Para mais detalhes, consulte [os pontos finais do serviço de rede virtual para Azure Key Vault](overview-vnet-service-endpoints.md)
 
-Após as regras de firewall estarem em vigor, os utilizadores só podem ler dados do Key Vault quando os seus pedidos são originários de redes virtuais permitidas ou de intervalos de endereços IPv4. Isto também se aplica ao acesso ao Cofre de Chaves a partir do portal Azure. Embora os utilizadores possam navegar para um cofre chave a partir do portal Azure, podem não ser capazes de listar chaves, segredos ou certificados se a sua máquina cliente não estiver na lista permitida. Isto também afeta o Key Vault Picker por outros serviços Azure. Os utilizadores podem ser capazes de ver a lista de cofres chave, mas não listar chaves, se as regras de firewall impedirem a sua máquina de clientes.  Para etapas de implementação, consulte [firewalls Configure Key Vault e redes virtuais](network-security.md)
+Após as regras de firewall estarem em vigor, os utilizadores só podem ler dados do Key Vault quando os seus pedidos são originários de redes virtuais permitidas ou de intervalos de endereços IPv4. Isto também se aplica ao acesso ao Cofre de Chaves a partir do portal Azure. Embora os utilizadores possam navegar para um cofre chave a partir do portal Azure, podem não ser capazes de listar chaves, segredos ou certificados se a sua máquina cliente não estiver na lista permitida. Para etapas de implementação, consulte [firewalls Configure Key Vault e redes virtuais](network-security.md)
 
 O Azure Private Link Service permite-lhe aceder ao Azure Key Vault e aos serviços de cliente/parceiro hospedados no Azure durante um Private Endpoint na sua rede virtual. Um Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura a um serviço alimentado pela Azure Private Link. O ponto final privado utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo o serviço para o seu VNet. Todo o tráfego para o serviço pode ser encaminhado através do ponto final privado, pelo que não são necessários gateways, dispositivos NAT, ligações ExpressRoute ou VPN, ou endereços IP públicos. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Pode ligar-se a um recurso Azure, dando-lhe o mais alto nível de granularidade no controlo de acessos.  Para etapas de implementação, consulte [Integrar o Cofre de Chaves com Ligação Privada Azure](private-link-service.md)
 
@@ -51,6 +51,38 @@ Quando cria um cofre chave numa subscrição do Azure, está automaticamente ass
 Em todos os tipos de acesso, a aplicação autentica-se com Azure AD. A aplicação utiliza qualquer [método de autenticação suportado](../../active-directory/develop/authentication-vs-authorization.md) com base no tipo de aplicação. A aplicação adquire um símbolo para um recurso no avião para conceder acesso. O recurso é um ponto final na gestão ou plano de dados, baseado no ambiente Azure. A aplicação utiliza o token e envia um pedido de API REST para o Key Vault. Para saber mais, reveja todo o [fluxo de autenticação.](../../active-directory/develop/v2-oauth2-auth-code-flow.md)
 
 Para mais detalhes, consulte [os fundamentos de autenticação do cofre chave](authentication-fundamentals.md)
+
+## <a name="key-vault-authentication-options"></a>Opções de autenticação do Cofre-Chave
+
+Quando cria um cofre chave numa subscrição do Azure, está automaticamente associado ao inquilino AD AD da subscrição. Todos os chamadores em ambos os aviões devem registar-se neste inquilino e autenticar para aceder ao cofre da chave. Em ambos os casos, as aplicações podem aceder ao Key Vault de três formas:
+
+- **Apenas para aplicação**: A aplicação representa um principal serviço ou identidade gerida. Esta identidade é o cenário mais comum para aplicações que periodicamente precisam de aceder a certificados, chaves ou segredos do cofre chave. Para que este cenário funcione, `objectId` a aplicação deve ser especificada na política de acesso e `applicationId` _a_ não deve ser especificada ou deve ser `null` .
+- **Apenas para o utilizador**: O utilizador acede ao cofre de chaves a partir de qualquer aplicação registada no arrendatário. Exemplos deste tipo de acesso incluem a Azure PowerShell e o portal Azure. Para que este cenário funcione, `objectId` o do utilizador deve ser especificado na política de acesso e o não deve ser especificado ou deve `applicationId` ser  `null` .
+- **Aplicação-plus-user** (por vezes designada como _identidade composta):_ O utilizador é obrigado a aceder ao cofre de uma aplicação específica _e_ a aplicação deve utilizar o fluxo de autenticação em nome do utilizador (OBO) para personificar o utilizador. Para que este cenário funcione, ambos `applicationId` devem `objectId` ser especificados na política de acesso. Identifica `applicationId` a aplicação necessária e `objectId` identifica o utilizador. Atualmente, esta opção não está disponível para o plano de dados Azure RBAC (pré-visualização).
+
+Em todos os tipos de acesso, a aplicação autentica-se com Azure AD. A aplicação utiliza qualquer [método de autenticação suportado](../../active-directory/develop/authentication-vs-authorization.md) com base no tipo de aplicação. A aplicação adquire um símbolo para um recurso no avião para conceder acesso. O recurso é um ponto final na gestão ou plano de dados, baseado no ambiente Azure. A aplicação utiliza o token e envia um pedido de API REST para o Key Vault. Para saber mais, reveja todo o [fluxo de autenticação.](../../active-directory/develop/v2-oauth2-auth-code-flow.md)
+
+O modelo de um único mecanismo de autenticação para ambos os aviões tem vários benefícios:
+
+- As organizações podem controlar o acesso central a todos os cofres chave da sua organização.
+- Se um utilizador sair, perdem instantaneamente o acesso a todos os cofres chave da organização.
+- As organizações podem personalizar a autenticação utilizando as opções em Azure AD, tais como para permitir a autenticação de vários fatores para uma segurança adicional.
+
+## <a name="access-model-overview"></a>Visão geral do modelo de acesso
+
+O acesso a um cofre-chave é controlado através de duas interfaces: o **plano de gestão** e o **plano de dados.** O avião de gestão é onde geres o Key Vault. As operações neste avião incluem a criação e eliminação de cofres chave, a recuperação de propriedades do Cofre-Chave e a atualização das políticas de acesso. O plano de dados é onde trabalha com os dados armazenados num cofre chave. Pode adicionar, excluir e modificar chaves, segredos e certificados.
+
+Ambos os aviões utilizam [o Azure Ative Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) para autenticação. Para autorização, o avião de gestão utiliza o [controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md) e o plano de dados utiliza uma política de acesso ao [Cofre-Chave](./assign-access-policy-portal.md) e [a Azure RBAC para operações de plano de dados key Vault](./rbac-guide.md).
+
+Para aceder a um cofre chave em qualquer um dos planos, todos os chamadores (utilizadores ou aplicações) devem ter a autenticação e a autorização adequadas. A autenticação estabelece a identidade do chamador. A autorização determina quais as operações que o chamador pode executar. A autenticação com a Key Vault funciona em conjunto com [o Azure Ative Directory (Azure AD),](../../active-directory/fundamentals/active-directory-whatis.md)que é responsável pela autenticação da identidade de qualquer **dado diretor de segurança.**
+
+Um principal de segurança é um objeto que representa um utilizador, grupo, serviço ou aplicação que está solicitando acesso aos recursos Azure. O Azure atribui uma **identificação** única a todos os diretores de segurança.
+
+- Um diretor de segurança do **utilizador** identifica um indivíduo que tem um perfil no Diretório Ativo Azure.
+- Um diretor de segurança do **grupo** identifica um conjunto de utilizadores criados no Azure Ative Directory. Quaisquer funções ou permissões atribuídas ao grupo são concedidas a todos os utilizadores dentro do grupo.
+- Um diretor de **serviço** é um tipo de princípio de segurança que identifica uma aplicação ou serviço, ou seja, um pedaço de código em vez de um utilizador ou grupo. O ID do objeto do principiante de serviço é conhecido como **iD do** seu cliente e age como o seu nome de utilizador. O segredo ou **certificado** do cliente do **cliente** do serviço funciona como a sua senha. A Azure Services apoia a atribuição [de Identidade Gerida](../../active-directory/managed-identities-azure-resources/overview.md) com gestão automatizada de identificação e **certificado** do **cliente.** A identidade gerida é a opção mais segura e recomendada para autenticação dentro do Azure.
+
+Para obter mais informações sobre a autenticação no Cofre de Chaves, consulte [Autenticar para Cofre de Chaves Azure](authentication.md)
 
 ## <a name="privileged-access"></a>Acesso privilegiado
 
@@ -91,8 +123,6 @@ As políticas de acesso ao Cofre chave concedem permissões separadamente a chav
 > As políticas de acesso ao Cofre não suportam permissões granulares ao nível de objetos como uma chave específica, segredo ou certificado. Quando um utilizador tem permissão para criar e eliminar chaves, pode efetuar essas operações em todas as teclas do cofre.
 
 Pode definir políticas de acesso para um cofre de chaves utilizar o [portal Azure,](assign-access-policy-portal.md)o [Azure CLI,](assign-access-policy-cli.md) [a Azure PowerShell](assign-access-policy-powershell.md)ou as [APIs de Gestão de Cofres de Chave](/rest/api/keyvault/).
-
-Pode restringir o acesso a um plano de dados utilizando [pontos finais de serviço de rede virtual para a Azure Key Vault](overview-vnet-service-endpoints.md)). Pode configurar [firewalls e regras de rede virtuais](network-security.md) para uma camada adicional de segurança.
 
 ## <a name="logging-and-monitoring"></a>Início de sessão e monitorização
 

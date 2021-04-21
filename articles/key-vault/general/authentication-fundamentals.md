@@ -1,18 +1,18 @@
 ---
 title: Fundamentos de autenticação do Cofre de Chaves Azure
 description: Saiba como funciona o modelo de autenticação do cofre
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 09/25/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 04/15/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: c43995a8b3a072d98db0ba2c8219694f17e49a26
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: f0cd2fb341dd790a7628cc3cf6a5bdd87d7c3687
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363432"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753421"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Princípios Fundamentais da Autenticação do Key Vault
 
@@ -119,7 +119,7 @@ As atribuições de funções key Vault são um conjunto de atribuições de fun
 
 Para saber mais sobre o Azure RBAC para Key Vault, consulte os seguintes documentos:
 
-* Azure RBAC para [ligação](./secure-your-key-vault.md#management-plane-and-azure-rbac) key vault
+* Azure RBAC para [ligação](rbac-guide.md) key vault
 * Azure RBAC para [ligação](../../role-based-access-control/built-in-roles.md#key-vault-administrator) de funções key Vault
 
 ## <a name="configure-key-vault-firewall"></a>Configure firewall de cofre de chave

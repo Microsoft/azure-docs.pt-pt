@@ -100,6 +100,8 @@
       items:
         - name: Sessões de mensagens
           href: message-sessions.md
+        - name: Deteção de mensagens duplicadas
+          href: duplicate-detection.md
         - name: Filtros de tópico e ações
           href: topic-filters.md
         - name: Navegação de mensagens
@@ -206,8 +208,6 @@
           items:
             - name: Obtenção prévia de mensagens
               href: service-bus-prefetch.md
-            - name: Deteção de mensagens duplicadas
-              href: duplicate-detection.md
             - name: Diferimento de mensagens
               href: message-deferral.md
             - name: Encadear entidades com o reencaminhamento automático
@@ -236,6 +236,14 @@
           href: service-bus-integrate-with-rabbitmq.md
     - name: Gerir
       items:
+        - name: Ativar sessões para uma fila ou subscrição
+          href: enable-message-sessions.md
+        - name: Ativar a deteção duplicada para uma fila ou tópico
+          href: enable-duplicate-detection.md
+        - name: Ativar divisórias para uma fila ou tópico
+          href: enable-partitions.md
+        - name: Ativar o encaminhamento automático para uma fila ou subscrição
+          href: enable-auto-forward.md
         - name: Mover entre regiões
           href: move-across-regions.md
         - name: Atualização automática de unidades de mensagens

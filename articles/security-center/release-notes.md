@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/11/2021
+ms.date: 04/20/2021
 ms.author: memildin
-ms.openlocfilehash: 5f94b17fac17a7238b3f4b7eef218961df7a42d5
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 92138b0253d28c8bf2617ee7b17474f30ac5cafe
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739967"
+ms.locfileid: "107751208"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -30,10 +30,12 @@ Para saber mais sobre as mudanças *planeadas* que estão a chegar em breve ao C
 As atualizações em abril incluem:
 - [As imagens de registo de contentores recentemente retiradas são agora rescanadas semanalmente (Disponibilidade Geral)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Use o Azure Defender para Kubernetes para proteger as implementações híbridas e multi-cloud Kubernetes (pré-visualização)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
+- [Recomendações para permitir o Azure Defender para DNS e Gestor de Recursos (pré-visualização)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview)
 - [Quatro novas recomendações relacionadas com a configuração do hóspede (pré-visualização)](#four-new-recommendations-related-to-guest-configuration-preview)
 - [Recomendações da CMK movidas para o controlo de segurança das melhores práticas](#cmk-recommendations-moved-to-best-practices-security-control)
 - [11 Alertas do Azure Defender deprecados](#11-azure-defender-alerts-deprecated)
 - [Foram deprecadas duas recomendações do controlo de segurança "Aplicar atualizações do sistema"](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
+- [Azure Defender para SQL em azulejos de máquina removidos do painel Azure Defender](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
 
 ### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>As imagens de registo de contentores recentemente retiradas são agora rescanadas semanalmente (Disponibilidade Geral)
 
@@ -65,6 +67,19 @@ Esta integração entre o Azure Security Center, a Azure Defender e o Azure Arc 
 Saiba mais em [Use Azure Defender para Kubernetes com os seus aglomerados de Kubernetes em várias nuvens.](defender-for-kubernetes-azure-arc.md)
 
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="A recomendação do Azure Security Center para a implementação da extensão do Azure Defender para o Arco Azure permitiu clusters kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+
+
+### <a name="recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview"></a>Recomendações para permitir o Azure Defender para DNS e Gestor de Recursos (pré-visualização)
+
+Foram adicionadas duas novas recomendações para simplificar o processo de permitir o [Azure Defender para Gestor de Recursos](defender-for-resource-manager-introduction.md) e [Azure Defender para o DNS:](defender-for-dns-introduction.md)
+
+- **O Azure Defender for Resource Manager deve ser ativado** - O Defender for Resource Manager monitoriza automaticamente as operações de gestão de recursos na sua organização. O Azure Defender deteta ameaças e alerta-o sobre atividades suspeitas.
+- **O Azure Defender for DNS deve ser ativado** - O Defender para DNS fornece uma camada adicional de proteção para os seus recursos na nuvem, monitorizando continuamente todas as consultas dns a partir dos seus recursos Azure. O Azure Defender alerta-o sobre atividades suspeitas na camada de DNS.
+
+Permitir planos do Azure Defender resulta em encargos. Conheça os detalhes de preços por região na página de preços do Security Center: https://aka.ms/pricing-security-center .
+
+> [!TIP]
+> As recomendações de pré-visualização não tornam um recurso insalubre, e não estão incluídas nos cálculos da sua pontuação segura. Remedia-os sempre que possível, para que quando o período de pré-visualização terminar contribuam para a sua pontuação. Saiba mais sobre como responder a estas recomendações em [recomendações remedias no Azure Security Center](security-center-remediate-recommendations.md).
 
 ### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Quatro novas recomendações relacionadas com a configuração do hóspede (pré-visualização)
 
@@ -141,6 +156,10 @@ As duas recomendações seguintes foram depreciadas e as alterações podem resu
 Recomendamos verificar as suas configurações contínuas de automação de exportação e fluxo de trabalho para ver se estas recomendações estão incluídas nas suas recomendações. Além disso, quaisquer dashboards ou outras ferramentas de monitorização que possam estar a usá-los devem ser atualizados em conformidade.
 
 Saiba mais sobre estas recomendações na página de referência das [recomendações de segurança](recommendations-reference.md).
+
+### <a name="azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard"></a>Azure Defender para SQL em azulejos de máquina removidos do painel Azure Defender
+
+A área de cobertura do painel Azure Defender inclui azulejos para os planos relevantes do Azure Defender para o seu ambiente. Devido a um problema com o relato do número de recursos protegidos e desprotegidos, decidimos remover temporariamente o estado de cobertura de recursos do **Azure Defender para o SQL nas máquinas** até que o problema seja resolvido.
 
 
 ## <a name="march-2021"></a>março de 2021

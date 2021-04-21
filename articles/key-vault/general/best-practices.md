@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e81cbd7e6584f4a280ab9507a989b52d3b188f2d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 83fc2639ccfeccb7de974739562e1a212bac78a4
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566613"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749911"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Melhores práticas para usar o Cofre-Chave
 
@@ -24,7 +24,7 @@ A nossa recomendação é utilizar um cofre por aplicação por ambiente (Desenv
 
 ## <a name="control-access-to-your-vault"></a>Controle acesso ao seu cofre
 
-Azure Key Vault é um serviço de nuvem que protege chaves de encriptação e segredos como certificados, cadeias de conexão e senhas. Como estes dados são sensíveis e críticos do negócio, é necessário garantir o acesso aos cofres das chaves, permitindo apenas aplicações e utilizadores autorizados. Este [artigo](secure-your-key-vault.md) fornece uma visão geral do modelo de acesso ao Cofre de Chaves. Explica a autenticação e a autorização e descreve como garantir o acesso aos cofres das chaves.
+Azure Key Vault é um serviço de nuvem que protege chaves de encriptação e segredos como certificados, cadeias de conexão e senhas. Como estes dados são sensíveis e críticos do negócio, é necessário garantir o acesso aos cofres das chaves, permitindo apenas aplicações e utilizadores autorizados. Este [artigo](security-overview.md) fornece uma visão geral do modelo de acesso ao Cofre de Chaves. Explica a autenticação e a autorização e descreve como garantir o acesso aos cofres das chaves.
 
 As sugestões ao controlar o acesso ao seu cofre são as seguintes:
 1. Bloqueie o acesso à sua subscrição, grupo de recursos e Cofres chave (Azure RBAC)

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 83ffd405bf8e39737d2d36c294eac27f9bc76daf
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 29240f371d39ef2d3234e3207cc91768478bf3ff
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588824"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748508"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>FAQ sobre a utilização do Serviço de Migração da Base de Dados de Azure
 
@@ -32,7 +32,7 @@ O Azure Database Migration Service é um serviço totalmente gerido projetado pa
 * Continuação do investimento em migrações isentas de atritos.
 
 **Q. Que pares de origem/alvo suportam atualmente o Serviço de Migração da Base de Dados Azure?**
-O serviço suporta atualmente uma variedade de pares de origem/alvo, ou cenários de migração. Para obter uma listagem completa do estado de cada cenário de migração disponível, consulte o artigo [Estado dos cenários de migração suportados pelo Serviço de Migração da Base de Dados Azure](https://github.com/MicrosoftDocs/azure-docs-pr/pull/resource-scenario-status.md).
+O serviço suporta atualmente uma variedade de pares de origem/alvo, ou cenários de migração. Para obter uma listagem completa do estado de cada cenário de migração disponível, consulte o artigo [Estado dos cenários de migração suportados pelo Serviço de Migração da Base de Dados Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/dms/resource-scenario-status.md).
 
 **Q. Que versões do SQL Server suportam o Serviço de Migração da Base de Dados Azure como fonte?**
 Ao migrar do SQL Server, as fontes suportadas para o Azure Database Migration Service são SQL Server 2005 através do SQL Server 2019.

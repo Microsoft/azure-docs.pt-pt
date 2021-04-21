@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9194f38ddea5570d94ba6c87ea6a537cb41fb98c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f76b2811531b49c9312a02a581e876f9ef569a2a
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102051383"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750973"
 ---
 # <a name="data-encryption-models"></a>Modelos de encriptação de dados
 
@@ -102,7 +102,7 @@ Para operações que utilizem chaves de encriptação, pode ser concedido um ace
 Para obter uma chave para utilização na encriptação ou desencriptação de dados em repouso, a identidade do serviço que a instância de serviço do Gestor de Recursos irá executar como deve ter UnwrapKey (para obter a chave para a desencriptação) e WrapKey (para inserir uma chave no cofre chave ao criar uma nova chave).
 
 >[!NOTE]
->Para obter mais detalhes sobre a autorização do Key Vault consulte a página do cofre da chave na documentação do [Cofre da Chave Azure](../../key-vault/general/secure-your-key-vault.md).
+>Para obter mais detalhes sobre a autorização do Key Vault consulte a página do cofre da chave na documentação do [Cofre da Chave Azure](../../key-vault/general/security-overview.md).
 
 **Vantagens**
 

@@ -47,21 +47,19 @@
       href: best-practices.md
     - name: Segurança
       items:
-        - name: Descrição geral
+        - name: Funcionalidades de segurança
           href: security-overview.md
-        - name: Acesso seguro a um cofre de chaves
-          href: secure-your-key-vault.md
         - name: Princípios fundamentais da autenticação do Key Vault
           href: authentication-fundamentals.md
-        - name: Universos de segurança e limites geográficos
+        - name: Mundos de segurança e geografias
           href: overview-security-worlds.md
         - name: Segurança de Rede
           href: network-security.md
         - name: Linha de Base de Segurança do Azure para o Key Vault
-          href: /security/benchmark/azure/baselines/key-vault-security-baseline?context=/azure/key-vault/context/context
+          href: /security/benchmark/azure/baselines/key-vault-security-baseline?context=/azure/key-vault/general/context/context
         - name: Controlos de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
-          href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+          href: ../security-controls-policy.md?context=/azure/key-vault/general/context/context
     - name: Registo do Azure Key Vault
       href: logging.md
     - name: Notificações
@@ -181,7 +179,7 @@
       displayName: ARM
     - name: Incorporações do Azure Policy
       displayName: 'samples, policies, definitions'
-      href: ../policy-reference.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+      href: ../policy-reference.md?context=/azure/key-vault/general/context/context
 - name: Recursos
   items:
     - name: Desenvolva as suas competências com o Microsoft Learn

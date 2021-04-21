@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: a7396c9a29c7d9f69dbe6a9cc5cd085c72ebafde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91d7e0777cbdad459e4514a0216146e0d5739f6d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94700951"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750955"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Service Fabric
 Implementar uma aplicação no Azure é rápido, fácil e rentável. Antes de colocar a sua aplicação em nuvem em produção, reveja a nossa lista de boas práticas essenciais e recomendadas para implementar clusters seguros na sua aplicação.
@@ -155,7 +155,7 @@ O Service Fabric utiliza certificados para fornecer autenticação e encriptaç�
 
 A Service Fabric utiliza certificados X.509 para garantir um cluster e fornecer funcionalidades de segurança da aplicação. Você usa Azure Key Vault para [gerir certificados](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md) para clusters de tecido de serviço em Azure. O fornecedor de recursos Azure que cria os clusters retira os certificados de um cofre chave. Em seguida, o fornecedor instala os certificados nos VMs quando o cluster é implantado no Azure.
 
-Existe uma relação de certificado entre [o Azure Key Vault,](../../key-vault/general/secure-your-key-vault.md)o cluster de tecido de serviço, e o fornecedor de recursos que utiliza os certificados. Quando o cluster é criado, a informação sobre a relação com o certificado é armazenada num cofre chave.
+Existe uma relação de certificado entre [o Azure Key Vault,](../../key-vault/general/security-overview.md)o cluster de tecido de serviço, e o fornecedor de recursos que utiliza os certificados. Quando o cluster é criado, a informação sobre a relação com o certificado é armazenada num cofre chave.
 
 Há dois passos básicos para montar um cofre chave:
 1. Crie um grupo de recursos especificamente para o seu cofre de chaves.

@@ -3,19 +3,18 @@ title: Conceder permissão para pedidos de acesso a um cofre de chaves Azure usa
 description: Saiba como fornecer acesso a chaves, segredos e certificados usando o controlo de acesso baseado em funções Azure.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 8/30/2020
+ms.date: 04/15/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: a1e9f499b54b0cf3b75a78e76a44c1df6e3e3b3e
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 9fb8eb79a381473b26a6ea14d8b71d24ac26f485
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479853"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749461"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure
 

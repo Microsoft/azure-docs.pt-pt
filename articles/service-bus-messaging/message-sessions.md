@@ -2,13 +2,13 @@
 title: Sessões de mensagem de autocarro da Azure Service | Microsoft Docs
 description: Este artigo explica como usar sessões para permitir o manuseamento conjunto e ordenado de sequências ilimitadas de mensagens relacionadas.
 ms.topic: article
-ms.date: 04/12/2021
-ms.openlocfilehash: c9a1c4fdccbbc8b38805e23d4895448959126f10
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/19/2021
+ms.openlocfilehash: e22dfb2aa7372a227f70fd2bfa8f72d2161cda17
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308487"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750757"
 ---
 # <a name="message-sessions"></a>Sessões de mensagens
 As sessões de ônibus de serviço da Microsoft Azure permitem o manuseamento conjunto e ordenado de sequências ilimitadas de mensagens relacionadas. As sessões podem ser usadas **em primeiro lugar, primeiro fora (FIFO)** e padrões **de resposta a pedidos.** Este artigo mostra como usar sessões para implementar estes padrões ao usar o Service Bus. 
@@ -24,15 +24,6 @@ Qualquer remetente pode criar uma sessão ao enviar mensagens para um tópico ou
 Em filas ou subscrições conscientes da sessão, surgem sessões quando há pelo menos uma mensagem com o ID da sessão. Uma vez que uma sessão existe, não há tempo definido ou API para quando a sessão expirar ou desaparecer. Teoricamente, uma mensagem pode ser recebida para uma sessão de hoje, a próxima mensagem dentro de um ano, e se o ID da sessão corresponder, a sessão é a mesma do ponto de vista do Service Bus.
 
 Normalmente, no entanto, uma aplicação tem uma noção clara de onde um conjunto de mensagens relacionadas começa e termina. O Service Bus não estabelece regras específicas. Por exemplo, a sua aplicação poderia definir a propriedade **Label** para a primeira mensagem **a iniciar**, para mensagens intermédias para **o conteúdo**, e para que a última mensagem **terminasse**. A posição relativa das mensagens de conteúdo pode ser calculada como a mensagem atual *SequenceNumber* delta a partir da mensagem **de início** *SequenceNumber*.
-
-Ativa a funcionalidade definindo a propriedade [requerSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) na fila ou subscrição através do Azure Resource Manager, ou definindo a bandeira no portal. É necessário antes de tentar usar as operações relacionadas com a API.
-
-No portal, pode ativar sessões ao mesmo tempo que cria uma entidade (fila ou subscrição), como mostram os seguintes exemplos. 
-
-:::image type="content" source="./media/message-sessions/queue-sessions.png" alt-text="Habilitar a sessão no momento da criação da fila":::
-
-:::image type="content" source="./media/message-sessions/subscription-sessions.png" alt-text="Habilitar a sessão no momento da criação da subscrição":::
-
 
 > [!IMPORTANT]
 > Quando as Sessões são ativadas numa fila ou numa subscrição, as aplicações do cliente ***já não*** podem enviar/receber mensagens regulares. Todas as mensagens devem ser enviadas como parte de uma sessão (definindo o id da sessão) e recebidas aceitando a sessão.
@@ -90,14 +81,19 @@ Várias aplicações podem enviar os seus pedidos para uma única fila de pedido
 > O pedido que envia os pedidos iniciais deve saber sobre o ID da sessão e usá-lo para aceitar a sessão para que a sessão em que espera a resposta esteja bloqueada. É uma boa ideia usar um GUID que identifica exclusivamente a instância da aplicação como um id de sessão. Não deve haver um manipulador de sessão ou um tempo limite especificado no recetor da sessão para a fila para garantir que as respostas estão disponíveis para serem bloqueadas e processadas por recetores específicos.
 
 ## <a name="next-steps"></a>Passos seguintes
+Pode ativar sessões de mensagens enquanto cria uma fila utilizando o portal Azure, PowerShell, CLI, Resource Manager, .NET, Java, Python e JavaScript. Para obter mais informações, consulte [Ativar as sessões de mensagens](enable-message-sessions.md). 
 
+Experimente as amostras no idioma à sua escolha para explorar as funcionalidades do Azure Service Bus. 
+
+- [Amostras da biblioteca de clientes do Azure Service Bus para Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Amostras da biblioteca do cliente do Azure Service Bus para Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Amostras de biblioteca de clientes do Azure Service Bus para JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Amostras de biblioteca de clientes do Azure Service Bus para TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 - [Amostras de Azure.Messaging.ServiceBus para .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
-- [Biblioteca de clientes de autocarros Azure Service para Java - Amostras](/samples/azure/azure-sdk-for-java/servicebus-samples/)
-- [Biblioteca de clientes de autocarros de serviço Azure para Python - Amostras](/samples/azure/azure-sdk-for-python/servicebus-samples/)
-- [Biblioteca de clientes de autocarros de serviço Azure para JavaScript - Amostras](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [Biblioteca de clientes do Azure Service Bus para TypeScript - Amostras](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Amostras microsoft.Azure.ServiceBus para .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (amostras de Sessions e SessionState)  
 
-Para saber mais sobre as mensagens do Service Bus, consulte [as filas, tópicos e subscrições do Service Bus.](service-bus-queues-topics-subscriptions.md)
+Encontre amostras para as bibliotecas clientes mais antigas .NET e Java abaixo:
+- [Amostras microsoft.Azure.ServiceBus para .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [amostras de azure-servicebus para Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
 
 [1]: ./media/message-sessions/sessions.png
+

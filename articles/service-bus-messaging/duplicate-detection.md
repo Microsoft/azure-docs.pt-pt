@@ -2,13 +2,13 @@
 title: Azure Service Bus duplica a deteção de mensagens | Microsoft Docs
 description: Este artigo explica como pode detetar duplicados em mensagens de autocarro da Azure Service. A mensagem duplicada pode ser ignorada e deixada.
 ms.topic: article
-ms.date: 04/14/2021
-ms.openlocfilehash: a9ca9de988f5a3db15da773a870e2d929ab938c8
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.date: 04/19/2021
+ms.openlocfilehash: baeda3509cb5646c658f79fb11610ecfdd1ffd3d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107499483"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751279"
 ---
 # <a name="duplicate-detection"></a>Deteção de duplicados
 
@@ -37,7 +37,7 @@ O *MessageId* pode sempre ser um pouco GUID, mas ancorar o identificador ao proc
 >- O [nível principal](service-bus-premium-messaging.md) não suporta a partição, por isso recomendamos que utilize iDs de mensagem únicos nas suas aplicações e não dependa de chaves de partição para deteção duplicada. 
 
 
-## <a name="enable-duplicate-detection"></a>Permitir a deteção de duplicação
+## <a name="duplicate-detection-window-size"></a>Tamanho da janela de deteção duplicada
 
 Além de permitir apenas a deteção de duplicados, também pode configurar o tamanho da janela de tempo de histórico de deteção duplicada durante a qual os ids de mensagens são mantidos.
 Este valor é de 10 minutos para filas e tópicos, com um valor mínimo de 20 segundos para o valor máximo de 7 dias.
@@ -46,37 +46,20 @@ Permitir a deteção duplicada e o tamanho da janela impactam diretamente a entr
 
 Manter a janela pequena significa que menos ids de mensagens devem ser mantidos e combinados, e a produção é menos impactada. Para entidades de alta produção que necessitem de deteção duplicada, deve manter a janela o mais pequena possível.
 
-### <a name="using-the-portal"></a>Utilizar o portal
-
-No portal, a função de deteção duplicada é ativada durante a criação da entidade com a caixa **de verificação de deteção de duplicação Enable,** que está desligada por padrão. A configuração para a criação de novos tópicos é equivalente.
-
-![Screenshot da caixa de diálogo de fila Create com a opção de deteção de duplicação de ativação selecionada e delineada a vermelho.][1]
-
-> [!IMPORTANT]
-> Não é possível ativar/desativar a deteção de duplicados após a criação da fila. Só pode fazê-lo no momento de criar a fila. 
-
-A janela do tempo de deteção duplicada pode ser alterada na janela de propriedades de fila e tópico no portal Azure.
-
-![Screenshot da funcionalidade Service Bus com a definição de Propriedades realçada e a opção de histórico de deteção duplicado delineada a vermelho.][2]
-
-### <a name="using-sdks"></a>Com SDKs
-
-Você pode qualquer um dos nossos SDKs através de .NET, Java, JavaScript, Python e Go para ativar a funcionalidade de deteção duplicada ao criar filas e tópicos. Também pode alterar a janela do tempo de deteção duplicada.
-As propriedades a atualizar ao criar filas e tópicos para o conseguir são:
-- `RequiresDuplicateDetection`
-- `DuplicateDetectionHistoryTimeWindow`
-
-Por favor, note que enquanto os nomes da propriedade são fornecidos no invólucro pascal aqui, JavaScript e Python SDKs estarão usando invólucro de camelo e invólucro de cobra, respectivamente.
-
 ## <a name="next-steps"></a>Passos seguintes
-
-Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
-
-* [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+Pode ativar a deteção de mensagens duplicadas utilizando o portal Azure, PowerShell, CLI, Resource Manager, .NET, Java, Python e JavaScript. Para obter mais informações, consulte [Ativar a deteção de mensagens duplicadas](enable-duplicate-detection.md). 
 
 Em cenários em que o código do cliente não é capaz de reenviar uma mensagem com o mesmo *MessageId* de antes, é importante desenhar mensagens que possam ser reprocessadas com segurança. Esta [publicação de blogue sobre idempotência](https://particular.net/blog/what-does-idempotent-mean) descreve várias técnicas para como fazê-lo.
 
-[1]: ./media/duplicate-detection/create-queue.png
-[2]: ./media/duplicate-detection/queue-prop.png
+Experimente as amostras no idioma à sua escolha para explorar as funcionalidades do Azure Service Bus. 
+
+- [Amostras da biblioteca de clientes do Azure Service Bus para Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Amostras da biblioteca do cliente do Azure Service Bus para Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Amostras de biblioteca de clientes do Azure Service Bus para JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Amostras de biblioteca de clientes do Azure Service Bus para TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Amostras de Azure.Messaging.ServiceBus para .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+
+Encontre amostras para as bibliotecas clientes mais antigas .NET e Java abaixo:
+- [Amostras microsoft.Azure.ServiceBus para .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [amostras de azure-servicebus para Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
+

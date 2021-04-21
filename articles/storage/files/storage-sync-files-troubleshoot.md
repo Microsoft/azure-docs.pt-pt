@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 4/12/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 6007ec954682c0cb0ba20cbbf6b3621ead0bf7ff
-ms.sourcegitcommit: 089c2bd1ac4861f43c4b89396d3d056a6eef4913
+ms.openlocfilehash: 872faab688844278caac4c78ff8cd9ae72e46a4b
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107602107"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752791"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -379,6 +379,7 @@ A tabela abaixo contém todos os caracteres unicode Azure File Sync ainda não s
 | Conjunto de carateres | Contagem de caracteres |
 |---------------|-----------------|
 | 0x00000000 - 0x0000001F (caracteres de controlo) | 32 |
+| 0x0000FDD0 - 0x0000FDDD (formas de apresentação árabe-a) | 14 |
 | <ul><li>0x00000022 (marca de cotação)</li><li>0x0000002A (asterisco)</li><li>0x0000002F (barra para a frente)</li><li>0x0000003A (cólon)</li><li>0x0000003C (menos que)</li><li>0x0000003E (maior que)</li><li>0x0000003F (ponto de interrogação)</li><li>0x0000005C (backslash)</li><li>0x0000007C (tubo ou barra)</li></ul> | 9 |
 | <ul><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x0010FFFE - 0x0010FFFF = 2 (noncharacter)</li></ul> | 8 |
 | <ul><li>0x0000009D (comando do sistema operativo osc)</li><li>0x00000090 (cadeia de controlo do dispositivo DCS)</li><li>0x0000008F (ss3 single shift três)</li><li>0x00000081 (predefinição de octeto alto)</li><li>0x0000007F (del delete)</li><li>0x0000008D (feed da linha inversa ri)</li></ul> | 6 |

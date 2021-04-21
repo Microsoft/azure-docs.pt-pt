@@ -6,14 +6,13 @@ ms.subservice: general
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-manager: rkarlin
 ms.date: 09/30/2020
-ms.openlocfilehash: a8e8e791f0dbe18322ad43364ae4ffd09b430caf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3ffbba9546ada54a42c3f2c2aa5d98da599b353
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98790389"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749741"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Gestão de recuperação do Cofre Azure Key com proteção de eliminação e purga suave
 
@@ -399,6 +398,6 @@ Para obter mais informações sobre a eliminação suave, consulte [a visão ger
 - [Comandos Key Vault Azure CLI](/cli/azure/keyvault)
 - [Backup do Cofre de Chaves Azure](backup.md)
 - [Como permitir a exploração do Cofre de Chaves](howto-logging.md)
-- [Acesso seguro a um cofre de chaves](secure-your-key-vault.md)
+- [Acesso seguro a um cofre de chaves](security-overview.md)
 - [Guia de desenvolvedores do Azure Key Vault](developers-guide.md)
 - [Melhores práticas para usar um cofre chave](security-overview.md)

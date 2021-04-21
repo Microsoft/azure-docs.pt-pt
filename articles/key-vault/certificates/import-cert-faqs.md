@@ -3,19 +3,18 @@ title: Perguntas frequentes - Importação de certificado azure Key Vault
 description: Obtenha respostas para perguntas frequentes sobre a importação de certificados Azure Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: d8a06471129f8d79e1ced150f7410392b91d498b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 39fe4e77d701f8e9311ea343c88eb3b905496680
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728033"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749245"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Certificação de Azure Key Vault FAQ
 

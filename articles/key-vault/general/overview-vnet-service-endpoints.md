@@ -4,17 +4,16 @@ description: Saiba como os pontos finais do serviço de rede virtual para O Azur
 services: key-vault
 author: amitbapat
 ms.author: ambapat
-manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: ae22f07a70f3317b62776e5024b7a3d1084516a1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 985cbe1128d1dd64fda86ef062750dc5dd068ffe
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643485"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751738"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para o Azure Key Vault
 
@@ -27,7 +26,7 @@ Há uma exceção importante a esta restrição. Se um utilizador tiver optado p
 Pode configurar [firewalls key Vault e redes virtuais](network-security.md) para negar o acesso ao tráfego de todas as redes (incluindo o tráfego de internet) por padrão. Pode conceder acesso ao tráfego a partir de redes virtuais específicas do Azure e de intervalos de endereços IP de internet pública, permitindo-lhe construir um limite de rede seguro para as suas aplicações.
 
 > [!NOTE]
-> As firewalls key Vault e as regras de rede virtuais aplicam-se apenas ao plano de [dados](secure-your-key-vault.md#data-plane-access-control) do Key Vault. As operações do avião de controlo key Vault (tais como criar, excluir e modificar operações, definir políticas de acesso, definir firewalls e regras de rede virtuais e implantação de segredos ou chaves através de modelos ARM) não são afetadas por firewalls e regras de rede virtuais.
+> As firewalls key Vault e as regras de rede virtuais aplicam-se apenas ao plano de [dados](security-overview.md#privileged-access) do Key Vault. As operações do avião de controlo key Vault (tais como criar, excluir e modificar operações, definir políticas de acesso, definir firewalls e regras de rede virtuais e implantação de segredos ou chaves através de modelos ARM) não são afetadas por firewalls e regras de rede virtuais.
 
 Aqui estão alguns exemplos de como pode usar pontos finais de serviço:
 

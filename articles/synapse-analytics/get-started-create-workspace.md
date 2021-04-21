@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 61fcbfa9d40ebb26485ce8160fa3b011935ab4d6
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 4b7251be220c012ca51970863ac2eed55d46d711
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536317"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751153"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -69,7 +69,7 @@ Depois de criar o seu espaço de trabalho Azure Synapse, tem duas formas de abri
 * Vá ao `https://web.azuresynapse.net` e inscreva-se no seu espaço de trabalho.
 
 ## <a name="place-sample-data-into-the-primary-storage-account"></a>Coloque os dados da amostra na conta de armazenamento primário
-Vamos usar um pequeno conjunto de dados de 100 K de linha de dados da NYX Taxi Cab para muitos exemplos neste guia de arranque. Começamos por colocá-lo na conta de armazenamento primário que criou para o espaço de trabalho.
+Vamos usar um pequeno conjunto de dados de amostras de 100K linha de dados da NYX Taxi Cab para muitos exemplos neste guia de arranque. Começamos por colocá-lo na conta de armazenamento primário que criou para o espaço de trabalho.
 
 * Descarregue este ficheiro para o seu computador: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
 * No Synapse Studio, navegue para o Data Hub. 
@@ -77,6 +77,14 @@ Vamos usar um pequeno conjunto de dados de 100 K de linha de dados da NYX Taxi C
 * Na categoria **Azure Data Lake Storage Gen2** você verá um item com um nome como **myworkspace (Primary - contosolake )**.
 * Selecione os **utilizadores nomeados para** o recipiente (Primário) .
 * Selecione **Upload** e selecione o `NYCTripSmall.parquet` ficheiro que descarregou.
+
+Um dos ficheiros parquet é carregado, está disponível através de dois URIs equivalentes:
+* `https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet` 
+* `abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet`
+
+Nos exemplos que se seguem neste tutorial, certifique-se de substituir o **contosolake** na UI pelo nome da conta de armazenamento primário que selecionou para o seu espaço de trabalho.
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

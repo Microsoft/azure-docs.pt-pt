@@ -2,19 +2,18 @@
 title: Disponibilidade e redundância do Cofre chave Azure - Azure Key Vault | Microsoft Docs
 description: Saiba mais sobre a disponibilidade e redundância do Azure Key Vault.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/28/2020
-ms.author: sudbalas
-ms.openlocfilehash: 27184e267bb0472dad6fc9176dfdeee68d5eae58
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 03/31/2021
+ms.author: mbaldwin
+ms.openlocfilehash: 3c5afc92044fcb109bedd38298b0b027ebeb437d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611825"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749695"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilidade e redundância do Azure Key Vault
 

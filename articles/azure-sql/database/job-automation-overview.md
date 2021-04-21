@@ -13,12 +13,12 @@ author: williamdassafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 2/1/2021
-ms.openlocfilehash: 1f4bd28d2b95aeebe07fcad84d757327622d51f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 295889cf64d27761021dd09549a3366ea142516e
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101690435"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752036"
 ---
 # <a name="automate-management-tasks-using-elastic-jobs-preview"></a>Automatizar tarefas de gestão utilizando trabalhos elásticos (pré-visualização)
 
@@ -159,7 +159,7 @@ O resultado dos passos de uma tarefa em cada base de dados de destino é regista
 
 #### <a name="job-history"></a>Histórico de tarefas
 
-Ver o histórico de execução de trabalho elástico na *base de dados job* [consultando a tabela jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). Uma tarefa de limpeza do sistema remove o histórico de execuções com mais de 45 dias. Para remover o histórico com menos de 45 dias, chame o procedimento armazenado **sp_purge_history** na *Base de dados da tarefa*.
+Ver o histórico de execução de trabalho elástico na *base de dados job* [consultando a tabela jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). Uma tarefa de limpeza do sistema remove o histórico de execuções com mais de 45 dias. Para remover o histórico com menos de 45 dias, ligue para o **procedimento sp_purge_jobhistory** armazenado na base *de dados job*.
 
 #### <a name="job-status"></a>Estatuto do trabalho
 

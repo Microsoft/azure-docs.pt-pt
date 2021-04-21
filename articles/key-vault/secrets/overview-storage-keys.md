@@ -7,15 +7,14 @@ ms.service: key-vault
 ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
-manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e89716d0560cbf7960cb7bde67156c8df0045a31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 871c9f83d7bdc3f4c9e2f3b53c0b855483995152
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499225"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748615"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerir chaves de conta de armazenamento com o Key Vault e o Azure CLI
 > [!IMPORTANT]
@@ -38,7 +37,7 @@ Um inquilino da AD Azure fornece a cada pedido registado um [principal de servi�
 
 Key Vault é uma aplicação da Microsoft pré-registada em todos os inquilinos da AD Azure. O Key Vault está registado sob o mesmo ID de aplicação em cada nuvem Azure.
 
-| Inquilinos | Cloud | ID da Aplicação |
+| Inquilinos | Cloud | ID da aplicação |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Azure público | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |

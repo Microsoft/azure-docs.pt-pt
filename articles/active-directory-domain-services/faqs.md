@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/09/2021
 ms.author: justinha
-ms.openlocfilehash: 3d0f2b44f37cb318be2117b5dc5d8b42b418ff19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32dcf2b387231d50796de0036388b53cab83bf72
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100090994"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749335"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Perguntas frequentes (FAQs) sobre Azure Ative Directory (AD) Domain Services
 
@@ -36,6 +36,7 @@ Esta página responde a perguntas frequentes sobre os Serviços de Domínio do D
 * [Posso adicionar controladores de domínio a um domínio gerido por serviços de domínio Azure AD?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
 * [Os utilizadores convidados podem ser convidados para o meu diretório usar serviços de domínio Azure AD?](#can-guest-users-be-invited-to-my-directory-use-azure-ad-domain-services)
 * [Posso mover um domínio gerido a azure AD domain para uma subscrição diferente, grupo de recursos, região ou rede virtual?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
+* [Posso mudar o nome de um nome de domínio Azure AD Domain Services existente?](#can-i-rename-an-existing-azure-ad-domain-services-domain-name)
 * [Os Serviços de Domínio AZure AD incluem opções de alta disponibilidade?](#does-azure-ad-domain-services-include-high-availability-options)
 
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Posso criar vários domínios geridos para um único diretório AD Azure?
@@ -77,6 +78,9 @@ N.º Os utilizadores convidados convidados para o seu diretório AZure AD utiliz
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>Posso mover um domínio gerido a azure AD domain para uma subscrição diferente, grupo de recursos, região ou rede virtual?
 N.º Depois de criar um domínio gerido por Azure AD Domain Services, não é possível mover o domínio gerido para um grupo de recursos diferente, rede virtual, subscrição, etc. Tenha o cuidado de selecionar a subscrição mais adequada, grupo de recursos, região e rede virtual quando implementar o domínio gerido.
+
+### <a name="can-i-rename-an-existing-azure-ad-domain-services-domain-name"></a>Posso mudar o nome de um nome de domínio Azure AD Domain Services existente?
+N.º Depois de criar um domínio gerido por Serviços de Domínio AZure AD, não é possível alterar o nome de domínio DNS. Escolha cuidadosamente o nome do domínio DNS quando criar o domínio gerido. Para considerações quando escolher o nome de domínio DNS, consulte o tutorial para criar e configurar um domínio gerido pelos [Serviços de Domínio AD Ad Azure](tutorial-create-instance.md#create-a-managed-domain).
 
 ### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>Os Serviços de Domínio AZure AD incluem opções de alta disponibilidade?
 

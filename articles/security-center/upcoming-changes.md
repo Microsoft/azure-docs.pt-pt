@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 04/08/2021
+ms.date: 04/20/2021
 ms.author: memildin
-ms.openlocfilehash: f9e1b5d19acbc9bcee86c374a3f843530b8adc61
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 3307d3aed422c3eab63412388244ef14ef3be699
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103764"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751004"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -30,7 +30,8 @@ Se procura as últimas notas de lançamento, vai encontrá-las no [What's new in
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
 | [21 recomendações que se movem entre controlos de segurança](#21-recommendations-moving-between-security-controls)                                                           | abril de 2021                |
 | [Duas recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | abril de 2021                |
-| [As recomendações da AWS serão divulgadas para disponibilidade geral (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | **agosto de** 2021             |
+| [A implementação do legado da ISO 27001 está a ser substituída pela nova ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)          | junho de 2021                 |
+| [As recomendações da AWS serão divulgadas para disponibilidade geral (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | **agosto de** 2021           |
 | [Melhorias à recomendação de classificação de dados sql](#enhancements-to-sql-data-classification-recommendation)                                                     | 2º trimestre de 2021                   |
 |                                                                                                                                                                       |                           |
 
@@ -59,6 +60,12 @@ As duas recomendações que se seguem estão a ser depreciadas:
 - **A versão OS deve ser atualizada para as suas funções de serviço na nuvem** - Por padrão, o Azure atualiza periodicamente o seu SO convidado para a mais recente imagem suportada dentro da família OS que especificou na sua configuração de serviço (.cscfg), como o Windows Server 2016.
 - **Os Serviços Kubernetes devem ser atualizados para uma versão não vulnerável de Kubernetes** - As avaliações desta recomendação não são tão abrangentes como gostaríamos que fossem. A versão atual desta recomendação acabará por ser substituída por uma versão melhorada que esteja mais alinhada com as necessidades de segurança dos nossos clientes.
 
+
+### <a name="legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013"></a>A implementação do legado da ISO 27001 está a ser substituída pela nova ISO 27001:2013
+
+A implementação do legado da ISO 27001 será removida do painel de conformidade regulamentar do Centro de Segurança. Se estiver a acompanhar o cumprimento do ISO 27001 com o Security Center, a bordo a nova norma ISO 27001:2013 para todos os grupos de gestão ou subscrições relevantes, e o legado atual ISO 27001 será em breve removido do painel de instrumentos.
+
+:::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Painel de conformidade regulamentar do Centro de Segurança mostra a mensagem sobre a remoção do legado da IMPLEMENTAÇÃO ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
 
 ### <a name="recommendations-from-aws-will-be-released-for-general-availability-ga"></a>As recomendações da AWS serão divulgadas para disponibilidade geral (GA)
 

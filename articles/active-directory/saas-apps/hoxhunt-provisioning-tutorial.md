@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: Zhchia
-ms.openlocfilehash: 24c8e2aafed6ee7b8823effc350dee4edb5e4873
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db33cc43419b4228ca270d3a69c0e88de2c05638
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101650839"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752053"
 ---
 # <a name="tutorial-configure-hoxhunt-for-automatic-user-provisioning"></a>Tutorial: Configure Hoxhunt para o fornecimento automático de utilizadores
 
@@ -130,6 +130,9 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 * Utilize os [registos de aprovisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
 * Verifique a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
 * Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Alterar Registo
+* 04/20/2021 - Apoio adicional para "PreferredLanguage" e atributo de extensão da empresa "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division".
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

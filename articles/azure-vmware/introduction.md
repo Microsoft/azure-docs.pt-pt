@@ -1,18 +1,18 @@
 ---
 title: Introdução
-description: Aprenda as funcionalidades e benefícios da Azure VMware Solution para implementar e gerir cargas de trabalho baseadas em VMware em Azure.
+description: Aprenda as funcionalidades e benefícios da Azure VMware Solution para implementar e gerir cargas de trabalho baseadas em VMware em Azure. A Azure VMware Solution SLA garante que as ferramentas de gestão de VMware Azure (vCenter Server e NSX Manager) estarão disponíveis pelo menos 99,9% das vezes.
 ms.topic: overview
-ms.date: 03/24/2021
-ms.openlocfilehash: 32dd73108dc12d7d7acc605f43a0fbf6d2cf1cd7
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.date: 04/20/2021
+ms.openlocfilehash: 9471aa2e427d28e0b8211dc8b25b2e61a4bfa8c4
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107995"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752647"
 ---
 # <a name="what-is-azure-vmware-solution"></a>O que é o Azure VMware Solution?
 
-A Azure VMware Solution fornece-lhe nuvens privadas que contêm clusters vSphere, construídos a partir de infraestruturas Azure de metal nu dedicada. A implantação inicial mínima é de três anfitriões, mas hospedeiros adicionais podem ser adicionados um de cada vez, até um máximo de 16 anfitriões por cluster.  Todas as nuvens privadas a provisionadas têm vCenter Server, vSAN, vSphere e NSX-T. Pode migrar cargas de trabalho dos seus ambientes no local, implementar novas máquinas virtuais (VMs) e consumir serviços Azure a partir das suas nuvens privadas.
+A Azure VMware Solution fornece-lhe nuvens privadas que contêm clusters vSphere, construídos a partir de infraestruturas Azure de metal nu dedicada. A implantação inicial mínima é de três anfitriões, mas hospedeiros adicionais podem ser adicionados um de cada vez, até um máximo de 16 anfitriões por cluster.  Todas as nuvens privadas a provisionadas têm vCenter Server, vSAN, vSphere e NSX-T. Pode migrar cargas de trabalho dos seus ambientes no local, implementar novas máquinas virtuais (VMs) e consumir serviços Azure a partir das suas nuvens privadas.  As ferramentas de gestão de Azure VMware (vCenter Server e NSX Manager) estarão disponíveis pelo menos 99,9% das vezes. Para mais informações, consulte [Azure VMware Solution SLA](https://aka.ms/avs/sla).
 
 A Azure VMware Solution é uma solução validada pela VMware com validação e teste em curso de melhorias e upgrades. A Microsoft gere e mantém a infraestrutura e software privados em nuvem. Permite-lhe focar-se no desenvolvimento e execução de cargas de trabalho nas suas nuvens privadas. 
 

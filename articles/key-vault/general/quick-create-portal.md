@@ -3,7 +3,6 @@ title: Quickstart - Criar um cofre de chaves Azure com o portal Azure
 description: Quickstart mostrando como criar um Cofre de Chaves Azure usando o portal Azure
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 729b6ccf1092679a71aa35f49be7d3199d4f4918
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d8bfdf3a4ad8b713fb6c937d61fa437fc7977f2
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936282"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749677"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Quickstart: Criar um cofre de chaves utilizando o portal Azure
 

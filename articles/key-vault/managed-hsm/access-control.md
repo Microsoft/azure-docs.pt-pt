@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 0c0a0c5f62f92aaf195e207dfd505ffb017d924e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bea1ccf0777c6325bc86c15e0f88304c465d89c9
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653905"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750289"
 ---
 # <a name="managed-hsm-access-control"></a>Controlo de acesso do HSM Gerido
 
@@ -65,6 +65,7 @@ A tabela seguinte mostra os pontos finais para os aviões de gestão e dados.
 | Plano de gestão | **Global:**<br> management.azure.com:443<br> | Criar, ler, atualizar, excluir e mover HSMs geridos<br>Definir tags HSM geridas | RBAC do Azure |
 | Plano de dados | **Global:**<br> &lt;hsm-nome &gt; .managedhsm.azure.net:443<br> | **Chaves:** desencriptar, encriptar,<br> desembrulhar, embrulhar, verificar, assinar, obter, listar, atualizar, criar, importar, eliminar, limpar, restaurar, purgar<br/><br/> **Gestão de funções de plano de dados (Managed HSM local RBAC)**_: <br/> <br/> listar definições de funções, atribuir funções, eliminar atribuições de funções, definir funções personalizadas_*Backup/restaurar **: backup, restaurar, verificar o estado de backup/restaurar operações <br/> <br/>** Domínio de segurança**: descarregar e carregar domínio de segurança | Gerido HSM local RBAC |
 |||||
+
 ## <a name="management-plane-and-azure-rbac"></a>Avião de gestão e Azure RBAC
 
 No plano de gestão, você usa Azure RBAC para autorizar as operações que um chamador pode executar. No modelo Azure RBAC, cada subscrição do Azure tem um exemplo de Azure Ative Directory. Você concede acesso a utilizadores, grupos e aplicações deste diretório. O acesso é concedido para gerir recursos na subscrição Azure que utilizam o modelo de implementação do Gestor de Recursos Azure. Para conceder acesso, utilize o [portal Azure](https://portal.azure.com/), o [Azure CLI,](/cli/azure/install-classic-cli) [a Azure PowerShell,](/powershell/azureps-cmdlets-docs)ou o [Azure Resource Manager REST APIs](/rest/api/authorization/roleassignments).
@@ -89,4 +90,4 @@ Concede-se um acesso principal de segurança para executar operações-chave esp
 
 - Para um tutorial de iniciação para um administrador, veja [o que é O HSM gerido?](overview.md)
 - Para um tutorial de gestão de funções, consulte [o CSC local gerido do HSM](role-management.md)
-- Para obter mais informações sobre o registo de utilização para registos geridos do HSM, consulte [o registo gerido do HSM](logging.md).
+- Para obter mais informações sobre o registo de utilização para registos geridos de HSM, consulte [a sessão de registo de HSM gerida](logging.md)

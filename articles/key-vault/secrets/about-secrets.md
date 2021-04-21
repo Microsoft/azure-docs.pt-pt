@@ -3,21 +3,20 @@ title: Sobre os segredos do Cofre da Chave Azure - Azure Key Vault
 description: Visão geral dos segredos do Azure Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 55814dff5cba572e2e22b5a0f9971bc920e32372
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d4f3f744a85c14c42ffef1c894b237081e871f8
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100526647"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752431"
 ---
-# <a name="about-azure-key-vault-secrets"></a>Sobre os segredos do Cofre da Chave Azure
+# <a name="about-azure-key-vault-secrets"></a>Acerca dos segredos do Azure Key Vault
 
 [O Key Vault](../general/overview.md) fornece um armazenamento seguro de segredos genéricos, tais como palavras-passe e cadeias de conexão de base de dados.
 
@@ -133,5 +132,5 @@ Guias para controlar o acesso no Cofre de Chaves:
 - [Acerca de chaves, segredos e certificados](../general/about-keys-secrets-certificates.md)
 - [Acerca de chaves](../keys/about-keys.md)
 - [Acerca de certificados](../certificates/about-certificates.md)
-- [Acesso seguro a um cofre de chaves](../general/secure-your-key-vault.md)
+- [Acesso seguro a um cofre de chaves](../general/security-overview.md)
 - [Guia do Programador do Key Vault](../general/developers-guide.md)

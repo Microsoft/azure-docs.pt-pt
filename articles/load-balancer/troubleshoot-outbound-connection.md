@@ -7,16 +7,16 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: 516576f4e005cc9fe2303945ecb1a13489908a5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f52900086afef09d69b80bf44474d5514e25235
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94696358"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748885"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Falhas nas ligações de saída de resolução de problemas
 
-Este artigo destina-se a fornecer resoluções para problemas comuns que podem ocorrer com ligações de saída de um Balançador de Carga Azure. A maioria dos problemas com a conectividade de saída que os clientes experimentam devem-se à exaustão da porta SNAT e aos intervalos de ligação que levam a pacotes abandonados. Este artigo fornece medidas para atenuar cada uma destas questões.
+Este artigo destina-se a fornecer resoluções para problemas comuns que possam ocorrer com ligações de saída de um Balançador de Carga Azure. A maioria dos problemas com a conectividade de saída que os clientes experimentam devem-se à exaustão da porta SNAT e aos intervalos de ligação que levam a pacotes abandonados. Este artigo fornece medidas para atenuar cada uma destas questões.
 
 ## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> Gestão da exaustão portuária do SNAT (PAT)
 [As portas efémeras utilizadas](load-balancer-outbound-connections.md) para [pat](load-balancer-outbound-connections.md) são um recurso exaustivo, conforme descrito em [VM autónomo sem endereço IP público](load-balancer-outbound-connections.md) e [VM equilibrado em carga sem endereço IP público](load-balancer-outbound-connections.md). Pode monitorizar a sua utilização de portas efémeras e comparar com a sua alocação atual para determinar o risco de ou confirmar a exaustão do SNAT utilizando [este](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) guia.
