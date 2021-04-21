@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cea1571a48afe00350dde247c3c10e222a446247
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42382076b6c14989eb153725e991c8ef047ad15b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98662394"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774796"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-by-using-azure-cli"></a>Configurar e aceder a Base de Dados Azure para registos de consulta lenta de Maria DB utilizando O Azure CLI
 
@@ -42,14 +42,14 @@ az mariadb server configuration list --resource-group myresourcegroup --server m
 ```
 
 ## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Registos de listas para Azure Database para servidor MariaDB
-Se **log_output** estiver configurado para "Ficheiro", pode aceder diretamente aos registos a partir do armazenamento local do servidor. Para listar os ficheiros de registo de consulta lenta disponíveis para o seu servidor, execute o comando [da lista de registos de servidores az mariadb.](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list)
+Se **log_output** estiver configurado para "Ficheiro", pode aceder diretamente aos registos a partir do armazenamento local do servidor. Para listar os ficheiros de registo de consulta lenta disponíveis para o seu servidor, execute o comando [da lista de registos de servidores az mariadb.](/cli/azure/mariadb/server-logs#az_mariadb_server_logs_list)
 
 Pode listar os ficheiros de registo **para mydemoserver.mariadb.database.azure.com** de servidor no grupo de recursos **myresourcegroup**. Em seguida, direcione a lista de ficheiros de registo para um ficheiro de texto chamado **\_ ficheiros \_ de registolist.txt**.
 ```azurecli-interactive
 az mariadb server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-from-the-server"></a>Baixar registos a partir do servidor
-Se **log_output** estiver configurado para "Ficheiro", pode transferir ficheiros de registo individual do seu servidor com o comando [de descarregamento de registos de servidores az mariadb.](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-download)
+Se **log_output** estiver configurado para "Ficheiro", pode transferir ficheiros de registo individual do seu servidor com o comando [de descarregamento de registos de servidores az mariadb.](/cli/azure/mariadb/server-logs#az_mariadb_server_logs_download)
 
 Utilize o exemplo seguinte para descarregar o ficheiro de registo específico para o **servidor mydemoserver.mariadb.database.azure.com** no grupo de recursos **myresourcegroup** para o seu ambiente local.
 ```azurecli-interactive

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 02/19/2021
-ms.openlocfilehash: 8180fe8554e5fff83e4caef8c245839518649ca1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: 0a98f9e4b108d2498fa19bc0b041f9d52272c7d2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719054"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774940"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Gerir os recursos do Azure e monitorizar os custos criando tarefas de automação (pré-visualização)
 
@@ -150,7 +150,7 @@ Para ver o histórico de execuções de uma tarefa juntamente com os seus estatu
 
    O painel **de execução da aplicação Logic** abre e mostra o fluxo de trabalho subjacente que funciona.
 
-   * Um fluxo de trabalho começa sempre com um [*gatilho*](../connectors/apis-list.md#triggers-actions). Para esta tarefa, o fluxo de trabalho começa com o gatilho [ **de Recorrência**](../connectors/connectors-native-recurrence.md).
+   * Um fluxo de trabalho começa sempre com um [*gatilho*](../connectors/apis-list.md#triggers). Para esta tarefa, o fluxo de trabalho começa com o gatilho [ **de Recorrência**](../connectors/connectors-native-recurrence.md).
 
    * Cada passo mostra o seu estado e duração de funcionação. Passos que têm durações de 0 segundos demoraram menos de 1 segundo a correr.
 
