@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 997a4e115f8632544b2f73aef498d40dceb0d459
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: b78aaa659598e6eb58841c5cef0c209daaced5e0
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449975"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811981"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opções de configuração - Azure Monitor Application Insights for Java
 
@@ -256,13 +256,13 @@ Para desativar a recolha automática de métricas do Micrometro (incluindo métr
 }
 ```
 
-## <a name="auto-collected-azure-sdk-telemetry"></a>Telemetria Azure SDK recolhida automaticamente
+## <a name="auto-collected-azure-sdk-telemetry-preview"></a>Telemetria Azure SDK (pré-visualização)
 
-Esta funcionalidade está em pré-visualização.
+Muitas das mais recentes bibliotecas Azure SDK emitem telemetria (ver [lista completa).](./java-in-process-agent.md#azure-sdks-preview)
 
-Muitas das mais recentes bibliotecas Azure SDK emitem telemetria.
+A partir de Application Insights Java 3.0.3, pode ativar a captura desta telemetria.
 
-A partir da versão 3.0.3, pode ativar a recolha desta telemetria:
+Se pretender ativar esta função:
 
 ```json
 {

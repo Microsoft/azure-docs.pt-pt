@@ -864,6 +864,9 @@
         - name: Ficheiros
           tocHref: /azure/storage/files/
           topicHref: /azure/storage/files/storage-files-introduction
+        - name: 'File Sync '
+          tocHref: /azure/storage/file-sync/
+          topicHref: /azure/storage/file-sync/file-sync-introduction
         - name: Filas
           tocHref: /azure/storage/queues/
           topicHref: /azure/storage/queues/storage-queues-introduction

@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: dc6eaaec334e7373f1a673bd1513ef05b761fee6
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 3f22e165fe4a3f86ecce8b1e307b19fae0eeac81
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450026"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812053"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java aplicação codificada monitorizando Azure Monitor Application Insights
 
@@ -130,9 +130,45 @@ Consulte [as opções de configuração](./java-standalone-config.md) para obter
 * Micrometro (incluindo métricas do actuador de bota de mola)
 * Métricas JMX
 
-### <a name="azure-sdks"></a>SDKs do Azure
+### <a name="azure-sdks-preview"></a>Azure SDKs (pré-visualização)
 
-* Esta funcionalidade está em pré-visualização, consulte as opções de [configuração](./java-standalone-config.md#auto-collected-azure-sdk-telemetry) para como o ativar.
+Consulte as [opções de configuração](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview) para ativar esta funcionalidade de pré-visualização e capture a telemetria emitida por estes Azure SDKs:
+
+* [Configuração da aplicação](https://docs.microsoft.com/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
+* [Pesquisa Cognitiva](https://docs.microsoft.com/java/api/overview/azure/search-documents-readme) 11.3.0+
+* [Chat de Comunicação](https://docs.microsoft.com/java/api/overview/azure/communication-chat-readme) 1.0.0+
+* [Comunicação Comum](https://docs.microsoft.com/java/api/overview/azure/communication-common-readme) 1.0.0+
+* [Identidade de Comunicação](https://docs.microsoft.com/java/api/overview/azure/communication-identity-readme) 1.0.0+
+* [Sms de comunicação](https://docs.microsoft.com/java/api/overview/azure/communication-sms-readme) 1.0.0+
+* [Cosmos DB](https://docs.microsoft.com/java/api/overview/azure/cosmos-readme) 4.13.0+
+* [Grelha de Eventos](https://docs.microsoft.com/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
+* [Centros de Eventos](https://docs.microsoft.com/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
+* [Centros de Eventos - Azure Blob Storage Checkpoint Store](https://docs.microsoft.com/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
+* [Reconhecimento de Formulários](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
+* [Identidade](https://docs.microsoft.com/java/api/overview/azure/identity-readme) 1.2.4+
+* [Cofre-chave - Certificados](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
+* [Cofre chave - Chaves](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
+* [Cofre chave - Segredos](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
+* [Ônibus de serviço](https://docs.microsoft.com/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
+* [Análise de Texto](https://docs.microsoft.com/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
+
+[//]: # "os nomes e links acima raspados de https://azure.github.io/azure-sdk/releases/latest/java.html"
+[//]: # "e versão sincronizada manualmente contra a versão mais antiga em maven central construída em azure-core 1.14.0"
+[//]: # ""
+[//]: # "var tabela = document.consultaSelector ('#tg-sb-content > div > tabela')"
+[//]: # "var str = ''"
+[//]: # "para (var i = 1, linha; linha = mesa.linhas[i]; i++) {"
+[//]: # "  nome var = linha.cells[0].getElementsByTagName ('div')[0].textContent.trim()"
+[//]: # "  var stableRow = linha.cells[1]"
+[//]: # "  versão varBadge = stableRow.consultaSelector ('.badge')"
+[//]: # "  se (!versãoBadge) {"
+[//]: # "    continuar"
+[//]: # "  }"
+[//]: # "  versão var = versãoBadge.textContent.trim()"
+[//]: # "  var link = stableRow.consultaSelectorAll('a')[2].href"
+[//]: # "  str += '* [' + nome + ''(' + link + ') + versão"
+[//]: # "}"
+[//]: # "consola.log(str)"
 
 ## <a name="send-custom-telemetry-from-your-application"></a>Envie telemetria personalizada a partir da sua aplicação
 
@@ -147,13 +183,13 @@ O quadro abaixo representa os tipos de telemetria personalizados atualmente supo
 
 |                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
 |---------------------|------------|---------------------|---------|
-| **Eventos Personalizados**   |            |                     |  Sim    |
-| **Métricas Personalizadas**  |  Sim       |                     |  Sim    |
-| **Dependências**    |            |                     |  Sim    |
-| **Exceções**      |            |  Sim                |  Sim    |
-| **Vistas de página**      |            |                     |  Sim    |
-| **Pedidos**        |            |                     |  Sim    |
-| **Rastreios**          |            |  Sim                |  Sim    |
+| **Eventos Personalizados**   |            |                     |  Yes    |
+| **Métricas Personalizadas**  |  Yes       |                     |  Yes    |
+| **Dependências**    |            |                     |  Yes    |
+| **Exceções**      |            |  Yes                |  Yes    |
+| **Vistas de página**      |            |                     |  Yes    |
+| **Pedidos**        |            |                     |  Yes    |
+| **Rastreios**          |            |  Yes                |  Yes    |
 
 Não estamos a planear lançar um SDK com o Application Insights 3.0 neste momento.
 

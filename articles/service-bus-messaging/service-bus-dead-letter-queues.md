@@ -4,12 +4,12 @@ description: Descreve filas de cartas mortas no Azure Service Bus. As filas de a
 ms.topic: article
 ms.date: 04/08/2021
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: cb791982b50d7afff7b74d70adfd285bb5e0a11c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6293a3a9a760ece137644578d8ee7dccebc63d95
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773230"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812377"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de cartas mortas do Service Bus
 
@@ -75,8 +75,4 @@ Pode aceder à fila da letra morta utilizando a seguinte sintaxe:
 
 
 ## <a name="next-steps"></a>Passos seguintes
-
-Para obter mais informações sobre as filas do Service Bus, consulte os seguintes artigos:
-
-* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Filas de Azure e filas de autocarros de serviço comparadas](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Consulte [Ativar a inscrição morta para uma fila ou subscrição](enable-dead-letter.md) para aprender sobre diferentes formas de configurar as **letras mortas na definição de expiração da mensagem.**

@@ -8,13 +8,13 @@ ms.service: api-management
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: jodowns
-ms.custom: fasttrack-new
-ms.openlocfilehash: 9a20a7966daff372cf5c0abc9b7b1dbbfd459838
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: fasttrack-new, devx-track-azurepowershell
+ms.openlocfilehash: bd837faaaa986659ad9b30aa3cf853ea490cec6d
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91403243"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812143"
 ---
 # <a name="revisions-in-azure-api-management"></a>Revisões na Gestão AZURE API
 

@@ -9,12 +9,13 @@ ms.service: api-management
 ms.topic: article
 ms.date: 01/26/2021
 ms.author: apimpm
-ms.openlocfilehash: d5d261368260a1c9658ae0bef8bdf63a7ca6bafe
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9d198f34abe826af2dce0c1ed9950600d4c7bbd3
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750631"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812305"
 ---
 # <a name="secure-backend-services-using-client-certificate-authentication-in-azure-api-management"></a>Serviços de backend seguros utilizando a autenticação de certificado de cliente na Azure API Management
 
@@ -32,7 +33,7 @@ A API Management oferece duas opções para gerir certificados utilizados para g
 A utilização de certificados de cofre chave é recomendada porque ajuda a melhorar a segurança da API Management:
 
 * Os certificados armazenados em cofres-chave podem ser reutilizados em todos os serviços
-* As [políticas](../key-vault/general/security-overview.md#privileged-access) de acesso granular podem ser aplicadas a certificados armazenados em cofres-chave
+* As [políticas](../key-vault/general/security-features.md#privileged-access) de acesso granular podem ser aplicadas a certificados armazenados em cofres-chave
 * Os certificados atualizados no cofre chave são automaticamente rodados na Gestão da API. Após atualização no cofre chave, um certificado na API Management é atualizado dentro de 4 horas. Também pode atualizar manualmente o certificado utilizando o portal Azure ou através da gestão REST API.
 
 ## <a name="prerequisites"></a>Pré-requisitos

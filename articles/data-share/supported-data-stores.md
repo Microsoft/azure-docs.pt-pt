@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 12/16/2020
-ms.openlocfilehash: 852c44f5edc5c0b0f5f655f63ab040927bd9bc7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/20/2021
+ms.openlocfilehash: def73d137f3cc2c79ae8417995ec6bdf6c519b7d
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963684"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812629"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Armazenamentos de dados suportados no Azure Data Share
 
@@ -50,7 +50,7 @@ A tabela seguinte explica as combinações e opções que os consumidores de dad
 | Data Explorer ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Partilhar a partir de uma conta de armazenamento
-O Azure Data Share suporta a partilha de ficheiros, pastas e sistemas de ficheiros da Azure Data Lake Storage Gen1 e Azure Data Lake Storage Gen2. Também suporta a partilha de bolhas, pastas e recipientes do Azure Blob Storage. Apenas bolhas de blocos são suportadas atualmente. 
+O Azure Data Share suporta a partilha de ficheiros, pastas e sistemas de ficheiros da Azure Data Lake Storage Gen1 e Azure Data Lake Storage Gen2. Também suporta a partilha de bolhas, pastas e recipientes do Azure Blob Storage. Pode partilhar blocos, apêndices ou bolhas de página, e são recebidos como bolhas de bloco.
 
 Quando os sistemas de ficheiros, contentores ou pastas são partilhados na partilha baseada em instantâneos, os consumidores de dados podem optar por fazer uma cópia completa dos dados partilhados. Ou podem usar a capacidade de instantâneo incremental para copiar apenas novos ficheiros ou ficheiros atualizados. 
 

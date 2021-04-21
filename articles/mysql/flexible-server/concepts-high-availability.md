@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 6629beacb5c3edc6fe1d21509051b915c0894479
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5b5e1491d7f76cd4cff76d0c9a1af4daa49fa483
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109697"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813007"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceitos de alta disponibilidade na Base de Dados Azure para o MySQL Flexible Server (Pré-visualização)
 
@@ -69,6 +69,9 @@ Os eventos de inatividade planeados incluem atividades programadas pela Azure, t
 
 ### <a name="failover-process---unplanned-events"></a>Processo de failover - eventos não planeados
 Os tempos de inatividade de serviço não planeados incluem bugs de software que ou falhas de infraestrutura como computação, rede, falhas de armazenamento ou falhas de energia afetam a disponibilidade da base de dados. Em caso de indisponibilidade da base de dados, a replicação da réplica de espera é cortada e a réplica de espera é ativada para ser a base de dados primária. O DNS é atualizado e os clientes voltam a ligar-se ao servidor de base de dados e retomam as suas operações. Espera-se que o tempo total de insusição seja de 60-120 s. No entanto, dependendo da atividade no servidor de base de dados primário no momento da falência, como grandes transações e tempo de recuperação, o failover pode demorar mais tempo.
+
+### <a name="forced-failover"></a>Failover forçado
+A Azure Database for MySQL forced failover permite-lhe forçar manualmente uma falha, permitindo-lhe testar a funcionalidade com os seus cenários de aplicação, e ajuda-o a estar pronto em caso de interrupções. A falha forçada muda o servidor de espera para se tornar o servidor principal, desencadeando uma falha que ativa a réplica de espera para se tornar o servidor primário com o mesmo nome do servidor de base de dados, atualizando o registo DNS. O servidor primário original será reiniciado e mudado para réplica de espera. As ligações do cliente estão desligadas e têm de ser reconectadas para retomar as suas operações. Dependendo da carga de trabalho atual e do último ponto de verificação, o tempo total de insunciamento será medido. Em geral, espera-se que seja entre 60 e 120.
 
 ## <a name="schedule-maintenance-window"></a>Janela de manutenção de horários 
 
