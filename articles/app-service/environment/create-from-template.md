@@ -6,13 +6,13 @@ ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 15cd0979fdc2468ab50451042cd99a8442470139
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: 10482538c819f9713e9940cffbeb5a1f966ddcf5
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92148176"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832055"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Crie um ASE utilizando um modelo de Gestor de Recursos Azure
 

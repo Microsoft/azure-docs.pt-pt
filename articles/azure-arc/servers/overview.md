@@ -2,14 +2,14 @@
 title: Visão geral dos servidores azure Arc
 description: Saiba como usar o Azure Arc habilitado os servidores a gerir servidores hospedados fora do Azure como um recurso Azure.
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualização, rastreio de alterações, inventário, runbooks, python, gráfico, híbrido
-ms.date: 02/18/2021
+ms.date: 04/21/2021
 ms.topic: overview
-ms.openlocfilehash: 863cab073018c5a592cba6e94451a9af038ebd52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 324f6cc29bd9e4eca1a20413032c213c2618a11e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023338"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832001"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>O que são servidores preparados para o Azure Arc?
 
@@ -25,9 +25,9 @@ Quando liga a sua máquina a servidores ativados do Azure Arc, permite a capacid
 
 - Informe sobre alterações de configuração sobre software instalado, serviços microsoft, registo do Windows e ficheiros, e daemons Linux em servidores monitorizados utilizando o Azure Automation [Change Tracking and Inventory](../../automation/change-tracking/overview.md) e [Azure Security Center Integrity Monitoring](../../security-center/security-center-file-integrity-monitoring.md), para servidores habilitados com [O Azure Defender para servidores](../../security-center/defender-for-servers-introduction.md).
 
-- Monitorize o desempenho do sistema operativo do hóspede da máquina conectada e descubra componentes de aplicação para monitorizar os seus processos e dependências com outros recursos que a aplicação comunica utilizando [o Azure Monitor para VMs](../../azure-monitor/vm/vminsights-overview.md).
+- Monitorize o desempenho do sistema operativo do seu cliente de máquina conectada e descubra componentes de aplicação para monitorizar os seus processos e dependências com outros recursos que a aplicação comunica utilizando [insights VM](../../azure-monitor/vm/vminsights-overview.md).
 
-- Simplificar a implementação com outros serviços Azure [Automation State Configuration](../../automation/automation-dsc-overview.md) e Azure Monitor Log Analytics utilizando as [extensões Azure VM](manage-vm-extensions.md) suportadas para as suas janelas não-Azure ou máquina Linux. Isto inclui a realização de configuração pós-implantação ou instalação de software utilizando a extensão de script personalizado.
+- Simplificar a implementação utilizando outros serviços Azure, como [a Azure](../../automation/automation-dsc-overview.md) Automation State Configuration e Azure Monitor Log Analytics, utilizando as [extensões Azure VM](manage-vm-extensions.md) suportadas para as suas janelas não-Azure ou máquina Linux. Isto inclui a realização de configuração pós-implantação ou instalação de software utilizando a extensão de script personalizado.
 
 - Utilize [a Gestão de Atualização](../../automation/update-management/overview.md) na Azure Automation para gerir as atualizações do sistema operativo para os seus servidores Windows e Linux
 

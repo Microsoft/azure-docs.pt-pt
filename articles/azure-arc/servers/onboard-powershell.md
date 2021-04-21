@@ -3,12 +3,13 @@ title: Ligue as máquinas híbridas ao Azure utilizando o PowerShell
 description: Neste artigo, aprende a instalar o agente e a ligar uma máquina ao Azure utilizando servidores ativados pelo Azure Arc. Podes fazer isto com o PowerShell.
 ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07a00de9077378ce3e3f7a7578b66e93d1b04f2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d6963a53ac14c9d6727a8d53e781bc8b8389b76e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584948"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831623"
 ---
 # <a name="connect-hybrid-machines-to-azure-by-using-powershell"></a>Ligue as máquinas híbridas ao Azure utilizando o PowerShell
 

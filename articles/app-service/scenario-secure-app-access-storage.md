@@ -10,13 +10,13 @@ ms.workload: identity
 ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.custom: azureday1, devx-track-azurecli
-ms.openlocfilehash: 7d84b3f8e654940a8f2c36075b92d630505e88b9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: a37b189ae98332b2d6c557b6bdfad98266002e9e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482343"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833909"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Tutorial: Access Azure Storage a partir de uma aplicação web
 

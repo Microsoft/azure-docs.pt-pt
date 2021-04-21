@@ -3,13 +3,13 @@ title: Registos de execução de fluxo em Funções Azure
 description: 115-145 caracteres, incluindo espaços. Esta síntese é apresentada no resultado da pesquisa.
 ms.date: 9/1/2020
 ms.topic: how-to
-ms.custom: contperf-fy21q2, devx-track-azurecli
-ms.openlocfilehash: 085849386fce929ceaec4536844cf31b94fe7539
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: contperf-fy21q2, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 4afb1068acda69c9dd65a423d887abea80c695cd
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97033056"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830903"
 ---
 # <a name="enable-streaming-execution-logs-in-azure-functions"></a>Ativar registos de execução em funções de Azure
 

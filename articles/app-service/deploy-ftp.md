@@ -5,13 +5,13 @@ ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.topic: article
 ms.date: 02/26/2021
 ms.reviewer: dariac
-ms.custom: seodec18
-ms.openlocfilehash: c7427a1f8f528fdf405b22c4e91941ea7a915ffa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: fd856ee47c1100292f7558bb0fa2a1772951a3cb
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045807"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832374"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implemente a sua aplicação para o Azure App Service utilizando FTP/S
 

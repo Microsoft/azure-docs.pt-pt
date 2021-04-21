@@ -5,13 +5,13 @@ keywords: serviço de aplicações, serviço de aplicações do azure, dimension
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: c187a1521762c0b69d42c81f464694729d3c02f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 8fbd841626e2a074bc0a35cd1b4ac094e267b34a
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594223"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833351"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Configure nível PremiumV3 para serviço de aplicações Azure
 

@@ -4,12 +4,12 @@ description: Saiba como criar e gerir várias piscinas de nó para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 02/11/2021
-ms.openlocfilehash: bb10e2023187c74a9e8b9a2e4c72115841e89a84
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: b7b54ccf6662e172ebfe95a84189df5e8e6e990f
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552602"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832253"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerir múltiplos conjuntos de nós para um cluster no Azure Kubernetes Service (AKS)
 
@@ -408,9 +408,12 @@ Leva alguns minutos para que o *gpunodepool* seja criado com sucesso.
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Especifique uma mancha, etiqueta ou etiqueta para uma piscina de nó
 
-### <a name="setting-nodepool-taints"></a>Definição de manchas de nodepool
-
 Ao criar uma piscina de nó, pode adicionar manchas, etiquetas ou etiquetas à piscina de nó. Quando se adiciona uma mancha, etiqueta ou etiqueta, todos os nós dentro dessa piscina de nó também obtêm essa mancha, etiqueta ou etiqueta.
+
+> [!IMPORTANT]
+> A adição de manchas, etiquetas ou etiquetas aos nós deve ser feita para toda a piscina de nós utilizando `az aks nodepool` . Não é aconselhável aplicar manchas, lablels ou etiquetas nos nós individuais numa piscina de nó. `kubectl`  
+
+### <a name="setting-nodepool-taints"></a>Definição de manchas de nodepool
 
 Para criar uma piscina de nó com uma mancha, use [a az aks nodepool add][az-aks-nodepool-add]. Especifique o nome *taintnp* e use o `--node-taints` parâmetro para especificar *sku=gpu:NoSchedule* para a mancha.
 

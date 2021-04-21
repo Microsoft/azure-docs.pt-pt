@@ -3,13 +3,13 @@ title: Criar uma função TypeScript a partir da linha de comando - Funções Az
 description: Aprenda a criar uma função TypeScript a partir da linha de comando e, em seguida, publique o projeto local para hospedagem sem servidor em Funções Azure.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 488ef9fa3fd5b6c09ed435483dbf8f6fa3eb5bef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: c7b37700d93ea129ba46de81989f06dd2afe52ba
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97937200"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831821"
 ---
 # <a name="quickstart-create-a-typescript-function-in-azure-from-the-command-line"></a>Quickstart: Criar uma função TypeScript em Azure a partir da linha de comando
 

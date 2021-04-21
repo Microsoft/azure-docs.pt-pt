@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: af95cf5d3e4112c717d653062f186797d48fb515
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 161a4d578509a7752f9438ce8f05d599bdb54e93
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389813"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832289"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>Iniciar a máquina virtual na ligação (pré-visualização)
 
@@ -19,7 +19,7 @@ ms.locfileid: "107389813"
 > A funcionalidade Start VM on Connect encontra-se atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A funcionalidade Start Virtual Machine (VM) on Connect (pré-visualização) permite-lhe economizar custos, permitindo-lhe negociar os seus VMs quando não os estiver a utilizar. Quando precisar de voltar a utilizar o VM, tudo o que tem de fazer é voltar a ligar os VM.
+A função Start Virtual Machine (VM) on Connect (pré-visualização) permite economizar custos, permitindo que os utilizadores finais liguem os seus VMs apenas quando estes precisam. Pode desligar os VM quando não são necessários.
 
 >[!NOTE]
 >O Windows Virtual Desktop (clássico) não suporta esta funcionalidade.
