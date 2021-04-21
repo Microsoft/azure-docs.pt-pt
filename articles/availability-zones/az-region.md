@@ -4,16 +4,16 @@ description: Para criar aplicações altamente disponíveis e resilientes no Azu
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 04/13/2021
+ms.date: 04/21/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: b59062395c0b05f36dd0f5bd00fbd1acb3ccb2a9
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 4c592c2d67df1e792200cc36449a6268807bbb56
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529803"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816265"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure que suportam as Zonas de Disponibilidade
 
@@ -31,7 +31,7 @@ Os serviços de apoio às Zonas de Disponibilidade enquadram-se em três categor
 
 - **Serviços zonais** – Um recurso pode ser implantado numa zona de disponibilidade específica e auto-seleccionada para alcançar requisitos mais rigorosos de latência ou desempenho.  A resiliência é auto-arquiteada replicando aplicações e dados para uma ou mais zonas da região.  Os recursos podem ser fixados a uma zona específica. Por exemplo, máquinas virtuais, discos geridos ou endereços IP padrão podem ser fixados a uma zona específica, o que permite uma maior resiliência por ter um ou mais casos de recursos espalhados por zonas.
 
-- **Serviços redundantes de zona** – A plataforma Azure replica o recurso e os dados em todas as zonas.  A Microsoft gere a entrega de alta disponibilidade uma vez que o Azure replica e distribui automaticamente casos dentro da região.  O ZRS, por exemplo, replica os dados em três zonas para que uma falha de zona não tenha impacto no HA dos dados. 
+- **Serviços redundantes de zona –** Os recursos são replicados ou distribuídos automaticamente por zonas. Por exemplo, o ZRS, replica os dados em três zonas para que uma falha de zona não tenha impacto no HA dos dados.  
 
 - **Serviços não regionais** – Os serviços estão sempre disponíveis a partir de geografias Azure e são resistentes a paragens em toda a zona, bem como paragens em toda a região. 
 

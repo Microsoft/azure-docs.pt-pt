@@ -1,26 +1,27 @@
 ---
-title: Mover ficheiros de e para Azure Linux VMs com SCP
+title: Use o SCP para mover ficheiros de e para um VM
 description: Mover de e para um Linux VM em Azure com um par de chaves SSH.
 author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 07/12/2017
+ms.date: 04/20/2021
 ms.author: cynthn
-ms.subservice: disks
-ms.openlocfilehash: 83b57055ee7a3fedab014abeab96520c3877b843
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.subservice: ''
+ms.openlocfilehash: edfc44f79cff25486fde6326ac954fe5b575d846
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558445"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816445"
 ---
-# <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Mover ficheiros de e para um VM Linux usando SCP
+# <a name="use-scp-to-move-files-to-and-from-a-linux-vm"></a>Use o SCP para mover ficheiros de e para um Linux VM 
 
 Este artigo mostra como mover ficheiros da sua estação de trabalho para um VM Azure Linux, ou de um VM Azure Linux até à sua estação de trabalho, utilizando o Secure Copy (SCP). Mover ficheiros entre a sua estação de trabalho e um Linux VM, de forma rápida e segura, é fundamental para gerir a sua infraestrutura Azure. 
 
-Para este artigo, você precisa de um VM Linux implantado em Azure usando [ficheiros chave SSH públicos e privados](mac-create-ssh-keys.md). Também precisa de um cliente SCP para o seu computador local. É construído em cima de SSH e incluído na casca padrão bash da maioria dos computadores Linux e Mac e algumas conchas Windows.
+Para este artigo, você precisa de um VM Linux implantado em Azure usando [ficheiros chave SSH públicos e privados](mac-create-ssh-keys.md). Também precisa de um cliente SCP para o seu computador local. É construído em cima de SSH e incluído na casca padrão bash da maioria dos computadores Linux e Mac e PowerShell.
+
 
 ## <a name="quick-commands"></a>Comandos rápidos
 
@@ -50,7 +51,7 @@ Para obter mais informações sobre a configuração das `~/.ssh/config` suas ch
 
 Para o primeiro exemplo, copiamos um ficheiro de configuração Azure até um Linux VM que é usado para implantar automatização. Como este ficheiro contém credenciais AZure API, que incluem segredos, a segurança é importante. O túnel encriptado fornecido pela SSH protege o conteúdo do ficheiro.
 
-O seguinte comando copia o ficheiro *local .azure/config* para um Azure VM com FQDN *myserver.eastus.cloudapp.azure.com*. O nome de utilizador administrativo no Azure VM é *azureuser*. O ficheiro é direcionado para o */home/azureuser/diretório.* Substitua os seus próprios valores neste comando.
+O seguinte comando copia o ficheiro *local .azure/config* para um Azure VM com FQDN *myserver.eastus.cloudapp.azure.com*. Se não tiver um [conjunto FQDN,](../create-fqdn.md)também pode utilizar o endereço IP do VM. O nome de utilizador administrativo no Azure VM é *azureuser*. O ficheiro é direcionado para o */home/azureuser/diretório.* Substitua os seus próprios valores neste comando.
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config

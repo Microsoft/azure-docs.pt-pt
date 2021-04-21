@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 1e57ae537c271e61f0b2d37f5320cb177b04802b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad498575b029f918538909a9b5b2d52c71c1389c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98164877"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816373"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker limites e limites de base de conhecimento
 
@@ -108,6 +108,26 @@ Estes representam os limites para cada ação de atualização; isto é, clicar 
 * Número máximo de campos de metadados adicionados ou eliminados: 10
 * Número máximo de URLs que podem ser atualizados: 5
 * Número máximo de QnAs permitido por chamada: 1000
+
+## <a name="add-unstructured-file-limits"></a>Adicionar limites de ficheiros não estruturados
+
+> [!NOTE]
+> * Se precisar de utilizar ficheiros maiores do que o limite permite, pode dividir o ficheiro em ficheiros menores antes de os enviar para a API. 
+
+Estes representam os limites quando os ficheiros não estruturados são utilizados para *criar kb* ou chamar a API createKnowledgeBase:
+* Duração do arquivo: Vamos extrair os primeiros 32000 caracteres
+* Máximo 3 respostas por ficheiro.
+
+## <a name="prebuilt-question-answering-limits"></a>Perguntas pré-construídas que respondem limites
+
+> [!NOTE]
+> * Se precisar de utilizar documentos maiores do que o limite permite, pode dividir o texto em pedaços menores de texto antes de enviá-los para a API. 
+> * Um documento é uma única cadeia de caracteres de texto.  
+
+Estes representam os limites quando a API pré-construída é usada para *gerar resposta* ou chamar a API GenerateAnswer:
+* Número de documentos: 5
+* Tamanho máximo de um único documento: 5.120 caracteres
+* Máximo 3 respostas por documento.
 
 ## <a name="next-steps"></a>Passos seguintes
 

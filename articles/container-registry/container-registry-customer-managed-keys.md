@@ -4,12 +4,12 @@ description: Saiba mais sobre encriptação no resto do seu registo de contentor
 ms.topic: article
 ms.date: 03/03/2021
 ms.custom: ''
-ms.openlocfilehash: 09eea79eb6fb9ad9e4526b1a0390664e5dd9d61e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9ec32e32d187a3db07f023c78efbd301ef578cbc
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784048"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817040"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Registo encriptado usando uma chave gerida pelo cliente
 
@@ -601,7 +601,7 @@ Se este problema ocorrer com uma identidade atribuída ao sistema, por favor [cr
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [encriptação em repouso em Azure](../security/fundamentals/encryption-atrest.md).
-* Saiba mais sobre as políticas de acesso e como [garantir o acesso a um cofre de chaves.](../key-vault/general/security-overview.md)
+* Saiba mais sobre as políticas de acesso e como [garantir o acesso a um cofre de chaves.](../key-vault/general/security-features.md)
 
 
 <!-- LINKS - external -->

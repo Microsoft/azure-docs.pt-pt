@@ -1,38 +1,32 @@
 ---
-title: Tutorial - Desdobre a LÂMPADA numa máquina virtual Linux em Azure
-description: Neste tutorial, vai aprender a instalar a pilha LAMP numa máquina virtual do Linux no Azure
-services: virtual-machines
-documentationcenter: virtual-machines
+title: Tutorial - Implementar LÂMPADA e WordPress num VM
+description: Neste tutorial, aprende-se a instalar a pilha LAMP, e o WordPress, numa máquina virtual Linux em Azure.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.collection: linux
-ms.assetid: 6c12603a-e391-4d3e-acce-442dd7ebb2fe
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 04/20/2021
 ms.author: cynthn
-ms.openlocfilehash: 3813931f47c110abcfb595065c1415ca9ed84c9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5365bad5fdea2a8213defc103f0cdd966ebe50a5
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564718"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816355"
 ---
-# <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalar um servidor Web da LAMP numa máquina virtual do Linux no Azure
+# <a name="tutorial-install-a-lamp-stack-on-an-azure-linux-vm"></a>Tutorial: Instale uma pilha de lâmpadas num Azure Linux VM
 
 Este artigo explica como implementar um servidor Web Apache, o MySQL e o PHP (pilha LAMP) numa VM do Ubuntu no Azure. Para ver o servidor LAMP em ação, opcionalmente, pode instalar e configurar um site do WordPress. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar uma VM do Ubuntu (o “L” na pilha LAMP)
+> * Criar uma VM do Ubuntu 
 > * Abrir a porta 80 para o tráfego da Web
 > * Instalar o Apache, o MySQL e o PHP
 > * Verificar a instalação e a configuração
-> * Instalar o WordPress no servidor LAMP
+> * Instalar o WordPress 
 
 Esta configuração é para testes rápidos ou uma prova de conceito. Para obter mais informações sobre a pilha LAMP, incluindo as recomendações para um ambiente de produção, veja a [Documentação do Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
@@ -40,7 +34,72 @@ Este tutorial utiliza o CLI dentro da [Azure Cloud Shell](../../cloud-shell/over
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
-[!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
+
+O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
+```
+
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+
+Crie uma VM com o comando [z vm create](/cli/azure/vm). 
+
+O exemplo seguinte cria uma VM com o nome *myVM* e cria chaves SSH caso estas ainda não existam numa localização chave predefinida. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. O comando também define *azureuser* como um nome de utilizador administrador. Utilize este nome mais tarde para ligar à VM. 
+
+```azurecli-interactive
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys
+```
+
+Quando a VM tiver sido criada, a CLI do Azure mostra informações semelhantes ao seguinte exemplo. Tome nota do `publicIpAddress`. Este endereço é utilizado para aceder à VM nos passos posteriores.
+
+```output
+{
+  "fqdns": "",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "eastus",
+  "macAddress": "00-0D-3A-23-9A-49",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.4",
+  "publicIpAddress": "40.68.254.142",
+  "resourceGroup": "myResourceGroup"
+}
+```
+
+
+
+## <a name="open-port-80-for-web-traffic"></a>Abrir a porta 80 para o tráfego da Web 
+
+Por predefinição, só são permitidas ligações SSH a VMs do Linux implementadas no Azure. Uma vez que esta VM vai ser um servidor Web, tem de abrir a porta 80 a partir da Internet. Utilize o comando [az vm de porta aberta](/cli/azure/vm) para abrir a porta desejada.  
+ 
+```azurecli-interactive
+az vm open-port --port 80 --resource-group myResourceGroup --name myVM
+```
+
+Para obter mais informações sobre a abertura de portas para o seu VM, consulte [portas Abertas.](nsg-quickstart.md)
+
+## <a name="ssh-into-your-vm"></a>Aceder através de SSH à VM
+
+Se ainda não conhece o endereço IP público do seu VM, execute o comando [da lista de ip público da rede Az.](/cli/azure/network/public-ip) Precisará deste endereço IP para vários passos posteriores.
+
+```azurecli-interactive
+az network public-ip list --resource-group myResourceGroup --query [].ipAddress
+```
+
+Utilize o seguinte comando para criar uma sessão SSH com a máquina virtual. Substitua o endereço IP público correto da sua máquina virtual. Neste exemplo, o endereço IP é *40.68.254.142*. *azureuser* é o nome de utilizador administrador que definiu quando criou a VM.
+
+```bash
+ssh azureuser@40.68.254.142
+```
+
 
 ## <a name="install-apache-mysql-and-php"></a>Instalar o Apache, o MySQL e o PHP
 
@@ -53,10 +112,7 @@ sudo apt update && sudo apt install lamp-server^
 
 É-lhe pedido para instalar os pacotes e outras dependências. Este processo instala as extensões PHP mínimas necessárias para utilizar o PHP com o MySQL.  
 
-## <a name="verify-installation-and-configuration"></a>Verificar a instalação e a configuração
-
-
-### <a name="verify-apache"></a>Verificar Apache
+## <a name="verify-apache"></a>Verificar Apache
 
 Verifique a versão do Apache com o seguinte comando:
 ```bash
@@ -68,7 +124,7 @@ Com o Apache instalado e a porta 80 aberta para a VM, torna-se possível aceder 
 ![Página predefinida do Apache][3]
 
 
-### <a name="verify-and-secure-mysql"></a>Verifique e proteja o MySQL
+## <a name="verify-and-secure-mysql"></a>Verifique e proteja o MySQL
 
 Verifique a versão do MySQL com o seguinte comando (tenha em atenção o parâmetro `V` em maiúscula):
 
@@ -92,7 +148,7 @@ sudo mysql -u root -p
 
 Quando terminar, sair da linha de comandos do mysql, escrevendo `\q`.
 
-### <a name="verify-php"></a>Verificar PHP
+## <a name="verify-php"></a>Verificar PHP
 
 Verifique a versão do PHP com o seguinte comando:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f8bde45cfdf9cf1c9d50faee76161461d8b0aa0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6457624329d7bb5e367e9de5a1963884e11ad2e3
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104607834"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817004"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Linha de segurança Azure para Azure Machine Learning
 
@@ -192,7 +192,7 @@ Também pode correlacionar os registos de funcionamento do serviço machine lear
 
 - [Compreenda o registo e diferentes tipos de registo em Azure](/azure/azure-monitor/platform/platform-logs-overview)
 
-- [Ativar o registo em Azure Machine Learning](how-to-track-experiments.md)
+- [Ativar o registo em Azure Machine Learning](how-to-log-view-metrics.md)
 
 - [Monitorização da aprendizagem da máquina de Azure](monitor-azure-machine-learning.md)
 
@@ -232,7 +232,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 - [Como realizar consultas para Azure Machine Learning em Log Analytics Workspaces](https://docs.microsoft.com/azure/machine-learning/monitor-azure-machine-learning#analyzing-log-data)
 
-- [Ativar o registo em Azure Machine Learning](how-to-track-experiments.md)
+- [Ativar o registo em Azure Machine Learning](how-to-log-view-metrics.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 

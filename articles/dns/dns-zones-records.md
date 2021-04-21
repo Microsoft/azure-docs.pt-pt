@@ -7,28 +7,28 @@ ms.service: dns
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 04/20/2021
 ms.author: rohink
-ms.openlocfilehash: 41eb15a38c97532951723f12d1ac74c90c838eb1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26eefe5cbcef417dee1a400b492ee847394ca6a9
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94968201"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816968"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Descrição geral de zonas e registos DNS
 
-Esta página explica os conceitos-chave de domínios, zonas dns e registos de DNS e conjuntos de discos, e como são suportados no Azure DNS.
+Este artigo explica os conceitos-chave de domínios, zonas dns, registos dns e conjuntos de discos. Vais aprender como é apoiado no Azure DNS.
 
 ## <a name="domain-names"></a>Nomes de domínio
 
-O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia começa a partir do domínio “raiz”, cujo nome é simplesmente “**.**”.  Abaixo deste domínio, surgem os domínios de nível superior, como “com”, “net”, “org”, “pt” ou “fr”.  Abaixo destes, estão os domínios de segundo nível, tais como “org.pt” ou “co.uk”. Os domínios na hierarquia do DNS são distribuídos globalmente, hospedados por servidores de nomes DNS em todo o mundo.
+O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia começa a partir do domínio “raiz”, cujo nome é simplesmente “**.**”.  Abaixo deste domínio, surgem os domínios de nível superior, como “com”, “net”, “org”, “pt” ou “fr”.  Abaixo dos domínios de nível superior encontram-se domínios de segundo nível, tais como "org.uk" ou "co.jp". Os domínios na hierarquia do DNS são distribuídos globalmente, hospedados por servidores de nomes DNS em todo o mundo.
 
 Um registrador de nome de domínio é uma organização que lhe permite comprar um nome de domínio, como `contoso.com` .  A compra de um nome de domínio dá-lhe o direito de controlar a hierarquia do DNS com esse nome, permitindo-lhe, por exemplo, direcionar o nome para o `www.contoso.com` site da sua empresa. O registrador pode hospedar o domínio em servidores de nome próprio em seu nome, ou permitir-lhe especificar servidores de nome alternativos.
 
-O Azure DNS fornece uma infraestrutura de servidor de nome de alta disponibilidade distribuída globalmente, que pode usar para hospedar o seu domínio. Ao hospedar os seus domínios em DNS Azure, pode gerir os seus registos DNS com as mesmas credenciais, APIs, ferramentas, faturação e suporte como os seus outros serviços Azure.
+O Azure DNS fornece uma infraestrutura de servidor de nomes distribuído globalmente e de alta disponibilidade que pode utilizar para hospedar o seu domínio. Ao hospedar os seus domínios em DNS Azure, pode gerir os seus registos DNS com as mesmas credenciais, APIs, ferramentas, faturação e suporte como os seus outros serviços Azure.
 
-A Azure DNS não suporta atualmente a compra de nomes de domínio. Se quiser adquirir um nome de domínio, tem de utilizar um registo de nomes de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios podem então ser hospedados no Azure DNS para a gestão dos registos DNS. Veja [Delegar um Domínio ao DNS do Azure](dns-domain-delegation.md) para obter detalhes.
+Atualmente, o Azure DNS não suporta a compra de nomes de domínio. Se quiser adquirir um nome de domínio, tem de utilizar um registo de nomes de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios podem então ser hospedados no Azure DNS para a gestão dos registos DNS. Veja [Delegar um Domínio ao DNS do Azure](dns-domain-delegation.md) para obter detalhes.
 
 ## <a name="dns-zones"></a>Zonas DNS
 
@@ -46,43 +46,43 @@ Em Azure DNS, o TTL é especificado para o recorde estabelecido, não para cada 
 
 ### <a name="wildcard-records"></a>Registos wildcard
 
-O DNS do Azure suporta [registos de carateres universais](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Os registos wildcard são devolvidos em resposta a qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de recordes não wildcard). O Azure DNS suporta os recordes de wildcard para todos os tipos de discos, exceto NS e SOA.
+O DNS do Azure suporta [registos de carateres universais](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Os registos wildcard são devolvidos em resposta a qualquer consulta com um nome correspondente, a menos que haja uma correspondência mais próxima de um conjunto de recordes não wildcard. O Azure DNS suporta os recordes de wildcard para todos os tipos de discos, exceto NS e SOA.
 
-Para criar um conjunto de recordes wildcard, use o nome de recorde ' \* ' . Em alternativa, também pode usar um nome com \* ' como o seu rótulo mais à esquerda, por exemplo, \* '.foo'.
+Para criar um conjunto de recordes wildcard, use o nome de recorde ' \* ' . Também pode usar um nome com \* ' ' como o seu rótulo mais à esquerda, por exemplo, \* '.foo'.
 
 ### <a name="caa-records"></a>Registos da CAA
 
-Os registos da CAA permitem que os proprietários de domínios especifiquem quais as Autoridades certificados (AC) autorizadas a emitir certificados para o seu domínio. Isto permite que os CAs evitem certificados de emissão errada em algumas circunstâncias. Os registos da CAA têm três propriedades:
-* **Bandeiras**: Este é um número inteiro entre 0 e 255, usado para representar a bandeira crítica que tem um significado especial pelo [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+Os registos da CAA permitem que os proprietários de domínios especifiquem quais as Autoridades certificados (AC) autorizadas a emitir certificados para o seu domínio. Este registo permite aos CA evitar certificados de emissão errada em algumas circunstâncias. Os registos da CAA têm três propriedades:
+* **Bandeiras**: Este campo é um número inteiro entre 0 e 255, usado para representar a bandeira crítica que tem um significado especial pelo [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Tag**: uma cadeia ASCII que pode ser uma das seguintes:
-    * **emissão**: use isto se quiser especificar CAs que são autorizados a emitir certificados (todos os tipos)
-    * **emitewild**: use isto se quiser especificar CAs que são permitidos emitir certificados (apenas certificados wildcard)
+    * **emissão**: se quiser especificar CAs que são autorizados a emitir certificados (todos os tipos)
+    * **emitewild**: se quiser especificar CAs que são autorizados a emitir certificados (apenas certificados wildcard)
     * **iodef**: especifique um endereço de e-mail ou nome de anfitrião ao qual os CAs podem notificar para pedidos não autorizados de emissão de cert
 * **Valor**: o valor para a etiqueta específica escolhida
 
 ### <a name="cname-records"></a>Registos da CNAME
 
-Os conjuntos de registos CNAME não podem coexistir com outros conjuntos de registos com o mesmo nome. Por exemplo, não é possível criar um disco CNAME estabelecido com o nome relativo 'www' e um registo A com o nome relativo 'www' ao mesmo tempo.
+Os recordes da CNAME não podem coexistir com outros conjuntos de discos com o mesmo nome. Por exemplo, não é possível criar um disco CNAME estabelecido com o nome relativo 'www' e um registo A com o nome relativo 'www' ao mesmo tempo.
 
-Como o ápice da zona (nome = ' \@ ') contém sempre os conjuntos de registo NS e SOA que foram criados quando a zona foi criada, não é possível criar um recorde CNAME estabelecido no ápice da zona.
+Uma vez que o ápice da zona (nome = ' \@ ') sempre conterá os conjuntos de recordes NS e SOA durante a criação da zona, não é possível criar um recorde CNAME estabelecido no ápice da zona.
 
-Estes constrangimentos surgem das normas DNS e não são limitações do Azure DNS.
+Estas restrições derivam das normas DNS e não são limitações do DNS do Azure.
 
 ### <a name="ns-records"></a>Registos NS
 
-O registo NS estabelecido no ápice da zona (nome ' \@ ' ) é criado automaticamente com cada zona de DNS, e é eliminado automaticamente quando a zona é eliminada (não pode ser eliminada separadamente).
+O recorde NS estabelecido no ápice da zona (nome ' \@ ') é criado automaticamente com cada zona de DNS, e é apagado automaticamente quando a zona é eliminada. Não pode ser apagado separadamente.
 
-Este conjunto de registos contém os nomes dos servidores de nomeS DNS Azure atribuídos à zona. Pode adicionar servidores de nome adicionais a este conjunto de registos NS, para suportar domínios de co-hospedagem com mais de um fornecedor de DNS. Também pode modificar o TTL e metadados para este conjunto de registos. No entanto, não é possível remover ou modificar os servidores de nomeS DNS pré-povoados. 
+Este conjunto de registos contém os nomes dos servidores de nomeS DNS Azure atribuídos à zona. Pode adicionar mais servidores de nomes a este conjunto de registos NS, para suportar domínios de co-ionsting com mais de um fornecedor de DNS. Também pode modificar o TTL e metadados para este conjunto de registos. No entanto, não é permitido remover ou modificar os servidores de nomes Azure DNS pré-povoados. 
 
-Isto aplica-se apenas ao recorde de NS estabelecido no ápice da zona. Outros conjuntos de registos NS na sua zona (como usado para delegar zonas infantis) podem ser criados, modificados e eliminados sem restrições.
+Esta restrição aplica-se apenas ao recorde NS estabelecido no ápice da zona. Outros conjuntos de registos NS na sua zona (como usado para delegar zonas infantis) podem ser criados, modificados e eliminados sem restrições.
 
 ### <a name="soa-records"></a>Registos soa
 
-Um conjunto de registos SOA é criado automaticamente no ápice de cada zona (nome = ' \@ ') e é eliminado automaticamente quando a zona é eliminada.  Os registos SOA não podem ser criados ou eliminados separadamente.
+Um conjunto de registos SOA é criado automaticamente no ápice de cada zona (nome = ' \@ ') e é apagado automaticamente quando a zona é eliminada.  Os registos SOA não podem ser criados ou eliminados separadamente.
 
-Pode modificar todas as propriedades do registo SOA, exceto para a propriedade 'host', que está pré-configurada para se referir ao nome do servidor de nome principal fornecido pelo Azure DNS.
+Pode modificar todas as propriedades do registo SOA, exceto para a propriedade 'anfitrião'. Esta propriedade é pré-configurada para se referir ao nome do servidor de nome primário fornecido por Azure DNS.
 
-O número de série da zona no registo SOA não é atualizado automaticamente quando são efetuadas alterações aos registos na zona. Pode ser atualizado manualmente editando o registo SOA, se necessário.
+O número de série da zona no registo SOA não é atualizado automaticamente quando são feitas alterações aos registos na zona. Pode ser atualizado manualmente editando o registo SOA, se necessário.
 
 ### <a name="spf-records"></a>Registos SPF
 
@@ -97,7 +97,7 @@ O número de série da zona no registo SOA não é atualizado automaticamente qu
 
 ### <a name="txt-records"></a>Registos TXT
 
-Os registos TXT são usados para mapear nomes de domínio para cadeias de texto arbitrárias. São utilizados em múltiplas aplicações, nomeadamente relacionadas com a configuração de e-mail, tais como o [Quadro de Política de Remetente (SPF)](https://en.wikipedia.org/wiki/Sender_Policy_Framework) e o Correio Identificado de [DomainKeys (DKIM)](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail).
+Os registos TXT são usados para mapear nomes de domínio para cadeias de texto arbitrárias. São utilizados em múltiplas aplicações, em particular relacionadas com a configuração de e-mail, tais como o [Quadro de Política de Remetente (SPF)](https://en.wikipedia.org/wiki/Sender_Policy_Framework) e o Correio Identificado de [DomainKeys (DKIM)](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail).
 
 As normas DNS permitem que um único registo TXT contenha várias cordas, cada uma das quais pode ter até 254 caracteres de comprimento. Onde várias cordas são usadas, são concatenadas pelos clientes e tratadas como uma única corda.
 
@@ -109,19 +109,19 @@ As múltiplas cordas num registo DNS não devem ser confundidas com os múltiplo
 
 ### <a name="tags"></a>Etiquetas
 
-As etiquetas são uma lista de pares de valor-nome e são usadas pela Azure Resource Manager para rotular recursos.  O Azure Resource Manager utiliza tags para permitir visualizações filtradas da sua conta Azure, e também permite definir uma política sobre as etiquetas necessárias. Para obter mais informações sobre etiquetas, consulte [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md).
+As etiquetas são uma lista de pares de valor-nome e são usadas pela Azure Resource Manager para rotular recursos. O Azure Resource Manager utiliza tags para permitir visualizações filtradas da sua conta Azure e também permite definir uma política para determinadas etiquetas. Para obter mais informações sobre etiquetas, consulte [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md).
 
 O Azure DNS suporta a utilização de tags Azure Resource Manager nos recursos da zona DNS.  Não suporta tags em conjuntos de registos DNS, embora como um 'metadados' alternativo seja suportado em conjuntos de registos DNS como explicado abaixo.
 
 ### <a name="metadata"></a>Metadados
 
-Como alternativa a registar etiquetas definidas, o Azure DNS suporta a anotação de conjuntos de recordes utilizando 'metadados'.  Semelhante às tags, os metadados permitem associar pares de valor-nome a cada conjunto de registos.  Isto pode ser útil, por exemplo, para registar o propósito de cada conjunto de discos.  Ao contrário das etiquetas, os metadados não podem ser utilizados para fornecer uma visão filtrada da sua conta Azure e não podem ser especificados numa política do Gestor de Recursos Azure.
+Como alternativa a registar etiquetas definidas, o Azure DNS suporta a anotação de conjuntos de recordes utilizando 'metadados'.  Semelhante às tags, os metadados permitem associar pares de valor-nome a cada conjunto de registos.  Esta funcionalidade pode ser útil, por exemplo, para registar o propósito de cada conjunto de discos.  Ao contrário das etiquetas, os metadados não podem ser utilizados para fornecer uma visão filtrada da sua conta Azure e não podem ser especificados numa política do Gestor de Recursos Azure.
 
 ## <a name="etags"></a>Etags
 
 Suponha que duas pessoas ou dois processos tentem modificar um registo de DNS ao mesmo tempo. Qual ganha? E o vencedor sabe que eles sobreesceram mudanças criadas por outra pessoa?
 
-O Azure DNS utiliza Etags para lidar com alterações simultâneas no mesmo recurso com segurança. As etiquetas Etags são separadas das ['Tags' do Gestor de Recursos Azure.](#tags) Cada recurso DNS (zona ou conjunto de registos) tem um Etag associado a ele. Sempre que um recurso é recuperado, o seu Etag também é recuperado. Ao atualizar um recurso, pode optar por repercutir o Etag para que o Azure DNS possa verificar se o Etag no servidor corresponde. Uma vez que cada atualização a um recurso resulta na regeneração do Etag, um desfasamento do Etag indica que ocorreu uma alteração simultânea. Os Etags também podem ser utilizados ao criar um novo recurso para garantir que o recurso já não existe.
+O Azure DNS utiliza Etags para lidar com alterações simultâneas no mesmo recurso com segurança. As etiquetas Etags são separadas das ['Tags' do Gestor de Recursos Azure.](#tags) Cada recurso DNS (zona ou conjunto de registos) tem um Etag associado a ele. Sempre que um recurso é recuperado, o seu Etag também é recuperado. Ao atualizar um recurso, pode optar por repercutir o Etag para que o Azure DNS possa verificar o Etag nas correspondências do servidor. Uma vez que cada atualização a um recurso resulta na regeneração do Etag, um desfasamento do Etag indica que ocorreu uma alteração simultânea. Os Etags também podem ser usados ao criar um novo recurso para garantir que o recurso já não existe.
 
 Por predefinição, o Azure DNS PowerShell utiliza Etags para bloquear alterações simultâneas em zonas e conjuntos de registos. O interruptor *opcional -Overwrite* pode ser utilizado para suprimir os controlos Etag, caso em que quaisquer alterações simultâneas que ocorreram são substituídas.
 

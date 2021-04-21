@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 989bcbb7e509b9b7692f067af2989fcad94b6ad1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 284ef8de1c672fdc0a5bb1a996a3446010253f57
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107797140"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816796"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -402,10 +402,12 @@ az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup
 ---
 
 ## <a name="create-a-server-endpoint"></a>Criar um ponto final de servidor
-Os pontos finais de servidor representam uma localização específica num servidor registado, como uma pasta num volume do servidor. Um ponto final do servidor deve ser um caminho num servidor registado (em vez de uma partilha montada) e para utilizar o tiering da nuvem, o caminho deve estar num volume não-sistema. O armazenamento ligado à rede (NAS) não é suportado.
+Os pontos finais de servidor representam uma localização específica num servidor registado, como uma pasta num volume do servidor. Um ponto final do servidor está sujeito às seguintes condições:
 
-> [!NOTE]
-> Alterar o caminho ou a letra de unidade depois de ter estabelecido um ponto final do servidor num volume não é suportado. Certifique-se de que está a utilizar um caminho final no seu servidor registado.
+- Um ponto final do servidor deve ser um caminho num servidor registado (em vez de uma parte montada). O armazenamento ligado à rede (NAS) não é suportado.
+- Embora o ponto final do servidor possa estar no volume do sistema, os pontos finais do servidor no volume do sistema podem não utilizar o tiering da nuvem.
+- Alterar o caminho ou a letra de unidade depois de ter estabelecido um ponto final do servidor num volume não é suportado. Certifique-se de que está a utilizar um caminho final no seu servidor registado.
+- Um servidor registado pode suportar vários pontos finais do servidor, no entanto, um grupo de sincronização só pode ter um ponto final de servidor por servidor registado a qualquer momento. Outros pontos finais do servidor dentro do grupo de sincronização devem estar em diferentes servidores registados.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Para adicionar um ponto final do servidor, vá ao grupo de sincronização recém-criado e, em seguida, **selecione Adicionar ponto final do servidor**.

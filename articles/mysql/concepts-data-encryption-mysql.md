@@ -6,18 +6,18 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: bed0ccbc25c6fcc43d8fb0948182f229bce63edf
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d8e40cf9dac496266f67ad94e1e65db01e42f9d2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764716"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816841"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Base de Dados Azure para encriptação de dados MySQL com uma chave gerida pelo cliente
 
 A encriptação de dados com chaves geridas pelo cliente da Base de Dados do Azure para MySQL permite-lhe trazer a sua própria chave (BYOK) para a proteção de dados inativos. Também permite às organizações implementarem a separação de deveres na gestão das chaves e dos dados. Com a encriptação gerida pelo cliente, para além de ser o responsável pelo ciclo de vida de uma chave, pelas permissões de utilização da chave e pela auditoria das operações nas chaves, também possui o controlo total.
 
-A encriptação de dados com as chaves geridas pelo cliente para a Base de Dados Azure para o MySQL, é definida ao nível do servidor. Para um determinado servidor, uma chave gerida pelo cliente, chamada chave de encriptação (KEK), é usada para encriptar a chave de encriptação de dados (DEK) utilizada pelo serviço. O KEK é uma chave assimétrica armazenada numa instância [Azure Key Vault](../key-vault/general/security-overview.md) de propriedade do cliente e gerida pelo cliente. A chave de encriptação chave (KEK) e a chave de encriptação de dados (DEK) é descrita mais detalhadamente mais tarde neste artigo.
+A encriptação de dados com as chaves geridas pelo cliente para a Base de Dados Azure para o MySQL, é definida ao nível do servidor. Para um determinado servidor, uma chave gerida pelo cliente, chamada chave de encriptação (KEK), é usada para encriptar a chave de encriptação de dados (DEK) utilizada pelo serviço. O KEK é uma chave assimétrica armazenada numa instância [Azure Key Vault](../key-vault/general/security-features.md) de propriedade do cliente e gerida pelo cliente. A chave de encriptação chave (KEK) e a chave de encriptação de dados (DEK) é descrita mais detalhadamente mais tarde neste artigo.
 
 Key Vault é um sistema de gestão de chaves externo baseado na nuvem. É altamente disponível e fornece armazenamento escalável e seguro para chaves criptográficas RSA, opcionalmente apoiado por módulos de segurança de hardware validados FIPS 140-2 Nível 2 (HSMs). Não permite o acesso direto a uma chave armazenada, mas fornece serviços de encriptação e desencriptação a entidades autorizadas. O Key Vault pode gerar a chave, importá-la ou [transferi-la de um dispositivo HSM no local.](../key-vault/keys/hsm-protected-keys.md)
 

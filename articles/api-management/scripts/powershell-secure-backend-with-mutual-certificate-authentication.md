@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
-ms.custom: mvc
-ms.openlocfilehash: cb6b1cfcb6a8f482bdcbc9d6befc99197f024f4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 7d3a4352c356f6f14ff23f32f6e71724027e20d7
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87905640"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816805"
 ---
 # <a name="secure-back-end"></a>Proteger o back-end
 

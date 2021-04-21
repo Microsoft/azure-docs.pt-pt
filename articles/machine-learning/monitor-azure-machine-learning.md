@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/01/2020
-ms.openlocfilehash: a18ee02b5e91b628a25655949a652270bd7436c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e5fd0fdd5a6f9a4a7537a844b096efdfef253638
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100575145"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816859"
 ---
 # <a name="monitor-azure-machine-learning"></a>Monitorizar o Azure Machine Learning
 
@@ -24,8 +24,8 @@ Quando você tem aplicações críticas e processos de negócio contando com rec
 > [!TIP]
 > A informação neste documento destina-se principalmente aos __administradores,__ uma vez que descreve a monitorização do serviço de Aprendizagem automática Azure e dos serviços Azure associados. Se for cientista ou __desenvolvedor de__ __dados,__ e quiser monitorizar informações específicas das *suas séries de formação de modelos,* consulte os seguintes documentos:
 >
-> * [Iniciar, monitorizar e cancelar treinos](how-to-manage-runs.md)
-> * [Métricas de registo para execuções de preparações](how-to-track-experiments.md)
+> * [Iniciar, monitorizar e cancelar treinos](how-to-track-monitor-analyze-runs.md)
+> * [Métricas de registo para execuções de preparações](how-to-log-view-metrics.md)
 > * [Controlar experiências com o MLflow](how-to-use-mlflow.md)
 > * [Visualizar execuções com TensorBoard](how-to-monitor-tensorboard.md)
 >

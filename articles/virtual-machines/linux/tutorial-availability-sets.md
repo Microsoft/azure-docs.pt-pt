@@ -1,6 +1,6 @@
 ---
 title: Implementar VMs num conjunto de disponibilidade usando O Azure CLI
-description: Neste tutorial, vai aprender a utilizar a CLI do Azure para implementar máquinas virtuais altamente disponíveis em Conjuntos de Disponibilidade
+description: Saiba como utilizar o Azure CLI para implementar máquinas virtuais altamente disponíveis em Conjuntos de Disponibilidade
 documentationcenter: ''
 services: virtual-machines
 author: mimckitt
@@ -10,12 +10,12 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 7c45f08a339ca8878bb9e2840faa8a412f3e60e0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 21f7d3e6f624c3a8e550a33293b46284bf5c5815
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765976"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816301"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-cli"></a>Criar e implementar máquinas virtuais num conjunto de disponibilidade usando O Azure CLI
 
