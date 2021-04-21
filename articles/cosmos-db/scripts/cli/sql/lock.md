@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: b14bc8f77c6f26fba36880762d12723888d845e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a7c59cf579e87f9f772ea1ba27e5991b951adba
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94565998"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772330"
 ---
 # <a name="create-resource-lock-for-a-azure-cosmos-db-core-sql-api-database-and-container-using-azure-cli"></a>Criar bloqueio de recursos para uma base de dados ESPI AZure Cosmos DB (SQL) usando Azure CLI
 [!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
@@ -34,10 +34,10 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [bloqueio az criar](/cli/azure/lock#az-lock-create) | Cria uma fechadura. |
-| [lista de bloqueio az](/cli/azure/lock#az-lock-list) | Lista informação de bloqueio. |
-| [az lock show](/cli/azure/lock#az-lock-show) | Mostrar propriedades de uma fechadura. |
-| [bloqueio az eliminar](/cli/azure/lock#az-lock-delete) | Apaga uma fechadura. |
+| [bloqueio az criar](/cli/azure/lock#az_lock_create) | Cria uma fechadura. |
+| [lista de bloqueio az](/cli/azure/lock#az_lock_list) | Lista informação de bloqueio. |
+| [az lock show](/cli/azure/lock#az_lock_show) | Mostrar propriedades de uma fechadura. |
+| [bloqueio az eliminar](/cli/azure/lock#az_lock_delete) | Apaga uma fechadura. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

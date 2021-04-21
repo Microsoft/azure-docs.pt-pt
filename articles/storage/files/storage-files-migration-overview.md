@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 0c2de0c1b024d093bd0276a852d9b97ba3320f4b
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: a6335d90625f860984ccbfd224955a97a32b731f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286339"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785222"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrar para partilhas de ficheiros do Azure
 
@@ -24,7 +24,7 @@ Este artigo contém bases migratórias e uma tabela de guias de migração. Este
 
 O Azure tem vários tipos disponíveis de armazenamento em nuvem. Um aspeto fundamental das migrações de ficheiros para a Azure é determinar qual a opção de armazenamento Azure que é a correta para os seus dados.
 
-[As ações de ficheiros Azure](storage-files-introduction.md) são adequadas para dados de ficheiros de uso geral. Estes dados incluem qualquer coisa para a sua utilização de uma participação de SMB ou NFS no local. Com [o Azure File Sync,](storage-sync-files-planning.md)pode cache o conteúdo de várias partilhas de ficheiros Azure em servidores que executam o Windows Server no local.
+[As ações de ficheiros Azure](storage-files-introduction.md) são adequadas para dados de ficheiros de uso geral. Estes dados incluem qualquer coisa para a sua utilização de uma participação de SMB ou NFS no local. Com [o Azure File Sync,](../file-sync/file-sync-planning.md)pode cache o conteúdo de várias partilhas de ficheiros Azure em servidores que executam o Windows Server no local.
 
 Para uma aplicação que atualmente é executada num servidor no local, armazenar ficheiros numa partilha de ficheiros Azure pode ser uma boa escolha. Pode mover a aplicação para a Azure e utilizar as ações de ficheiros Azure como armazenamento partilhado. Também pode considerar [discos Azure](../../virtual-machines/managed-disks-overview.md) para este cenário.
 
@@ -81,7 +81,7 @@ Um cenário sem ligação ainda não tem um guia de migração publicado. Verifi
 | Origem | Destino: </br>Implantação híbrida | Destino: </br>Implantação apenas em nuvem |
 |:---|:--|:--|
 | | Combinação de ferramentas:| Combinação de ferramentas: |
-| Windows Server 2012 R2 e mais tarde | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync e Azure DataBox](storage-sync-offline-data-transfer.md)</li></ul> | <ul><li>Via RoboCopy para uma partilha de ficheiros Azure montada</li><li>Através do Azure File Sync</li></ul> |
+| Windows Server 2012 R2 e mais tarde | <ul><li>[Azure File Sync](../file-sync/file-sync-deployment-guide.md)</li><li>[Azure File Sync e Azure DataBox](../file-sync/file-sync-offline-data-transfer.md)</li></ul> | <ul><li>Via RoboCopy para uma partilha de ficheiros Azure montada</li><li>Através do Azure File Sync</li></ul> |
 | Windows Server 2012 e mais cedo | <ul><li>Via DataBox e Azure File Sync para o servidor oss recente</li><li>Através do Serviço de Migração de Armazenamento para servidor recente com Azure File Sync, em seguida, upload</li></ul> | <ul><li>Através do Serviço de Migração de Armazenamento para servidor recente com Azure File Sync</li><li>Via RoboCopy para uma partilha de ficheiros Azure montada</li></ul> |
 | Armazenamento ligado à rede (NAS) | <ul><li>[Através do upload Azure File Sync](storage-files-migration-nas-hybrid.md)</li><li>[Através do DataBox + Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>[Via DataBox](storage-files-migration-nas-cloud-databox.md)</li><li>Via RoboCopy para uma partilha de ficheiros Azure montada</li></ul> |
 | Linux / Samba | <ul><li>[Azure File Sync e RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>Via RoboCopy para uma partilha de ficheiros Azure montada</li></ul> |
@@ -139,7 +139,7 @@ O RoboCopy é uma das ferramentas mais aplicáveis às migrações de ficheiros.
 
 O Azure File Sync escala principalmente com o número de itens (ficheiros e pastas) e não com a quantidade total de armazenamento. A ferramenta TreeSize permite-lhe determinar o número de itens nos volumes do Seu Servidor Windows.
 
-Pode utilizar a ferramenta para criar uma perspetiva antes de uma [implementação do Azure File Sync](storage-sync-files-deployment-guide.md). Também pode usá-lo quando o nível da nuvem estiver ativado após a implantação. Nesse cenário, vê-se o número de itens e quais os diretórios que mais utilizam o cache do servidor.
+Pode utilizar a ferramenta para criar uma perspetiva antes de uma [implementação do Azure File Sync](../file-sync/file-sync-deployment-guide.md). Também pode usá-lo quando o nível da nuvem estiver ativado após a implantação. Nesse cenário, vê-se o número de itens e quais os diretórios que mais utilizam o cache do servidor.
 
 A versão testada da ferramenta é a versão 4.4.1. É compatível com ficheiros com camadas de nuvem. A ferramenta não provocará a recolha de ficheiros hierárquicos durante o seu funcionamento normal.
 
@@ -151,5 +151,5 @@ A versão testada da ferramenta é a versão 4.4.1. É compatível com ficheiros
 Mais informações sobre as tecnologias Azure Files mencionadas neste artigo:
 
 * [Visão geral da partilha de ficheiros Azure](storage-files-introduction.md)
-* [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
-* [Azure File Sync: Cloud Tiering](storage-sync-cloud-tiering-overview.md)
+* [Planear uma implementação do Azure File Sync](../file-sync/file-sync-planning.md)
+* [Azure File Sync: Cloud Tiering](../file-sync/file-sync-cloud-tiering-overview.md)

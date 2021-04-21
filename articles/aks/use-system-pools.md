@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit, devx-track-azurecli
-ms.openlocfilehash: c3c65d3a7316d431c57d9fb75775e271bf9f34ca
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 8b41b43c70f72ab327de2f1d59415cc1f49e5a5b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223273"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767408"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gerir piscinas de nó de sistema no Serviço Azure Kubernetes (AKS)
 
@@ -196,19 +196,19 @@ Neste artigo, você aprendeu a criar e gerir piscinas de nó de sistema em um cl
 <!-- INTERNAL LINKS -->
 [aks-taints]: use-multiple-node-pools.md#setting-nodepool-taints
 [aks-windows]: windows-container-cli.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
-[az-aks-nodepool-list]: /cli/azure/aks/nodepool#az-aks-nodepool-list
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
-[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az-aks-nodepool-upgrade
-[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az-aks-nodepool-scale
-[az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az-aks-nodepool-delete
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
+[az-aks-nodepool-list]: /cli/azure/aks/nodepool#az_aks_nodepool_list
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az_aks_nodepool_update
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az_aks_nodepool_upgrade
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az_aks_nodepool_scale
+[az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az_aks_nodepool_delete
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete
+[az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

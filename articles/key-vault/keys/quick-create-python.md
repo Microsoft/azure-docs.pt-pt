@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 7c2e1a54861e47ba8009078ba718fba4fc738f0d
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 2c15090551ad9d84282f65925ff9c2cfbab7e14f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750325"
+ms.locfileid: "107773356"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Quickstart: Azure Key Vault chaves biblioteca cliente para Python
 
@@ -179,7 +179,7 @@ Para ler uma chave do Key Vault, utilize o método [get_key:](/python/api/azure-
 retrieved_key = client.get_key(keyName)
  ```
 
-Também pode verificar se a chave foi definida com o show de chaves Azure CLI [keyvault](/cli/azure/keyvault/key?#az-keyvault-key-show).
+Também pode verificar se a chave foi definida com o show de chaves Azure CLI [keyvault](/cli/azure/keyvault/key?#az_keyvault_key_show).
 
 ### <a name="delete-a-key"></a>Eliminar uma chave
 
@@ -192,7 +192,7 @@ deleted_key = poller.result()
 
 O `begin_delete_key` método é assíncrona e devolve um objeto poller. Chamar o método do poller `result` espera pela sua conclusão.
 
-Pode verificar se a chave é eliminada com o [programa de teclas](/cli/azure/keyvault/key?#az-keyvault-key-show)Azure CLI .
+Pode verificar se a chave é eliminada com o [programa de teclas](/cli/azure/keyvault/key?#az_keyvault_key_show)Azure CLI .
 
 Uma vez eliminada, uma chave permanece em estado apagado, mas recuperável por um tempo. Se voltar a executar o código, utilize um nome chave diferente.
 

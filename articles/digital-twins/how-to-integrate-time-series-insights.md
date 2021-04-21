@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 4/7/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 256bb80687ffedba9718303710335cce1a582c1d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d89ee4c8e66ba4dda004fbd27e15b96ab13c642b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304010"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783778"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integre as Gémeas Digitais Azure com Insights da Série De Tempo Azure
 
@@ -84,7 +84,7 @@ az eventhubs eventhub create --name <name-for-your-twins-hub> --resource-group <
 
 ### <a name="create-twins-hub-authorization-rule"></a>Criar regra de autorização do hub de gémeos
 
-Criar uma [regra de autorização](/cli/azure/eventhubs/eventhub/authorization-rule#az-eventhubs-eventhub-authorization-rule-create) com permissões de envio e receber. Especifique um nome para a regra.
+Criar uma [regra de autorização](/cli/azure/eventhubs/eventhub/authorization-rule#az_eventhubs_eventhub_authorization_rule_create) com permissões de envio e receber. Especifique um nome para a regra.
 
 ```azurecli-interactive
 az eventhubs eventhub authorization-rule create --rights Listen Send --name <name-for-your-twins-hub-auth-rule> --resource-group <your-resource-group> --namespace-name <your-event-hubs-namespace-from-earlier> --eventhub-name <your-twins-hub-from-above>
@@ -136,7 +136,7 @@ Crie o **hub da série de tempo** utilizando o seguinte comando. Especifique um 
 
 ### <a name="create-time-series-hub-authorization-rule"></a>Criar regra de autorização do hub de séries de tempo
 
-Criar uma [regra de autorização](/cli/azure/eventhubs/eventhub/authorization-rule#az-eventhubs-eventhub-authorization-rule-create) com permissões de envio e receber. Especifique um nome para a regra do centro da série de tempo.
+Criar uma [regra de autorização](/cli/azure/eventhubs/eventhub/authorization-rule#az_eventhubs_eventhub_authorization_rule_create) com permissões de envio e receber. Especifique um nome para a regra do centro da série de tempo.
 
 ```azurecli-interactive
 az eventhubs eventhub authorization-rule create --rights Listen Send --name <name-for-your-time-series-hub-auth-rule> --resource-group <your-resource-group> --namespace-name <your-event-hub-namespace-from-earlier> --eventhub-name <your-time-series-hub-name-from-above>

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 21db7ed0cf13a3ed282929b09847c6c3ba8a36ed
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9dce264b7f2c88aed11f5b82a61f83cbac6c9697
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307253"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785114"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configure um proxy do Centro de Distribuição de Chaves Kerberos (pré-visualização)
 
@@ -36,7 +36,7 @@ Este artigo irá mostrar-lhe como configurar o feed no cliente Virtual Desktop d
 Para configurar um anfitrião de sessão virtual do Windows desktop com um proxy KDC, você precisará das seguintes coisas:
 
 - Acesso ao portal Azure e a uma conta de administrador da Azure.
-- As máquinas de clientes remotos devem estar a funcionar tanto o Windows 10 como o Windows 7 e ter o [cliente Windows Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) instalado.
+- As máquinas de clientes remotos devem estar a funcionar tanto o Windows 10 como o Windows 7 e ter o [cliente Windows Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) instalado. Atualmente, o cliente web não é suportado.
 - Deve ter um representante da KDC já instalado na sua máquina. Para aprender a fazê-lo, consulte [Configurar o papel RD Gateway para o Windows Virtual Desktop](rd-gateway-role.md).
 - O sistema operativo da máquina deve ser o Windows Server 2016 ou mais tarde.
 

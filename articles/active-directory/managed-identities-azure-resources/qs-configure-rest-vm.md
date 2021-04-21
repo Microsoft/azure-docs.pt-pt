@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f70229fabe4331adb7740cf09cf2bf8f3e3e4617
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b74e7d312133c24daad448e029a3c3d4cbdce79
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97587524"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773086"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configure identidades geridas para recursos Azure em um VM Azure usando chamadas REST API
 
@@ -49,13 +49,13 @@ Nesta secção, aprende-se a ativar e desativar a identidade gerida atribuída p
 
 Para criar um VM Azure com a identidade gerida atribuída pelo sistema, a sua conta precisa da atribuição de função [de Contribuinte de Máquina Virtual.](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretórios Azure AD.
 
-1. Crie uma [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contenção e implementação da VM e os respetivos recursos relacionados, utilizando [az group create](/cli/azure/group/#az-group-create). Pode ignorar este passo se já tiver o grupo de recursos que pretende utilizar em vez disso:
+1. Crie uma [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contenção e implementação da VM e os respetivos recursos relacionados, utilizando [az group create](/cli/azure/group/#az_group_create). Pode ignorar este passo se já tiver o grupo de recursos que pretende utilizar em vez disso:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-2. Crie uma [interface de rede](/cli/azure/network/nic#az-network-nic-create) para o seu VM:
+2. Crie uma [interface de rede](/cli/azure/network/nic#az_network_nic_create) para o seu VM:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -77,7 +77,7 @@ Para criar um VM Azure com a identidade gerida atribuída pelo sistema, a sua co
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
    
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -166,7 +166,7 @@ Para permitir a identidade gerida atribuída pelo sistema num VM que foi origina
    ```HTTP
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -198,7 +198,7 @@ Para permitir a identidade gerida atribuída pelo sistema num VM que foi origina
    ```HTTP
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -233,7 +233,7 @@ Para permitir a identidade gerida atribuída pelo sistema num VM que foi origina
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
     
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -276,7 +276,7 @@ Para desativar a identidade gerida atribuída pelo sistema num VM, a sua conta n
    ```HTTP
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -309,7 +309,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    az account get-access-token
    ```
 
-2. Crie uma [interface de rede](/cli/azure/network/nic#az-network-nic-create) para o seu VM:
+2. Crie uma [interface de rede](/cli/azure/network/nic#az_network_nic_create) para o seu VM:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -335,7 +335,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -416,7 +416,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -507,7 +507,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    ```HTTP
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -528,7 +528,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    ```HTTP
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -560,7 +560,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
    
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -596,7 +596,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -635,7 +635,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -676,7 +676,7 @@ Para remover uma identidade atribuída ao utilizador para um VM, a sua conta nec
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -699,7 +699,7 @@ Para remover uma identidade atribuída ao utilizador para um VM, a sua conta nec
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -731,7 +731,7 @@ Para remover uma identidade atribuída ao utilizador para um VM, a sua conta nec
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Cabeçalhos do pedido**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -761,7 +761,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
 ```
 
-**Cabeçalhos do pedido**
+**Pedido de cabeçalhos**
 
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|
@@ -788,7 +788,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
 ```
 
-**Cabeçalhos do pedido**
+**Pedido de cabeçalhos**
 
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|

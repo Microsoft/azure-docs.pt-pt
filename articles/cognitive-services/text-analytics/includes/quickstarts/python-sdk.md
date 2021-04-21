@@ -3,14 +3,14 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 04/19/2021
 ms.author: aahi
-ms.openlocfilehash: 791591f3d98f9e6902e89a880c464e6a609e3a1f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cee201c11d0415e1f63e7e6a9157b96a059503ba
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599081"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765124"
 ---
 <a name="HOLTop"></a>
 
@@ -808,15 +808,19 @@ key_phrase_extraction_example(client)
 Criar uma nova função chamada `analyze_batch_actions_example()` que leva o cliente como um argumento, e depois chama a `begin_analyze_batch_actions()` função. O resultado será uma operação de longa duração que será sondada para obter resultados.
 
 ```python
-    def analyze_batch_actions_example(client):
+from azure.ai.textanalytics import (
+    RecognizeEntitiesAction
+)
+
+def analyze_batch_example(client):
         documents = [
             "Microsoft was founded by Bill Gates and Paul Allen."
         ]
 
-        poller = text_analytics_client.begin_analyze_batch_actions(
+        poller = client.begin_analyze_batch_actions(
             documents,
             display_name="Sample Text Analysis",
-            entities_recognition_tasks=[EntitiesRecognitionTask()]
+            actions=[RecognizeEntitiesAction()]
         )
 
         result = poller.result()
@@ -824,7 +828,7 @@ Criar uma nova função chamada `analyze_batch_actions_example()` que leva o cli
 
         entities_recognition_task_result = action_results[0]
         print("Results of Entities Recognition action:")
-        docs = [doc for doc in first_action_result.document_results if not doc.is_error]
+        docs = [doc for doc in entities_recognition_task_result.document_results if not doc.is_error]
 
         for idx, doc in enumerate(docs):
             print("\nDocument text: {}".format(documents[idx]))
@@ -835,7 +839,7 @@ Criar uma nova função chamada `analyze_batch_actions_example()` que leva o cli
                 print("...Offset: {}".format(entity.offset))
             print("------------------------------------------")
 
-analyze_example(client)
+analyze_batch_example(client)
 ```
 
 ### <a name="output"></a>Saída

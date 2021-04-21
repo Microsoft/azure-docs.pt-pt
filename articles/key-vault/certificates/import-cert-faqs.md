@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 39fe4e77d701f8e9311ea343c88eb3b905496680
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 97dfc2db837f728b8cb4ece9a064f99006c9996b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749245"
+ms.locfileid: "107767822"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Certificação de Azure Key Vault FAQ
 
@@ -42,7 +42,7 @@ Não, não é possível realizar operações de certificado utilizando um modelo
 
 ### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>Quando importo um certificado através do portal Azure, tenho um erro de "Algo correu mal". Como posso investigar mais?
      
-Para visualizar um erro mais descritivo, importe o ficheiro do certificado utilizando [o Azure CLI](/cli/azure/keyvault/certificate#az-keyvault-certificate-import) ou [o PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate).
+Para visualizar um erro mais descritivo, importe o ficheiro do certificado utilizando [o Azure CLI](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) ou [o PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate).
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>Como posso resolver "Error type: Access denied or user is unauthorized to import certificate"?
     

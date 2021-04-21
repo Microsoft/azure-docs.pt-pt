@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 4/19/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ecbc76651f09a9b4f2bde01c733cace5037f5fd4
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: ebfeee2828b3a36f9cf47891f8aea6d889db85bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107738833"
+ms.locfileid: "107763582"
 ---
 # <a name="add-an-update-to-device-update-for-iot-hub"></a>Adicione uma atualização à atualização do dispositivo para ioT hub
 Saiba como adicionar uma nova atualização no Device Update para IoT Hub.
@@ -19,7 +19,7 @@ Saiba como adicionar uma nova atualização no Device Update para IoT Hub.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Acesso a um Hub IoT com atualização do dispositivo para o IoT Hub ativado](create-device-update-account.md). 
-* Um dispositivo IoT (ou simulador) previsto para a Atualização do Dispositivo dentro do Hub IoT.
+* Um dispositivo IoT (ou simulador) [previsto para a Atualização do Dispositivo](device-update-agent-provisioning.md) dentro do Hub IoT.
 * [PowerShell 5](/powershell/scripting/install/installing-powershell) ou posteriormente (inclui instalações linux, macOS e Windows)
 * Navegadores suportados:
   * [Microsoft Edge](https://www.microsoft.com/edge)
@@ -30,7 +30,7 @@ Saiba como adicionar uma nova atualização no Device Update para IoT Hub.
 
 ## <a name="obtain-an-update-for-your-devices"></a>Obtenha uma atualização para os seus dispositivos
 
-Agora que a Atualização do Dispositivo está [configurada,](create-device-update-account.md)está pronto para atualizar os seus dispositivos. Em seguida, vai precisar dos ficheiros de atualização reais que irá implementar nesses dispositivos.
+Agora que configurar a Atualização do Dispositivo e forte os seus dispositivos, vai precisar dos ficheiros de atualização que irá utilizar nesses dispositivos.
 
 Se adquiriu dispositivos a um OEM ou um integrador de soluções, essa organização provavelmente fornecerá ficheiros de atualização para si, sem que necessite de criar as atualizações. Contacte o OEM ou o integrador de soluções para saber como disponibilizam as atualizações.
 

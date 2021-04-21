@@ -4,12 +4,12 @@ description: Descreve filas de cartas mortas no Azure Service Bus. As filas de a
 ms.topic: article
 ms.date: 04/08/2021
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 6459c8edd03427357810c1ad30161e87c18e059c
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: cb791982b50d7afff7b74d70adfd285bb5e0a11c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304329"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773230"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de cartas mortas do Service Bus
 
@@ -31,7 +31,7 @@ Não é possível obter a contagem de mensagens na fila das letras mortas ao ní
 
 ![Contagem de mensagens DLQ](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-Também pode obter a contagem de mensagens DLQ utilizando o comando Azure CLI: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show) . 
+Também pode obter a contagem de mensagens DLQ utilizando o comando Azure CLI: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_show) . 
 
 ## <a name="moving-messages-to-the-dlq"></a>Mensagens de deslocação para o DLQ
 Existem várias atividades no Service Bus que fazem com que as mensagens sejam empurradas para o DLQ a partir do próprio motor de mensagens. Uma aplicação também pode mover explicitamente mensagens para o DLQ. As duas propriedades seguintes (razão de letra morta e descrição da letra morta) são adicionadas a mensagens com letras mortas. As aplicações podem definir os seus próprios códigos para a propriedade reason da letra morta, mas o sistema define os seguintes valores.
@@ -80,4 +80,3 @@ Para obter mais informações sobre as filas do Service Bus, consulte os seguint
 
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Filas de Azure e filas de autocarros de serviço comparadas](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-

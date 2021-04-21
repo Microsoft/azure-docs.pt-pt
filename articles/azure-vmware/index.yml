@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: shortpatti
   ms.author: v-patsho
-  ms.date: 03/30/2021
-  ms.openlocfilehash: 6e97c14acc291984a90182f322cbde3462b9daee
-  ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+  ms.date: 04/20/2021
+  ms.openlocfilehash: 8c754c7855848db3119d987a4147b08cd3aa2115
+  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/08/2021
-  ms.locfileid: "107209812"
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107765346"
 landingContent:
 - title: Acerca do Azure VMware Solution
   linkLists:
@@ -186,3 +186,5 @@ landingContent:
     links:
     - text: Criar um pedido de suporte para falhas de implementação
       url: fix-deployment-provisioning-failures.md
+    - text: Código de erro vix ferramentas VMware = 21009
+      url: https://kb.vmware.com/s/article/2129927

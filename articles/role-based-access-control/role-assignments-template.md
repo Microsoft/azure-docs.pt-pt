@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 01/21/2021
 ms.author: rolyon
-ms.openlocfilehash: 65b4ec369085e44cdffb0550e9eeaef0196cd35a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba1df23b40de82a8ef901541884ef29ea0b504a1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556028"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771880"
 ---
 # <a name="assign-azure-roles-using-azure-resource-manager-templates"></a>Atribuir funções Azure usando modelos de Gestor de Recursos Azure
 
@@ -29,9 +29,9 @@ ms.locfileid: "100556028"
 
 Para atribuir uma função, precisa de especificar o ID do utilizador, grupo ou aplicação a que pretende atribuir a função. O ID tem o formato: `11111111-1111-1111-1111-111111111111` . Pode obter o ID usando o portal Azure, Azure PowerShell ou Azure CLI.
 
-### <a name="user"></a>User
+### <a name="user"></a>Utilizador
 
-Para obter o ID de um utilizador, pode utilizar os [comandos get-AzADUser](/powershell/module/az.resources/get-azaduser) ou [az ad user show.](/cli/azure/ad/user#az-ad-user-show)
+Para obter o ID de um utilizador, pode utilizar os [comandos get-AzADUser](/powershell/module/az.resources/get-azaduser) ou [az ad user show.](/cli/azure/ad/user#az_ad_user_show)
 
 ```azurepowershell
 $objectid = (Get-AzADUser -DisplayName "{name}").id
@@ -43,7 +43,7 @@ objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 
 ### <a name="group"></a>Group
 
-Para obter o ID de um grupo, você pode usar os comandos de grupo [get-AzADGroup](/powershell/module/az.resources/get-azadgroup) ou [az ad show.](/cli/azure/ad/group#az-ad-group-show)
+Para obter o ID de um grupo, você pode usar os comandos de grupo [get-AzADGroup](/powershell/module/az.resources/get-azadgroup) ou [az ad show.](/cli/azure/ad/group#az_ad_group_show)
 
 ```azurepowershell
 $objectid = (Get-AzADGroup -DisplayName "{name}").id
@@ -67,7 +67,7 @@ objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectI
 
 ### <a name="application"></a>Aplicação
 
-Para obter o ID de um principal serviço (identidade utilizada por uma aplicação), pode utilizar os comandos [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) ou [az ad sp.](/cli/azure/ad/sp#az-ad-sp-list) Para um principiante de serviço, utilize o ID do objeto e **não** o ID da aplicação.
+Para obter o ID de um principal serviço (identidade utilizada por uma aplicação), pode utilizar os comandos [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) ou [az ad sp.](/cli/azure/ad/sp#az_ad_sp_list) Para um principiante de serviço, utilize o ID do objeto e **não** o ID da aplicação.
 
 ```azurepowershell
 $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id

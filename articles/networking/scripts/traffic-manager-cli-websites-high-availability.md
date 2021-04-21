@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 06/26/2018
 ms.author: allensu
-ms.openlocfilehash: 90fcba21ad6f44b5a420cb15b95ef278f9b5b9b0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 00964a49940b208144167e9fe1ff4248f46e35fa
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211083"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763204"
 ---
 # <a name="route-traffic-for-high-availability-of-applications---azure-cli"></a>Tráfego de rotas para elevada disponibilidade de aplicações - Azure CLI
 
@@ -49,7 +49,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma a
 |---|---|
 | [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az appservice plan create](/cli/azure/appservice/plan) | Cria um plano do Serviço de Aplicações. Isto é como uma fazenda de servidores para a sua aplicação web Azure. |
-| [az webapp create](/cli/azure/webapp#az-webapp-create) | Cria uma aplicação web Azure dentro do plano de Serviço de Aplicações. |
+| [az webapp create](/cli/azure/webapp#az_webapp_create) | Cria uma aplicação web Azure dentro do plano de Serviço de Aplicações. |
 | [az perfil de gestor de tráfego de rede criar](/cli/azure/network/traffic-manager/profile) | Cria um perfil do Gestor de Tráfego do Azure. |
 | [az rede gestor de tráfego-manager criar](/cli/azure/network/traffic-manager/endpoint) | Adiciona um ponto final a um Perfil do Gestor de Tráfego do Azure. |
 

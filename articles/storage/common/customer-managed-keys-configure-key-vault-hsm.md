@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: ea51c1f7fcfce5b795965eab2f9c03a820a6ab03
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f9b40c934cb428a31a3feb77195518d5351818d7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059365"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785366"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>Configure a encriptação com chaves geridas pelo cliente armazenadas no Azure Key Vault Managed HSM (pré-visualização)
 
@@ -34,7 +34,7 @@ Este artigo mostra como configurar a encriptação com chaves geridas pelo clien
 
 Primeiro, atribua uma identidade gerida atribuída ao sistema para a conta de armazenamento. Você usará esta identidade gerida para conceder as permissões da conta de armazenamento para aceder ao HSM gerido. Para obter mais informações sobre identidades geridas atribuídas pelo sistema, veja [quais são as identidades geridas para os recursos Azure?](../../active-directory/managed-identities-azure-resources/overview.md)
 
-Para atribuir uma identidade gerida utilizando o Azure CLI, ligue para [a atualização da conta de armazenamento AZ](/cli/azure/storage/account#az-storage-account-update). Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
+Para atribuir uma identidade gerida utilizando o Azure CLI, ligue para [a atualização da conta de armazenamento AZ](/cli/azure/storage/account#az_storage_account_update). Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 
 ```azurecli
 az storage account update \
@@ -97,7 +97,7 @@ az storage account update
     --encryption-key-vault $hsmurl
 ```
 
-Quando atualizar manualmente a versão chave, terá de atualizar as definições de encriptação da conta de armazenamento para utilizar a nova versão. Em primeiro lugar, consulta para o cofre-chave URI chamando [az keyvault show](/cli/azure/keyvault#az-keyvault-show), e para a versão chave, chamando [az key-key-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Em [seguida,](/cli/azure/storage/account#az-storage-account-update) ligue para a atualização da conta de armazenamento AZ para atualizar as definições de encriptação da conta de armazenamento para usar a nova versão da chave, como mostrado no exemplo anterior.
+Quando atualizar manualmente a versão chave, terá de atualizar as definições de encriptação da conta de armazenamento para utilizar a nova versão. Em primeiro lugar, consulta para o cofre-chave URI chamando [az keyvault show](/cli/azure/keyvault#az_keyvault_show), e para a versão chave, chamando [az key-key-versions](/cli/azure/keyvault/key#az_keyvault_key_list_versions). Em [seguida,](/cli/azure/storage/account#az_storage_account_update) ligue para a atualização da conta de armazenamento AZ para atualizar as definições de encriptação da conta de armazenamento para usar a nova versão da chave, como mostrado no exemplo anterior.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 6de387605a8c127485b68773b6cd1b19c7136d17
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 12600cadaa84ae116818eec06459d5db0c05304a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107504"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773425"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
@@ -419,7 +419,7 @@ Irá fornecer as seguintes informações no separador detalhes do **repositório
 
 1. Utilizador administrador
 
-<br>**Palavra-passe para o Registo do Contentor Azure**: Forneça a palavra-passe para o nome de utilizador admin que está associado ao Registo do Contentor Azure e tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para as Chaves de Acesso ao **Registo de Contentores**  >   ou com o Azure CLI utilizando o comando do [show.](/cli/azure/acr/credential#az-acr-credential-show)
+<br>**Palavra-passe para o Registo do Contentor Azure**: Forneça a palavra-passe para o nome de utilizador admin que está associado ao Registo do Contentor Azure e tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para as Chaves de Acesso ao **Registo de Contentores**  >   ou com o Azure CLI utilizando o comando do [show.](/cli/azure/acr/credential#az_acr_credential_show)
 
 :::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustra o ecrã da chave de acesso no portal Azure.":::
 

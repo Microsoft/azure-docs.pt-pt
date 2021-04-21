@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 492246b5dfb19664ea54ce8b5462c7d77f8d951b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19809d7150c8a461f97282d1583d0d870d6af8bb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94562717"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770677"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-gremlin-api-database-and-graph-using-azure-cli"></a>Crie um bloqueio de recursos para a base de dados e gráfico da Azure Cosmos Gremlin API utilizando o Azure CLI
 [!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
@@ -34,10 +34,10 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [bloqueio az criar](/cli/azure/lock#az-lock-create) | Cria uma fechadura. |
-| [lista de bloqueio az](/cli/azure/lock#az-lock-list) | Lista informação de bloqueio. |
-| [az lock show](/cli/azure/lock#az-lock-show) | Mostrar propriedades de uma fechadura. |
-| [bloqueio az eliminar](/cli/azure/lock#az-lock-delete) | Apaga uma fechadura. |
+| [bloqueio az criar](/cli/azure/lock#az_lock_create) | Cria uma fechadura. |
+| [lista de bloqueio az](/cli/azure/lock#az_lock_list) | Lista informação de bloqueio. |
+| [az lock show](/cli/azure/lock#az_lock_show) | Mostrar propriedades de uma fechadura. |
+| [bloqueio az eliminar](/cli/azure/lock#az_lock_delete) | Apaga uma fechadura. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

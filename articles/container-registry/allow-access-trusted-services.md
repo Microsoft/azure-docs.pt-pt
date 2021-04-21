@@ -3,12 +3,12 @@ title: Aceder a registo restrito de rede utilizando o serviço fidedigno Azure
 description: Permitir que uma instância de serviço fidedigna Azure aceda de forma segura a um registo restrito de contentores em rede para puxar ou empurrar imagens
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 2e6b6ee3736f98f53ebb0aa43d707d42ba4cc058
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b0d7feb223bcfcec4e8b2c786b211f4e3c3c3eb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101716487"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785875"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Permitir serviços fidedignos para aceder de forma segura a um registo restrito de contentores em rede (pré-visualização)
 
@@ -49,7 +49,7 @@ Os casos dos seguintes serviços podem aceder a um registo restrito de contentor
 
 ## <a name="allow-trusted-services---cli"></a>Permitir serviços de confiança - CLI
 
-Por predefinição, a definição de serviços fidedignos permite estar ativada num novo registo de contentores Azure. Desative ou ative a definição executando o comando [de atualização az acr.](/cli/azure/acr#az-acr-update)
+Por predefinição, a definição de serviços fidedignos permite estar ativada num novo registo de contentores Azure. Desative ou ative a definição executando o comando [de atualização az acr.](/cli/azure/acr#az_acr_update)
 
 Para desativar:
 

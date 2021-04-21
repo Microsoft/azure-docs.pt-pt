@@ -3,12 +3,12 @@ title: Conformidade usando a Política Azure
 description: Atribuir políticas incorporadas na Política Azure para auditar o cumprimento dos seus registos de contentores Azure
 ms.topic: article
 ms.date: 03/01/2021
-ms.openlocfilehash: 0fed0c4132043e1eaed7e634e1f45b27f7c6e933
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 62a1fd8d3c996fd3a0bac3cadf77fc7e7ace0ce3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014303"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784178"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Conformidade de auditoria dos registos de contentores da Azure utilizando a Política Azure
 
@@ -51,7 +51,7 @@ Quando um recurso não é conforme, existem muitas razões possíveis. Para dete
 
 ### <a name="policy-compliance-in-the-azure-cli"></a>Conformidade da política no Azure CLI
 
-Também pode utilizar o CLI Azure para obter dados de conformidade. Por exemplo, utilize o comando da [lista de atribuição de políticas az](/cli/azure/policy/assignment#az-policy-assignment-list) no CLI para obter os IDs de política das políticas de registo de contentores Azure que são aplicadas:
+Também pode utilizar o CLI Azure para obter dados de conformidade. Por exemplo, utilize o comando da [lista de atribuição de políticas az](/cli/azure/policy/assignment#az_policy_assignment_list) no CLI para obter os IDs de política das políticas de registo de contentores Azure que são aplicadas:
 
 ```azurecli
 az policy assignment list --query "[?contains(displayName,'Container Registries')].{name:displayName, ID:id}" --output table
@@ -66,14 +66,14 @@ Container Registries should not allow unrestricted network access           /sub
 Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
-Em [seguida,](/cli/azure/policy/state#az-policy-state-list) executar a lista de estado de política az para devolver o estado de conformidade formatado json para todos os recursos sob uma determinada iD de política:
+Em [seguida,](/cli/azure/policy/state#az_policy_state_list) executar a lista de estado de política az para devolver o estado de conformidade formatado json para todos os recursos sob uma determinada iD de política:
 
 ```azurecli
 az policy state list \
   --resource <policyID>
 ```
 
-Ou executar [a lista de estados de política az](/cli/azure/policy/state#az-policy-state-list) para devolver o estado de conformidade formatado pelo JSON de um recurso de registo específico, como *o myregistry*:
+Ou executar [a lista de estados de política az](/cli/azure/policy/state#az_policy_state_list) para devolver o estado de conformidade formatado pelo JSON de um recurso de registo específico, como *o myregistry*:
 
 ```azurecli
 az policy state list \

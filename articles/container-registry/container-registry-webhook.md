@@ -3,12 +3,12 @@ title: Webhooks para responder a ações de registo
 description: Aprenda a usar webhooks para desencadear eventos quando as ações de pressão ou de puxar ocorrem nos repositórios de registo.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 5374b58ba72727500294a173c26e9a131b29fe34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f6fb719f8d9d51429a19616aa5548b32a2687e0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101722250"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773405"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Usando webhooks de registo de contentores Azure
 
@@ -47,7 +47,7 @@ Exemplo webhook formulário:
 
 ## <a name="create-webhook---azure-cli"></a>Criar webhook - Azure CLI
 
-Para criar um webhook utilizando o Azure CLI, utilize o comando [az acr webhook.](/cli/azure/acr/webhook#az-acr-webhook-create) O seguinte comando cria um webhook para todos os eventos de eliminação de imagem no *meu registo de registo:*
+Para criar um webhook utilizando o Azure CLI, utilize o comando [az acr webhook.](/cli/azure/acr/webhook#az_acr_webhook_create) O seguinte comando cria um webhook para todos os eventos de eliminação de imagem no *meu registo de registo:*
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -67,7 +67,7 @@ Antes de utilizar o webhook, pode testá-lo com o botão **Ping.** Ping envia um
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para testar um webhook ACR com o Azure CLI, utilize o comando [de ping az acr webhook.](/cli/azure/acr/webhook#az-acr-webhook-ping)
+Para testar um webhook ACR com o Azure CLI, utilize o comando [de ping az acr webhook.](/cli/azure/acr/webhook#az_acr_webhook_ping)
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01

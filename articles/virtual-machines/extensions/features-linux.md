@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 03/30/2018
-ms.openlocfilehash: 8ff7b2940ca9ce3e5dc5913c0e676a32857771e7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bdbbc4c421b83fd041c7d900fb0edd01c4d636e0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046883"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785096"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões e funcionalidades de máquina virtual para Linux
 
@@ -65,7 +65,7 @@ Para redirecionar os pedidos de tráfego de agentes, o Agente Linux tem suporte 
 
 ## <a name="discover-vm-extensions"></a>Descubra extensões VM
 
-Estão disponíveis muitas VMs diferentes para utilização com as VMs do Azure. Para ver uma lista completa, utilize [a lista de imagens de extensão az vm](/cli/azure/vm/extension/image#az-vm-extension-image-list). O exemplo a seguir enumera todas as extensões disponíveis na localização *westus:*
+Estão disponíveis muitas VMs diferentes para utilização com as VMs do Azure. Para ver uma lista completa, utilize [a lista de imagens de extensão az vm](/cli/azure/vm/extension/image#az_vm_extension_image_list). O exemplo a seguir enumera todas as extensões disponíveis na localização *westus:*
 
 ```azurecli
 az vm extension image list --location westus --output table
@@ -79,7 +79,7 @@ Os seguintes métodos podem ser utilizados para executar uma extensão contra um
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-As extensões Azure VM podem ser executadas contra um VM existente com o comando [conjunto de extensão az vm.](/cli/azure/vm/extension#az-vm-extension-set) O exemplo seguinte executa a extensão de Script Personalizado contra um VM nomeado *myVM* em um grupo de recursos chamado *myResourceGroup*. Substitua o nome do grupo de recursos de exemplo, nome VM e script para executar (https: \/ /raw.githubusercontent.com/me/project/hello.sh) com as suas próprias informações. 
+As extensões Azure VM podem ser executadas contra um VM existente com o comando [conjunto de extensão az vm.](/cli/azure/vm/extension#az_vm_extension_set) O exemplo seguinte executa a extensão de Script Personalizado contra um VM nomeado *myVM* em um grupo de recursos chamado *myResourceGroup*. Substitua o nome do grupo de recursos de exemplo, nome VM e script para executar (https: \/ /raw.githubusercontent.com/me/project/hello.sh) com as suas próprias informações. 
 
 ```azurecli
 az vm extension set `
@@ -277,7 +277,7 @@ Para obter as mais recentes correções de erro de desbloqueio menores, é altam
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Identificar se a extensão é definida com autoUpgradeMinorVersion em um VM
 
-Pode ver no modelo VM se a extensão foi prevista com "autoUpgradeMinorVersion". Para verificar, use [az vm show](/cli/azure/vm#az-vm-show) e forneça o grupo de recursos e o nome VM da seguinte forma:
+Pode ver no modelo VM se a extensão foi prevista com "autoUpgradeMinorVersion". Para verificar, use [az vm show](/cli/azure/vm#az_vm_show) e forneça o grupo de recursos e o nome VM da seguinte forma:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM
@@ -346,7 +346,7 @@ As seguintes etapas de resolução de problemas aplicam-se a todas as extensões
 
 ### <a name="view-extension-status"></a>Ver estado de extensão
 
-Depois de uma extensão VM ter sido executada contra um VM, use [a visão de instância az vm](/cli/azure/vm#az-vm-get-instance-view) para devolver o estado da extensão da seguinte forma:
+Depois de uma extensão VM ter sido executada contra um VM, use [a visão de instância az vm](/cli/azure/vm#az_vm_get_instance_view) para devolver o estado da extensão da seguinte forma:
 
 ```azurecli
 az vm get-instance-view \
@@ -379,7 +379,7 @@ O estado de execução da extensão também pode ser encontrado no portal Azure.
 
 ### <a name="rerun-a-vm-extension"></a>Reensundirem uma extensão VM
 
-Pode haver casos em que uma extensão VM precisa de ser reexecutada. Pode refazer uma extensão removendo-a e, em seguida, repetindo a extensão com um método de execução à sua escolha. Para remover uma extensão, utilize [a extensão az vm eliminar](/cli/azure/vm/extension#az-vm-extension-delete) da seguinte forma:
+Pode haver casos em que uma extensão VM precisa de ser reexecutada. Pode refazer uma extensão removendo-a e, em seguida, repetindo a extensão com um método de execução à sua escolha. Para remover uma extensão, utilize [a extensão az vm eliminar](/cli/azure/vm/extension#az_vm_extension_delete) da seguinte forma:
 
 ```azurecli
 az vm extension delete \

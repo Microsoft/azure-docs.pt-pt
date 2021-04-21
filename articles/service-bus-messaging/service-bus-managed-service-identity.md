@@ -3,12 +3,12 @@ title: Identidades geridas para recursos Azure com Service Bus
 description: Este artigo descreve como usar identidades geridas para aceder a entidades do Azure Service Bus (filas, tópicos e subscrições).
 ms.topic: article
 ms.date: 01/21/2021
-ms.openlocfilehash: cac254ef6b57f1878620b1e3ca30e757d7f39a88
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 0558e00ac7e8ce67d2e5194b02d2de06f2d38ff1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529457"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785438"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Service Bus
 [As identidades geridas para os recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) são uma funcionalidade cross-Azure que lhe permite criar uma identidade segura associada à implementação sob a qual o seu código de aplicação é executado. Em seguida, pode associar essa identidade a funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure de que a sua aplicação necessita.
@@ -45,7 +45,7 @@ Antes de atribuir um papel de Azure a um diretor de segurança, determine o âmb
 
 A lista a seguir descreve os níveis em que pode aceder aos recursos do Service Bus, começando pelo âmbito mais restrito:
 
-- **Fila,** **tópico**, ou **subscrição**: A atribuição de funções aplica-se à entidade específica do Service Bus. Atualmente, o portal Azure não suporta a atribuição de utilizadores/grupos/identidades geridas às funções de Service Bus Azure ao nível da subscrição. Aqui está um exemplo de utilização do comando Azure CLI: [az-role-assignment-create](/cli/azure/role/assignment?#az-role-assignment-create) para atribuir uma identidade a um papel de Service Bus Azure: 
+- **Fila,** **tópico**, ou **subscrição**: A atribuição de funções aplica-se à entidade específica do Service Bus. Atualmente, o portal Azure não suporta a atribuição de utilizadores/grupos/identidades geridas às funções de Service Bus Azure ao nível da subscrição. Aqui está um exemplo de utilização do comando Azure CLI: [az-role-assignment-create](/cli/azure/role/assignment?#az_role_assignment_create) para atribuir uma identidade a um papel de Service Bus Azure: 
 
     ```azurecli
     az role assignment create \

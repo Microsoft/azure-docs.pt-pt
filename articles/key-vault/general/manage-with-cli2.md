@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0b29b668b21c375dd1202652b5093526f648c300
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: d4037e66e653bc6e958020a5ef8722f2febb53d0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749605"
+ms.locfileid: "107772185"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerir o Cofre de Chaves utilizando o Azure CLI 
 
@@ -220,7 +220,7 @@ az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 ## <a name="setting-key-vault-advanced-access-policies"></a><a name="bkmk_KVperCLI"></a> Definição de políticas avançadas de acesso ao cofre de chaves
 
-Utilize [a atualização az keyvault](/cli/azure/keyvault#az-keyvault-update) para permitir políticas avançadas para o cofre da chave.
+Utilize [a atualização az keyvault](/cli/azure/keyvault#az_keyvault_update) para permitir políticas avançadas para o cofre da chave.
 
  Ativar o Cofre da Chave para implantação: Permite que as máquinas virtuais recuperem certificados armazenados como segredos do cofre.
 

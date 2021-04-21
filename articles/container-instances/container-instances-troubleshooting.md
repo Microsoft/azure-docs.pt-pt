@@ -4,12 +4,12 @@ description: Saiba como resolver problemas comuns quando implementar, executar o
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d8e7fb85e369f5f278436370944eafeb1fb6a50e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce7e3018e470df3840eb01127a7bf2ffa01b5cbc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96779520"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771070"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Resolver problemas comuns no Azure Container Instances
 
@@ -63,7 +63,7 @@ Se a imagem não puder ser puxada, eventos como o seguinte são mostrados na sa�
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
     "message": "pulling image \"mcr.microsoft.com/azuredocs/aci-hellowrld\"",
     "name": "Pulling",
-    "type": "Normal"
+    "type&quot;: &quot;Normal"
   },
   {
     "count": 3,
@@ -71,7 +71,7 @@ Se a imagem não puder ser puxada, eventos como o seguinte são mostrados na sa�
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
     "message": "Failed to pull image \"mcr.microsoft.com/azuredocs/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
     "name": "Failed",
-    "type": "Warning"
+    "type&quot;: &quot;Warning"
   },
   {
     "count": 3,
@@ -79,7 +79,7 @@ Se a imagem não puder ser puxada, eventos como o seguinte são mostrados na sa�
     "lastTimestamp": "2017-12-21T22:57:16+00:00",
     "message": "Back-off pulling image \"mcr.microsoft.com/azuredocs/aci-hellowrld\"",
     "name": "BackOff",
-    "type": "Normal"
+    "type&quot;: &quot;Normal"
   }
 ],
 ```
@@ -236,5 +236,5 @@ Saiba como [recuperar troncos e eventos](container-instances-get-logs.md) de con
 [docker-hub-windows-nano]: https://hub.docker.com/_/microsoft-windows-nanoserver
 
 <!-- LINKS - Internal -->
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-show]: /cli/azure/container#az_container_show
 [list-cached-images]: /rest/api/container-instances/location/listcachedimages

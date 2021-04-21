@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 04/19/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 3640a03f8ac814fec2823a761e651ab386438c5c
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 72ca331546d53f85ca82f33ec6a02558d91f1c1e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107326981"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765108"
 ---
 <a name="HOLTop"></a>
 
@@ -710,8 +710,7 @@ ID: 0
 
 # <a name="version-31-preview"></a>[Visualização da versão 3.1](#tab/version-3-1)
 
-> [!CAUTION]
-> Para utilizar as operações de Análise, deve utilizar um recurso Text Analytics com o nível de preços padrão (S).  
+[!INCLUDE [Analyze Batch Action pricing](../analyze-operation-pricing-caution.md)]
 
 Criar uma nova função chamada `analyze_example()` , que chama a `beginAnalyze()` função. O resultado será uma operação de longa duração que será sondada para obter resultados.
 

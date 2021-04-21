@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: fd82caab0babbc4803dd54926dafcba98370fa03
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 901f2b938512f842a5b4c34adbfc61f9379e5131
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567286"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772169"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma aplicação web Azure em .NET
 
@@ -85,7 +85,7 @@ git commit -m "first commit"
 
 Pode utilizar a FTP e o Git local para implementar uma aplicação web Azure utilizando um *utilizador de implementação.* Depois de configurar o utilizador de implementação, pode usá-lo para todas as suas implementações Azure. O nome de utilizador e palavra-passe de implementação ao nível da sua conta são diferentes das suas credenciais de subscrição Azure. 
 
-Para configurar o utilizador de implementação, executar o comando [de conjunto de utilizadores de implementação az webapp.](/cli/azure/webapp/deployment/user?#az-webapp-deployment-user-set) Escolha um nome de utilizador e uma palavra-passe que adere a estas diretrizes: 
+Para configurar o utilizador de implementação, executar o comando [de conjunto de utilizadores de implementação az webapp.](/cli/azure/webapp/deployment/user?#az_webapp_deployment_user_set) Escolha um nome de utilizador e uma palavra-passe que adere a estas diretrizes: 
 
 - O nome do utilizador tem de ser exclusivo no Azure. Para os pushes de Git locais, não pode conter o símbolo do sinal ao sinal (@). 
 - A palavra-passe deve ter pelo menos oito caracteres de comprimento e conter dois dos seguintes três elementos: letras, números e símbolos. 
@@ -100,7 +100,7 @@ Grave o seu nome de utilizador e palavra-passe para que possa usá-lo para imple
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um recipiente lógico no qual você implanta recursos Azure e os gere. Crie um grupo de recursos para conter tanto o seu cofre-chave como a sua aplicação web utilizando o comando [de criação do grupo AZ:](/cli/azure/group?#az-group-create)
+Um grupo de recursos é um recipiente lógico no qual você implanta recursos Azure e os gere. Crie um grupo de recursos para conter tanto o seu cofre-chave como a sua aplicação web utilizando o comando [de criação do grupo AZ:](/cli/azure/group?#az_group_create)
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
@@ -243,7 +243,7 @@ Nesta secção, irá configurar o acesso à Web para Key Vault e atualizar o seu
 
 Neste tutorial, usaremos [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md) para autenticar o Key Vault. A identidade gerida gere automaticamente as credenciais de aplicação.
 
-No CLI Azure, para criar a identidade para a aplicação, executar o comando [de atribuição de identidade az webapp:](/cli/azure/webapp/identity?#az-webapp-identity-assign)
+No CLI Azure, para criar a identidade para a aplicação, executar o comando [de atribuição de identidade az webapp:](/cli/azure/webapp/identity?#az_webapp_identity_assign)
 
 ```azurecli-interactive
 az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
@@ -259,7 +259,7 @@ O comando devolverá este corte JSON:
 }
 ```
 
-Para dar permissão à sua aplicação web para **fazer** e **listar** operações no seu cofre chave, passe o `principalId` comando de definição de chave Azure CLI [az:](/cli/azure/keyvault?#az-keyvault-set-policy)
+Para dar permissão à sua aplicação web para **fazer** e **listar** operações no seu cofre chave, passe o `principalId` comando de definição de chave Azure CLI [az:](/cli/azure/keyvault?#az_keyvault_set_policy)
 
 ```azurecli-interactive
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
@@ -343,4 +343,4 @@ Onde antes de ver "Olá Mundo!", deve agora ver o valor do seu segredo exibido.
 - [Utilize o Cofre de Chaves Azure com aplicações implantadas numa máquina virtual em .NET](./tutorial-net-virtual-machine.md)
 - Saiba mais sobre [identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md)
 - Ver o [Guia do Desenvolvedor](./developers-guide.md)
-- [Acesso seguro a um cofre de chaves](./secure-your-key-vault.md)
+- [Acesso seguro a um cofre de chaves](./security-overview.md)

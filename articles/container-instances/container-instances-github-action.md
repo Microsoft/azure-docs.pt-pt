@@ -4,12 +4,12 @@ description: Configure uma ação GitHub que automatiza passos para construir, e
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 1409d8fc1430cd9bf67bd735d9826a74979d495b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6a4d9ecff292d79f132f933c36b0030e04f4efa
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98762957"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771304"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurar uma ação do GitHub para criar uma instância de contentor
 
@@ -310,13 +310,13 @@ Navegue no [Mercado GitHub](https://github.com/marketplace?type=actions) para ma
 <!-- LINKS - internal -->
 
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-group-show]: /cli/azure/group#az-group-show
-[az-group-delete]: /cli/azure/group#az-group-delete
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-container-create]: /cli/azure/container#az-container-create
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-container-show]: /cli/azure/container#az-container-show
-[az-container-delete]: /cli/azure/container#az-container-delete
-[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-group-show]: /cli/azure/group#az_group_show
+[az-group-delete]: /cli/azure/group#az_group_delete
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-container-show]: /cli/azure/container#az_container_show
+[az-container-delete]: /cli/azure/container#az_container_delete
+[az-extension-add]: /cli/azure/extension#az_extension_add
 [az-container-app-up]: /cli/azure/ext/deploy-to-azure/container/app#ext-deploy-to-azure-az-container-app-up

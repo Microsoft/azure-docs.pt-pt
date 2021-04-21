@@ -5,12 +5,12 @@ description: Saiba como atualizar ou redefinir as credenciais de serviço princi
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 91d40a5a738737098b0941bf3e41e4edd515e6df
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0b750eb9af7dfd7bcbada7500b6ef71b015db11f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640471"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767480"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou rodar as credenciais para o Serviço Azure Kubernetes (AKS)
 
@@ -133,12 +133,12 @@ Neste artigo, o principal de serviço do cluster AKS em si e as Aplicações de 
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-aks-update-credentials]: /cli/azure/aks#az-aks-update-credentials
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-aks-update-credentials]: /cli/azure/aks#az_aks_update_credentials
 [best-practices-identity]: operator-best-practices-identity.md
 [aad-integration]: ./azure-ad-integration-cli.md
 [create-aad-app]: ./azure-ad-integration-cli.md#create-azure-ad-server-component
-[az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az_ad_sp_credential_list
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset
 [node-image-upgrade]: ./node-image-upgrade.md
