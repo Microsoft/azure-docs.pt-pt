@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf1a7a608df7a2b752d9a6bed52a4024fd776c5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fc5df641f27f8d604f7b5647736128856a3ecd51
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97592505"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764374"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Atribuir um acesso de identidade gerido a um recurso utilizando o PowerShell
 

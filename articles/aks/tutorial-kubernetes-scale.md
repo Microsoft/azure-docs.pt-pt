@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: dfebb6561e83c51063515ec655153aaaa7a09c0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a268d39ec514fc7b88b555221ece7dc044ca49ba
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251374"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767516"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Dimensionar aplicações no Serviço Kubernetes do Azure (AKS)
 
@@ -199,6 +199,6 @@ Avance para o próximo tutorial para saber como atualizar a aplicação no Kuber
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
-[az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-aks-scale]: /cli/azure/aks#az_aks_scale
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-show]: /cli/azure/aks#az_aks_show

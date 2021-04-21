@@ -3,12 +3,12 @@ title: Implementar a instância do contentor ativada pela GPU
 description: Saiba como implantar instâncias de contentores Azure para executar aplicações de contentores intensivos com computação utilizando recursos gpu.
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: 0d645d1fce24d1324e485d74e20bcf492d4444a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ffe4840d024c1e1f551966d05673c4ba83e1259
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93127013"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764068"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementar instâncias de contentores que utilizem recursos da GPU
 
@@ -236,8 +236,8 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-show]: /cli/azure/container#az-container-show
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create

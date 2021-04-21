@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/10/2021
-ms.openlocfilehash: 7120b6ff17657232c0e614f49b75bb24263712b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: 27889e8309c0efaf1e2869fc39d099f38f64f7c4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102636340"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764824"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: Pré-visualização de apps da Azure Logic Apps
 
@@ -80,7 +80,7 @@ Com o tipo de aplicação lógica de inquilino único, você pode criar estes ti
   Para facilitar a depuração, pode permitir a execução da história de um fluxo de trabalho apátrida, que tem algum impacto no desempenho, e depois desativar o histórico de execução quando terminar. Para obter mais informações, consulte [Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless) ou criar [fluxos de trabalho apátridas e apátridas no portal Azure](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
 
   > [!NOTE]
-  > Atualmente, os fluxos de trabalho apátridas suportam apenas *ações* para [conectores geridos](../connectors/apis-list.md#managed-api-connectors), que são implantados em Azure, e não gatilhos. Para iniciar o seu fluxo de trabalho, selecione o [pedido incorporado, os centros de eventos ou](../connectors/apis-list.md#built-ins)o gatilho do Service Bus . Estes gatilhos são executados de forma nativa no tempo de pré-visualização das aplicações lógicas Azure. Para obter mais informações sobre gatilhos, ações e conectores limitados, indisponíveis ou não [suportados, consulte capacidades alteradas, limitadas, indisponíveis ou não suportadas](#limited-unavailable-unsupported).
+  > Atualmente, os fluxos de trabalho apátridas suportam apenas *ações* para [conectores geridos](../connectors/managed.md), que são implantados em Azure, e não gatilhos. Para iniciar o seu fluxo de trabalho, selecione o [pedido incorporado, os centros de eventos ou](../connectors/built-in.md)o gatilho do Service Bus . Estes gatilhos são executados de forma nativa no tempo de pré-visualização das aplicações lógicas Azure. Para obter mais informações sobre gatilhos, ações e conectores limitados, indisponíveis ou não [suportados, consulte capacidades alteradas, limitadas, indisponíveis ou não suportadas](#limited-unavailable-unsupported).
 
 <a name="nested-behavior"></a>
 
@@ -194,13 +194,13 @@ Na pré-visualização de apps Azure Logic, estas capacidades mudaram, ou estão
   > [!NOTE]
   > Para executar localmente no Código do Estúdio Visual, os gatilhos e ações baseados em webhook requerem configuração adicional. Para obter mais informações, consulte [Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual.](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup)
 
-  * Para *fluxos de trabalho apátridas,* o separador **Azure** não aparece quando seleciona um gatilho porque só pode selecionar [ *ações* de conector geridas , e não acionamentos](../connectors/apis-list.md#managed-api-connectors). Embora possa ativar conectores geridos implantados pelo Azure para fluxos de trabalho apátridas, o designer não mostra nenhum gatilho de conector gerido para adicionar.
+  * Para *fluxos de trabalho apátridas,* o separador **Azure** não aparece quando seleciona um gatilho porque só pode selecionar [ *ações* de conector geridas , e não acionamentos](../connectors/managed.md). Embora possa ativar conectores geridos implantados pelo Azure para fluxos de trabalho apátridas, o designer não mostra nenhum gatilho de conector gerido para adicionar.
 
-  * Para *fluxos de trabalho estatais*, para além dos gatilhos e ações que estão listados como indisponíveis abaixo, ambos os [gatilhos e ações do conector gerido estão](../connectors/apis-list.md#managed-api-connectors) disponíveis para você usar.
+  * Para *fluxos de trabalho estatais*, para além dos gatilhos e ações que estão listados como indisponíveis abaixo, ambos os [gatilhos e ações do conector gerido estão](../connectors/managed.md) disponíveis para você usar.
 
   * Estes gatilhos e ações mudaram ou estão atualmente limitados, não suportados ou indisponíveis:
 
-    * [Os gatilhos de gateway de *dados* no local](../connectors/apis-list.md#on-premises-connectors) não estão disponíveis, mas as ações de gateway *estão* disponíveis.
+    * [Os gatilhos de gateway de *dados* no local](../connectors/managed.md#on-premises-connectors) não estão disponíveis, mas as ações de gateway *estão* disponíveis.
 
     * A ação incorporada, [Funções Azure - Escolha uma função Azure](logic-apps-azure-functions.md) é agora **Operações de Função Azure - Chame uma função Azure**. Esta ação funciona atualmente apenas para funções que são criadas a partir do modelo **de gatilho HTTP.**
 
@@ -221,7 +221,7 @@ Na pré-visualização de apps Azure Logic, estas capacidades mudaram, ou estão
 
       * As ações **de Operações de Código Inline** [atualizaram os limites](logic-apps-overview-preview.md#inline-code-limits).
 
-    * Alguns [gatilhos B2B incorporados e ações para contas de integração não](../connectors/apis-list.md#integration-account-connectors) estão disponíveis, por exemplo, as ações de codificação e descodamento do **Ficheiro Plano.**
+    * Alguns [gatilhos B2B incorporados e ações para contas de integração não](../connectors/managed.md#integration-account-connectors) estão disponíveis, por exemplo, as ações de codificação e descodamento do **Ficheiro Plano.**
 
     * A ação incorporada, [Azure Logic Apps - Escolha um fluxo](logic-apps-http-endpoint.md) de trabalho de aplicação lógica é agora **Workflow Operations - Invoque um fluxo de trabalho nesta aplicação de fluxo de trabalho**.
 

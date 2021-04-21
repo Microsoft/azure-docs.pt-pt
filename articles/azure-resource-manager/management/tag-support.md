@@ -2,13 +2,13 @@
 title: Suporte de etiquetas para recursos
 description: Mostra quais os tipos de recursos Azure que suportam tags. Fornece detalhes para todos os serviços da Azure.
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: 713fb5401db965787c2d9458da9afc3183a4c6a9
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.date: 04/20/2021
+ms.openlocfilehash: b196cae267a8d7dc878f055f6b2d70a3ff6f9313
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227335"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773968"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte de etiqueta para recursos Azure
 Este artigo descreve se um tipo de recurso suporta [tags](tag-resources.md). As **etiquetas de suporte** da coluna rotuladas indicam se o tipo de recurso tem uma propriedade para a etiqueta. A coluna rotulada **Tag no relatório de custos** indica se esse tipo de recurso passa a etiqueta para o relatório de custos. Pode ver os custos por etiquetas na análise de custos de Gestão de [Custos](../../cost-management-billing/costs/group-filter.md) e na faturação da [Azure e dados de utilização diária.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
@@ -939,7 +939,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | virtualMachineScaleSets / virtualMachines / networkInterfaces | No | No |
 
 > [!NOTE]
-> Não é possível adicionar uma etiqueta a uma máquina virtual que foi marcada como generalizada. Marca uma máquina virtual generalizada com [Set-AzVm -Generalização](/powershell/module/Az.Compute/Set-AzVM) ou [az vm generalizando](/cli/azure/vm#az-vm-generalize).
+> Não é possível adicionar uma etiqueta a uma máquina virtual que foi marcada como generalizada. Marca uma máquina virtual generalizada com [Set-AzVm -Generalização](/powershell/module/Az.Compute/Set-AzVM) ou [az vm generalizando](/cli/azure/vm#az_vm_generalize).
 
 ## <a name="microsoftconnectedcache"></a>Microsoft.ConnectedCache
 
@@ -1193,8 +1193,8 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
 > | Imigrações de dados | No | No |
-> | services | No | No |
-> | serviços / projetos | No | No |
+> | services | Yes | Yes |
+> | serviços / projetos | Yes | Yes |
 > | Serviços sqlMigration | Yes | Yes |
 
 ## <a name="microsoftdataprotection"></a>Microsoft.DataProtection
@@ -2567,7 +2567,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | servidores / restauradoresDroppedDatabases | No | No |
 > | servidores /objetivos de serviço | No | No |
 > | servidores / tdeCertificados | No | No |
-> | virtualClusters | No | No |
+> | virtualClusters | Yes | Yes |
 
 <a id="sqlnote"></a>
 

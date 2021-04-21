@@ -15,13 +15,13 @@ ms.workload: identity
 ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 61e83bd27c9434c4222e0161e3b643b183d1aa84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 59366f1a5b4bd0572af1b36f7be2f5bf91392660
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99090965"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784790"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como utilizar identidades geridas para recursos Azure num VM Azure para o sign-in 
 

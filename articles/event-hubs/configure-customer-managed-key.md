@@ -3,12 +3,12 @@ title: Configure a sua própria chave para encriptar os dados do Azure Event Hub
 description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o repouso de dados do Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: c608cd53c8ec71f219f015bab557d2b9b143d1c5
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: e3dd7cb1158294102d9bfe67629c80ae01ccdd17
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752017"
+ms.locfileid: "107775192"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Event Hubs em repouso utilizando o portal Azure
 O Azure Event Hubs fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). O serviço Event Hubs utiliza o Azure Storage para armazenar os dados. Todos os dados armazenados com O Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. Se utilizar a sua própria chave (também designada por Bring Your Own Key (BYOK) ou tecla gerida pelo cliente), os dados ainda são encriptados utilizando a chave gerida pela Microsoft, mas além disso a chave gerida pela Microsoft será encriptada utilizando a chave gerida pelo cliente. Esta funcionalidade permite-lhe criar, rodar, desativar e revogar o acesso às chaves geridas pelo cliente que são utilizadas para encriptar as chaves geridas pela Microsoft. Ativar a função BYOK é um processo de configuração de uma única vez no seu espaço de nome.
@@ -38,12 +38,12 @@ Para ativar as chaves geridas pelo cliente no portal Azure, siga estes passos:
 Depois de ativar as chaves geridas pelo cliente, tem de associar a chave gerida pelo cliente ao seu espaço de nomes Azure Event Hubs. O Event Hubs suporta apenas o Cofre da Chave Azure. Se ativar a **Encriptação com** a opção chave gerida pelo cliente na secção anterior, precisa de ter a chave importada para o Cofre da Chave Azure. Além disso, as teclas devem ter **Soft Delete** e **Não Purgar** configuradas para a chave. Estas definições podem ser configuradas utilizando [PowerShell](../key-vault/general/key-vault-recovery.md) ou [CLI](../key-vault/general/key-vault-recovery.md).
 
 1. Para criar um novo cofre de chaves, siga o Azure Key Vault [Quickstart](../key-vault/general/overview.md). Para obter mais informações sobre a importação de chaves existentes, consulte [sobre chaves, segredos e certificados.](../key-vault/general/about-keys-secrets-certificates.md)
-1. Para ligar a proteção de eliminação e purga suave ao criar um cofre, utilize o [comando de criação de chave-teclas az.](/cli/azure/keyvault#az-keyvault-create)
+1. Para ligar a proteção de eliminação e purga suave ao criar um cofre, utilize o [comando de criação de chave-teclas az.](/cli/azure/keyvault#az_keyvault_create)
 
     ```azurecli-interactive
     az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
-1. Para adicionar proteção de purga a um cofre existente (que já tem exclusão suave ativada), utilize o comando [de atualização az keyvault.](/cli/azure/keyvault#az-keyvault-update)
+1. Para adicionar proteção de purga a um cofre existente (que já tem exclusão suave ativada), utilize o comando [de atualização az keyvault.](/cli/azure/keyvault#az_keyvault_update)
 
     ```azurecli-interactive
     az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true

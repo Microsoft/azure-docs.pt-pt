@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.author: allensu
 ms.date: 09/14/2020
-ms.openlocfilehash: 749b233b827c27d2c998cfd6be66cf79cf48089d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00126dde55ffe584be611ddf268bb759e127d7a1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94831655"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788750"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Quickstart: Criar um equilibrador de carga interno para carregar VMs de equilíbrio utilizando um modelo ARM
 
@@ -78,7 +78,7 @@ az deployment group create \
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não é necessário, pode utilizar o comando de eliminação do [grupo az](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos contidos no seu interior.
+Quando já não é necessário, pode utilizar o comando de eliminação do [grupo az](/cli/azure/group#az_group_delete) para remover o grupo de recursos e todos os recursos contidos no seu interior.
 
 ```azurecli-interactive
   az group delete \

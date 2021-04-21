@@ -3,19 +3,18 @@ title: O que é o Azure Key Vault? | Microsoft Docs
 description: Saiba como o Azure Key Vault protege chaves criptográficas e segredos que as aplicações e serviços em nuvem usam.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 46c8845b4f01db09bf5f96eb1e67078b4e361f9f
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 6fafacda322a974d04a04bb5e79d1ee086eaf7a5
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728325"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753403"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceitos básicos Azure Key Vault
 
@@ -81,7 +80,7 @@ Os programadores também podem gerir as chaves diretamente, com APIs. Para obter
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Aprenda a [proteger o cofre.](secure-your-key-vault.md)
+- Aprenda a [proteger o cofre.](security-overview.md)
 - Saiba como [garantir as suas piscinas HSM geridas](../managed-hsm/access-control.md)
 
 <!--Image references-->

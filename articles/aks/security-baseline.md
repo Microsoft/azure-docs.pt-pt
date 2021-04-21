@@ -6,13 +6,13 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: mbaldwin
-ms.custom: subject-security-benchmark
-ms.openlocfilehash: b1a1c4f7a794041f46339dcf8cd5e09b2298f0bb
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.custom: subject-security-benchmark, devx-track-azurepowershell
+ms.openlocfilehash: 0564f1f39ac9d492dfffdf0e7adacdde08db0874
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076365"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769594"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Linha de segurança Azure para o Serviço Azure Kubernetes
 

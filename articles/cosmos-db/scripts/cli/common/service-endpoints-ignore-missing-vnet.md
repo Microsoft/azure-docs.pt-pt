@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: f66d219eff1919e62088e5c4f7aa72aab97ea4f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eae343b0ac85f3fdf6d0f6d52c7afbb91f401df4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566236"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770789"
 ---
 # <a name="connect-an-existing-azure-cosmos-account-with-virtual-network-service-endpoints-using-azure-cli"></a>Ligue uma conta Azure Cosmos existente com pontos finais de serviço de rede virtual usando Azure CLI
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
@@ -43,13 +43,13 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Cria uma rede virtual Azure. |
-| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Cria uma sub-rede para uma rede virtual Azure. |
-| [az rede vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show) | Devolve uma sub-rede para uma rede virtual Azure. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Azure Cosmos DB. |
-| [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) | Atualiza uma sub-rede para uma rede virtual Azure. |
-| [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Cria uma rede virtual Azure. |
+| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Cria uma sub-rede para uma rede virtual Azure. |
+| [az rede vnet subnet show](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_show) | Devolve uma sub-rede para uma rede virtual Azure. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Cria uma conta do Azure Cosmos DB. |
+| [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) | Atualiza uma sub-rede para uma rede virtual Azure. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

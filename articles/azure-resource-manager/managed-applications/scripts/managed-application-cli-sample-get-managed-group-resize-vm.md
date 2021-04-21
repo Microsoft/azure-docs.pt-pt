@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 711b516d1ba1154e574b0d8bbd8d86a02d7df018
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 179b1b64656d3f97778e183d57797e4b3660fece
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87497822"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775444"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Obter recursos num grupo de recursos gerido e redimensionar VMs com a CLI do Azure
 
@@ -34,9 +34,9 @@ Este script utiliza os seguintes comandos para implementar a aplicação gerida.
 
 | Comando | Notas |
 |---|---|
-| [az managedapp list](/cli/azure/managedapp#az-managedapp-list) | Lista as aplicações geridas. Forneça os valores de consulta para focar os resultados. |
-| [az resource list](/cli/azure/resource#az-resource-list) | Lista os recursos. Forneça um grupo de recursos e os valores de consulta para focar o resultado. |
-| [az vm resize](/cli/azure/vm#az-vm-resize) | Atualize um tamanho de máquina virtual. |
+| [az managedapp list](/cli/azure/managedapp#az_managedapp_list) | Lista as aplicações geridas. Forneça os valores de consulta para focar os resultados. |
+| [az resource list](/cli/azure/resource#az_resource_list) | Lista os recursos. Forneça um grupo de recursos e os valores de consulta para focar o resultado. |
+| [az vm resize](/cli/azure/vm#az_vm_resize) | Atualize um tamanho de máquina virtual. |
 
 
 ## <a name="next-steps"></a>Passos seguintes

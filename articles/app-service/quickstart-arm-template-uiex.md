@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7437a5208f94b435576b8a38dc65a6e798303a72
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bce6bfb61eb59d1fa66c550a133ac8b6f8d7f2c5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179090"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769011"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Quickstart: Criar app de Serviço de Aplicações usando um modelo ARM
 
@@ -133,7 +133,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <ul>
 <li>Criar um padrão <abbr title="Um recipiente lógico para recursos Azure relacionados que você pode gerir como uma unidade.">grupo de recursos</abbr>.</li>
 <li>Criar um padrão <abbr title="O plano que especifica a localização, tamanho e funcionalidades da fazenda de servidores web que hospeda a sua aplicação.">Plano do Serviço de Aplicações</abbr>.</li>
-<li><a href="/cli/azure/webapp#az-webapp-create">Criar uma <abbr title="A representação da sua aplicação web, que contém o seu código de aplicação, nomes de anfitriões DNS, certificados e recursos relacionados. "> App Service</abbr></a> com o nome especificado.</li>
+<li><a href="/cli/azure/webapp#az_webapp_create">Criar uma <abbr title="A representação da sua aplicação web, que contém o seu código de aplicação, nomes de anfitriões DNS, certificados e recursos relacionados. "> App Service</abbr></a> com o nome especificado.</li>
 </ul>
 </details>
 
@@ -191,4 +191,3 @@ Quando já não for necessário, [elimine o grupo de recursos](../azure-resource
 - [PHP com MySQL](tutorial-php-mysql-app.md)
 - [Ligue à base de dados Azure SQL com a Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
 - [Mapear domínio personalizado](app-service-web-tutorial-custom-domain-uiex.md)
-

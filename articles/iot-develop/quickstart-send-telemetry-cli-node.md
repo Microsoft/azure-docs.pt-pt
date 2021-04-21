@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: node
 ms.topic: quickstart
 ms.date: 03/25/2021
-ms.openlocfilehash: 047700be674dfab997b5c87f7446c19fdea9e0eb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d42ac814678136c2f6342cd1064e3c3ff394507
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605965"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777244"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-nodejs"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT (Node.js)
 
@@ -128,12 +128,12 @@ Se já não precisar dos recursos Azure criados neste arranque rápido, pode uti
 > A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. 
 
 Para eliminar um grupo de recursos por nome:
-1. Executar o [comando de eliminação do grupo az.](/cli/azure/group#az-group-delete) Este comando remove o grupo de recursos, o Hub IoT e o registo do dispositivo que criou.
+1. Executar o [comando de eliminação do grupo az.](/cli/azure/group#az_group_delete) Este comando remove o grupo de recursos, o Hub IoT e o registo do dispositivo que criou.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Executar o comando [da lista de grupos az](/cli/azure/group#az-group-list) para confirmar que o grupo de recursos é eliminado.  
+1. Executar o comando [da lista de grupos az](/cli/azure/group#az_group_list) para confirmar que o grupo de recursos é eliminado.  
 
     ```azurecli
     az group list

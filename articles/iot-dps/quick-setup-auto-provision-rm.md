@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 505859075ce58c5db6873544123710a11135651a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bcb37c624f53d961020de022569a621ca1dfaba1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198630"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789002"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Quickstart: Configurar o Serviço de Provisionamento de Dispositivos IoT Hub (DPS) com um modelo ARM
 
@@ -136,7 +136,7 @@ Inicie sessão na sua conta do Azure e selecione a sua subscrição.
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
-1. Para verificar a implantação, executar o seguinte [comando para listar recursos](/cli/azure/resource#az-resource-list) e procurar o novo serviço de fornecimento e hub IoT na saída:
+1. Para verificar a implantação, executar o seguinte [comando para listar recursos](/cli/azure/resource#az_resource_list) e procurar o novo serviço de fornecimento e hub IoT na saída:
 
     ```azurecli
      az resource list -g "${projectName}rg"
@@ -171,4 +171,3 @@ Neste quickstart, você implantou um hub IoT e uma instância de Serviço de Pro
 
 > [!div class="nextstepaction"]
 > [Quickstart para providenciar um dispositivo](./quick-create-simulated-device-symm-key.md)
-

@@ -4,12 +4,12 @@ description: Impedir que os utilizadores atualem ou apaguem os recursos do Azure
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1cc96a855c2bfe79bbf5876f0476c016d36ca9a4
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 71637318a60e66bf5000de2f564d740cc101cc60
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030071"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768728"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para prevenir alterações inesperadas
 
@@ -278,7 +278,7 @@ Remove-AzResourceLock -LockId $lockId
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Bloqueia os recursos implantados com o Azure CLI utilizando o comando [de criação de bloqueio az.](/cli/azure/lock#az-lock-create)
+Bloqueia os recursos implantados com o Azure CLI utilizando o comando [de criação de bloqueio az.](/cli/azure/lock#az_lock_create)
 
 Para bloquear um recurso, forneça o nome do recurso, o seu tipo de recurso e o seu nome de grupo de recursos.
 
@@ -292,7 +292,7 @@ Para bloquear um grupo de recursos, forneça o nome do grupo de recursos.
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-Para obter informações sobre uma fechadura, utilize [a lista de bloqueios az](/cli/azure/lock#az-lock-list). Para obter todas as fechaduras da sua subscrição, utilize:
+Para obter informações sobre uma fechadura, utilize [a lista de bloqueios az](/cli/azure/lock#az_lock_list). Para obter todas as fechaduras da sua subscrição, utilize:
 
 ```azurecli
 az lock list

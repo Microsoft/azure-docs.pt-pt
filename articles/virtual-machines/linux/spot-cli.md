@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 90ad35757834c14abdffb017ff31b3296074ca24
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8e8bdaa7a812d8c7accfea59b58b75a58d50e21e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104802442"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789614"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Implementar máquinas virtuais Azure Spot utilizando o Azure CLI
 
@@ -31,7 +31,7 @@ O processo de criação de uma Máquina Virtual Azure Spot utilizando o Azure CL
 
 Para criar máquinas virtuais Azure Spot, tem de executar a versão Azure CLI 2.0.74 ou posterior. Execute **az --version** para descobrir a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
-Inicie sessão no Azure com [início de sessão](/cli/azure/reference-index#az-login).
+Inicie sessão no Azure com [início de sessão](/cli/azure/reference-index#az_login).
 
 ```azurecli-interactive
 az login

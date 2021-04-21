@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 45d8eacde7b82629169a25389e898d67c5f85460
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 4d6e1935747f2e5dfb01a082f230e78246ce17d1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480869"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765781"
 ---
 Crie uma [aplicação web](../articles/app-service/overview.md#app-service-on-linux) no `myAppServicePlan` plano de Serviço de Aplicações. 
 
-Na Cloud Shell, podes usar o [`az webapp create`](/cli/azure/webapp#az-webapp-create) comando. No exemplo a seguir, substitua `<app-name>` com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). 
+Na Cloud Shell, podes usar o [`az webapp create`](/cli/azure/webapp#az_webapp_create) comando. No exemplo a seguir, substitua `<app-name>` com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-local-git
