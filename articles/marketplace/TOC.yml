@@ -61,25 +61,18 @@
           href: test-drive-hosted-detailed-config.md
         - name: Configurar subscrição do Azure para versões de teste alojadas
           href: test-drive-azure-subscription-setup.md
-    - name: Atribuição de utilização do cliente Azure
+    - name: Atribuição da utilização do cliente de parceiro do Azure
       href: azure-partner-customer-usage-attribution.md
     - name: Opções de entrada no mercado
       items:
         - name: Os seus benefícios do marketplace
           href: gtm-your-marketplace-benefits.md
-          items: null
-        - name: Co-sell with Microsoft (Venda conjunta com a Microsoft)
-          items:
-            - name: Visão geral de co-venda
-              href: co-sell-overview.md
-            - name: Requisitos de co-venda
-              href: co-sell-requirements.md
-            - name: Conigure co-venda
-              href: co-sell-configure.md
-            - name: Verificar estado de co-venda
-              href: co-sell-status.md
-            - name: Migrar soluções de venda conjunta a partir do OCP GTM
-              href: co-sell-solution-migration.md
+        - name: Compromisso entre parceiros para venda conjunta
+          href: marketplace-co-sell.md
+        - name: Opção de venda conjunta no Centro de Parceiros
+          href: commercial-marketplace-co-sell.md
+        - name: Migrar soluções de venda conjunta a partir do OCP GTM
+          href: co-sell-solution-migration.md
         - name: Revenda através de Parceiros CSP
           href: cloud-solution-providers.md
         - name: Ligar guia de inclusão do Programa
@@ -206,20 +199,32 @@
           href: create-consulting-service-pricing-availability.md
     - name: Ofertas do Dynamics 365
       items:
-        - name: Planear uma oferta do Dynamics 365
-          href: appsource-offer-publishing-guide.md
-        - name: Criar e publicar uma oferta do Dynamics 365
+        - name: Planeie a sua oferta
+          href: marketplace-dynamics-365.md
+        - name: Crie uma oferta de & power apps de envolvimento do cliente
           items:
-            - name: Criar uma oferta do Dynamics 365 Customer Engagement e Power Apps
-              href: partner-center-portal/create-new-customer-engagement-offer.md
+            - name: Criar a oferta
+              href: dynamics-365-customer-engage-offer-setup.md
+            - name: Propriedades
+              href: dynamics-365-customer-engage-properties.md
+            - name: Listagem de ofertas
+              href: dynamics-365-customer-engage-offer-listing.md
+            - name: Disponibilidade
+              href: dynamics-365-customer-engage-availability.md
+            - name: Configuração técnica
+              href: dynamics-365-customer-engage-technical-configuration.md
+            - name: Conteúdo suplementar
+              href: dynamics-365-customer-engage-supplemental-content.md
+            - name: Rever e publicar
+              href: dynamics-365-customer-engage-review-publish.md
+        - name: Criar uma oferta de Operações
+          items:
             - name: Criar uma oferta do Dynamics 365 for Operations
-              items:
-                - name: Criar uma oferta do Dynamics 365 for Operations
-                  href: partner-center-portal/create-new-operations-offer.md
-                - name: Validação funcional
-                  href: dynamics-365-finance-operations-functional-validation.md
-            - name: Criar uma oferta do Dynamics 365 Business Central
-              href: partner-center-portal/create-new-business-central-offer.md
+              href: partner-center-portal/create-new-operations-offer.md
+            - name: Validação funcional
+              href: dynamics-365-finance-operations-functional-validation.md
+        - name: Criar uma oferta de Business Central
+          href: partner-center-portal/create-new-business-central-offer.md
     - name: Ofertas do módulo do IoT Edge
       items:
         - name: Planear uma oferta do módulo do IoT Edge
@@ -228,8 +233,6 @@
           href: partner-center-portal/azure-iot-edge-module-creation.md
         - name: Preparar recursos técnicos do módulo do IoT Edge
           href: partner-center-portal/create-iot-edge-module-asset.md
-        - name: Lista de verificação pré-certificação
-          href: iot-edge-checklist.md
     - name: Ofertas do Serviço Gerido
       items:
         - name: Planear uma oferta de Serviço Gerido
@@ -328,48 +331,6 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Dashboard de classificações e críticas
       href: partner-center-portal/ratings-reviews.md
-    - name: Acesso programático à análise
-      items:
-        - name: Introdução
-          href: analytics-get-started.md
-        - name: Pré-requisitos de acesso programático
-          href: analytics-prerequisites.md
-        - name: Paradigma de acesso programático
-          href: analytics-programmatic-access.md
-        - name: Faça a sua primeira chamada API
-          href: analytics-make-your-first-api-call.md
-        - name: Lista de consultas de sistema
-          href: analytics-system-queries.md
-        - name: Consultas de exemplo
-          href: analytics-sample-queries.md
-        - name: Aplicação de exemplo
-          href: analytics-sample-application.md
-        - name: Especificação de consulta personalizada
-          href: analytics-custom-query-specification.md
-        - name: FaQ de análise programática
-          href: analytics-programmatic-faq.md
-        - name: Referência API analítica
-          items:
-            - name: Lista de APIs
-              href: analytics-available-apis.md
-            - name: Obtenha todos os conjuntos de dados
-              href: analytics-api-get-all-datasets.md
-            - name: Obtenha consultas de relatório API
-              href: analytics-api-get-report-queries.md
-            - name: Eliminar consultas de relatório API
-              href: analytics-api-delete-report-queries.md
-            - name: Experimente consultas de relatório API
-              href: analytics-api-try-report-queries.md
-            - name: Obtenha relatório API
-              href: analytics-api-get-report.md
-            - name: Relatório de atualização API
-              href: analytics-api-update-report.md
-            - name: Apagar relatório API
-              href: analytics-api-delete-report.md
-            - name: Pausa relatório execuções API
-              href: analytics-api-pause-report-executions.md
-            - name: Retomar relatório execuções API
-              href: analytics-api-resume-report-executions.md
     - name: Gerir anomalias de faturação medidos
       href: anomaly-detection.md
     - name: Perguntas comuns sobre análise
@@ -470,8 +431,6 @@
       href: commercial-marketplace-co-sell-countries.md
     - name: Códigos de distrito de venda conjunta
       href: commercial-marketplace-co-sell-states.md
-    - name: Diagrama de Arquitetura de Referência
-      href: reference-architecture-diagram.md
     - name: Categorias e subcategorias
       href: categories.md
     - name: Etiquetas HTML suportadas
