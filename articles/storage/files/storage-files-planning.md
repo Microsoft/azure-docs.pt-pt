@@ -8,12 +8,12 @@ ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 2cb3bee770653173f1a40b209c27d2dc92c7df11
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: be7e5b1f9721cc65c2f9b371becf8b4c82fb37b4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718040"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759783"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas maneiras principais: montando diretamente as ações de ficheiros Azure sem servidor ou caching Azure file shares on-in usando Azure File Sync. Qual a opção de implementação que escolhe altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -22,7 +22,7 @@ ms.locfileid: "107718040"
 
 - **A partilha de ficheiros Cache Azure no local com o Azure File Sync**: O Azure File Sync permite centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma um Servidor Windows no local (ou nuvem) numa cache rápida da sua partilha de ficheiros Azure SMB. 
 
-Este artigo aborda principalmente considerações de implementação para a implementação de uma partilha de ficheiros Azure a ser montada diretamente por um cliente no local ou na nuvem. Para planear uma implementação de Azure File Sync, consulte [o Planeamento para uma implementação de Sincronização de Ficheiros Azure](storage-sync-files-planning.md).
+Este artigo aborda principalmente considerações de implementação para a implementação de uma partilha de ficheiros Azure a ser montada diretamente por um cliente no local ou na nuvem. Para planear uma implementação de Azure File Sync, consulte [o Planeamento para uma implementação de Sincronização de Ficheiros Azure](../file-sync/file-sync-planning.md).
 
 ## <a name="available-protocols"></a>Protocolos disponíveis
 
@@ -131,7 +131,7 @@ Em muitos casos, não irá estabelecer uma nova partilha de ficheiros net para a
 O [artigo de visão geral da migração](storage-files-migration-overview.md) cobre brevemente o básico e contém uma tabela que o leva a guias de migração que provavelmente cobrem o seu cenário.
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Planeamento para uma implementação de sincronização de ficheiros Azure](storage-sync-files-planning.md)
+* [Planeamento para uma implementação de sincronização de ficheiros Azure](../file-sync/file-sync-planning.md)
 * [Implantação de ficheiros Azure](./storage-how-to-create-file-share.md)
-* [Implementação de sincronização de ficheiros Azure](storage-sync-files-deployment-guide.md)
+* [Implementação de sincronização de ficheiros Azure](../file-sync/file-sync-deployment-guide.md)
 * [Confira o artigo visão geral da migração para encontrar o guia de migração para o seu cenário](storage-files-migration-overview.md)

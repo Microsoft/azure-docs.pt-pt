@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90b18c2556796f23be0c1135b0bad0d53368a46d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8dbe9665612e888b7e7afe95a472ba6b0de8d48
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97590958"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762520"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configure identidades geridas para recursos Azure em um Azure VM usando Azure CLI
 
@@ -49,13 +49,13 @@ Nesta secção, aprende-se a ativar e desativar a identidade gerida atribuída p
 
 Para criar um VM Azure com a identidade gerida atribuída pelo sistema, a sua conta precisa da atribuição de função [de Contribuinte de Máquina Virtual.](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretórios Azure AD.
 
-1. Crie uma [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contenção e implementação da VM e os respetivos recursos relacionados, utilizando [az group create](/cli/azure/group/#az-group-create). Pode ignorar este passo se já tiver o grupo de recursos que pretende utilizar em vez disso:
+1. Crie uma [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contenção e implementação da VM e os respetivos recursos relacionados, utilizando [az group create](/cli/azure/group/#az_group_create). Pode ignorar este passo se já tiver o grupo de recursos que pretende utilizar em vez disso:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-1. Crie uma VM com [az vm create](/cli/azure/vm/#az-vm-create). O exemplo a seguir cria um VM nomeado *myVM* com uma identidade gerida atribuída ao sistema, conforme solicitado pelo `--assign-identity` parâmetro. Os parâmetros `--admin-username` e `--admin-password` especificam o nome e a palavra-passe da conta de utilizador administrativo para início de sessão na máquina virtual. Atualize estes valores conforme adequado para o seu ambiente: 
+1. Crie uma VM com [az vm create](/cli/azure/vm/#az_vm_create). O exemplo a seguir cria um VM nomeado *myVM* com uma identidade gerida atribuída ao sistema, conforme solicitado pelo `--assign-identity` parâmetro. Os parâmetros `--admin-username` e `--admin-password` especificam o nome e a palavra-passe da conta de utilizador administrativo para início de sessão na máquina virtual. Atualize estes valores conforme adequado para o seu ambiente: 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
@@ -65,7 +65,7 @@ Para criar um VM Azure com a identidade gerida atribuída pelo sistema, a sua co
 
 Para ativar a identidade gerida atribuída pelo sistema num VM, a sua conta necessita da atribuição de função [de Contribuinte de Máquina Virtual.](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretórios Azure AD.
 
-1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [az login](/cli/azure/reference-index#az-login). Utilize uma conta associada à subscrição Azure que contém o VM.
+1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [az login](/cli/azure/reference-index#az_login). Utilize uma conta associada à subscrição Azure que contém o VM.
 
    ```azurecli-interactive
    az login
@@ -106,13 +106,13 @@ i.e. --identidades "/subscrições/ <SUBID> /grupos de recursos/ <RESROURCEGROUP
 
 Para atribuir uma identidade atribuída ao utilizador a um VM durante a sua criação, a sua conta necessita das atribuições de funções [de Colaborador de Máquinas Virtuais](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) e Operador de Identidade [Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-operator) Não são necessárias atribuições adicionais de diretórios Azure AD.
 
-1. Pode saltar este passo se já tiver um grupo de recursos que gostaria de utilizar. Crie um [grupo de recursos](~/articles/azure-resource-manager/management/overview.md#terminology) para a contenção e implantação da sua identidade gerida atribuída pelo utilizador, utilizando a [criação do grupo AZ](/cli/azure/group/#az-group-create). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<LOCATION>` pelos seus próprios valores. :
+1. Pode saltar este passo se já tiver um grupo de recursos que gostaria de utilizar. Crie um [grupo de recursos](~/articles/azure-resource-manager/management/overview.md#terminology) para a contenção e implantação da sua identidade gerida atribuída pelo utilizador, utilizando a [criação do grupo AZ](/cli/azure/group/#az_group_create). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<LOCATION>` pelos seus próprios valores. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. Crie uma identidade gerida atribuída pelo utilizador com [az identity create](/cli/azure/identity#az-identity-create).  O parâmetro `-g` especifica o grupo de recursos onde a identidade gerida atribuída pelo utilizador é criada e o parâmetro `-n` especifica o respetivo nome.    
+2. Crie uma identidade gerida atribuída pelo utilizador com [az identity create](/cli/azure/identity#az_identity_create).  O parâmetro `-g` especifica o grupo de recursos onde a identidade gerida atribuída pelo utilizador é criada e o parâmetro `-n` especifica o respetivo nome.    
     
    [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -136,7 +136,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM durante a sua cria
    }
    ```
 
-3. Crie uma VM com [az vm create](/cli/azure/vm/#az-vm-create). O exemplo a seguir cria um VM associado à nova identidade atribuída ao utilizador, conforme especificado pelo `--assign-identity` parâmetro. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores. 
+3. Crie uma VM com [az vm create](/cli/azure/vm/#az_vm_create). O exemplo a seguir cria um VM associado à nova identidade atribuída ao utilizador, conforme especificado pelo `--assign-identity` parâmetro. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores. 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
@@ -146,7 +146,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM durante a sua cria
 
 Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta necessita das atribuições de funções [de Colaborador de Máquinas Virtuais](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) e Operador de Identidade [Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-operator) Não são necessárias atribuições adicionais de diretórios Azure AD.
 
-1. Crie uma identidade atribuída ao utilizador com [az identity create](/cli/azure/identity#az-identity-create).  O `-g` parâmetro especifica o grupo de recursos onde a identidade atribuída ao utilizador é criada, e o parâmetro especifica o `-n` seu nome. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
+1. Crie uma identidade atribuída ao utilizador com [az identity create](/cli/azure/identity#az_identity_create).  O `-g` parâmetro especifica o grupo de recursos onde a identidade atribuída ao utilizador é criada, e o parâmetro especifica o `-n` seu nome. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
 
     > [!IMPORTANT]
     > A criação de identidades geridas atribuídas pelo utilizador com caracteres especiais (ou seja, sublinhar) no nome não é suportada atualmente. Por favor, use caracteres alfanuméricos. Volte mais tarde para obter atualizações.  Para mais informações, consulte [as PERGUNTAS Frequentes e questões conhecidas](known-issues.md)

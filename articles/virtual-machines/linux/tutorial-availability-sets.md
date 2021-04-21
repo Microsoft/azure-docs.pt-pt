@@ -10,12 +10,12 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 6a54e0d808ef734a26a0fa309bd7367e73316856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c45f08a339ca8878bb9e2840faa8a412f3e60e0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102507070"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765976"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-cli"></a>Criar e implementar máquinas virtuais num conjunto de disponibilidade usando O Azure CLI
 
@@ -36,7 +36,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer que exec
 
 Pode criar um conjunto de disponibilidade com [az vm availability-set create](/cli/azure/vm/availability-set). Neste exemplo, o número de domínios de atualização e com falha é definido como *2* para o conjunto de disponibilidade designado *myAvailabilitySet* no grupo de recursos *myResourceGroupAvailability*.
 
-Em primeiro lugar, crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create) e, em seguida, crie o conjunto de disponibilidade:
+Em primeiro lugar, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create) e, em seguida, crie o conjunto de disponibilidade:
 
 ```azurecli-interactive
 az group create --name myResourceGroupAvailability --location eastus
@@ -80,7 +80,7 @@ A distribuição do conjunto de disponibilidade pode ser visualizada no portal, 
 
 ## <a name="check-for-available-vm-sizes"></a>Verificar os tamanhos de VM disponíveis
 
-É possível adicionar posteriormente VMs adicionais ao conjunto de disponibilidade, quando os tamanhos da VM estiverem disponíveis no hardware. Utilize [tamanhos de lista definidos az vm](/cli/azure/vm/availability-set#az-vm-availability-set-list-sizes) para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade:
+É possível adicionar posteriormente VMs adicionais ao conjunto de disponibilidade, quando os tamanhos da VM estiverem disponíveis no hardware. Utilize [tamanhos de lista definidos az vm](/cli/azure/vm/availability-set#az_vm_availability_set_list_sizes) para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade:
 
 ```azurecli-interactive
 az vm availability-set list-sizes \

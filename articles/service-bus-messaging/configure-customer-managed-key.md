@@ -3,12 +3,12 @@ title: Configure a sua própria chave para encriptar os dados do Azure Service B
 description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o repouso de dados do Azure Service Bus.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 5d14c8953819575d1c2688520838135efc7121e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b982f01b02e7aa99f1b83e2f590e3660cb69c54
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100378320"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751351"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Service Bus em repouso utilizando o portal Azure
 A Azure Service Bus Premium fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). Service Bus Premium utiliza o Azure Storage para armazenar os dados. Todos os dados armazenados com O Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. Se utilizar a sua própria chave (também designada por Bring Your Own Key (BYOK) ou tecla gerida pelo cliente), os dados ainda são encriptados utilizando a chave gerida pela Microsoft, mas além disso a chave gerida pela Microsoft será encriptada utilizando a chave gerida pelo cliente. Esta funcionalidade permite-lhe criar, rodar, desativar e revogar o acesso às chaves geridas pelo cliente que são utilizadas para encriptar as chaves geridas pela Microsoft. Ativar a função BYOK é um processo de configuração de uma única vez no seu espaço de nome.
@@ -70,7 +70,7 @@ Depois de ativar as chaves geridas pelo cliente, tem de associar a chave gerida 
     > [!IMPORTANT]
     > Se procura utilizar a chave gerida pelo Cliente juntamente com a recuperação de desastres da Geo, por favor reveja esta secção. 
     >
-    > Para permitir a encriptação da chave gerida pela Microsoft com uma chave gerida pelo cliente, é criada uma política de [acesso](../key-vault/general/secure-your-key-vault.md) para a identidade gerida do Service Bus no Azure KeyVault especificado. Isto garante acesso controlado ao Azure KeyVault a partir do espaço de nomes do Azure Service Bus.
+    > Para permitir a encriptação da chave gerida pela Microsoft com uma chave gerida pelo cliente, é criada uma política de [acesso](../key-vault/general/security-overview.md) para a identidade gerida do Service Bus no Azure KeyVault especificado. Isto garante acesso controlado ao Azure KeyVault a partir do espaço de nomes do Azure Service Bus.
     >
     > Devido a isto:
     > 
@@ -91,7 +91,7 @@ Pode rodar a chave no cofre da chave utilizando o mecanismo de rotação Azure K
 
 ## <a name="revoke-access-to-keys"></a>Revogar o acesso às chaves
 
-Revogar o acesso às chaves de encriptação não vai expurgar os dados do Service Bus. No entanto, os dados não podem ser acedidos a partir do espaço de nomes do Service Bus. Pode revogar a chave de encriptação através da política de acesso ou eliminando a chave. Saiba mais sobre as políticas de acesso e a garantia do seu cofre chave do [acesso seguro a um cofre de chaves](../key-vault/general/secure-your-key-vault.md).
+Revogar o acesso às chaves de encriptação não vai expurgar os dados do Service Bus. No entanto, os dados não podem ser acedidos a partir do espaço de nomes do Service Bus. Pode revogar a chave de encriptação através da política de acesso ou eliminando a chave. Saiba mais sobre as políticas de acesso e a garantia do seu cofre chave do [acesso seguro a um cofre de chaves](../key-vault/general/security-overview.md).
 
 Uma vez revogada a chave de encriptação, o serviço Service Bus no espaço de nome encriptado tornar-se-á inoperável. Se o acesso à chave estiver ativado ou a chave eliminada for restaurada, o serviço Service Bus escolherá a chave para que possa aceder aos dados a partir do espaço de nomes do Service Bus encriptado.
 

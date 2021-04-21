@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: 5550c53289228f154fab485b4b7bbff17555aad7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a8c007d7f4419ddbe1555b50ceb6fb92ea0a6f98
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045744"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783904"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registo de Contentores Azure
 
@@ -110,7 +110,7 @@ Leva algum tempo para propagar as mudanças na regra da firewall. Depois de alte
 - [O Registo de Contentores Azure suporta o Content Trust?](#does-azure-container-registry-support-content-trust)
 - [Como posso conceder acesso a imagens de puxar ou empurrar sem permissão para gerir o recurso de registo?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [Como posso permitir a quarentena automática de imagem para um registo?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
-- [Como posso permitir o acesso anónimo?](#how-do-i-enable-anonymous-pull-access)
+- [Como devo proceder para ativar o acesso por pedido anónimo?](#how-do-i-enable-anonymous-pull-access)
 - [Como empurro camadas não distribuíveis para um registo?](#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Como acesso ao Registo de Docker HTTP API V2?
@@ -258,7 +258,7 @@ Com o uso de apenas o `AcrPull` ou `AcrPush` papel, o cessionário não tem a pe
 
 A quarentena de imagem é atualmente uma característica de pré-visualização do ACR. Pode ativar o modo de quarentena de um registo para que apenas as imagens que tenham passado com sucesso na verificação de segurança sejam visíveis para utilizadores normais. Para mais detalhes, consulte o [repo ACR GitHub](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
-### <a name="how-do-i-enable-anonymous-pull-access"></a>Como posso permitir o acesso anónimo?
+### <a name="how-do-i-enable-anonymous-pull-access"></a>Como devo proceder para ativar o acesso por pedido anónimo?
 
 A criação de um registo de contentores Azure para acesso anónimo (não autenticado) é atualmente uma funcionalidade de pré-visualização, disponível nos [níveis](container-registry-skus.md)de serviço Standard e Premium . 
 
@@ -484,7 +484,7 @@ Entre em contato com o administrador de rede ou verifique a configuração e con
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Porque é que o meu pedido de puxar ou empurrar falha com uma operação proibida?
 
 Eis alguns cenários em que as operações podem ser proibidas:
-* Os registos clássicos já não são suportados. Por favor, atualize para um [nível de serviço](./container-registry-skus.md) suportado usando [a atualização az acr](/cli/azure/acr#az-acr-update) ou o portal Azure.
+* Os registos clássicos já não são suportados. Por favor, atualize para um [nível de serviço](./container-registry-skus.md) suportado usando [a atualização az acr](/cli/azure/acr#az_acr_update) ou o portal Azure.
 * A imagem ou repositório talvez bloqueado para que não possa ser apagado ou atualizado. Pode utilizar o comando [de repositório az acr show](./container-registry-image-lock.md) para visualizar os atributos atuais.
 * Algumas operações são proibidas se a imagem estiver em quarentena. Saiba mais sobre [a quarentena.](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)
 * O seu registo pode ter atingido o [limite de armazenamento.](container-registry-skus.md#service-tier-features-and-limits)

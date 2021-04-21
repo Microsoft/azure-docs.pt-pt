@@ -3,12 +3,12 @@ title: Estimativa dos custos do plano de consumo em Funções Azure
 description: Saiba como estimar melhor os custos que poderá incorrer ao executar a sua aplicação de função num plano de Consumo em Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4967e0ff79a638891da4f784cf2f5f1ca4ddfe51
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 648be6325cce5bad36795b113c8bbccb3e21d37b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578559"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774008"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimativa dos custos do plano de consumo
 
@@ -105,7 +105,7 @@ Este gráfico mostra um total de 1,11 mil milhões `Function Execution Units` co
 
 #### <a name="azure-cli"></a>CLI do Azure
 
-O [CLI Azure](/cli/azure/) tem comandos para recuperar métricas. Pode utilizar o CLI a partir de um ambiente de comando local ou diretamente do portal utilizando [a Azure Cloud Shell](../cloud-shell/overview.md). Por exemplo, o comando [de lista de métricas az monitor aguis](/cli/azure/monitor/metrics#az-monitor-metrics-list) retorna os dados de hora em hora durante o mesmo período de tempo utilizado anteriormente.
+O [CLI Azure](/cli/azure/) tem comandos para recuperar métricas. Pode utilizar o CLI a partir de um ambiente de comando local ou diretamente do portal utilizando [a Azure Cloud Shell](../cloud-shell/overview.md). Por exemplo, o comando [de lista de métricas az monitor aguis](/cli/azure/monitor/metrics#az_monitor_metrics_list) retorna os dados de hora em hora durante o mesmo período de tempo utilizado anteriormente.
 
 Certifique-se de que substitui `<AZURE_SUBSCRIPTON_ID>` o ID de subscrição Azure que executa o comando.
 

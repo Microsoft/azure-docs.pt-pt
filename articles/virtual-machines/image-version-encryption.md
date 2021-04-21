@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: 258d8ab6ab23a95d73b8ed0c2549f373cf097674
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 601b8236ca413dd510585bdfffddc3e892caa73b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554093"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759674"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Pré-visualização: Utilize chaves geridas pelo cliente para encriptar imagens
 
@@ -162,7 +162,7 @@ az provider register -n Microsoft.Compute
 ```
 
 
-Para especificar um conjunto de encriptação de disco para uma versão de imagem, utilize [a az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) com o `--target-region-encryption` parâmetro. O formato é uma lista de chaves separadas por `--target-region-encryption` vírgulas para encriptar o SISTEMA e os discos de dados. Devia ser assim: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>` . 
+Para especificar um conjunto de encriptação de disco para uma versão de imagem, utilize [a az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create) com o `--target-region-encryption` parâmetro. O formato é uma lista de chaves separadas por `--target-region-encryption` vírgulas para encriptar o SISTEMA e os discos de dados. Devia ser assim: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>` . 
 
 Se a fonte do disco DE for um disco gerido ou um VM, utilize `--managed-image` para especificar a fonte para a versão de imagem. Neste exemplo, a fonte é uma imagem gerida que tem um disco DE E e um disco de dados na LUN 0. O disco OS será encriptado com DiskEncryptionSet1 e o disco de dados será encriptado com DiskEncryptionSet2.
 

@@ -3,12 +3,12 @@ title: Bloquear imagens
 description: Descreva os atributos para uma imagem de recipiente ou repositório para que não possa ser eliminado ou substituído num registo de contentores Azure.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 340beb1bb6666ddf0de7de38adee6be71f5f52bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77659701"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772348"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloqueie uma imagem de contentor num registo de contentores Azure
 
@@ -154,9 +154,8 @@ Para ver os atributos definidos para uma versão de imagem ou repositório, use 
 Para obter mais informações sobre as operações de eliminação, consulte [eliminar as imagens dos contentores no Registo do Contentor de Azure][container-registry-delete].
 
 <!-- LINKS - Internal -->
-[az-acr-repository-update]: /cli/azure/acr/repository#az-acr-repository-update
-[az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
+[az-acr-repository-update]: /cli/azure/acr/repository#az_acr_repository_update
+[az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-delete]: container-registry-delete.md
-

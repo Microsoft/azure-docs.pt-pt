@@ -5,12 +5,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jpalma
-ms.openlocfilehash: 83d7d48922806334e2b49494fe0ef1d15e1a7a6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f6ac01c1d4df288c823142abbc93e981048d8db
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96531484"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767534"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Atualização de imagem do nó de Azure Kubernetes (AKS)
 
@@ -166,5 +166,5 @@ az aks nodepool show \
 [github-schedule]: node-upgrade-github-actions.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update

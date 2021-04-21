@@ -4,12 +4,12 @@ description: Criar um registo de contentor do Azure, configurar a georreplicaç�
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6abf1b7a524bc7dd28f1704a362749ac84de2389
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5f5627462f016c857d956be46c276dda78e9b2b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97826086"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780664"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um registo de contentor georreplicado do Azure
 
@@ -98,7 +98,7 @@ Navegue para o seu novo registo de contentores no portal Azure e selecione **as 
 
 Agora que configurou a georreplicação, crie uma imagem de contentor e envie-a para o seu registo. Primeiro tem de iniciar sessão no seu registo antes de lhe dar imagens.
 
-Utilize o comando [az acr login](/cli/azure/acr#az-acr-login) para autenticar e colocar as credenciais em cache para o seu registo. Substitua `<acrName>` pelo nome do registo que criou anteriormente.
+Utilize o comando [az acr login](/cli/azure/acr#az_acr_login) para autenticar e colocar as credenciais em cache para o seu registo. Substitua `<acrName>` pelo nome do registo que criou anteriormente.
 
 ```azurecli
 az acr login --name <acrName>

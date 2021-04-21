@@ -8,15 +8,15 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 04/20/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: e02fbe0f77a53b7d3f8f3ce420bf46189dc85a65
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: f97ecedd4088a825b9ec5a076f4da70df92a3269
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600986"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775408"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
 
@@ -67,6 +67,10 @@ O [elemento marcador](speech-synthesis-markup.md#bookmark-element) permite-lhe i
 - **C++/C#/Java/Objective-C/Python**: Suporte adicional para biblioteca partilhada separada para microfone áudio e controlo de altifalantes. Isto permite utilizar o SDK em ambientes que não tenham exigido dependências de biblioteca sonora.
 - **Objectivo-C/Swift**: Suporte adicional para a estrutura do módulo com cabeçalho de guarda-chuva. Isto permite importar o Speech SDK como um módulo em aplicações iOS/Mac Objective-C/Swift. Trata-se da [questão do GitHub #452.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/452)
 - **Python**: Apoio adicional para [Python 3.9](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python) e deixou cair o suporte para Python 3,5 por [Python's end-of-life por 3,5](https://devguide.python.org/devcycle/#end-of-life-branches).
+
+**Problemas conhecidos**
+
+- **C++/C#/Java:** `DialogServiceConnector` não pode utilizar uma `CustomCommandsConfig` aplicação de Comandos Personalizados e, em vez disso, encontrará um erro de ligação. Isto pode ser trabalhado ao adicionar manualmente o seu ID de aplicação ao pedido com `config.SetServiceProperty("X-CommandsAppId", "your-application-id", ServicePropertyChannel.UriQueryParameter)` . O comportamento esperado `CustomCommandsConfig` será restaurado no próximo lançamento.
 
 #### <a name="improvements"></a>Melhorias
 

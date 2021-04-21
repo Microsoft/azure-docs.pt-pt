@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: d954f7cdda4cae65f822489828226e0364d0fc29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c2b2217fc6b32e5191bb67ffdaa10b796adf84b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91570523"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762772"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gerir uma balança de máquina virtual definida com o Azure CLI
 Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo detalha alguns dos comandos comuns do Azure CLI que lhe permitem executar estas tarefas.
@@ -100,7 +100,7 @@ São necessários alguns minutos para atualizar a capacidade do seu conjunto de 
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Stop and start VMs in a scale set (Parar e iniciar VMs num conjunto de dimensionamento)
-Para parar um ou mais VMs num conjunto de escala, utilize [a paragem az vmss](/cli/azure/vmss#az-vmss-stop). O parâmetro `--instance-ids` permite-lhe especificar uma ou mais VMs que deverão ser paradas. Se não especificar um ID de instância, todas as VMs no conjunto de dimensionamento são paradas. Para parar vários VMs, separe cada identificação de instância com um espaço.
+Para parar um ou mais VMs num conjunto de escala, utilize [a paragem az vmss](/cli/azure/vmss#az_vmss_stop). O parâmetro `--instance-ids` permite-lhe especificar uma ou mais VMs que deverão ser paradas. Se não especificar um ID de instância, todas as VMs no conjunto de dimensionamento são paradas. Para parar vários VMs, separe cada identificação de instância com um espaço.
 
 O exemplo a seguir para a instância *0* no conjunto de escala denominado *myScaleSet* e o grupo de recursos *myResourceGroup.* Forneça os seus próprios valores da seguinte forma:
 

@@ -9,12 +9,12 @@ ms.subservice: instance-protection
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: b43502e771415c0ca62d821c697516fae16e35ce
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 733f4602e43511924783f6bc8cb1bad29edb5ea0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934534"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762916"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparações de instâncias automáticas dos conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -141,7 +141,7 @@ New-AzVmssConfig `
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
 
-O exemplo a seguir permite a política de reparações automáticas, ao mesmo tempo que cria um conjunto de nova escala utilizando *[a az vmss create](/cli/azure/vmss#az-vmss-create)*. Primeiro crie um grupo de recursos, em seguida, crie um conjunto de nova escala com período de graça de reparação automática definido para 30 minutos.
+O exemplo a seguir permite a política de reparações automáticas, ao mesmo tempo que cria um conjunto de nova escala utilizando *[a az vmss create](/cli/azure/vmss#az_vmss_create)*. Primeiro crie um grupo de recursos, em seguida, crie um conjunto de nova escala com período de graça de reparação automática definido para 30 minutos.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -209,7 +209,7 @@ Update-AzVmss `
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
 
-Segue-se um exemplo para atualizar a política de reparações automáticas de instâncias automáticas de um conjunto de escala existente, utilizando *[a atualização az vmss](/cli/azure/vmss#az-vmss-update)*.
+Segue-se um exemplo para atualizar a política de reparações automáticas de instâncias automáticas de um conjunto de escala existente, utilizando *[a atualização az vmss](/cli/azure/vmss#az_vmss_update)*.
 
 ```azurecli-interactive
 az vmss update \  
@@ -259,7 +259,7 @@ Utilize *o setOrchestrationServiceState* API com a versão API 2019-12-01 ou sup
 
 ### <a name="azure-cli"></a>CLI do Azure 
 
-Utilize o cmdlet [get-instance-view](/cli/azure/vmss#az-vmss-get-instance-view) para visualizar o *Estado de serviço* para reparações automáticas de instâncias. 
+Utilize o cmdlet [get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view) para visualizar o *Estado de serviço* para reparações automáticas de instâncias. 
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -267,7 +267,7 @@ az vmss get-instance-view \
     --resource-group MyResourceGroup
 ```
 
-Utilize [o cmdlet estado de serviço de orquestração de conjunto](/cli/azure/vmss#az-vmss-set-orchestration-service-state) para atualizar o serviço *Estado* para reparações automáticas de instâncias. Uma vez que o conjunto de balança é optado pela função de reparação automática, então pode utilizar este cmdlet para suspender ou retomar as reparações automáticas para o seu conjunto de balanças. 
+Utilize [o cmdlet estado de serviço de orquestração de conjunto](/cli/azure/vmss#az_vmss_set_orchestration_service_state) para atualizar o serviço *Estado* para reparações automáticas de instâncias. Uma vez que o conjunto de balança é optado pela função de reparação automática, então pode utilizar este cmdlet para suspender ou retomar as reparações automáticas para o seu conjunto de balanças. 
 
 ```azurecli-interactive
 az vmss set-orchestration-service-state \

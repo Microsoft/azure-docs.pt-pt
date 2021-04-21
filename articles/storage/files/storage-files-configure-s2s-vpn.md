@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0fa3fb8040fd79d68f9260ab520d3b6823ab363d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a08ca4142876a5a92adbe8b1c3fce9ec7953019
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629296"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778018"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configure uma VPN site-to-site para utilização com ficheiros Azure
 Pode utilizar uma ligação VPN Site-to-Site (S2S) para montar as suas partilhas de ficheiros Azure sobre a SMB a partir da sua rede no local, sem abrir a porta 445. Você pode configurar uma VPN site-to-site usando [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md), que é um recurso Azure que oferece serviços VPN, e é implantado em um grupo de recursos ao lado de contas de armazenamento ou outros recursos Azure.
@@ -21,7 +21,7 @@ Pode utilizar uma ligação VPN Site-to-Site (S2S) para montar as suas partilhas
 
 Recomendamos vivamente que leia [a visão geral do Azure Files](storage-files-networking-overview.md) antes de continuar com este artigo para uma discussão completa das opções de networking disponíveis para ficheiros Azure.
 
-O artigo detalha os passos para configurar uma VPN site-to-site para montar ações de ficheiros Azure diretamente no local. Se procura encaminhar o tráfego de sincronização para Azure File Sync sobre uma VPN site-to-site, consulte [configurar configurar as definições de proxy e firewall do Azure File Sync](storage-sync-files-firewall-and-proxy.md).
+O artigo detalha os passos para configurar uma VPN site-to-site para montar ações de ficheiros Azure diretamente no local. Se procura encaminhar o tráfego de sincronização para Azure File Sync sobre uma VPN site-to-site, consulte [configurar configurar as definições de proxy e firewall do Azure File Sync](../file-sync/file-sync-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma partilha de ficheiros Azure que gostaria de montar no local. As ações de ficheiros Azure são implantadas dentro de contas de armazenamento, que são construções de gestão que representam um conjunto partilhado de armazenamento no qual você pode implementar várias ações de arquivo, bem como outros recursos de armazenamento, tais como recipientes blob ou filas. Pode saber mais sobre como implementar ações de ficheiros Azure e contas de armazenamento na [Create a azure file share](storage-how-to-create-file-share.md).

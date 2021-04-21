@@ -3,19 +3,18 @@ title: Sobre certificados de cofre chave Azure - Cofre de Chaves Azure
 description: Visão geral da interface e certificados do Azure Key Vault REST.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b410dc89b286ef830f0d5b6a9c33fe77d380f5d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb69068ddac311a8020a76eec9b18fab3256fea6
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102507216"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752539"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Acerca dos certificados do Azure Key Vault
 

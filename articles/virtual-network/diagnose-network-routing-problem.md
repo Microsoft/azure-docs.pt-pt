@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
-ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f84b74b054a073f2c1ae5ba2ac7d0d0a968367c6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84705054"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767678"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticar um problema de encaminhamento de máquinas virtuais
 
@@ -87,7 +87,7 @@ Na saída anterior, o nome da interface de rede é *myVMNic1*.
 
 Pode executar os comandos que seguem na  [Azure Cloud Shell,](https://shell.azure.com/bash)ou executando o CLI a partir do seu computador. Este artigo requer a versão Azure CLI 2.0.32 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI localmente, também precisa de correr `az login` e entrar em Azure com uma conta que tenha as [permissões necessárias.](virtual-network-network-interface.md#permissions)
 
-Obtenha as rotas eficazes para uma interface de rede com [a az network nic show-effective route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). O exemplo a seguir obtém as rotas eficazes para uma interface de rede chamada *myVMNic1* que está num grupo de recursos chamado *myResourceGroup:*
+Obtenha as rotas eficazes para uma interface de rede com [a az network nic show-effective route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table). O exemplo a seguir obtém as rotas eficazes para uma interface de rede chamada *myVMNic1* que está num grupo de recursos chamado *myResourceGroup:*
 
 ```azurecli-interactive
 az network nic show-effective-route-table \

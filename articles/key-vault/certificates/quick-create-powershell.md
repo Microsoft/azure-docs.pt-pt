@@ -3,7 +3,6 @@ title: Quickstart - Definir & ver certificados Azure Key Vault com Azure PowerSh
 description: Quickstart mostrando como definir e recuperar um certificado do Azure Key Vault usando Azure PowerShell
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 11f463ab0ae60f489fd6b10d06402b6d27fc9930
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: a641ca1206cb41ded0513db72daa278dc3753c85
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502267"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750397"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Quickstart: set and recuperar um certificado do Azure Key Vault usando Azure PowerShell
 

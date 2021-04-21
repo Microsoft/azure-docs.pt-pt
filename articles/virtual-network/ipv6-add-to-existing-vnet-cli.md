@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 9a321687a755f8a3d6e6d9139138d61c58764ef4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5835ea4d80f9c4111b76672facc4a0250ae0079a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98932608"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769864"
 ---
 # <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Adicione IPv6 a uma aplicação IPv4 na rede virtual Azure - Azure CLI
 
@@ -48,7 +48,7 @@ az network public-ip create \
 
 ## <a name="configure-ipv6-load-balancer-frontend"></a>Configurar iPv6 carregar frontend
 
-Configure o balançador de carga com o novo endereço IP IPv6 utilizando [a rede az-rede lb frontend-ip criar](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-create) da seguinte forma:
+Configure o balançador de carga com o novo endereço IP IPv6 utilizando [a rede az-rede lb frontend-ip criar](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_create) da seguinte forma:
 
 ```azurecli-interactive
 az network lb frontend-ip create \
@@ -60,7 +60,7 @@ az network lb frontend-ip create \
 
 ## <a name="configure-ipv6-load-balancer-backend-pool"></a>Configure piscina de backend de balançador de carga IPv6
 
-Crie o pool backend para NICs com endereços IPv6 utilizando [o pool de endereços lb da rede az criar](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-create) da seguinte forma:
+Crie o pool backend para NICs com endereços IPv6 utilizando [o pool de endereços lb da rede az criar](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_create) da seguinte forma:
 
 ```azurecli-interactive
 az network lb address-pool create \
@@ -71,7 +71,7 @@ az network lb address-pool create \
 
 ## <a name="configure-ipv6-load-balancer-rules"></a>Configurar regras do balançador de carga IPv6
 
-Criar regras de balançador de carga IPv6 com [regra lb de rede az criar](/cli/azure/network/lb/rule#az-network-lb-rule-create).
+Criar regras de balançador de carga IPv6 com [regra lb de rede az criar](/cli/azure/network/lb/rule#az_network_lb_rule_create).
 
 ```azurecli-interactive
 az network lb rule create \
@@ -104,7 +104,7 @@ az network vnet subnet update \
 
 ## <a name="add-ipv6-configuration-to-nics"></a>Adicionar configuração IPv6 aos NICs
 
-Configure os NICs VM com um endereço IPv6 utilizando [a rede az nic ip-config criar](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-create) da seguinte forma:
+Configure os NICs VM com um endereço IPv6 utilizando [a rede az nic ip-config criar](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create) da seguinte forma:
 
 ```azurecli-interactive
 az network nic ip-config create \

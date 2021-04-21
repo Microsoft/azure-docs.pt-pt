@@ -9,12 +9,12 @@ ms.subservice: linux
 ms.date: 06/01/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: c38fb976ca597647493f3dc3d32be79040ded6eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d31bde05158e89168f2a67b820c8743d4cd2729
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91320188"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769900"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Tutorial: Criar um conjunto de dimensionamento de máquinas virtuais e implementar uma aplicação de elevada disponibilidade no Linux com a CLI do Azure
 
@@ -91,13 +91,13 @@ runcmd:
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
-Para poder criar um conjunto de dimensionamento, crie primeiro um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupScaleSet* na localização *eastus*:
+Para poder criar um conjunto de dimensionamento, crie primeiro um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupScaleSet* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss#az-vmss-create). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet*, utiliza o ficheiro cloud-init para personalizar a VM e gera chaves SSH, caso não existam:
+Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss#az_vmss_create). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet*, utiliza o ficheiro cloud-init para personalizar a VM e gera chaves SSH, caso não existam:
 
 ```azurecli-interactive
 az vmss create \
@@ -116,7 +116,7 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 ## <a name="allow-web-traffic"></a>Permitir tráfego Web
 Foi criado automaticamente um balanceador de carga como parte do conjunto de dimensionamento de máquinas virtuais. O balanceador de carga distribui o tráfego por um conjunto de VMs definidas através das regras do balanceador de carga. Pode saber mais sobre a configuração e os conceitos de balanceador de carga no próximo tutorial, [Como fazer o balanceamento de carga de máquinas de virtuais no Azure](tutorial-load-balancer.md).
 
-Para permitir que o tráfego chegue à aplicação Web, crie uma regra com [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRuleWeb*:
+Para permitir que o tráfego chegue à aplicação Web, crie uma regra com [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -131,7 +131,7 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>Testar a aplicação
-Para ver a aplicação Node.js na Web, obtenha o endereço IP público do seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). O exemplo seguinte obtém o endereço IP para *myScaleSetLBPublicIP* criada como parte do conjunto de dimensionamento:
+Para ver a aplicação Node.js na Web, obtenha o endereço IP público do seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). O exemplo seguinte obtém o endereço IP para *myScaleSetLBPublicIP* criada como parte do conjunto de dimensionamento:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -152,7 +152,7 @@ Para ver o conjunto de dimensionamento em ação, pode forçar a atualização d
 Ao longo do ciclo de vida do conjunto de dimensionamento, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. A CLI do Azure fornece uma forma rápida de executar essas tarefas. Seguem-se algumas tarefas comuns.
 
 ### <a name="view-vms-in-a-scale-set"></a>Ver VMs num conjunto de dimensionamento
-Para ver uma lista de VMs em execução no seu conjunto de dimensionamento, utilize [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances) da seguinte forma:
+Para ver uma lista de VMs em execução no seu conjunto de dimensionamento, utilize [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) da seguinte forma:
 
 ```azurecli-interactive
 az vmss list-instances \
@@ -172,7 +172,7 @@ O resultado é semelhante ao seguinte exemplo:
 
 
 ### <a name="manually-increase-or-decrease-vm-instances"></a>Aumentar ou reduzir as instâncias de VMs manualmente
-Para ver o número de instâncias atualmente existentes num conjunto de dimensionamento, utilize [az vmss show](/cli/azure/vmss#az-vmss-show) e consulte *sku.capacity*:
+Para ver o número de instâncias atualmente existentes num conjunto de dimensionamento, utilize [az vmss show](/cli/azure/vmss#az_vmss_show) e consulte *sku.capacity*:
 
 ```azurecli-interactive
 az vmss show \
@@ -182,7 +182,7 @@ az vmss show \
     --output table
 ```
 
-Em seguida, pode aumentar ou reduzir manualmente o número de máquinas virtuais existentes no conjunto de dimensionamento com [az vmss scale](/cli/azure/vmss#az-vmss-scale). O exemplo seguinte define o número de VMs no seu conjunto de dimensionamento como *3*:
+Em seguida, pode aumentar ou reduzir manualmente o número de máquinas virtuais existentes no conjunto de dimensionamento com [az vmss scale](/cli/azure/vmss#az_vmss_scale). O exemplo seguinte define o número de VMs no seu conjunto de dimensionamento como *3*:
 
 ```azurecli-interactive
 az vmss scale \
@@ -192,7 +192,7 @@ az vmss scale \
 ```
 
 ### <a name="get-connection-info"></a>Obter informações de ligação
-Para obter informações de ligação sobre as VMs nos seus conjuntos de dimensionamento, utilize [az vmss list-instance-connection-info](/cli/azure/vmss#az-vmss-list-instance-connection-info). Este comando produz o endereço IP público e a porta para cada VM que lhe permite ligar-se com SSH:
+Para obter informações de ligação sobre as VMs nos seus conjuntos de dimensionamento, utilize [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info). Este comando produz o endereço IP público e a porta para cada VM que lhe permite ligar-se com SSH:
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -205,7 +205,7 @@ az vmss list-instance-connection-info \
 Pode criar e utilizar discos de dados com conjuntos de dimensionamento. Num tutorial anterior, explorou o tópico [Gerir discos do Azure](tutorial-manage-disks.md) que descreve as melhores práticas e as melhorias de desempenho para a criação de aplicações em discos de dados em vez de no disco do SO.
 
 ### <a name="create-scale-set-with-data-disks"></a>Criar conjunto de dimensionamento com discos de dados
-Para criar um conjunto de dimensionamento e anexar discos de dados, adicione o parâmetro `--data-disk-sizes-gb` ao comando [az vmss create](/cli/azure/vmss#az-vmss-create). O exemplo seguinte cria um conjunto de dimensionamento com discos de dados de *50* GB anexados a cada instância:
+Para criar um conjunto de dimensionamento e anexar discos de dados, adicione o parâmetro `--data-disk-sizes-gb` ao comando [az vmss create](/cli/azure/vmss#az_vmss_create). O exemplo seguinte cria um conjunto de dimensionamento com discos de dados de *50* GB anexados a cada instância:
 
 ```azurecli-interactive
 az vmss create \
@@ -222,7 +222,7 @@ az vmss create \
 Quando são removidas instâncias de um conjunto de dimensionamento, também são removidos os discos de dados anexados.
 
 ### <a name="add-data-disks"></a>Adicionar discos de dados
-Para adicionar um disco de dados a instâncias no seu conjunto de dimensionamento, utilize [az vmss disk attach](/cli/azure/vmss/disk#az-vmss-disk-attach). O exemplo seguinte adiciona um disco de *50* GB a cada instância:
+Para adicionar um disco de dados a instâncias no seu conjunto de dimensionamento, utilize [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). O exemplo seguinte adiciona um disco de *50* GB a cada instância:
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -233,7 +233,7 @@ az vmss disk attach \
 ```
 
 ### <a name="detach-data-disks"></a>Desanexar discos de dados
-Para remover um disco de dados de instâncias no seu conjunto de dimensionamento, utilize [az vmss disk detach](/cli/azure/vmss/disk#az-vmss-disk-detach). O exemplo seguinte remove o disco de dados em LUN *2* de cada instância:
+Para remover um disco de dados de instâncias no seu conjunto de dimensionamento, utilize [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach). O exemplo seguinte remove o disco de dados em LUN *2* de cada instância:
 
 ```azurecli-interactive
 az vmss disk detach \

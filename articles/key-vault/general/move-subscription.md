@@ -3,19 +3,18 @@ title: Azure Key Vault movendo um cofre para uma subscrição diferente | Micros
 description: Orientação sobre a mudança de um cofre chave para uma subscrição diferente.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c23f961b8aeaae3e338f9c513a9f2b9d07b64abb
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 65dc9da03a6b763d419c51e53bf756550e8b56a4
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056407"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751855"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Mover um Azure Key Vault para outra subscrição
 
@@ -36,7 +35,7 @@ ms.locfileid: "106056407"
 
 Para obter mais informações sobre a Azure Key Vault e o Azure Ative Directory, consulte
 - [Acerca do Azure Key Vault](overview.md)
-- [O que é O Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-whatis.md)
+- [O que é o Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
 - [Como localizar o ID do inquilino](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md)
 
 ## <a name="limitations"></a>Limitações
@@ -124,5 +123,5 @@ Se estiver a usar a identidade gerida, também terá de atualizar a identidade p
 - Saiba mais sobre [chaves, segredos e certificados](about-keys-secrets-certificates.md)
 - Para obter informações conceptuais, incluindo como interpretar registos do Key Vault, consulte a [sessão do Key Vault](logging.md)
 - [Guia do Programador do Key Vault](../general/developers-guide.md)
-- [Proteja o cofre da chave](secure-your-key-vault.md)
+- [Proteja o cofre da chave](security-overview.md)
 - [Configurar firewalls de cofre de chaves Azure e redes virtuais](network-security.md)

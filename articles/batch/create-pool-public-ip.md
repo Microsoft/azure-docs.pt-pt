@@ -3,12 +3,12 @@ title: Criar uma piscina com endereços IP públicos especificados
 description: Saiba como criar uma piscina de Lote que utilize os seus próprios endereços IP públicos.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: e822311718847e173763847d503335f71457308b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82a37f96a91bdad37c1a7828ef0cf71b3581ca82
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91849333"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768400"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Criar uma piscina Azure Batch com endereços IP públicos especificados
 
@@ -24,7 +24,7 @@ Para obter informações sobre a criação de piscinas sem endereços IP públic
 
 - **Um Azure VNet.** Tem de utilizar uma [rede virtual](batch-virtual-network.md) a partir da mesma subscrição Azure na qual está a criar a sua piscina e os seus endereços IP. Apenas VNets baseados em Recursos Azure podem ser utilizados. Certifique-se de que o VNet satisfaz todos os [requisitos gerais](batch-virtual-network.md#vnet-requirements).
 
-- **Pelo menos um endereço IP público Azure**. Para criar um ou mais endereços IP públicos, pode utilizar o [portal Azure](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), a [Interface Azure Command-Line (CLI)](/cli/azure/network/public-ip#az-network-public-ip-create)ou [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Certifique-se de seguir os requisitos listados abaixo.
+- **Pelo menos um endereço IP público Azure**. Para criar um ou mais endereços IP públicos, pode utilizar o [portal Azure](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), a [Interface Azure Command-Line (CLI)](/cli/azure/network/public-ip#az_network_public_ip_create)ou [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Certifique-se de seguir os requisitos listados abaixo.
 
 > [!NOTE]
 > O lote atribui automaticamente recursos de rede adicionais no grupo de recursos que contém os endereços IP públicos. Por cada 100 nós dedicados, o Batch atribui geralmente um grupo de segurança de rede (NSG) e um equilibrador de carga. Estes recursos são limitados pelas quotas de recursos da subscrição. Ao utilizar piscinas maiores, poderá ter de [solicitar um aumento de quota](batch-quota-limit.md#increase-a-quota) para um ou mais destes recursos.
@@ -100,4 +100,3 @@ Corpo do Pedido
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Saiba como [criar uma piscina numa sub-rede de uma rede virtual Azure.](batch-virtual-network.md)
 - Saiba como [criar uma piscina Azure Batch sem endereços IP públicos.](./batch-pool-no-public-ip-address.md)
-

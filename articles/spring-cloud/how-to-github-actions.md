@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 8400fcacbfa4c76aceb079b788255e3d3b83ce33
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c52279108a8fd8d5a7ac8bbd7c8eb215097b21b0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878294"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791360"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure Spring Cloud CI/CD com ações do GitHub
 
@@ -340,5 +340,5 @@ Se a sua ação correr por engano, por exemplo, se não tiver definido a credenc
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Cofre chave para ações do GitHub da nuvem de primavera](./spring-cloud-github-actions-key-vault.md)
-* [Diretores de serviço azure ative](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
+* [Diretores de serviço azure ative](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
 * [GitHub Actions para o Azure](https://github.com/Azure/actions/)

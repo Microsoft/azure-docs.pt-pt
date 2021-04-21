@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 02/14/2021
-ms.openlocfilehash: 727196f274db3abae75a38d3ecdf31a78dec0fab
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: d21ee7a60d11a154737c5380ec20d3e9c4490962
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725949"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786068"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Como atualizar regras de alerta ou regras de ação quando o seu recurso-alvo se desloca para uma região de Azure diferente
 
@@ -104,8 +104,8 @@ Se **apenas alguns** dos recursos no âmbito se deslocaram, é necessário retir
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Alterar o âmbito de uma regra utilizando o Azure CLI
 
-1.  Obtenha a regra existente[(alertas métricos, alertas](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-show) [de registo de atividade).](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)
-2.  Atualizar o âmbito de regras diretamente[(alertas métricos,](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update) [alertas de registo de atividade)](/cli/azure/monitor/activity-log/alert/scope)
+1.  Obtenha a regra existente[(alertas métricos, alertas](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_show) [de registo de atividade).](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log-alert_list)
+2.  Atualizar o âmbito de regras diretamente[(alertas métricos,](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_update) [alertas de registo de atividade)](/cli/azure/monitor/activity-log/alert/scope)
 3.  Se necessário, divida em duas regras (relevantes para alguns casos de alertas métricos, como referido acima).
 
 ## <a name="next-steps"></a>Passos seguintes

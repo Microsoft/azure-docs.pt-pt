@@ -9,12 +9,12 @@ ms.subservice: automatic-os-upgrade
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 1e32ff4bc1c39e8a3385f8037f88cedbdc17d3a6
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 047eab6cb90caa18362830c8c74656f76865a9ec
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375751"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762880"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas da imagem do SO do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -130,7 +130,7 @@ Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" 
 ```
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
-Utilize [a atualização az vmss](/cli/azure/vmss#az-vmss-update) para configurar atualizações automáticas de imagem de SO para o seu conjunto de escala. Utilize O Azure CLI 2.0.47 ou superior. O exemplo a seguir configura atualizações automáticas para o conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup*:
+Utilize [a atualização az vmss](/cli/azure/vmss#az_vmss_update) para configurar atualizações automáticas de imagem de SO para o seu conjunto de escala. Utilize O Azure CLI 2.0.47 ou superior. O exemplo a seguir configura atualizações automáticas para o conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
@@ -237,7 +237,7 @@ Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OS
 ```
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
-Utilize [o histórico de upgrade do az vmss](/cli/azure/vmss#az-vmss-get-os-upgrade-history) para verificar o histórico de atualização do SISTEMA para o seu conjunto de escala. Utilize O Azure CLI 2.0.47 ou superior. O exemplo a seguir detalha como revê o estado de atualização do SISTEMA para um conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup*:
+Utilize [o histórico de upgrade do az vmss](/cli/azure/vmss#az_vmss_get_os_upgrade_history) para verificar o histórico de atualização do SISTEMA para o seu conjunto de escala. Utilize O Azure CLI 2.0.47 ou superior. O exemplo a seguir detalha como revê o estado de atualização do SISTEMA para um conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet
@@ -285,7 +285,7 @@ Start-AzVmssRollingOSUpgrade -ResourceGroupName "myResourceGroup" -VMScaleSetNam
 ```
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
-Utilize [o início de atualização de az vmss](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) para verificar o histórico de atualização do SISTEMA para o seu conjunto de escala. Utilize O Azure CLI 2.0.47 ou superior. O exemplo a seguir detalha como pode iniciar uma atualização de SISTEMA rolante num conjunto de escala denominado *myScaleSet* no grupo de recursos chamado *myResourceGroup*:
+Utilize [o início de atualização de az vmss](/cli/azure/vmss/rolling-upgrade#az_vmss_rolling_upgrade_start) para verificar o histórico de atualização do SISTEMA para o seu conjunto de escala. Utilize O Azure CLI 2.0.47 ou superior. O exemplo a seguir detalha como pode iniciar uma atualização de SISTEMA rolante num conjunto de escala denominado *myScaleSet* no grupo de recursos chamado *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: 71a2ad5b8d09812eb999ab75a3522caf5a8dd20a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a099f1a3ab16c33baa8037e727d26f107a593a2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664555"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785551"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mariadb-server-using-azure-cli"></a>Monitorize e escale uma base de dados Azure para servidor MariaDB usando O Azure CLI
 Esta amostra de script CLI escala o cálculo e armazenamento para uma única base de dados Azure para o servidor MariaDB após consulta das métricas. O cálculo pode escalar para cima ou para baixo. O armazenamento só pode aumentar.
@@ -37,11 +37,11 @@ Este script utiliza os comandos descritos na tabela seguinte:
 
 | **Comando** | **Notas** |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [servidor mariadb az criar](/cli/azure/mariadb/server#az-mariadb-server-create) | Cria um servidor MariaDB que acolhe as bases de dados. |
-| [atualização do servidor az mariadb](/cli/azure/mariadb/server#az-mariadb-server-update) | Atualiza as propriedades do servidor MariaDB. |
-| [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) | Liste o valor métrico dos recursos. |
-| [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [servidor mariadb az criar](/cli/azure/mariadb/server#az_mariadb_server_create) | Cria um servidor MariaDB que acolhe as bases de dados. |
+| [atualização do servidor az mariadb](/cli/azure/mariadb/server#az_mariadb_server_update) | Atualiza as propriedades do servidor MariaDB. |
+| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | Liste o valor métrico dos recursos. |
+| [az group delete](/cli/azure/group#az_group_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [a Azure Database para computação e armazenamento MariaDB](../concepts-pricing-tiers.md)

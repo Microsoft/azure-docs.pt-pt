@@ -5,14 +5,14 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX com
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: fa6572ddc694cb892f48cb3e618c176f087524f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8de0d25bc30d53f11ddaed5ab7b53ff992a5c88c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506570"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779836"
 ---
-# <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada com um endereço IP público estático no Serviço Azure Kubernetes (AKS)
+# <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada com um endereço IP público estático no Azure Kubernetes Service (AKS)
 
 Um controlador de entrada é uma peça de software que fornece procuração inversa, encaminhamento de tráfego configurável e rescisão de TLS para serviços Kubernetes. Os recursos de entrada de Kubernetes são usados para configurar as regras e rotas de entrada para serviços individuais de Kubernetes. Utilizando um controlador de entrada e regras de entrada, um único endereço IP pode ser usado para encaminhar o tráfego para vários serviços num cluster kubernetes.
 
@@ -481,8 +481,8 @@ Também pode:
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [aks-ingress-internal]: ingress-internal-ip.md
 [aks-ingress-basic]: ingress-basic.md
 [aks-ingress-tls]: ingress-tls.md

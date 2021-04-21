@@ -1,6 +1,6 @@
 ---
-title: Troca/Troca entre dois Serviços de Nuvem Azure (Suporte Alargado)
-description: Troca/Troca entre dois Serviços de Nuvem Azure (Suporte Alargado)
+title: Trocar ou trocar implementações em Azure Cloud Services (suporte alargado)
+description: Saiba como trocar ou alternar entre implementações nos Serviços Azure Cloud (suporte alargado).
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: surbhijain
@@ -8,46 +8,65 @@ ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 04/01/2021
 ms.custom: ''
-ms.openlocfilehash: 6f96656af9afd9874cc6273a9cea9ed43e8c69cc
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: f5e01075ffb460c7ddd70b40a6b19f7ea70dd776
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106294338"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748839"
 ---
-# <a name="swapswitch-between-two-azure-cloud-services-extended-support"></a>Troca/Troca entre dois Serviços de Nuvem Azure (Suporte Alargado)
-Com serviços na nuvem (suporte alargado) pode trocar entre duas implementações independentes de serviços em nuvem. Ao contrário dos serviços em nuvem (clássico), o conceito de slots não existe com o modelo Azure Resource Manager. Quando decidir implementar uma nova versão de um serviço de nuvem (suporte alargado), pode torná-lo "permutável" com outro serviço de nuvem existente (suporte alargado) que lhe permita encenar e testar a sua nova versão utilizando esta implementação. Um serviço de nuvem pode ser feito 'permutável' com outro serviço de nuvem apenas no momento de implantar o segundo serviço de nuvem (do par). Ao utilizar o método de implementação baseado no modelo ARM, isso é feito definindo a propriedade SwappableCloudService dentro do perfil de rede do objeto cloud service para o ID do serviço de nuvem emparelhado. 
+# <a name="swap-or-switch-deployments-in-azure-cloud-services-extended-support"></a>Trocar ou trocar implementações em Azure Cloud Services (suporte alargado)
 
-```
+Pode trocar entre duas implementações independentes de serviços em nuvem em Azure Cloud Services (suporte alargado). Ao contrário do que acontece no Azure Cloud Services (clássico), o modelo Azure Resource Manager em Azure Cloud Services (suporte alargado) não utiliza slots de implementação. Nos Azure Cloud Services (suporte alargado), quando implementa um novo lançamento de um serviço na nuvem, pode tornar o serviço na nuvem "permutável" com um serviço de nuvem existente nos Serviços Azure Cloud (suporte alargado).
+
+Depois de trocar as implementações, pode encenar e testar a sua nova versão utilizando a nova implementação do serviço de nuvem. Com efeito, a troca promove um novo serviço na nuvem que é encenado para o lançamento da produção.
+
+> [!NOTE]
+> Não é possível trocar entre uma implantação dos Azure Cloud Services (clássico) e uma implantação dos Azure Cloud Services (suporte alargado).
+
+Você deve fazer um serviço de nuvem permutável com outro serviço de nuvem quando você implementar o segundo de um par de serviços na nuvem.
+
+Pode trocar as implementações utilizando um modelo de Gestor de Recursos Azure (modelo ARM), o portal Azure ou a API REST.
+
+## <a name="arm-template"></a>Modelo ARM
+
+Se utilizar um método de implementação do modelo ARM, para tornar os serviços de nuvem permutáveis, coloque a `SwappableCloudService` propriedade no objeto no `networkProfile` `cloudServices` iD do serviço de nuvem emparelhado:
+
+```json
 "networkProfile": {
  "SwappableCloudService": {
               "id": "[concat(variables('swappableResourcePrefix'), 'Microsoft.Compute/cloudServices/', parameters('cloudServicesToBeSwappedWith'))]"
             },
+        }
 ```
-> [!Note] 
-> Não é possível trocar entre um serviço de nuvem (clássico) e um serviço de nuvem (suporte alargado)
 
-Use **Swap** para mudar os URLs através dos quais os dois serviços em nuvem são endereçados, promovendo de facto um novo serviço de nuvem (encenado) para a libertação de produção.
-Pode trocar as implementações da página Cloud Services ou do dashboard.
+## <a name="azure-portal"></a>Portal do Azure
 
-1. No [portal Azure,](https://portal.azure.com)selecione o serviço de cloud que pretende atualizar. Este passo abre a lâmina de placa de serviço de nuvem.
-2. Na lâmina, selecione **Swap** 
-    :::image type="content" source="media/swap-cloud-service-1.png" alt-text="Image mostra a opção de troca do serviço cloud":::
-   
-3. O seguinte pedido de confirmação abre
-   
-   :::image type="content" source="media/swap-cloud-service-2.png" alt-text="Imagem mostra troca do serviço na nuvem":::
-   
-4. Depois de verificar as informações de implantação, selecione OK para trocar as implementações.
-A troca acontece rapidamente porque a única coisa que muda são os endereços IP virtuais (VIPs) para os dois serviços na nuvem.
+Para trocar uma implantação no portal Azure:
 
-Para poupar custos de cálculo, pode eliminar um dos serviços na nuvem (designado como um ambiente de preparação para a implementação da sua aplicação) depois de verificar se o seu serviço de cloud trocado está a funcionar como esperado.
+1. No menu do portal, selecione **Cloud Services (suporte alargado)** ou **Dashboard**.
+1. Selecione o serviço de nuvem que pretende atualizar.
+1. Em **Visão Geral** para o serviço na nuvem, selecione **Swap**:
 
-O resto da API para realizar uma 'troca' entre dois serviços de nuvem implantações de suporte alargado é abaixo:
+   :::image type="content" source="media/swap-cloud-service-portal-swap.png" alt-text="Screenshot que mostra o separador swap para o serviço na nuvem.":::
+
+1. No painel de confirmação de permuta, verifique as informações de implementação e, em seguida, selecione **OK** para trocar as implementações:
+
+   :::image type="content" source="media/swap-cloud-service-portal-confirm.png" alt-text="Screenshot que mostra confirmar a informação de troca de implementação.":::
+
+As implementações trocam rapidamente porque a única coisa que muda é o endereço IP virtual para o serviço de cloud que está implantado.
+
+Para poupar custos de cálculo, pode eliminar um dos serviços na nuvem (designado como um ambiente de preparação para a implementação da sua aplicação) depois de verificar se o seu serviço de nuvem trocada funciona como esperado.
+
+## <a name="rest-api"></a>API REST
+
+Para utilizar a API REST para trocar para uma nova implementação de serviços em nuvem em Azure Cloud Services (suporte alargado), utilize o seguinte comando e configuração JSON:
+
 ```http
 POST https://management.azure.com/subscriptions/subId/providers/Microsoft.Network/locations/region/setLoadBalancerFrontendPublicIpAddresses?api-version=2020-11-01
 ```
-```
+
+```json
 {
   "frontendIPConfigurations": [
     {
@@ -68,23 +87,36 @@ POST https://management.azure.com/subscriptions/subId/providers/Microsoft.Networ
     }
   ]
  }
+}
 ```
+
 ## <a name="common-questions-about-swapping-deployments"></a>Questões comuns sobre a troca de implementações
 
-### <a name="what-are-the-prerequisites-for-swapping-between-two-cloud-services"></a>Quais são os pré-requisitos para a troca entre dois serviços em nuvem?
-Existem dois pré-requisitos fundamentais para uma troca bem sucedida de serviço na nuvem (suporte alargado):
-* Se pretender utilizar um endereço IP estático/reservado para um dos serviços de cloud permutáveis, o outro serviço de nuvem também deve utilizar um IP reservado. Caso contrário, a troca falha.
-* Todas as instâncias das suas funções devem estar a decorrer antes de poder efetuar a troca. Pode verificar o estado das suas instâncias na lâmina geral do portal Azure. Em alternativa, pode utilizar o comando Get-AzRole no Windows PowerShell.
+Reveja estas respostas a perguntas comuns sobre swaps de implementação em Azure Cloud Services (suporte alargado).
 
-As atualizações do Sistema de Atendimento do Hóspede e as operações de cura do serviço também podem causar a falha dos swaps de implementação. Para obter mais informações, consulte problemas de implementação do serviço de nuvem troubleshoot.
+### <a name="what-are-the-prerequisites-for-swapping-to-a-new-cloud-services-deployment"></a>Quais são os pré-requisitos para a troca para uma nova implantação de serviços na nuvem?
 
-### <a name="can-i-perform-a-vip-swap-in-parallel-with-another-mutating-operation"></a>Posso realizar uma Troca VIP em paralelo com outra operação de mutação?
-N.º O VIP Swap é uma alteração de rede que só precisa de ser concluída antes de qualquer outra operação de computação ser realizada no(s) serviço de cloud. Executar uma operação de atualização, eliminação ou autoescala no(s) serviço(s) cloud(s) enquanto um Swap VIP está em andamento ou desencadear uma troca VIP enquanto outra operação de computação está em andamento pode deixar o serviço de nuvem em um estado nãodesejável a partir do qual a recuperação pode não ser possível. 
+Tem de cumprir dois pré-requisitos fundamentais para uma troca de implementação bem sucedida nos Serviços Azure Cloud (suporte alargado):
 
-### <a name="does-a-swap-incur-downtime-for-my-application-how-should-i-handle-it"></a>Uma troca incorre no tempo de inatividade para o meu pedido? Como devo lidar com isto?
-Como descrito na secção anterior, uma troca de serviços em nuvem é tipicamente rápida porque é apenas uma alteração de configuração no equilibrador de carga Azure. Em alguns casos, pode levar 10 ou mais segundos e resultar em falhas de ligação transitórias. Para limitar o impacto aos seus clientes, considere implementar a lógica de relagem do cliente.
+* Se pretender utilizar um endereço IP estático ou reservado para um dos serviços de cloud permutáveis, o outro serviço de cloud também deve utilizar um endereço IP reservado. Caso contrário, a troca falha.
+* Todos os casos dos seus papéis devem estar a correr para que a troca tenha sucesso. Para verificar o estado das suas instâncias, no portal Azure, vá ao **Overview** para o serviço de nuvem recém-implantado ou utilize o `Get-AzRole` comando no Windows PowerShell.
+
+As atualizações do SISTEMA do Hóspede e as operações de cura do serviço podem causar a falha de uma troca de implementação. Para obter mais informações, consulte [as implementações do serviço de cloud Troubleshoot](../cloud-services/cloud-services-troubleshoot-deployment-problems.md).
+
+### <a name="can-i-make-a-vip-swap-in-parallel-with-another-mutating-operation"></a>Posso fazer uma troca VIP em paralelo com outra operação de mutação?
+
+N.º Uma troca VIP é uma alteração apenas em rede que deve terminar antes de qualquer outra operação de computação ser iniciada num serviço de cloud. Iniciar uma atualização, excluir ou fazer uma operação de autoescala para um serviço de nuvem enquanto uma troca VIP está em andamento ou desencadear uma troca VIP enquanto outra operação de computação está em andamento pode colocar o serviço de nuvem num estado de erro irrecuperável.
+
+### <a name="does-a-swap-incur-downtime-for-my-application-and-how-should-i-handle-it"></a>Uma troca incorre em tempo de inatividade para a minha candidatura, e como devo lidar com isso?
+
+Uma troca de serviço em nuvem geralmente é rápida porque é apenas uma alteração de configuração no equilibrador de carga Azure. Em alguns casos, a troca pode demorar 10 ou mais segundos e resultar em falhas de ligação transitórias. Para limitar o efeito da permuta nos utilizadores, considere implementar a lógica de relagem do cliente.
 
 ## <a name="next-steps"></a>Passos seguintes 
-- Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para serviços em nuvem (suporte alargado).
-- Reveja [perguntas frequentes](faq.md) para serviços cloud (suporte alargado).
-- Implementar um Serviço de Cloud (suporte alargado) utilizando o [portal Azure](deploy-portal.md), [PowerShell,](deploy-powershell.md) [Modelo](deploy-template.md) ou [Estúdio Visual](deploy-visual-studio.md).
+
+* Rever [pré-requisitos](deploy-prerequisite.md) de implementação para serviços em nuvem Azure (suporte alargado).
+* Reveja [perguntas frequentes](faq.md) para Azure Cloud Services (suporte alargado).
+* Implementar um serviço de cloud Services Azure (suporte alargado) utilizando uma destas opções:
+  * [Portal do Azure](deploy-portal.md)
+  * [PowerShell](deploy-powershell.md)
+  * [Modelo ARM](deploy-template.md)
+  * [Visual Studio](deploy-visual-studio.md)

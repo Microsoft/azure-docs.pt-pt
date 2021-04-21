@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3e334eda46e5e67a0fc0755f5e02a0724d34a4b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13baf8f033338e242610d7b8c4eec14806cd5ec5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104657642"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770026"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Tutorial: Criar uma base de dados Azure para MySQL - Servidor Flexível (Pré-visualização) com App Services Web App em rede virtual
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Este artigo requer que esteja a executar a versão 2.0 do Azure CLI ou mais tarde localmente. Para ver a versão instalada, execute o comando `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
-Terá de iniciar sessão na sua conta utilizando o comando [de login az.](/cli/azure/reference-index#az-login) Anote a propriedade **id** da saída de comando para o nome de subscrição correspondente.
+Terá de iniciar sessão na sua conta utilizando o comando [de login az.](/cli/azure/reference-index#az_login) Anote a propriedade **id** da saída de comando para o nome de subscrição correspondente.
 
 ```azurecli
 az login

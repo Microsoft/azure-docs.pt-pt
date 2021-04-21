@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6b1079797f1a753fa8362d6e920f3394087d7e9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a4c06cf13b3988891f3c4b45c96f7153b3014ce0
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98119293"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752161"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configure as chaves geridas pelo cliente para encriptação de dados na Pesquisa Cognitiva Azure
 
@@ -146,7 +146,7 @@ Salte este passo se já tiver uma chave no Cofre da Chave Azure.
 
 Neste passo, irá criar uma política de acesso no Key Vault. Esta política dá à aplicação que registou com o Ative Directory permissão para utilizar a sua chave gerida pelo cliente.
 
-As permissões de acesso podem ser revogadas a qualquer momento. Uma vez revogado, qualquer índice de serviço de pesquisa ou mapa de sinónimo que utilize o cofre chave tornar-se-á inutilizável. Restaurar as permissões de acesso ao cofre do cofre de chaves mais tarde irá restaurar o acesso ao mapa index\synonym. Para obter mais informações, consulte [acesso seguro a um cofre de chaves.](../key-vault/general/secure-your-key-vault.md)
+As permissões de acesso podem ser revogadas a qualquer momento. Uma vez revogado, qualquer índice de serviço de pesquisa ou mapa de sinónimo que utilize o cofre chave tornar-se-á inutilizável. Restaurar as permissões de acesso ao cofre do cofre de chaves mais tarde irá restaurar o acesso ao mapa index\synonym. Para obter mais informações, consulte [acesso seguro a um cofre de chaves.](../key-vault/general/security-overview.md)
 
 1. Ainda no portal Azure, abra a página **geral do** cofre da chave. 
 

@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/19/2020
+ms.date: 04/20/2021
 ms.author: banders
-ms.openlocfilehash: 0c69e9533130d6ca70c57422c7cdd5fc75adff72
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: edc1a80687f768723a3a218ecaa1f6459cd484ed
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683722"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763564"
 ---
 # <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>Obtenha o Acordo Empresarial e os custos de reserva e utilização do Acordo de Cliente da Microsoft
 
@@ -95,7 +95,6 @@ No portal do Azure, navegue até [Gestão de Custos + Faturação](https://porta
 ![Exemplo que mostra onde Transferir o ficheiro CSV de dados da utilização no portal do Azure](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
 4. Em **Transferir Utilização + Encargos**, em **Detalhes de Utilização Versão 2**, selecione **Todos os Encargos (utilização e compras)** e, em seguida, clique em transferir. Repita para **Encargos amortizados (utilização e compras)** .
 
-Os ficheiros CSV que transfere contêm custos reais e custos amortizados.
 
 ## <a name="common-cost-and-usage-tasks"></a>Tarefas comuns de custo e utilização
 
@@ -158,8 +157,7 @@ Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
 - [O que são as reservas do Azure?](save-compute-costs-reservations.md)
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../../azure-sql/database/reserved-capacity-overview.md)
-- [Gerir o Azure Reservations](manage-reserved-vm-instance.md)
 - [Compreender como o desconto das reservas é aplicado](../manage/understand-vm-reservation-charges.md)
-- [Compreender a utilização de reservas na sua subscrição Pay As You Go](understand-reserved-instance-usage.md)
 - [Custos de software Windows não incluídos nas Reservas](reserved-instance-windows-software-costs.md)
+- [Use o principal do serviço para obter dados de custos](../manage/assign-roles-azure-service-principals.md)
+- [Utilizar exportações de gestão de custos](../costs/tutorial-export-acm-data.md)

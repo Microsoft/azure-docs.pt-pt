@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 8546ba5c80a4c8909876ff755bc094f1aec96482
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19779ffa8bab045e03161475646c802f464a7e41
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96437087"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791630"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Conceber uma Base de Dados do Azure para MySQL com a CLI do Azure
 
@@ -34,13 +34,13 @@ A Base de Dados do Azure para MySQL é um serviço de base de dados relacional n
 
 - Este artigo requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
-Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso existe ou é cobrado. Selecione um ID de subscrição específica na sua conta com o comando [az account set](/cli/azure/account#az-account-set).
+Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso existe ou é cobrado. Selecione um ID de subscrição específica na sua conta com o comando [az account set](/cli/azure/account#az_account_set).
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo.
+Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo.
 
 O exemplo seguinte cria um grupo de recursos com o nome `myresourcegroup` na localização `westus`.
 
@@ -201,7 +201,7 @@ Se não precisa destes recursos para outro início rápido/tutorial, pode elimin
 az group delete --name myresourcegroup
 ```
 
-Se apenas quiser eliminar o único servidor recém-criado, pode executar o comando [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete).
+Se apenas quiser eliminar o único servidor recém-criado, pode executar o comando [az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete).
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver

@@ -6,12 +6,12 @@ manager: gwallace
 ms.topic: article
 ms.date: 02/03/2021
 ms.author: stevelas
-ms.openlocfilehash: 8a73f295999888dab20531ffdd0fb042790a5357
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 399bb001432759556cd0ba8bf15f7738dd4edb7c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99988220"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781492"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Empurre e puxe um artefacto OCI usando um registo de contentores Azure
 
@@ -46,7 +46,7 @@ Para ler a palavra-passe de Stdin, use `--password-stdin` .
 
 [Inscreva-se no](/cli/azure/authenticate-azure-cli) CLI Azure com a sua identidade para empurrar e retirar artefactos do registo do contentor.
 
-Em seguida, utilize o login de comando Azure CLI [az acr](/cli/azure/acr#az-acr-login) para aceder ao registo. Por exemplo, autenticar a um registo denominado *miogressiário:*
+Em seguida, utilize o login de comando Azure CLI [az acr](/cli/azure/acr#az_acr_login) para aceder ao registo. Por exemplo, autenticar a um registo denominado *miogressiário:*
 
 ```azurecli
 az login
@@ -173,7 +173,7 @@ Crie e empurre um novo artefacto OCI para o registo de destino utilizando o `ora
 oras push myregistry.azurecr.io/dockerfile:1.0 hello-world.dockerfile
 ```
 
-Executar o [comando de construção az acr](/cli/azure/acr#az-acr-build) para construir a imagem do mundo da olá usando o novo artefacto como contexto de construção:
+Executar o [comando de construção az acr](/cli/azure/acr#az_acr_build) para construir a imagem do mundo da olá usando o novo artefacto como contexto de construção:
 
 ```azurecli
 az acr build --registry myregistry --image builds/hello-world:v1 \
@@ -194,5 +194,5 @@ az acr build --registry myregistry --image builds/hello-world:v1 \
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-acr-repository-show]: /cli/azure/acr/repository?#az-acr-repository-show
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-repository-show]: /cli/azure/acr/repository?#az_acr_repository_show
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete

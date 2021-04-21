@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: e4f5fc7290b45f65067f6711f70476e13a010223
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 042db51ab51e9da586f028b8aa99e66ffaa36639
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183391"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775678"
 ---
 # <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Utilize a ferramenta redis de linha de comando com cache Azure para Redis
 
@@ -27,7 +27,7 @@ Se pretender executar a ferramenta de linha de comando noutra plataforma, baixe 
 
 Pode recolher as informações necessárias para aceder à cache utilizando três métodos:
 
-1. Azure CLI usando [az redis list-keys](/cli/azure/redis#az-redis-list-keys)
+1. Azure CLI usando [az redis list-keys](/cli/azure/redis#az_redis_list_keys)
 2. Azure PowerShell usando [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. No portal do Azure.
 

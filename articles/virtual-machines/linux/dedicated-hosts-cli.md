@@ -7,12 +7,12 @@ ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: 9d4117cafd665556fb60278aa4dc60dc14a27ada
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: adc09bf2572be563ff52cf9fa3d0dea51263d032
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670529"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774418"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Implementar para anfitriões dedicados usando o CLI Azure
  
@@ -54,7 +54,7 @@ Em qualquer dos casos, é necessário fornecer a contagem de domínio de avaria 
 Também pode decidir utilizar as zonas de disponibilidade e os domínios de avaria. 
 
 
-Neste exemplo, usaremos [o grupo anfitrião AZ VM](/cli/azure/vm/host/group#az-vm-host-group-create) criar para criar um grupo anfitrião usando tanto zonas de disponibilidade como domínios de falhas. 
+Neste exemplo, usaremos [o grupo anfitrião AZ VM](/cli/azure/vm/host/group#az_vm_host_group_create) criar para criar um grupo anfitrião usando tanto zonas de disponibilidade como domínios de falhas. 
 
 ```azurecli-interactive
 az vm host group create \
@@ -69,7 +69,7 @@ Adicione o `--automatic-placement true` parâmetro para ter os seus VMs e série
 
 ### <a name="other-examples"></a>Outros exemplos
 
-Também pode utilizar [o grupo anfitrião AZ VM](/cli/azure/vm/host/group#az-vm-host-group-create) para criar um grupo anfitrião na zona de disponibilidade 1 (e sem domínios de avaria).
+Também pode utilizar [o grupo anfitrião AZ VM](/cli/azure/vm/host/group#az_vm_host_group_create) para criar um grupo anfitrião na zona de disponibilidade 1 (e sem domínios de avaria).
 
 ```azurecli-interactive
 az vm host group create \
@@ -79,7 +79,7 @@ az vm host group create \
    --platform-fault-domain-count 1 
 ```
  
-As seguintes utilizações [do grupo anfitrião AZ VM criam](/cli/azure/vm/host/group#az-vm-host-group-create) para criar um grupo anfitrião usando apenas domínios de avaria (a ser utilizado em regiões onde as zonas de disponibilidade não são suportadas). 
+As seguintes utilizações [do grupo anfitrião AZ VM criam](/cli/azure/vm/host/group#az_vm_host_group_create) para criar um grupo anfitrião usando apenas domínios de avaria (a ser utilizado em regiões onde as zonas de disponibilidade não são suportadas). 
 
 ```azurecli-interactive
 az vm host group create \
@@ -94,7 +94,7 @@ Agora vamos criar um anfitrião dedicado no grupo anfitrião. Além de um nome p
 
 Para obter mais informações sobre os SKUs e preços do anfitrião, consulte [os preços do Anfitrião Dedicado Azure](https://aka.ms/ADHPricing).
 
-Use [o hospedeiro az vm criar](/cli/azure/vm/host#az-vm-host-create) para criar um hospedeiro. Se definir uma contagem de domínio de avaria para o seu grupo anfitrião, será solicitado que especifique o domínio de avaria para o seu anfitrião.  
+Use [o hospedeiro az vm criar](/cli/azure/vm/host#az_vm_host_create) para criar um hospedeiro. Se definir uma contagem de domínio de avaria para o seu grupo anfitrião, será solicitado que especifique o domínio de avaria para o seu anfitrião.  
 
 ```azurecli-interactive
 az vm host create \
@@ -108,7 +108,7 @@ az vm host create \
 
  
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual 
-Crie uma máquina virtual dentro de um hospedeiro dedicado utilizando [a criação az vm](/cli/azure/vm#az-vm-create). Se especificou uma zona de disponibilidade ao criar o seu grupo anfitrião, é-lhe exigido que utilize a mesma zona ao criar a máquina virtual.
+Crie uma máquina virtual dentro de um hospedeiro dedicado utilizando [a criação az vm](/cli/azure/vm#az_vm_create). Se especificou uma zona de disponibilidade ao criar o seu grupo anfitrião, é-lhe exigido que utilize a mesma zona ao criar a máquina virtual.
 
 ```azurecli-interactive
 az vm create \
@@ -149,7 +149,7 @@ Se quiser escolher manualmente qual o anfitrião para implantar a escala definid
 
 ## <a name="check-the-status-of-the-host"></a>Verifique o estado do anfitrião
 
-Pode verificar o estado de saúde do anfitrião e quantas máquinas virtuais ainda pode implantar no hospedeiro utilizando [a visão de exemplo do anfitrião az vm](/cli/azure/vm/host#az-vm-host-get-instance-view).
+Pode verificar o estado de saúde do anfitrião e quantas máquinas virtuais ainda pode implantar no hospedeiro utilizando [a visão de exemplo do anfitrião az vm](/cli/azure/vm/host#az_vm_host_get_instance_view).
 
 ```azurecli-interactive
 az vm host get-instance-view \
@@ -256,7 +256,7 @@ az vm host get-instance-view \
 ```
  
 ## <a name="export-as-a-template"></a>Exportação como modelo 
-Você pode exportar um modelo se você agora quiser criar um ambiente de desenvolvimento adicional com os mesmos parâmetros, ou um ambiente de produção que o corresponda. O Gestor de Recursos utiliza modelos JSON que definem todos os parâmetros para o seu ambiente. Você constrói ambientes inteiros fazendo referência a este modelo JSON. Pode construir modelos JSON manualmente ou exportar um ambiente existente para criar o modelo JSON para si. Utilize [a exportação do grupo AZ](/cli/azure/group#az-group-export) para exportar o seu grupo de recursos.
+Você pode exportar um modelo se você agora quiser criar um ambiente de desenvolvimento adicional com os mesmos parâmetros, ou um ambiente de produção que o corresponda. O Gestor de Recursos utiliza modelos JSON que definem todos os parâmetros para o seu ambiente. Você constrói ambientes inteiros fazendo referência a este modelo JSON. Pode construir modelos JSON manualmente ou exportar um ambiente existente para criar o modelo JSON para si. Utilize [a exportação do grupo AZ](/cli/azure/group#az_group_export) para exportar o seu grupo de recursos.
 
 ```azurecli-interactive
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
@@ -277,19 +277,19 @@ az deployment group create \
 
 Está a ser cobrado pelos seus anfitriões dedicados, mesmo quando não são implantadas máquinas virtuais. Deve eliminar quaisquer anfitriões que não esteja a utilizar para economizar custos.  
 
-Só é possível eliminar um hospedeiro quando já não existem máquinas virtuais a usá-lo. Eliminar os VMs utilizando [az vm delete](/cli/azure/vm#az-vm-delete).
+Só é possível eliminar um hospedeiro quando já não existem máquinas virtuais a usá-lo. Eliminar os VMs utilizando [az vm delete](/cli/azure/vm#az_vm_delete).
 
 ```azurecli-interactive
 az vm delete -n myVM -g myDHResourceGroup
 ```
 
-Depois de eliminar os VMs, pode eliminar o anfitrião utilizando [o anfitrião az vm delete](/cli/azure/vm/host#az-vm-host-delete).
+Depois de eliminar os VMs, pode eliminar o anfitrião utilizando [o anfitrião az vm delete](/cli/azure/vm/host#az_vm_host_delete).
 
 ```azurecli-interactive
 az vm host delete -g myDHResourceGroup --host-group myHostGroup --name myHost 
 ```
  
-Uma vez eliminado todos os seus anfitriões, poderá eliminar o grupo anfitrião utilizando [o grupo anfitrião AZ VM](/cli/azure/vm/host/group#az-vm-host-group-delete).  
+Uma vez eliminado todos os seus anfitriões, poderá eliminar o grupo anfitrião utilizando [o grupo anfitrião AZ VM](/cli/azure/vm/host/group#az_vm_host_group_delete).  
  
 ```azurecli-interactive
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup  

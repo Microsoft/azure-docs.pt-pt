@@ -3,12 +3,12 @@ title: Trabalhar com as APIs do Defender para IoT
 description: Utilize uma API rest externa para aceder aos dados descobertos por sensores e consolas de gestão e realizar ações com esses dados.
 ms.date: 12/14/2020
 ms.topic: reference
-ms.openlocfilehash: d509f2674a61af1d0ab03892186526b1cb109eee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7833a20d4f708ecb5b80394fae2c56fc07c9489
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104778836"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752737"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Defender para APIs de sensor e consola de ioT
 
@@ -617,12 +617,21 @@ Matriz de objetos JSON que representam alertas.
 | **ID** | Operador numérico | No | - |
 | **Hora** | Operador numérico | No | Época (UTC) |
 | **título** | String | No | - |
-| **message** | String | No | - |
+| **Mensagem** | String | No | - |
 | **severidade** | String | No | Aviso, Menor, Major ou Crítico |
 | **motor** | String | No | Violação de protocolo, violação de políticas, malware, anomalia ou operacional |
 | **fonteDevice** | Operador numérico | Yes | ID do Dispositivo |
 | **destinoDevice** | Operador numérico | Yes | ID do Dispositivo |
+| **fonteDeviceAddress** | Operador numérico | Yes | IP, MAC, Nulo |
+| **destinoDeviceAddress** | Operador numérico | Yes | IP, MAC, Nulo |
+| **remediationSteps** | String | Yes | Medidas de reparação descritas em alerta |
 | **informação adicional** | Objeto de informação adicional | Yes | - |
+
+Note que /api/v2/ é necessário para as seguintes informações:
+
+- fonteDeviceAddress 
+- destinoDeviceAddress
+- remediationSteps
 
 #### <a name="additional-information-fields"></a>Campos de informação adicionais
 
@@ -1359,7 +1368,7 @@ Objeto JSON que representa resultados avaliados. Cada chave contém uma série d
 | Nome do campo | Tipo | Lista de valores |
 |--|--|--|
 | **endereço** s | Operador numérico | - |
-| **network** | String | Endereço IP |
+| **rede** | String | Endereço IP |
 | **mask** | String | Máscara de sub-rede |
 
 **protocoloProblems**
@@ -1742,19 +1751,16 @@ response:
 > |--|--|--|
 > | POST | curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}" -H 'Content-Type: application/json' https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": 1234@abcd "username": "myUser","new_password": abcd@1234 " "}" -H 'Content-Type: application/json' https:/ <span> /127.0.0.1/api/external/authentication/set_password_by_admin |
 
-## <a name="on-premises-management-console-api-specifications"></a>Especificações de API de consola de gestão no local
+## <a name="on-premises-management-console-api-specifications"></a>Especificações de API de consola de gestão no local ##
 
-Esta secção descreve as seguintes APIs de gestão de consolas no local:
+Esta secção descreve apis de gestão de consolas no local para:
+- Exclusões de alerta
+- Informações do dispositivo
+- Informação de alerta
 
-- **/external/v1/alertas/<UUID>**
+### <a name="alert-exclusions"></a>Exclusões de alerta ###
 
-- **Exclusões de alerta (Janela de Manutenção)**
-
-:::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="A janela de exclusão de alerta, mostrando regras ativas.":::
-
-Defina condições em que os alertas não serão enviados. Por exemplo, definir e atualizar os tempos de paragem e início, dispositivos ou sub-redes que devem ser excluídos ao desencadear alertas, ou Defender para motores IoT que devem ser excluídos. Por exemplo, durante uma janela de manutenção, é melhor parar a entrega de todos os alertas, exceto para alertas de malware em dispositivos críticos.
-
-As APIs que define aqui aparecem na janela **de exclusões** de alerta da consola de gestão no local como uma regra de exclusão apenas de leitura.
+Defina condições em que os alertas não serão enviados. Por exemplo, definir e atualizar os tempos de paragem e início, dispositivos ou sub-redes que devem ser excluídos ao desencadear alertas, ou Defender para motores IoT que devem ser excluídos. Por exemplo, durante uma janela de manutenção, é melhor parar a entrega de todos os alertas, exceto para alertas de malware em dispositivos críticos. Os itens que define aqui aparecem na janela **de exclusões** de alerta da consola de gestão no local como regras de exclusão apenas de leitura.
 
 #### <a name="externalv1maintenancewindow"></a>/external/v1/manutençãoWindow
 
@@ -1771,15 +1777,15 @@ As APIs que define aqui aparecem na janela **de exclusões** de alerta da consol
 
 ```
 
-#### <a name="change-password---externalauthenticationset_password"></a>Alterar palavra-passe - /external/autenticação/set_password
+#### <a name="change-password---externalauthenticationset_password"></a>Alterar palavra-passe - /external/autenticação/set_password 
 
 Utilize esta API para permitir que os utilizadores alterem as suas próprias palavras-passe. Todas as funções de utilizador defender para IoT podem funcionar com a API. Você não precisa de um Defender para o token de acesso IoT para usar esta API.
 
-#### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Atualização da palavra-passe do utilizador por administração do sistema - /external/autenticação/set_password_by_admin
+#### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Atualização da palavra-passe do utilizador por administração do sistema - /external/autenticação/set_password_by_admin 
 
 Utilize esta API para permitir que os administradores do sistema alterem palavras-passe para utilizadores específicos. Defender as funções de utilizador de administração IoT pode funcionar com a API. Você não precisa de um Defender para o token de acesso IoT para usar esta API.
 
-### <a name="retrieve-device-information---externalv1devices"></a>Obter informações sobre dispositivos - /external/v1/dispositivos
+### <a name="retrieve-device-information---externalv1devices"></a>Obter informações sobre dispositivos - /external/v1/dispositivos ###
 
 Esta API solicita uma lista de todos os dispositivos detetados pelo Defender para sensores IoT que estejam ligados a uma consola de gestão no local.
 
@@ -2032,27 +2038,40 @@ Utilize esta API para recuperar todos ou alertas filtrados de uma consola de ges
 
   `/api/v1/alerts?toTime=<epoch>`
 
-- **siteId**: O local onde o alerta foi descoberto. [2](#2)
-
-- **zoneId**: A zona em que o alerta foi descoberto. [2](#2)
-
+- **siteId**: O local onde o alerta foi descoberto.
+- **zoneId**: A zona em que o alerta foi descoberto.
 - **sensor**: O sensor no qual o alerta foi descoberto.
 
-##### <a name="you-might-not-have-the-site-and-zone-id-if-this-is-the-case-query-all-devices-to-retrieve-the-site-and-zone-id"></a><a id="2">2</a> *Pode não ter o local e a zona de identificação. Se for esse o caso, consultar todos os dispositivos para recuperar o local e o ID da zona.*
+*Pode não ter o site e a identificação da zona. Se for esse o caso, consultar todos os dispositivos para recuperar o local e o ID da zona.*
 
-#### <a name="alert-fields"></a>Campos de alerta
+#### <a name="alert-fields"></a>Campos de alerta 
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
 | **ID** | Operador numérico | No | - |
 | **Hora** | Operador numérico | No | Época (UTC) |
 | **título** | String | No | - |
-| **message** | String | No | - |
+| **Mensagem** | String | No | - |
 | **severidade** | String | No | Aviso, Menor, Major ou Crítico |
 | **motor** | String | No | Violação de protocolo, violação de políticas, malware, anomalia ou operacional |
 | **fonteDevice** | Operador numérico | Yes | ID do Dispositivo |
 | **destinoDevice** | Operador numérico | Yes | ID do Dispositivo |
+| **fonteDeviceAddress** | Operador numérico | Yes | IP, MAC, Nulo |
+| **destinoDeviceAddress** | Operador numérico | Yes | IP, MAC, Nulo |
+| **remediationSteps** | String | Yes | Medidas de reparação mostradas em alerta|
+| **nome sensor** | String | Yes | Nome do sensor definido pelo utilizador na consola|
+|**zoneName** | String | Yes | Nome da zona associada ao sensor na consola|
+| **siteName** | String | Yes | Nome do site associado ao sensor na consola |
 | **informação adicional** | Objeto de informação adicional | Yes | - |
+
+Note que /api/v2/ é necessário para as seguintes informações:
+
+- fonteDeviceAddress 
+- destinoDeviceAddress
+- remediationSteps
+- nome sensor
+- zoneName
+- siteName
 
 #### <a name="additional-information-fields"></a>Campos de informação adicionais
 
@@ -2390,7 +2409,7 @@ Recupere um registo de todas as ações abertas, próximas e atualizadas que for
 
 - **tokenName**: Filtra os registos relacionados com um nome simbólico específico.
 
-#### <a name="error-code"></a>Código de erro
+#### <a name="error-code"></a>Código de erro 
 
 - **200 (OK)**: A ação foi concluída com sucesso.
 

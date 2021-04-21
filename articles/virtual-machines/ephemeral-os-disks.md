@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 814824fb6708abaf549bb3de19b4aced4774a244
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24b1be2ca55b057c887c8782ce7eea1150f143da
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102485763"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762628"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos EFÉMEROS para VMs Azure
 
@@ -71,7 +71,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## <a name="cli"></a>CLI
 
-Para utilizar um disco efémero para uma implantação de VM CLI, defina o `--ephemeral-os-disk` parâmetro em [az vm criar](/cli/azure/vm#az-vm-create) e o parâmetro para `true` `--os-disk-caching` `ReadOnly` .
+Para utilizar um disco efémero para uma implantação de VM CLI, defina o `--ephemeral-os-disk` parâmetro em [az vm criar](/cli/azure/vm#az_vm_create) e o parâmetro para `true` `--os-disk-caching` `ReadOnly` .
 
 ```azurecli-interactive
 az vm create \
@@ -84,7 +84,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Para conjuntos de escala, utilize o mesmo `--ephemeral-os-disk true` parâmetro para [criar az-vmss](/cli/azure/vmss#az-vmss-create) e definir o `--os-disk-caching` parâmetro para `ReadOnly` .
+Para conjuntos de escala, utilize o mesmo `--ephemeral-os-disk true` parâmetro para [criar az-vmss](/cli/azure/vmss#az_vmss_create) e definir o `--os-disk-caching` parâmetro para `ReadOnly` .
 
 ## <a name="portal"></a>Portal
 
@@ -251,4 +251,4 @@ R: Os discos efémeros não suportam:
 > 
  
 ## <a name="next-steps"></a>Passos seguintes
-Pode criar um VM com um disco efémero de OS utilizando o [Azure CLI](/cli/azure/vm#az-vm-create).
+Pode criar um VM com um disco efémero de OS utilizando o [Azure CLI](/cli/azure/vm#az_vm_create).

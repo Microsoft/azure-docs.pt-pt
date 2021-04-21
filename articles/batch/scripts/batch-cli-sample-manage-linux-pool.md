@@ -4,12 +4,12 @@ description: Este script demonstra alguns dos comandos disponíveis no CLI Azure
 ms.topic: sample
 ms.date: 01/29/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b2e0fbf44be5718cf5577f6bc9aea436968e2fc3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5e1bdccefffa7803fbe744e27c1b36ca719560d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93073558"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768292"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>Exemplo da CLI: Criar e gerir um conjunto do Linux no Azure Batch
 
@@ -37,17 +37,17 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Cria a conta do Batch. |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Autentica contra a conta do Batch especificada para obter mais interação da CLI.  |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Cria a conta do Batch. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentica contra a conta do Batch especificada para obter mais interação da CLI.  |
 | [az batch pool node-agent-skus list](../batch-linux-nodes.md#list-of-virtual-machine-images) | Lista os SKUs do agente de nó e as informações da imagem disponíveis.  |
-| [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) | Cria um conjunto de nós de computação.  |
-| [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) | Redimensiona o número de VMs em execução no conjunto especificado.  |
-| [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show) | Apresenta as propriedades de um conjunto.  |
-| [az batch node list](/cli/azure/batch/node#az-batch-node-list) | Lista todos os nós de computação no conjunto especificado.  |
-| [az batch node reboot](/cli/azure/batch/node#az-batch-node-reboot) | Reinicia o nó de computação especificado.  |
-| [az batch node delete](/cli/azure/batch/node#az-batch-node-delete) | Elimina os nós listados do conjunto especificado.  |
-| [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) | Cria um conjunto de nós de computação.  |
+| [az batch pool resize](/cli/azure/batch/pool#az_batch_pool_resize) | Redimensiona o número de VMs em execução no conjunto especificado.  |
+| [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show) | Apresenta as propriedades de um conjunto.  |
+| [az batch node list](/cli/azure/batch/node#az_batch_node_list) | Lista todos os nós de computação no conjunto especificado.  |
+| [az batch node reboot](/cli/azure/batch/node#az_batch_node_reboot) | Reinicia o nó de computação especificado.  |
+| [az batch node delete](/cli/azure/batch/node#az_batch_node_delete) | Elimina os nós listados do conjunto especificado.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

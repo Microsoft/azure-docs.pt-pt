@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 2ea833b72b9522cdfca836a7b13f7b411402103e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee298b33736ae25b365cc54ee1bb5ec9f38bfb62
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94562700"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763616"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Crie um bloqueio de recursos para a API da Azure Cosmos DB para a MongoDB usando o Azure CLI
 [!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
@@ -34,10 +34,10 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [bloqueio az criar](/cli/azure/lock#az-lock-create) | Cria uma fechadura. |
-| [lista de bloqueio az](/cli/azure/lock#az-lock-list) | Lista informação de bloqueio. |
-| [az lock show](/cli/azure/lock#az-lock-show) | Mostrar propriedades de uma fechadura. |
-| [bloqueio az eliminar](/cli/azure/lock#az-lock-delete) | Apaga uma fechadura. |
+| [bloqueio az criar](/cli/azure/lock#az_lock_create) | Cria uma fechadura. |
+| [lista de bloqueio az](/cli/azure/lock#az_lock_list) | Lista informação de bloqueio. |
+| [az lock show](/cli/azure/lock#az_lock_show) | Mostrar propriedades de uma fechadura. |
+| [bloqueio az eliminar](/cli/azure/lock#az_lock_delete) | Apaga uma fechadura. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

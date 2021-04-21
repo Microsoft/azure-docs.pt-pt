@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 71d8d577bdfd8b359ce872f3489b60dca0b462b2
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 2bed95385823a167c7a31eed11d752894984ea38
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575637"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791882"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Avaliar resultados automatizados de experiências de aprendizagem automática
 
@@ -74,7 +74,7 @@ A tabela seguinte resume as métricas de desempenho do modelo que o ML automatiz
 
 |Metric|Descrição|Cálculo|
 |--|--|---|
-|AUC | A AUC é a área sob a [curva característica de funcionamento](#roc-curve)do recetor.<br><br> **Objetivo:** Mais perto de 1, melhor <br> **Alcance:** [0, 1]<br> <br>Os nomes métricos suportados incluem, <li>`AUC_macro`, a média aritmética da AUC para cada classe.<li> `AUC_micro`, calculado combinando os verdadeiros positivos e falsos positivos de cada classe. <li> `AUC_weighted`, média aritmética da pontuação para cada classe, ponderada pelo número de casos verdadeiros em cada classe.   |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | 
+|AUC | A AUC é a área sob a [curva característica de funcionamento](#roc-curve)do recetor.<br><br> **Objetivo:** Mais perto de 1, melhor <br> **Alcance:** [0, 1]<br> <br>Os nomes métricos suportados incluem, <li>`AUC_macro`, a média aritmética da AUC para cada classe.<li> `AUC_micro`, calculado combinando os verdadeiros positivos e falsos positivos de cada classe. <li> `AUC_weighted`, média aritmética da pontuação para cada classe, ponderada pelo número de casos verdadeiros em cada classe.<br><br>Nota: Os valores AUC reportados por ML automatizado podem não corresponder à tabela ROC se existirem apenas duas classes. Para a classificação binária, a implementação subjacente de scikit-learn da AUC não aplica efetivamente uma média macro/micro/ponderada. Em vez disso, a AUC da classe positiva mais provável é devolvida. O gráfico ROC continua a aplicar a média de classe para a classificação binária, tal como acontece com a multiclasse.  |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | 
 |accuracy| Precisão é a relação de previsões que correspondem exatamente às verdadeiras etiquetas de classe. <br> <br>**Objetivo:** Mais perto de 1, melhor <br> **Alcance:** [0, 1]|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
 |average_precision|A precisão média resume uma curva de precisão-recordação como a média ponderada de precisões alcançadas em cada limiar, com o aumento da recuperação do limiar anterior utilizado como peso. <br><br> **Objetivo:** Mais perto de 1, melhor <br> **Alcance:** [0, 1]<br> <br>Os nomes métricos suportados incluem,<li>`average_precision_score_macro`, a média aritmética da pontuação média de precisão de cada classe.<li> `average_precision_score_micro`, calculado combinando os verdadeiros positivos e falsos positivos em cada corte.<li>`average_precision_score_weighted`, a média aritmética da pontuação média de precisão para cada classe, ponderada pelo número de casos verdadeiros em cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|
 balanced_accuracy|Precisão equilibrada é a média aritmética de recordação para cada classe.<br> <br>**Objetivo:** Mais perto de 1, melhor <br> **Alcance:** [0, 1]|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
@@ -117,6 +117,7 @@ A área sob a curva (AUC) pode ser interpretada como a proporção de amostras c
 Uma curva que se aproxima do canto superior esquerdo da tabela está a aproximar-se de um TPR 100% e 0% de FPR, o melhor modelo possível. Um modelo aleatório produziria uma curva ROC ao longo `y = x` da linha do canto inferior esquerdo para o canto superior direito. Um modelo pior do que aleatório teria uma curva ROC que desce abaixo da `y = x` linha.
 > [!TIP]
 > Para experiências de classificação, cada uma das tabelas de linha produzidas para modelos ML automatizados pode ser usada para avaliar o modelo por classe ou média em todas as classes. Pode alternar entre estas diferentes vistas clicando nas etiquetas de classe na legenda à direita da tabela.
+
 ### <a name="roc-curve-for-a-good-model"></a>Curva ROC para um bom modelo
 ![Curva ROC para um bom modelo](./media/how-to-understand-automated-ml/chart-roc-curve-good.png)
 

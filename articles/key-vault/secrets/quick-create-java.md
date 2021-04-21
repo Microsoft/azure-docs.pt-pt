@@ -8,12 +8,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: f1a502722156bc010dab917afdbd1d49ae93681a
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 804c4732ce979cd9ec46c69456b3f731284c9c73
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375989"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748531"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>Quickstart: Azure Key Vault Secret biblioteca de clientes para Java
 Começa com a biblioteca de clientes Azure Key Vault Secret para a Java. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
@@ -281,4 +281,4 @@ Neste arranque rápido criaste um cofre chave, armazenaste um segredo, recuperas
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
 - Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
-- Como [garantir o acesso a um cofre chave](../general/secure-your-key-vault.md)
+- Como [garantir o acesso a um cofre chave](../general/security-overview.md)

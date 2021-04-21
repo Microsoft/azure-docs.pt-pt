@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 3442c3b6023edcde97aabcb13e91120ba6811027
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d94640e1c6a037893fb1ad9198b82195c46dd24
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91323078"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768130"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Quickstart: Criar um membro blockchain do Azure Blockchain Service usando O Azure CLI
 
@@ -34,7 +34,7 @@ Se preferir instalar e utilizar o CLI localmente, este arranque rápido requer a
 
 1. Inicie sessão.
 
-    Inicie sessão com o comando [az login](/cli/azure/reference-index#az-login) se estiver a utilizar uma instalação local da CLI.
+    Inicie sessão com o comando [az login](/cli/azure/reference-index#az_login) se estiver a utilizar uma instalação local da CLI.
 
     ```azurecli
     az login
@@ -56,7 +56,7 @@ Se preferir instalar e utilizar o CLI localmente, este arranque rápido requer a
 
     O Serviço Azure Blockchain, como todos os recursos da Azure, deve ser implantado num grupo de recursos. Os grupos de recursos permitem organizar e gerir recursos relacionados do Azure.
 
-    Para este arranque rápido, crie um grupo de recursos chamado _myResourceGroup_ na localização _este_ com o seguinte [grupo az criar](/cli/azure/group#az-group-create) comando:
+    Para este arranque rápido, crie um grupo de recursos chamado _myResourceGroup_ na localização _este_ com o seguinte [grupo az criar](/cli/azure/group#az_group_create) comando:
 
     ```azurecli-interactive
     az group create \

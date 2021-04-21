@@ -9,12 +9,12 @@ ms.subservice: instance-protection
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 8b331eaf52a0a97232d481dccfff932221cd5faa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 292abce3361c000eeeef2c399d5ffa2d2c4852e1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933462"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762862"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Exemplo Proteção para séries de máquinas virtuais Azure conjunto instâncias
 
@@ -94,7 +94,7 @@ Update-AzVmssVM `
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
 
-Utilize [a atualização az vmss](/cli/azure/vmss#az-vmss-update) para aplicar proteção de escala na sua instância definida em escala.
+Utilize [a atualização az vmss](/cli/azure/vmss#az_vmss_update) para aplicar proteção de escala na sua instância definida em escala.
 
 O exemplo a seguir aplica proteção de escala a um caso na escala definida com identificação de exemplo 0.
 
@@ -165,7 +165,7 @@ Update-AzVmssVM `
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
 
-Utilize [a atualização az vmss](/cli/azure/vmss#az-vmss-update) para aplicar a proteção das ações definidas em escala à sua instância definida em escala.
+Utilize [a atualização az vmss](/cli/azure/vmss#az_vmss_update) para aplicar a proteção das ações definidas em escala à sua instância definida em escala.
 
 O exemplo a seguir aplica a proteção das ações definidas em escala a um caso no conjunto de escala com identificação de exemplo 0.
 

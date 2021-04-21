@@ -138,6 +138,8 @@
       items:
         - name: Criar um pedido de suporte para falhas de implementação
           href: fix-deployment-provisioning-failures.md
+        - name: Código de erro vix ferramentas VMware = 21009
+          href: 'https://kb.vmware.com/s/article/2129927'
     - name: FAQ
       items:
         - name: Geral

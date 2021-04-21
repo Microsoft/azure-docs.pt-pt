@@ -4,12 +4,12 @@ description: Este script demonstra alguns dos comandos disponíveis na CLI do Az
 ms.topic: sample
 ms.date: 12/12/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb18f9d8777c17d31a3ab246603df0d9fa162467
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 773699dde9342a4b230a08471a289a56fca7e308
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93100944"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768220"
 ---
 # <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>Exemplo da CLI: Criar e gerir um conjunto do Windows no Azure Batch
 
@@ -37,15 +37,15 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Cria a conta do Batch. |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Autentica contra a conta do Batch especificada para obter mais interação da CLI. |
-| [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) | Cria um conjunto de nós de computação.  |
-| [az batch pool set](/cli/azure/batch/pool#az-batch-pool-set) | Atualiza as propriedades de um conjunto.  |
-| [az batch pool autoscale enable](/cli/azure/batch/pool/autoscale#az-batch-pool-autoscale-enable) | Permite o dimensionamento automático num conjunto e aplica uma fórmula.  |
-| [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show) | Apresenta as propriedades de um conjunto.  |
-| [az batch pool autoscale disable](/cli/azure/batch/pool/autoscale#az-batch-pool-autoscale-disable) | Desativa o dimensionamento automático num conjunto. |
-| [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Cria a conta do Batch. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentica contra a conta do Batch especificada para obter mais interação da CLI. |
+| [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) | Cria um conjunto de nós de computação.  |
+| [az batch pool set](/cli/azure/batch/pool#az_batch_pool_set) | Atualiza as propriedades de um conjunto.  |
+| [az batch pool autoscale enable](/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_enable) | Permite o dimensionamento automático num conjunto e aplica uma fórmula.  |
+| [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show) | Apresenta as propriedades de um conjunto.  |
+| [az batch pool autoscale disable](/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_disable) | Desativa o dimensionamento automático num conjunto. |
+| [az group delete](/cli/azure/group#az_group_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 
 ## <a name="next-steps"></a>Passos seguintes

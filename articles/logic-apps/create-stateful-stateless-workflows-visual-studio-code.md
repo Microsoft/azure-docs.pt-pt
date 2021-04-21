@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/30/2021
-ms.openlocfilehash: 491d5f14cc8f456d228a5bc6efaa6686575979c1
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 4010f7e2d0d20216107a45109056478694c940ca
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078745"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772510"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual com a extensão Azure Logic Apps (Preview)
 
@@ -360,7 +360,7 @@ A capacidade de autoria está atualmente disponível apenas no Código do Estúd
    ![Screenshot que mostra o painel explorer com lista "Enable connectors in Azure" aberto e "Use conectores do Azure" selecionados.](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
 
    > [!NOTE]
-   > Atualmente, os fluxos de trabalho apátridas suportam apenas *ações* para [conectores geridos](../connectors/apis-list.md#managed-api-connectors), que são implantados em Azure, e não gatilhos. Embora tenha a opção de ativar conectores em Azure para o seu fluxo de trabalho apátrida, o designer não mostra nenhum gatilho de conector gerido para que possa selecionar.
+   > Atualmente, os fluxos de trabalho apátridas suportam apenas *ações* para [conectores geridos](../connectors/managed.md), que são implantados em Azure, e não gatilhos. Embora tenha a opção de ativar conectores em Azure para o seu fluxo de trabalho apátrida, o designer não mostra nenhum gatilho de conector gerido para que possa selecionar.
 
 1. A partir da lista **de subscrições Select,** selecione a subscrição Azure para usar para o seu projeto de aplicação lógica.
 

@@ -3,7 +3,6 @@ title: Tutorial - Atualizar a frequência de rotação automática do certificad
 description: Tutorial mostrando como atualizar a frequência de rotação automática de um certificado no Cofre de Chaves Azure usando o portal Azure
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
@@ -11,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: ec648f02918717dad6b739aa6ae99206bcec1d6e
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 48a531e054bf92c8ddc7761689b8fdf1df8a28a7
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581817"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750019"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutorial: Configurar o certificado autorrotação no Cofre de Chaves
 
@@ -80,10 +79,12 @@ Key Vault auto-rota certificados através de parcerias estabelecidas com CAs. Co
    - **Período de validade**: Insira o valor (em meses). A criação de certificados de curta duração é uma prática de segurança recomendada. Por padrão, o valor de validade de um certificado recém-criado é de 12 meses.
    - **Tipo de ação vitalícia**: Selecione a ação de renovação automática e alerta do certificado e, em seguida, atualize **a percentagem** de vida útil ou **o número de dias antes de expirar**. Por defeito, a renovação automática de um certificado é fixada em 80% da sua vida útil. A partir do menu suspenso, selecione uma das seguintes opções.
 
-        |  Renovar automaticamente num dado momento| Envie por e-mail todos os contactos num dado momento |
-        |-----------|------|
-        |A seleção desta opção *ligará a* autoração. | A seleção desta opção *não* rodará automaticamente, mas apenas alertará os contactos.|
-         You can learn about [setting up Email contact here](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
+      |  Renovar automaticamente num dado momento| Envie por e-mail todos os contactos num dado momento |
+      |-----------|------|
+      |A seleção desta opção *ligará a* autoração. | A seleção desta opção *não* rodará automaticamente, mas apenas alertará os contactos.|
+      
+      Pode aprender sobre [a configuração do contacto por e-mail aqui](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
+
 1. Selecione **Criar**.
 
 ![Ciclo de vida certificado](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)

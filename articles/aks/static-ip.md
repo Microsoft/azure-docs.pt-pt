@@ -5,12 +5,12 @@ description: Saiba como criar e utilizar um endereço IP estático com o balanç
 services: container-service
 ms.topic: article
 ms.date: 11/14/2020
-ms.openlocfilehash: 102df48ca22fb996e0f4d9c402b8ce8f0fa80f2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb1e5691027a4bd86b57390e12259ac165ca9ed8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102509477"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769522"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utilize um endereço IP público estático e etiqueta DNS com o equilibrador de carga Azure Kubernetes Service (AKS)
 
@@ -166,9 +166,9 @@ Para um controlo adicional sobre o tráfego da rede para as suas aplicações, p
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [aks-ingress-basic]: ingress-basic.md
 [aks-static-ingress]: ingress-static-ip.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: fa5d34d195cfed2d5dbfa6954d83b28487bf0bba
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d315fa5b588c6e5f2e4643ca18626e400e6ca01b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167758"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785654"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Tutorial: Dimensione rapidamente e proteja uma aplicação web utilizando a Porta Frontal Azure e a Firewall de Aplicação Web Azure (WAF)
 
@@ -144,7 +144,7 @@ Recomendamos que garanta que apenas as bordas da porta dianteira Azure podem com
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não necessitar dos recursos utilizados neste tutorial, utilize o comando de eliminação do [grupo az](/cli/azure/group#az-group-delete) para remover o grupo de recursos, porta frontal e política da WAF:
+Quando já não necessitar dos recursos utilizados neste tutorial, utilize o comando de eliminação do [grupo az](/cli/azure/group#az_group_delete) para remover o grupo de recursos, porta frontal e política da WAF:
 
 ```azurecli-interactive
   az group delete \

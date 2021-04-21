@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: cca08e1be0f81c26d0838566ac4900d36580b8b8
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ca46ce3355edf2b77400011d023cd6af330a3b58
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066301"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770438"
 ---
 # <a name="what-is-azure-data-box-disk"></a>O que é o Azure Data Box Disk?
 
@@ -35,7 +35,7 @@ Os fornecedores Azure e os fornecedores não-Azure podem ingerir dados da Azure 
 
 - **SharePoint Online** - use a Azure Data Box e a SharePoint Migration Tool (SPMT) para migrar o conteúdo da partilha de ficheiros para o SharePoint Online. Utilizando a Caixa de Dados, remove a dependência do seu link WAN para transferir os dados. Para obter mais informações, consulte [use a Caixa de Dados Azure Heavy para migrar o conteúdo da partilha de ficheiros para o SharePoint Online](data-box-heavy-migrate-spo.md).
 
-- **Azure File Sync** - replica ficheiros da sua Caixa de Dados para uma partilha de ficheiros Azure, permitindo-lhe centralizar os seus serviços de ficheiros no Azure, mantendo o acesso local aos seus dados. Para obter mais informações, consulte [implementar o Sync de ficheiros Azure](../storage/files/storage-sync-files-deployment-guide.md).
+- **Azure File Sync** - replica ficheiros da sua Caixa de Dados para uma partilha de ficheiros Azure, permitindo-lhe centralizar os seus serviços de ficheiros no Azure, mantendo o acesso local aos seus dados. Para obter mais informações, consulte [implementar o Sync de ficheiros Azure](../storage/file-sync/file-sync-deployment-guide.md).
 
 - **HdFS armazena** - migrar dados de uma loja de ficheiros distribuídos Hadoop (HDFS) do seu cluster Hadoop para o Armazenamento Azure usando a Data Box. Para obter mais informações, consulte [Migrar da loja ON-Prem HDFS para o Azure Storage com Azure Data Box](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 2e289728c7fde9b98256d079d45067aba1d4d805
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fab167884d9060edc4f626d3ee05fa0b23389d92
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211333"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767804"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Sub-rede do Gestor de Tráfego sobrepõe-se usando Azure CLI
 
@@ -39,7 +39,7 @@ Para criar uma sub-rede do Traffic Manager, pode utilizar o CLI do Azure para ad
 - Este artigo requer a versão 2.0.28 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>Atualize o ponto final do Gestor de Tráfego com a sobreposição da sub-rede.
-Utilize o Azure CLI para atualizar o seu ponto final com [a atualização do ponto final do gestor de tráfego da rede Az](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-update).
+Utilize o Azure CLI para atualizar o seu ponto final com [a atualização do ponto final do gestor de tráfego da rede Az](/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_update).
 
 ```azurecli-interactive
 ### Add a range of IPs ###
@@ -59,7 +59,7 @@ az network traffic-manager endpoint update \
     --type AzureEndpoints
 ```
 
-Pode remover as gamas de endereços IP executando a atualização do [ponto final do gestor de tráfego da rede Az](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-update) com a opção de **remoção.**
+Pode remover as gamas de endereços IP executando a atualização do [ponto final do gestor de tráfego da rede Az](/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_update) com a opção de **remoção.**
 
 ```azurecli-interactive
 az network traffic-manager endpoint update \

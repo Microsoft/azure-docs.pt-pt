@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 381573ae40f6c31a1c7dbf18bc60be5944fff39e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84783049"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762898"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Utilizar a extensão Estado da Aplicação com conjuntos de dimensionamento de máquinas virtuais
 Monitorizar a saúde da sua aplicação é um sinal importante para gerir e melhorar a sua implementação. Os conjuntos de escala de máquina virtual Azure fornecem suporte para [upgrades rolantes,](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluindo [atualizações automáticas de imagem OS,](virtual-machine-scale-sets-automatic-upgrade.md)que dependem da monitorização de saúde de cada instância para atualizar a sua implementação. Também pode utilizar a extensão de saúde para monitorizar a saúde da aplicação de cada instância no seu conjunto de escalas e realizar reparações de instâncias com [reparações automáticas](virtual-machine-scale-sets-automatic-instance-repairs.md)de instâncias .
@@ -141,7 +141,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
 
-Utilize [o conjunto de extensão az vmss](/cli/azure/vmss/extension#az-vmss-extension-set) para adicionar a extensão de Saúde da Aplicação à definição do modelo definido em escala.
+Utilize [o conjunto de extensão az vmss](/cli/azure/vmss/extension#az_vmss_extension_set) para adicionar a extensão de Saúde da Aplicação à definição do modelo definido em escala.
 
 O exemplo a seguir adiciona a extensão de Saúde da Aplicação ao modelo de escala de um conjunto de escala à base de Linux.
 

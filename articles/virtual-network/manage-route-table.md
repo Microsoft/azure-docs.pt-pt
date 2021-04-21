@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: 642a9a9f798492d85ee2a9784a1fe5ad4f854d58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdf702abb10b7330a4ca0f5478751df4bce3d7f3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100574118"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783382"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou eliminar uma tabela de rotas
 
@@ -61,7 +61,7 @@ Há um limite para quantas tabelas de rotas pode criar por localização e subsc
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create) |
+| CLI do Azure | [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create) |
 | PowerShell | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) |
 
 ## <a name="view-route-tables"></a>Ver tabelas de rotas
@@ -72,7 +72,7 @@ Vá ao [portal Azure](https://portal.azure.com) para gerir a sua rede virtual. P
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [lista de tabelas de rota de rede az](/cli/azure/network/route-table#az-network-route-table-list) |
+| CLI do Azure | [lista de tabelas de rota de rede az](/cli/azure/network/route-table#az_network_route_table_list) |
 | PowerShell | [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable) |
 
 ## <a name="view-details-of-a-route-table"></a>Ver detalhes de uma tabela de rotas
@@ -95,7 +95,7 @@ Para saber mais sobre as configurações comuns do Azure, consulte as seguintes 
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [az rede rota-table show](/cli/azure/network/route-table#az-network-route-table-show) |
+| CLI do Azure | [az rede rota-table show](/cli/azure/network/route-table#az_network_route_table_show) |
 | PowerShell | [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable) |
 
 ## <a name="change-a-route-table"></a>Alterar uma tabela de rotas
@@ -110,7 +110,7 @@ As alterações mais comuns são [adicionar](#create-a-route) rotas, [remover](#
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [az rede rota-table atualização](/cli/azure/network/route-table#az-network-route-table-update) |
+| CLI do Azure | [az rede rota-table atualização](/cli/azure/network/route-table#az_network_route_table_update) |
 | PowerShell | [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) |
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associar uma tabela de rotas a uma sub-rede
@@ -135,7 +135,7 @@ Se a sua rede virtual estiver ligada a um gateway Azure VPN, não associe uma ta
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) |
+| CLI do Azure | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) |
 | PowerShell | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>Dissociem uma tabela de rotas a partir de uma sub-rede
@@ -158,7 +158,7 @@ Quando se dissocia uma tabela de rotas a partir de uma sub-rede, a Azure encamin
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) |
+| CLI do Azure | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) |
 | PowerShell | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |
 
 ## <a name="delete-a-route-table"></a>Excluir uma tabela de rotas
@@ -175,7 +175,7 @@ Não é possível apagar uma tabela de rotas associada a quaisquer sub-redes. [D
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [tabela de rota de rede az eliminar](/cli/azure/network/route-table#az-network-route-table-delete) |
+| CLI do Azure | [tabela de rota de rede az eliminar](/cli/azure/network/route-table#az_network_route_table_delete) |
 | PowerShell | [Remove-AzRouteTable](/powershell/module/az.network/remove-azroutetable) |
 
 ## <a name="create-a-route"></a>Criar uma rota
@@ -202,7 +202,7 @@ Há um limite para quantas rotas por tabela de rotas pode criar por localizaçã
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create) |
+| CLI do Azure | [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create) |
 | PowerShell | [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig) |
 
 ## <a name="view-routes"></a>Ver rotas
@@ -219,7 +219,7 @@ Uma tabela de rotas contém zero ou mais rotas. Para saber mais sobre as informa
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [lista de rotas de rota de rede az](/cli/azure/network/route-table/route#az-network-route-table-route-list) |
+| CLI do Azure | [lista de rotas de rota de rede az](/cli/azure/network/route-table/route#az_network_route_table_route_list) |
 | PowerShell | [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig) |
 
 ## <a name="view-details-of-a-route"></a>Ver detalhes de uma rota
@@ -236,7 +236,7 @@ Uma tabela de rotas contém zero ou mais rotas. Para saber mais sobre as informa
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [az rede rota-tabela show](/cli/azure/network/route-table/route#az-network-route-table-route-show) |
+| CLI do Azure | [az rede rota-tabela show](/cli/azure/network/route-table/route#az_network_route_table_route_show) |
 | PowerShell | [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig) |
 
 ## <a name="change-a-route"></a>Mudar uma rota
@@ -255,7 +255,7 @@ Uma tabela de rotas contém zero ou mais rotas. Para saber mais sobre as informa
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [az rede rota-tabela de rota atualização](/cli/azure/network/route-table/route#az-network-route-table-route-update) |
+| CLI do Azure | [az rede rota-tabela de rota atualização](/cli/azure/network/route-table/route#az_network_route_table_route_update) |
 | PowerShell | [Set-AzRouteConfig](/powershell/module/az.network/set-azrouteconfig) |
 
 ## <a name="delete-a-route"></a>Excluir uma rota
@@ -274,7 +274,7 @@ Uma tabela de rotas contém zero ou mais rotas. Para saber mais sobre as informa
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [rota de rota de rede az eliminar](/cli/azure/network/route-table/route#az-network-route-table-route-delete) |
+| CLI do Azure | [rota de rota de rede az eliminar](/cli/azure/network/route-table/route#az_network_route_table_route_delete) |
 | PowerShell | [Remover-AzRouteConfig](/powershell/module/az.network/remove-azrouteconfig) |
 
 ## <a name="view-effective-routes"></a>Ver rotas eficazes
@@ -297,7 +297,7 @@ As rotas eficazes para cada interface de rede anexada a VM são uma combinação
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) |
+| CLI do Azure | [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table) |
 | PowerShell | [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) |
 
 ## <a name="validate-routing-between-two-endpoints"></a>Validar o encaminhamento entre dois pontos finais
@@ -326,7 +326,7 @@ Depois de uma curta espera, a Azure diz-lhe o próximo tipo de lúpulo e o ID da
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [az network watcher show-next-hop](/cli/azure/network/watcher#az-network-watcher-show-next-hop) |
+| CLI do Azure | [az network watcher show-next-hop](/cli/azure/network/watcher#az_network_watcher_show_next_hop) |
 | PowerShell | [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) |
 
 ## <a name="permissions"></a>Permissões

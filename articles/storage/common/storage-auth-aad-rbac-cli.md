@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c42061520b73966f2cd516716039d78c2b9cbeb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93d9a81ab75efe4ea38189a7280e041e545a2b7d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375991"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785330"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Use o CLI Azure para atribuir uma função Azure para acesso a dados de bolhas e filas
 
@@ -36,7 +36,7 @@ Este artigo descreve como usar o Azure CLI para listar as funções incorporadas
 
 ## <a name="list-available-azure-roles"></a>Lista de funções disponíveis do Azure
 
-Para listar as funções disponíveis em incorporado Azure com O Azure CLI, utilize o comando da [lista de definição de função az:](/cli/azure/role/definition#az-role-definition-list)
+Para listar as funções disponíveis em incorporado Azure com O Azure CLI, utilize o comando da [lista de definição de função az:](/cli/azure/role/definition#az_role_definition_list)
 
 ```azurecli-interactive
 az role definition list --out table
@@ -56,7 +56,7 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 ## <a name="assign-an-azure-role-to-a-security-principal"></a>Atribua um papel de Azure a um diretor de segurança
 
-Para atribuir um papel de Azure a um principal de segurança, use a [atribuição de funções az criar](/cli/azure/role/assignment#az-role-assignment-create) comando. O formato do comando pode diferir com base no âmbito da atribuição. Os exemplos a seguir mostram como atribuir uma função a um utilizador em vários âmbitos, mas pode usar o mesmo comando para atribuir uma função a qualquer diretor de segurança.
+Para atribuir um papel de Azure a um principal de segurança, use a [atribuição de funções az criar](/cli/azure/role/assignment#az_role_assignment_create) comando. O formato do comando pode diferir com base no âmbito da atribuição. Os exemplos a seguir mostram como atribuir uma função a um utilizador em vários âmbitos, mas pode usar o mesmo comando para atribuir uma função a qualquer diretor de segurança.
 
 > [!IMPORTANT]
 > Quando cria uma conta de Armazenamento Azure, não lhe são atribuídas automaticamente permissões de acesso aos dados através do Azure AD. Deve atribuir-se explicitamente a si mesmo um papel Azure RBAC para o acesso a dados. Pode atribuí-lo ao nível da sua subscrição, grupo de recursos, conta de armazenamento ou contentor ou fila.

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 8edb5e44fc0a8e7aa67c4edd69971c35c6866d82
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: fa52327225667bd84047e74a89e3b1394964b22c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752467"
+ms.locfileid: "107769990"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database para encriptação de dados de servidor único postgresQL com uma chave gerida pelo cliente
 
@@ -97,7 +97,7 @@ Quando configurar a encriptação de dados com uma chave gerida pelo cliente no 
 * Se criarmos uma réplica de leitura para o seu Azure Database para o servidor PostgreSQL Single, que tem encriptação de dados ativada, o servidor de réplica estará em estado *inacessível.* Pode corrigir o estado do servidor através do [portal Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou [do CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * Se eliminar o KeyVault, a Base de Dados Azure para o servidor PostgreSQL Single não poderá aceder à chave e mudar-se-á para o estado *Inacessível.* Recupere o [Cofre de Chaves](../key-vault/general/key-vault-recovery.md) e revalida a encriptação de dados para disponibilizar o servidor . 
 * Se eliminarmos a chave do KeyVault, a Base de Dados Azure para o servidor Single PostgreSQL não poderá aceder à chave e mudar-se-á para o estado *inacessível.* Recupere a [Chave](../key-vault/general/key-vault-recovery.md) e revalida a encriptação de dados para tornar o servidor *disponível*.
-* Se a chave armazenada no Azure KeyVault expirar, a chave tornar-se-á inválida e a Base de Dados Azure para o servidor Single PostgreSQL irá transitar para estado *inacessível.* Prolongue a data de validade da chave utilizando [o CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) e, em seguida, revalidar a encriptação de dados para tornar o servidor *disponível*.
+* Se a chave armazenada no Azure KeyVault expirar, a chave tornar-se-á inválida e a Base de Dados Azure para o servidor Single PostgreSQL irá transitar para estado *inacessível.* Prolongue a data de validade da chave utilizando [o CLI](/cli/azure/keyvault/key#az_keyvault_key_set_attributes) e, em seguida, revalidar a encriptação de dados para tornar o servidor *disponível*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Revogação acidental do acesso à chave do Cofre de Chaves
 

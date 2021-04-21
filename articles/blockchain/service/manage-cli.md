@@ -1,17 +1,17 @@
 ---
-title: Gerir o Serviço Azure Blockchain utilizando o Azure CLI
+title: Gerir o Azure Blockchain Service com a CLI do Azure
 description: Como gerir o Azure Blockchain Service com a Azure CLI
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 36b012c486c0c7d3303a81998e88f1605999c899
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 63401f5ce5cd35f63915e03b7f0362811d2660ec
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87170852"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768058"
 ---
-# <a name="manage-azure-blockchain-service-using-azure-cli"></a>Gerir o Serviço Azure Blockchain utilizando o Azure CLI
+# <a name="manage-azure-blockchain-service-using-azure-cli"></a>Gerir o Azure Blockchain Service com a CLI do Azure
 
 Além do portal Azure, pode utilizar o Azure CLI para gerir membros blockchain e nóns de transação para o seu Serviço Azure Blockchain.
 
@@ -27,7 +27,7 @@ Se preferir instalar e utilizar o CLI localmente, consulte [a instalação do Az
 
 1. Inicie sessão.
 
-    Inicie sessão com o comando [az login](/cli/azure/reference-index#az-login) se estiver a utilizar uma instalação local da CLI.
+    Inicie sessão com o comando [az login](/cli/azure/reference-index#az_login) se estiver a utilizar uma instalação local da CLI.
 
     ```azurecli
     az login

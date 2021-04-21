@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f2bc71100a92d1811d69af31a7a3085af36f60a8
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 4c86811ee72d2713fced6320a17d1ccde1866d99
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121936"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769954"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Crie uma conta que suporte chaves geridas pelo cliente para mesas e filas
 
@@ -58,7 +58,7 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
 
 Para utilizar o Azure CLI para criar uma conta de armazenamento que se baseie na chave de encriptação da conta, certifique-se de que instalou a versão 2.0.80 do Azure CLI ou mais tarde. Para mais informações, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
-Em seguida, crie uma conta de armazenamento v2 para fins gerais, chamando a [conta de armazenamento az criar](/cli/azure/storage/account#az-storage-account-create) comando, com os parâmetros apropriados:
+Em seguida, crie uma conta de armazenamento v2 para fins gerais, chamando a [conta de armazenamento az criar](/cli/azure/storage/account#az_storage_account_create) comando, com os parâmetros apropriados:
 
 - Inclua a `--encryption-key-type-for-queue` opção e desa cimente o seu valor `Account` para usar a chave de encriptação da conta para encriptar dados no armazenamento da fila.
 - Inclua a `--encryption-key-type-for-table` opção e desa cimente o seu valor `Account` para usar a chave de encriptação da conta para encriptar dados no armazenamento de tabela.
@@ -119,7 +119,7 @@ Depois de ter criado uma conta que se baseia na chave de encriptação da conta,
 
 ## <a name="verify-the-account-encryption-key"></a>Verifique a chave de encriptação da conta
 
-Para verificar se um serviço numa conta de armazenamento está a usar a chave de encriptação da conta, ligue para o comando da [conta de armazenamento](/cli/azure/storage/account#az-storage-account-show) Azure CLI. Este comando devolve um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `keyType` campo para cada serviço dentro da propriedade de encriptação e verifique se está definido para `Account` .
+Para verificar se um serviço numa conta de armazenamento está a usar a chave de encriptação da conta, ligue para o comando da [conta de armazenamento](/cli/azure/storage/account#az_storage_account_show) Azure CLI. Este comando devolve um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `keyType` campo para cada serviço dentro da propriedade de encriptação e verifique se está definido para `Account` .
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -134,7 +134,7 @@ $account.Encryption.Services.Table
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para verificar se um serviço numa conta de armazenamento está a usar a chave de encriptação da conta, ligue para o comando [do show da conta de armazenamento AZ.](/cli/azure/storage/account#az-storage-account-show) Este comando devolve um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `keyType` campo para cada serviço dentro da propriedade de encriptação e verifique se está definido para `Account` .
+Para verificar se um serviço numa conta de armazenamento está a usar a chave de encriptação da conta, ligue para o comando [do show da conta de armazenamento AZ.](/cli/azure/storage/account#az_storage_account_show) Este comando devolve um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `keyType` campo para cada serviço dentro da propriedade de encriptação e verifique se está definido para `Account` .
 
 ```azurecli
 az storage account show /

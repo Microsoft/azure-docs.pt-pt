@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 25fc021a48e8936f242df35f7485fc59a93bba13
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 95767e94a120b7f4595744beabc72fcd954e6e2f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102172805"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783112"
 ---
 # <a name="http-application-routing"></a>Encaminhamento de aplicações de HTTP
 
@@ -280,12 +280,12 @@ ingress "aks-helloworld" deleted
 Para obter informações sobre como instalar um controlador Ingress protegido pelo HTTPS em AKS, consulte [HTTPS Ingress no Serviço Azure Kubernetes (AKS)][ingress-https].
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [ingress-https]: ./ingress-tls.md
-[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
-[az aks install-cli]: /cli/azure/aks#az-aks-install-cli
-[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-enable-addons]: /cli/azure/aks#az_aks_enable_addons
+[az aks install-cli]: /cli/azure/aks#az_aks_install_cli
+[az aks get-credentials]: /cli/azure/aks#az_aks_get_credentials
 
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/

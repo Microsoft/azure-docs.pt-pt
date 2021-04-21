@@ -3,19 +3,18 @@ title: Métodos de criação de certificados
 description: Saiba mais sobre diferentes opções para criar ou importar um certificado Key Vault em Azure Key Vault. Há várias formas de criar um certificado key vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f06f2de1f373f72aa5e55da17c249ff119a36950
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 72ff2a1a7b8bcff768248833183ce03a169f9a4d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581836"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752125"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificados
 
@@ -50,7 +49,7 @@ As seguintes descrições correspondem aos passos com letras verdes no diagrama 
 ## <a name="asynchronous-process"></a>Processo assíncronos
 A criação de certificados KV é um processo assíncronos. Esta operação criará um pedido de certificado KV e devolverá um código de estado http de 202 (Aceito). O estado do pedido pode ser rastreado através da sondagem do objeto pendente criado por esta operação. O URI completo do objeto pendente é devolvido no cabeçalho LOCALIZAÇÃO.  
 
-Quando um pedido de criação de um certificado KV estiver concluído, o estado do objeto pendente mudará para "concluído" a partir de "inprogress", e será criada uma nova versão do certificado KV. Esta será a versão atual.  
+Quando um pedido de criação de um certificado KV estiver concluído, o estado do objeto pendente mudará para "concluído" a partir de "em curso", e será criada uma nova versão do certificado KV. Esta será a versão atual.  
 
 ## <a name="first-creation"></a>Primeira criação
  Quando um certificado KV é criado pela primeira vez, uma chave e segredo endereçado também é criado com o mesmo nome que o do certificado. Se o nome já estiver a ser utilizado, a operação falhará com um código de estado http de 409 (conflito).
@@ -93,5 +92,5 @@ Note que quando uma encomenda é feita com o fornecedor de emitentes, pode honra
 
 ## <a name="see-also"></a>Consulte também
 
- - Como guiar para criar certificados em Key Vault usando [Portal](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal), [Azure CLI,](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-cli) [Azure Powershell](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-powershell)
+ - Como guiar para criar certificados em Key Vault usando [Portal](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal), [Azure CLI](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-cli), [Azure PowerShell](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-powershell)
  - [Monitorizar e gerir a criação do certificados](create-certificate-scenarios.md)

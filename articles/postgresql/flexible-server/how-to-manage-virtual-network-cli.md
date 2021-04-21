@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 2bc7bbd7a50b5771d794fbf35844311e3deddbbd
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 0a4bf648551be723007b0d8856fe0857896aad94
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226978"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778396"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Criar e gerir redes virtuais para Azure Database for PostgreSQL - Servidor Flexível utilizando o Azure CLI
 
@@ -37,13 +37,13 @@ Se preferir instalar e utilizar o CLI localmente, este arranque rápido requer a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Terá de iniciar sessão na sua conta utilizando o comando [de login az.](/cli/azure/reference-index#az-login) Note a propriedade **ID,** que se refere ao **ID de subscrição** para a sua conta Azure.
+Terá de iniciar sessão na sua conta utilizando o comando [de login az.](/cli/azure/reference-index#az_login) Note a propriedade **ID,** que se refere ao **ID de subscrição** para a sua conta Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Selecione a subscrição específica sob a sua conta usando o comando [conjunto de conta az.](/cli/azure/account#az-account-set) Tome nota do valor de **ID** da saída de **login az** para usar como valor para o argumento de **subscrição** no comando. Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Para obter toda a sua subscrição, utilize [a lista de conta az](/cli/azure/account#az-account-list).
+Selecione a subscrição específica sob a sua conta usando o comando [conjunto de conta az.](/cli/azure/account#az_account_set) Tome nota do valor de **ID** da saída de **login az** para usar como valor para o argumento de **subscrição** no comando. Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Para obter toda a sua subscrição, utilize [a lista de conta az](/cli/azure/account#az_account_list).
 
 ```azurecli
 az account set --subscription <subscription id>

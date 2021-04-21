@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 3cea15114e125951a8fbec73f965b272a4f8053d
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: e34876c76259b8274e0b0ef9059659802eb55cf1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284163"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765454"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registar SQL Server VM com extensão do agente SQL IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -304,7 +304,7 @@ Para desregralar o seu SQL Server VM a partir da extensão utilizando o portal A
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para desregralar o seu SQL Server VM a partir da extensão com O Azure CLI, utilize o comando [de exclusão de az sql vm.](/cli/azure/sql/vm#az-sql-vm-delete) Isto removerá o *recurso* VM do Servidor SQL, mas não eliminará a máquina virtual. 
+Para desregralar o seu SQL Server VM a partir da extensão com O Azure CLI, utilize o comando [de exclusão de az sql vm.](/cli/azure/sql/vm#az_sql_vm_delete) Isto removerá o *recurso* VM do Servidor SQL, mas não eliminará a máquina virtual. 
 
 
 ```azurecli-interactive

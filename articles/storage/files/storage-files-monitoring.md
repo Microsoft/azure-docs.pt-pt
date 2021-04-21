@@ -10,12 +10,12 @@ ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 16a899b7f0e40c2eee91d1dd445f0992572a9dda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 620ee3bc5978da4b274aed9a412679ae0835f0b9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103418169"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759832"
 ---
 # <a name="monitoring-azure-files"></a>Monitorar ficheiros Azure
 
@@ -212,7 +212,7 @@ Para obter mais informações, consulte [os Registos de Recursos stream Azure pa
 
 Se optar por arquivar os seus registos numa conta de armazenamento, pagará o volume de registos que são enviados para a conta de armazenamento. Para obter preços **específicos,** consulte a secção de Registos de Plataforma da página de preços do [Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/#platform-logs)
 
-Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
+Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) comando.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true}]'
@@ -234,7 +234,7 @@ Para obter uma descrição de cada parâmetro, consulte os [registos de Recursos
 
 Se optar por transmitir os seus registos para um centro de eventos, pagará o volume de registos que são enviados para o centro de eventos. Para obter preços **específicos,** consulte a secção de Registos de Plataforma da página de preços do [Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/#platform-logs)
 
-Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
+Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) comando.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -248,7 +248,7 @@ Para obter uma descrição de cada parâmetro, consulte os dados do [Stream para
 
 #### <a name="send-logs-to-log-analytics"></a>Enviar registos para o Log Analytics
 
-Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
+Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) comando.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -308,7 +308,7 @@ Pode ler os valores métricos ao nível da conta da sua conta de armazenamento o
 
 #### <a name="list-the-account-level-metric-definition"></a>Listar a definição métrica de nível de conta
 
-Pode listar a definição métrica da sua conta de armazenamento ou do serviço Azure Files. Utilize o comando [de definições de listas de métricas az monitor.](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions)
+Pode listar a definição métrica da sua conta de armazenamento ou do serviço Azure Files. Utilize o comando [de definições de listas de métricas az monitor.](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions)
  
 Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos de toda a conta de armazenamento ou pelo ID de recursos do serviço Azure Files. Pode encontrar estes IDs de recursos nas páginas **Propriedades** da sua conta de armazenamento no portal Azure.
 
@@ -318,7 +318,7 @@ Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos
 
 #### <a name="read-account-level-metric-values"></a>Leia os valores métricos ao nível da conta
 
-Pode ler os valores métricos da sua conta de armazenamento ou do serviço Azure Files. Utilize o comando [da lista de métricas do monitor az.](/cli/azure/monitor/metrics#az-monitor-metrics-list)
+Pode ler os valores métricos da sua conta de armazenamento ou do serviço Azure Files. Utilize o comando [da lista de métricas do monitor az.](/cli/azure/monitor/metrics#az_monitor_metrics_list)
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H

@@ -3,12 +3,12 @@ title: Ativar a identidade gerida no grupo de contentores
 description: Saiba como ativar uma identidade gerida em Instâncias de Contentores Azure que possa autenticar com outros serviços Azure
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: a0d029e39122ca7bb858103f4d7f88e2536850d5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f8f3c646487d86f4e1bce13ccbf28992b8b1497a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198324"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764014"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como utilizar identidades geridas com o Azure Container Instances
 
@@ -53,13 +53,13 @@ Para utilizar uma identidade gerida, a identidade deve ter acesso a um ou mais r
 
 Os exemplos deste artigo usam uma identidade gerida em Instâncias de Contentores Azure para aceder a um segredo de cofre chave Azure. 
 
-Primeiro, crie um grupo de recursos com o nome *myResourceGroup* na localização *eualeste* através do comando seguinte [az group create](/cli/azure/group#az-group-create):
+Primeiro, crie um grupo de recursos com o nome *myResourceGroup* na localização *eualeste* através do comando seguinte [az group create](/cli/azure/group#az_group_create):
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Use o [keyvault az criar](/cli/azure/keyvault#az-keyvault-create) comando para criar um cofre de chaves. Certifique-se de especificar um nome único do cofre. 
+Use o [keyvault az criar](/cli/azure/keyvault#az_keyvault_create) comando para criar um cofre de chaves. Certifique-se de especificar um nome único do cofre. 
 
 ```azurecli-interactive
 az keyvault create \
@@ -68,7 +68,7 @@ az keyvault create \
   --location eastus
 ```
 
-Guarde um segredo de amostra no cofre da chave usando o comando [secreto az keyvault:](/cli/azure/keyvault/secret#az-keyvault-secret-set)
+Guarde um segredo de amostra no cofre da chave usando o comando [secreto az keyvault:](/cli/azure/keyvault/secret#az_keyvault_secret_set)
 
 ```azurecli-interactive
 az keyvault secret set \
@@ -83,7 +83,7 @@ Continue com os seguintes exemplos para aceder ao cofre de chaves utilizando uma
 
 ### <a name="create-an-identity"></a>Criar uma identidade
 
-Primeiro crie uma identidade na sua subscrição usando o comando [de criação de identidade az.](/cli/azure/identity#az-identity-create) Pode utilizar o mesmo grupo de recursos usado para criar o cofre de chaves, ou usar um outro.
+Primeiro crie uma identidade na sua subscrição usando o comando [de criação de identidade az.](/cli/azure/identity#az_identity_create) Pode utilizar o mesmo grupo de recursos usado para criar o cofre de chaves, ou usar um outro.
 
 ```azurecli-interactive
 az identity create \
@@ -91,7 +91,7 @@ az identity create \
   --name myACIId
 ```
 
-Para utilizar a identidade nos seguintes passos, utilize o comando [de demonstração de identidade az](/cli/azure/identity#az-identity-show) para armazenar o ID principal de serviço da identidade e iD de recursos em variáveis.
+Para utilizar a identidade nos seguintes passos, utilize o comando [de demonstração de identidade az](/cli/azure/identity#az_identity_show) para armazenar o ID principal de serviço da identidade e iD de recursos em variáveis.
 
 ```azurecli-interactive
 # Get service principal ID of the user-assigned identity
@@ -121,7 +121,7 @@ Executar o seguinte comando [de definição de chave-chave az](/cli/azure/keyvau
 
 ### <a name="enable-user-assigned-identity-on-a-container-group"></a>Ativar a identidade atribuída pelo utilizador num grupo de contentores
 
-Executar o [seguinte recipiente az criar](/cli/azure/container#az-container-create) comando para criar uma instância de recipiente com base na imagem da `azure-cli` Microsoft. Este exemplo fornece um grupo de contentores únicos que pode utilizar interativamente para executar o Azure CLI para aceder a outros serviços Azure. Nesta secção, apenas é utilizado o sistema operativo base. Por exemplo, utilize o CLI Azure no recipiente, consulte [Ativar a identidade atribuída ao sistema num grupo de contentores](#enable-system-assigned-identity-on-a-container-group). 
+Executar o [seguinte recipiente az criar](/cli/azure/container#az_container_create) comando para criar uma instância de recipiente com base na imagem da `azure-cli` Microsoft. Este exemplo fornece um grupo de contentores únicos que pode utilizar interativamente para executar o Azure CLI para aceder a outros serviços Azure. Nesta secção, apenas é utilizado o sistema operativo base. Por exemplo, utilize o CLI Azure no recipiente, consulte [Ativar a identidade atribuída ao sistema num grupo de contentores](#enable-system-assigned-identity-on-a-container-group). 
 
 O `--assign-identity` parâmetro transmite a sua identidade gerida atribuída ao utilizador para o grupo. O comando de longa duração mantém o contentor a funcionar. Este exemplo usa o mesmo grupo de recursos usado para criar o cofre de chaves, mas você pode especificar um diferente.
 
@@ -134,7 +134,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-Dentro de alguns segundos, deverá receber uma resposta da CLI do Azure que indica que a implementação foi concluída. Verifique o seu estado com o comando de exibição do [contentor az.](/cli/azure/container#az-container-show)
+Dentro de alguns segundos, deverá receber uma resposta da CLI do Azure que indica que a implementação foi concluída. Verifique o seu estado com o comando de exibição do [contentor az.](/cli/azure/container#az_container_show)
 
 ```azurecli-interactive
 az container show \
@@ -206,7 +206,7 @@ A resposta parece semelhante à seguinte, mostrando o segredo. No seu código, a
 
 ### <a name="enable-system-assigned-identity-on-a-container-group"></a>Ativar a identidade atribuída pelo sistema num grupo de contentores
 
-Executar o [seguinte recipiente az criar](/cli/azure/container#az-container-create) comando para criar uma instância de recipiente com base na imagem da `azure-cli` Microsoft. Este exemplo fornece um grupo de contentores únicos que pode utilizar interativamente para executar o Azure CLI para aceder a outros serviços Azure. 
+Executar o [seguinte recipiente az criar](/cli/azure/container#az_container_create) comando para criar uma instância de recipiente com base na imagem da `azure-cli` Microsoft. Este exemplo fornece um grupo de contentores únicos que pode utilizar interativamente para executar o Azure CLI para aceder a outros serviços Azure. 
 
 O `--assign-identity` parâmetro sem valor adicional permite uma identidade gerida atribuída pelo sistema no grupo. A identidade é de âmbito ao grupo de recursos do grupo de contentores. O comando de longa duração mantém o contentor a funcionar. Este exemplo usa o mesmo grupo de recursos usado para criar o cofre chave, que está no âmbito da identidade.
 
@@ -223,7 +223,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-Dentro de alguns segundos, deverá receber uma resposta da CLI do Azure que indica que a implementação foi concluída. Verifique o seu estado com o comando de exibição do [contentor az.](/cli/azure/container#az-container-show)
+Dentro de alguns segundos, deverá receber uma resposta da CLI do Azure que indica que a implementação foi concluída. Verifique o seu estado com o comando de exibição do [contentor az.](/cli/azure/container#az_container_show)
 
 ```azurecli-interactive
 az container show \

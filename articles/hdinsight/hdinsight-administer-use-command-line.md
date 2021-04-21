@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-azurecli
 ms.date: 02/26/2020
-ms.openlocfilehash: b17c5a2abc036c16ff3ce36b81428f9149e36b4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14b88700f3968e3bfdc788abb2fc9ce90634068e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98942861"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770350"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Gerir clusters Azure HDInsight usando Azure CLI
 
@@ -39,7 +39,7 @@ az login
 
 ## <a name="list-clusters"></a>Agrupamentos de listas
 
-Use [a lista az hdinsight](/cli/azure/hdinsight#az-hdinsight-list) para listar clusters. Edite os comandos abaixo, `RESOURCE_GROUP_NAME` substituindo-os pelo nome do seu grupo de recursos e, em seguida, insira os comandos:
+Use [a lista az hdinsight](/cli/azure/hdinsight#az_hdinsight_list) para listar clusters. Edite os comandos abaixo, `RESOURCE_GROUP_NAME` substituindo-os pelo nome do seu grupo de recursos e, em seguida, insira os comandos:
 
 ```azurecli-interactive
 # List all clusters in the current subscription
@@ -57,7 +57,7 @@ az hdinsight list --resource-group RESOURCE_GROUP_NAME --query "[].{clusterName:
 
 ## <a name="show-cluster"></a>Mostrar cluster
 
-Utilize [o az hdinsight show](/cli/azure/hdinsight#az-hdinsight-show) para mostrar informações para um cluster especificado. Editar o comando abaixo, `RESOURCE_GROUP_NAME` substituindo, e com as `CLUSTER_NAME` informações relevantes, insira o comando:
+Utilize [o az hdinsight show](/cli/azure/hdinsight#az_hdinsight_show) para mostrar informações para um cluster especificado. Editar o comando abaixo, `RESOURCE_GROUP_NAME` substituindo, e com as `CLUSTER_NAME` informações relevantes, insira o comando:
 
 ```azurecli-interactive
 az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
@@ -65,7 +65,7 @@ az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
 
 ## <a name="delete-clusters"></a>Eliminar aglomerados
 
-Utilize [az hdinsight eliminar](/cli/azure/hdinsight#az-hdinsight-delete) para eliminar um cluster especificado. Editar o comando abaixo, `RESOURCE_GROUP_NAME` substituindo, e com as `CLUSTER_NAME` informações relevantes, insira o comando:
+Utilize [az hdinsight eliminar](/cli/azure/hdinsight#az_hdinsight_delete) para eliminar um cluster especificado. Editar o comando abaixo, `RESOURCE_GROUP_NAME` substituindo, e com as `CLUSTER_NAME` informações relevantes, insira o comando:
 
 ```azurecli-interactive
 az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
@@ -79,7 +79,7 @@ az group delete --name RESOURCE_GROUP_NAME
 
 ## <a name="scale-clusters"></a>Aglomerados de escala
 
-Utilize [o tamanho az hdinsight](/cli/azure/hdinsight#az-hdinsight-resize) para redimensionar o cluster HDInsight especificado para o tamanho especificado. Editar o comando abaixo, `RESOURCE_GROUP_NAME` substituindo, e com as `CLUSTER_NAME` informações relevantes. Substitua-os pelo `WORKERNODE_COUNT` número desejado de nós de trabalhadores para o seu agrupamento. Para obter mais informações sobre clusters de escala, consulte [clusters Scale HDInsight](./hdinsight-scaling-best-practices.md). Insira o comando:
+Utilize [o tamanho az hdinsight](/cli/azure/hdinsight#az_hdinsight_resize) para redimensionar o cluster HDInsight especificado para o tamanho especificado. Editar o comando abaixo, `RESOURCE_GROUP_NAME` substituindo, e com as `CLUSTER_NAME` informações relevantes. Substitua-os pelo `WORKERNODE_COUNT` número desejado de nós de trabalhadores para o seu agrupamento. Para obter mais informações sobre clusters de escala, consulte [clusters Scale HDInsight](./hdinsight-scaling-best-practices.md). Insira o comando:
 
 ```azurecli-interactive
 az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --workernode-count WORKERNODE_COUNT

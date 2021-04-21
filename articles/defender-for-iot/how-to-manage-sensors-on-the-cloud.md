@@ -1,16 +1,16 @@
 ---
 title: Gerir sensores no Portal Defender para IoT
 description: Saiba como embarcar, ver e gerir sensores no portal Defender para IoT.
-ms.date: 4/18/2021
+ms.date: 04/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 2c948aa2387552f9815ab075abb43c98307ae087
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: f407a65f60a1b969f17ebe00be39a888a09ec83d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600187"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752719"
 ---
-# <a name="manage-sensors-ain-the-defender-for-iot-portal"></a>Gerir sensores é o Defender para o portal IoT
+# <a name="manage-sensors-in-the-defender-for-iot-portal"></a>Gerir sensores no Portal Defender para IoT
 
 Este artigo descreve como embarcar, visualizar e gerir sensores no [portal Defender para IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -26,16 +26,14 @@ Para se registar:
 1. Selecione **sensor a bordo**.
 1. Crie um nome de sensor. Recomendamos que inclua o endereço IP do sensor que instalou como parte do nome, ou utilize um nome facilmente identificável. Isto irá garantir um rastreio mais fácil e um nome consistente entre o nome de registo no portal Azure [Defender para IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) e o IP do sensor implantado exibido na consola sensor.
 1. Associe o sensor a uma assinatura Azure.
-1. Escolha um modo de gestão de sensores utilizando o toggle **ligado** cloud. Se o toggle estiver ligado, o sensor está ligado à nuvem. Se o toggle estiver desligado, o sensor é gerido localmente.
+1. Escolha um modo de ligação do sensor utilizando o toggle **ligado** cloud. Se o toggle estiver ligado, o sensor está ligado à nuvem. Se o toggle estiver desligado, o sensor é gerido localmente.
 
-   - **Sensores ligados à nuvem**: A informação que o sensor deteta é apresentada na consola do sensor. As informações de alerta são entregues através de um hub IoT e podem ser partilhadas com outros serviços da Azure, como o Azure Sentinel.
+   - **Sensores ligados à nuvem**: A informação que o sensor deteta é apresentada na consola do sensor. As informações de alerta são entregues através de um hub IoT e podem ser partilhadas com outros serviços da Azure, como o Azure Sentinel. Além disso, os pacotes de inteligência de ameaça podem ser empurrados do Azure Defender para o portal IoT para sensores. Inversamente, quando o sensor não está ligado à nuvem, tem de descarregar pacotes de inteligência de ameaças e depois enviá-los para os sensores da empresa. Para permitir que o Defender para ioT empurre pacotes para os sensores, ative as **atualizações automáticas de inteligência de ameaça.** Para obter mais informações, consulte [a pesquisa e pacotes de inteligência da Ameaça.](how-to-work-with-threat-intelligence-packages.md)
+   Escolha um hub IoT para servir de porta de entrada entre este sensor e o Azure Defender para o portal IoT. Defina um nome e zona do site. Também pode adicionar tags descritivas. O nome, zona e etiquetas do site são entradas descritivas na [página de Sites e Sensores.](#view-onboarded-sensors)
 
    - **Sensores geridos localmente**: A informação que os sensores detetam é exibida na consola do sensor. Se estiver a trabalhar numa rede com lacunas de ar e quiser uma visão unificada de toda a informação detetada por vários sensores geridos localmente, trabalhe com a consola de gestão no local.
 
-   Para sensores ligados à nuvem, o nome definido durante o embarque é o nome que aparece na consola do sensor. Não podes mudar este nome diretamente da consola. Para sensores geridos localmente, o nome aplicado durante o embarque será armazenado no Azure e pode ser atualizado na consola de sensores.
-
-1. Escolha um hub IoT para servir de porta de entrada entre este sensor e o Azure Defender para IoT.
-1. Se o sensor estiver ligado à nuvem, associe-o a um hub IoT e, em seguida, defina um nome e zona do site. Também pode adicionar tags descritivas. O nome, zona e etiquetas do site são entradas descritivas na [página de Sites e Sensores.](#view-onboarded-sensors)
+   Para sensores ligados à nuvem, o nome definido durante o embarque é o nome que aparece na consola do sensor. Não podes mudar este nome diretamente da consola. Para sensores geridos localmente, o nome aplicado durante o embarque será armazenado no Azure, mas pode ser atualizado na consola de sensores.
 
 ### <a name="download-the-sensor-activation-file"></a>Descarregue o ficheiro de ativação do sensor
 
@@ -48,15 +46,16 @@ Para descarregar um ficheiro de ativação:
 
 ## <a name="view-onboarded-sensors"></a>Ver sensores a bordo
 
-No [portal Defender for IoT,](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)pode ver informações básicas sobre sensores a bordo.
+No [portal Defender para IoT,](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)pode ver informações operacionais importantes sobre sensores a bordo.
 
-1. Selecione **Sites e Sensores.**
-1. Use ferramentas de filtro e pesquisa para encontrar informações de inteligência de sensor e ameaça de que necessita.
+1. Selecione **Sites e Sensores.** A página mostra quantos sensores estavam a bordo, o número de sensores que estão ligados à nuvem e geridos localmente, bem como:
 
-- Quantos sensores estavam a bordo
-- O número de sensores que estão ligados à nuvem e geridos localmente
-- O centro associado a um sensor a bordo
-- Detalhes adicionados sobre um sensor, como o nome atribuído ao sensor durante o embarque, a zona associada ao sensor, ou outras informações descritivas adicionadas com tags
+- o nome do sensor atribuído durante o embarque.
+- o tipo de ligação (ligado à nuvem ou gerido localmente)
+- a zona associada ao sensor.
+- A versão sensor instalada
+- O estado de ligação do sensor à nuvem.
+- A última vez que o sensor foi detetado a ligar-se à nuvem.
 
 ## <a name="manage-onboarded-sensors"></a>Gerir sensores a bordo
 
