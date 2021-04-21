@@ -3,12 +3,12 @@ title: Eliminações do histórico de implementações
 description: Descreve como o Azure Resource Manager elimina automaticamente as implementações do histórico de implementação. As implementações são eliminadas quando o histórico está perto de ultrapassar o limite de 800.
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: 83383411ec317e228dabb14273e2b566792c774c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b55c022c35c43be6818bb3c551d5db85b1927ebb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732470"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781852"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Supressões automáticas do histórico de implantação
 
@@ -84,7 +84,7 @@ Para reencar as supressões automáticas, utilize Azure REST API ou Azure CLI.
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para O Azure CLI, utilize [o registo de recursos Az](/cli/azure/feature#az-feature-register).
+Para O Azure CLI, utilize [o registo de recursos Az](/cli/azure/feature#az_feature_register).
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -96,7 +96,7 @@ Para ver o estado atual da sua subscrição, utilize:
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
-Para reencontrar as supressões automáticas, utilize [o registo de recurso az](/cli/azure/feature#az-feature-unregister).
+Para reencontrar as supressões automáticas, utilize [o registo de recurso az](/cli/azure/feature#az_feature_unregister).
 
 ```azurecli-interactive
 az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -104,7 +104,7 @@ az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGr
 
 # <a name="rest"></a>[REST](#tab/rest)
 
-Para REST API, utilize [funcionalidades - Registar.](/rest/api/resources/features/features/register)
+Para REST API, utilize [funcionalidades - Registar.](/rest/api/resources/features/register)
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
@@ -116,7 +116,7 @@ Para ver o estado atual da sua subscrição, utilize:
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
 ```
 
-Para reencar as supressões automáticas reensáveis, utilize [funcionalidades - Não registar](/rest/api/resources/features/features/unregister)
+Para reencar as supressões automáticas reensáveis, utilize [funcionalidades - Não registar](/rest/api/resources/features/unregister)
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/unregister?api-version=2015-12-01

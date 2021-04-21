@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 49d6a85faa55de5dbf50377998dbe2fc829d9f6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07c4ac3234dc67978f16f6c0c7e0702924bf2bb5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96929791"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768910"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>Excluir uma loja de configuração de aplicativos Azure
 
@@ -44,7 +44,7 @@ Este script utiliza os seguintes comandos para eliminar uma loja de Configuraç�
 
 | Comando | Notas |
 |---|---|
-| [az appconfig eliminar](/cli/azure/appconfig#az-appconfig-delete) | Elimina um recurso de loja de configuração de aplicações. |
+| [az appconfig eliminar](/cli/azure/appconfig#az_appconfig_delete) | Elimina um recurso de loja de configuração de aplicações. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

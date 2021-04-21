@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: ef0f32ecc59bea6ee7a0f7ff12083fd2358c223c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 08bc36500bbd95633d1cb1d02bf10a7397401aa4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478918"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780124"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determinar qual o modelo chave de encriptação de armazenamento Azure está a ser utilizado para a conta de armazenamento
 
@@ -62,7 +62,7 @@ Se o valor da propriedade **KeySource** `Microsoft.Storage` for, então a conta 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Para verificar o modelo de encriptação da conta de armazenamento utilizando o Azure CLI, ligue para o comando da [conta de armazenamento az](/cli/azure/storage/account#az-storage-account-show) e, em seguida, verifique a propriedade **keySource** para a conta.
+Para verificar o modelo de encriptação da conta de armazenamento utilizando o Azure CLI, ligue para o comando da [conta de armazenamento az](/cli/azure/storage/account#az_storage_account_show) e, em seguida, verifique a propriedade **keySource** para a conta.
 
 ```azurecli-interactive
 key_source=$(az storage account show \

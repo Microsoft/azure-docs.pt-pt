@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 894a89126d1ee3ed909134f3e0dd914166568654
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 921127ffdd35007cc3fa2eaaa95cdb3fac8bbe15
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90606560"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782292"
 ---
 Pode ver a fila no [portal Azure](../articles/storage/queues/storage-quickstart-queues-portal.md) ou no  [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Também pode ver a fila no CLI Azure, conforme descrito nos seguintes passos:
 
@@ -35,13 +35,13 @@ Pode ver a fila no [portal Azure](../articles/storage/queues/storage-quickstart-
     
     ---
     
-1. (Opcional) Utilize o [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) comando para visualizar as filas de armazenamento na sua conta. A saída deste comando deve incluir uma fila chamada `outqueue` , que foi criada quando a função escreveu a sua primeira mensagem para essa fila.
+1. (Opcional) Utilize o [`az storage queue list`](/cli/azure/storage/queue#az_storage_queue_list) comando para visualizar as filas de armazenamento na sua conta. A saída deste comando deve incluir uma fila chamada `outqueue` , que foi criada quando a função escreveu a sua primeira mensagem para essa fila.
     
     ```azurecli
     az storage queue list --output tsv
     ```
 
-1. Utilize o [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) comando para ler a mensagem desta fila, que deve ser o primeiro nome que usou ao testar a função anteriormente. O comando lê e remove a primeira mensagem da fila. 
+1. Utilize o [`az storage message get`](/cli/azure/storage/message#az_storage_message_get) comando para ler a mensagem desta fila, que deve ser o primeiro nome que usou ao testar a função anteriormente. O comando lê e remove a primeira mensagem da fila. 
 
     # <a name="bash"></a>[festa](#tab/bash)
     

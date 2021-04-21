@@ -6,12 +6,12 @@ author: TomGeske
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: 8b76646ef992d220bf44aa4723895f64fab90e9e
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: cb92f84560a88d406f0d519459c27b5d916ec5ad
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105294"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769576"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Integre o Azure Ative Directy com o Serviço Azure Kubernetes utilizando o Azure CLI (legado)
 
@@ -264,23 +264,23 @@ Para obter as melhores práticas em matéria de identidade e controlo de recurso
 [complete-script]: https://github.com/Azure-Samples/azure-cli-samples/tree/master/aks/azure-ad-integration/azure-ad-integration.sh
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-group-create]: /cli/azure/group#az-group-create
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-group-create]: /cli/azure/group#az_group_create
 [open-id-connect]: ../active-directory/develop/v2-protocols-oidc.md
-[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
-[az-ad-app-create]: /cli/azure/ad/app#az-ad-app-create
-[az-ad-app-update]: /cli/azure/ad/app#az-ad-app-update
-[az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create
-[az-ad-app-permission-add]: /cli/azure/ad/app/permission#az-ad-app-permission-add
-[az-ad-app-permission-grant]: /cli/azure/ad/app/permission#az-ad-app-permission-grant
-[az-ad-app-permission-admin-consent]: /cli/azure/ad/app/permission#az-ad-app-permission-admin-consent
-[az-ad-app-show]: /cli/azure/ad/app#az-ad-app-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-account-show]: /cli/azure/account#az-account-show
-[az-ad-signed-in-user-show]: /cli/azure/ad/signed-in-user#az-ad-signed-in-user-show
+[az-ad-user-show]: /cli/azure/ad/user#az_ad_user_show
+[az-ad-app-create]: /cli/azure/ad/app#az_ad_app_create
+[az-ad-app-update]: /cli/azure/ad/app#az_ad_app_update
+[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create
+[az-ad-app-permission-add]: /cli/azure/ad/app/permission#az_ad_app_permission_add
+[az-ad-app-permission-grant]: /cli/azure/ad/app/permission#az_ad_app_permission_grant
+[az-ad-app-permission-admin-consent]: /cli/azure/ad/app/permission#az_ad_app_permission_admin_consent
+[az-ad-app-show]: /cli/azure/ad/app#az_ad_app_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-account-show]: /cli/azure/account#az_account_show
+[az-ad-signed-in-user-show]: /cli/azure/ad/signed-in-user#az_ad_signed_in_user_show
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset
 [rbac-authorization]: concepts-identity.md#kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md

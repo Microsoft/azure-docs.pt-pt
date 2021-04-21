@@ -3,16 +3,16 @@ title: Gestão de recursos delegados do Azure
 description: A gestão de recursos delegados da Azure é uma parte fundamental do Farol de Azure, permitindo aos prestadores de serviços gerir recursos delegados em escala com agilidade e precisão.
 ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: d484e61fc4ab3714eb362b26d64d449890065888
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93a3de257fe88de4915eff3582ff38fc03ef380e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92203862"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767768"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestão de recursos delegados do Azure
 
-A gestão de recursos delegados da Azure é um dos componentes-chave do [Farol Azure.](../overview.md) Com a gestão de recursos delegada da Azure, os prestadores de serviços podem simplificar o envolvimento do cliente e as experiências de embarque, ao mesmo tempo que gerem recursos delegados em escala com agilidade e precisão. Os clientes mantêm o controlo sobre os quais os prestadores de serviços podem aceder ao seu inquilino, os Clientes mantêm o controlo sobre quem pode aceder ao seu inquilino, quais os recursos a que podem aceder e quais as ações que podem ser tomadas.
+A gestão de recursos delegados da Azure é um dos componentes-chave do [Farol Azure.](../overview.md) Com a gestão de recursos delegada da Azure, os prestadores de serviços podem simplificar o envolvimento do cliente e as experiências de embarque, ao mesmo tempo que gerem recursos delegados em escala com agilidade e precisão. Os clientes mantêm o controlo sobre quem pode aceder ao seu inquilino, que recursos podem aceder e que ações podem ser tomadas.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>O que é a gestão de recursos delegada da Azure?
 

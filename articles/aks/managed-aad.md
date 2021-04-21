@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 0e912de4cf3a9759abe4cb3df78255c0a9ba1557
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 3db9f8d895b4c13b5f969859f422e7b566722ffc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105869"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783076"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integração do Azure Ative Directory gerido pela AKS
 
@@ -228,7 +228,7 @@ kubectl get nodes
 
 Siga as instruções para voltar a entrar. Note que existe uma mensagem de erro indicando que está a iniciar sessão com sucesso, mas o seu administrador requer que o dispositivo que solicita o acesso seja gerido pelo seu AD Azure para aceder ao recurso.
 
-No portal Azure, navegue para O Diretório Ativo Azure, selecione *aplicações enterprise* e, em seguida, em *'Ativa's* select .  Note uma entrada no topo com um *Estado* de *Falha* e um *Acesso Condicional* de *Sucesso*. Selecione a entrada e, em *seguida,* selecione Acesso Condicional em *Detalhes*. Note que a sua política de Acesso Condicional está listada.
+No portal Azure, navegue para O Diretório Ativo Azure, selecione *aplicações enterprise* e, em seguida, em *'Activa's* select .  Note uma entrada no topo com um *Estado* de *Falha* e um *Acesso Condicional* de *Sucesso*. Selecione a entrada e, em *seguida,* selecione Acesso Condicional em *Detalhes*. Note que a sua política de Acesso Condicional está listada.
 
 :::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Entrada de entrada falhada devido à política de acesso condicional":::
 
@@ -260,7 +260,7 @@ Para integrar pedidos de acesso just-in-time com um cluster AKS utilizando a int
 1. Selecione um papel de *membro* e selecione os utilizadores e grupos a quem deseja conceder acesso ao cluster. Estas atribuições podem ser modificadas a qualquer momento por um administrador de grupo. Quando estiver pronto para seguir em frente, selecione *Next*.
     :::image type="content" source="./media/managed-aad/jit-adding-assignment.png" alt-text="É apresentado o ecrã de adesão do portal Azure, com um utilizador de amostra selecionado para ser adicionado como membro. A opção 'Seguinte' está em destaque.":::
 1. Escolha um tipo de atribuição de *Ative,* a duração desejada, e forneça uma justificação. Quando estiver pronto para prosseguir, selecione *Atribua.* Para obter mais informações sobre tipos de atribuição, consulte [Atribuir elegibilidade para um grupo privilegiado de acesso (pré-visualização) em Gestão de Identidade Privilegiada.][aad-assignments]
-    :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="É mostrado o ecrã de definição de atribuições do portal Azure. É selecionado um tipo de atribuição de 'Ativo' e foi dada uma justificação de amostra. A opção 'Atribuir' é realçada.":::
+    :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="É mostrado o ecrã de definição de atribuições do portal Azure. É selecionado um tipo de atribuição de 'Activo' e foi dada uma justificação de amostra. A opção 'Atribuir' é realçada.":::
 
 Uma vez feitas as atribuições, verifique se o acesso just-in-time está a funcionar acedendo ao cluster. Por exemplo:
 
@@ -315,11 +315,11 @@ Certifique-se de que o administrador do grupo de segurança deu à sua conta uma
 [azure-rbac-integration]: manage-azure-rbac.md
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-group-create]: /cli/azure/group#az-group-create
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-group-create]: /cli/azure/group#az_group_create
 [open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
-[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
+[az-ad-user-show]: /cli/azure/ad/user#az_ad_user_show
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
