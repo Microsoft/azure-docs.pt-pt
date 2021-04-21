@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 3/8/2021
 ms.author: cynthn
-ms.openlocfilehash: a347c9284608340811f9c2388df26129baeb8837
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4f91afa86a0d99b4ce42e96295bf2ae1f9fcd9f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102505652"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771448"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Implementar VMs em grupos de colocação por proximidade com a CLI do Azure
 
@@ -23,7 +23,7 @@ Um grupo de colocação de proximidade é um agrupamento lógico usado para gara
 
 
 ## <a name="create-the-proximity-placement-group"></a>Criar o grupo de colocação de proximidade
-Crie um grupo de colocação de proximidade utilizando [`az ppg create`](/cli/azure/ppg#az-ppg-create) . 
+Crie um grupo de colocação de proximidade utilizando [`az ppg create`](/cli/azure/ppg#az_ppg_create) . 
 
 ```azurecli-interactive
 az group create --name myPPGGroup --location westus
@@ -36,7 +36,7 @@ az ppg create \
 
 ## <a name="list-proximity-placement-groups"></a>Listar grupos de colocação de proximidade
 
-Pode listar todos os seus grupos de colocação de proximidade usando [a lista az ppg](/cli/azure/ppg#az-ppg-list).
+Pode listar todos os seus grupos de colocação de proximidade usando [a lista az ppg](/cli/azure/ppg#az_ppg_list).
 
 ```azurecli-interactive
 az ppg list -o table
@@ -44,7 +44,7 @@ az ppg list -o table
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-Crie um VM dentro do grupo de colocação de proximidade utilizando [o novo az vm](/cli/azure/vm#az-vm-create).
+Crie um VM dentro do grupo de colocação de proximidade utilizando [o novo az vm](/cli/azure/vm#az_vm_create).
 
 ```azurecli-interactive
 az vm create \
@@ -57,14 +57,14 @@ az vm create \
    -l westus
 ```
 
-Pode ver o VM no grupo de colocação de proximidade usando [o show az ppg](/cli/azure/ppg#az-ppg-show).
+Pode ver o VM no grupo de colocação de proximidade usando [o show az ppg](/cli/azure/ppg#az_ppg_show).
 
 ```azurecli-interactive
 az ppg show --name myppg --resource-group myppggroup --query "virtualMachines"
 ```
 
 ## <a name="availability-sets"></a>Conjuntos de Disponibilidade
-Também pode criar um conjunto de disponibilidade no seu grupo de colocação de proximidade. Utilize o mesmo `--ppg` parâmetro com [a az vm disponibilidade-set criar](/cli/azure/vm/availability-set#az-vm-availability-set-create) para criar um conjunto de disponibilidade e todos os VMs no conjunto de disponibilidade também serão criados no mesmo grupo de colocação de proximidade.
+Também pode criar um conjunto de disponibilidade no seu grupo de colocação de proximidade. Utilize o mesmo `--ppg` parâmetro com [a az vm disponibilidade-set criar](/cli/azure/vm/availability-set#az_vm_availability_set_create) para criar um conjunto de disponibilidade e todos os VMs no conjunto de disponibilidade também serão criados no mesmo grupo de colocação de proximidade.
 
 ## <a name="scale-sets"></a>Conjuntos de dimensionamento
 

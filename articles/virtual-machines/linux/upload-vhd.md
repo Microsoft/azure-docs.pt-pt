@@ -16,12 +16,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 9d549d77b4a60f7543f69a9fd89e8b538c95d010
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ecad48592ecfb6723548a27997cfe1b81545b24a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564616"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759604"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Criar um Linux VM a partir de um disco personalizado com o Azure CLI
 
@@ -50,7 +50,7 @@ Para completar os seguintes passos, você precisará:
 > 
 
 
-- Certifique-se de que tem o mais recente [Azure CLI](/cli/azure/install-az-cli2) instalado e está inscrito numa conta Azure com [login az](/cli/azure/reference-index#az-login).
+- Certifique-se de que tem o mais recente [Azure CLI](/cli/azure/install-az-cli2) instalado e está inscrito numa conta Azure com [login az](/cli/azure/reference-index#az_login).
 
 Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores, tais como `myResourceGroup` `mystorageaccount` , e `mydisks` .
 
@@ -66,7 +66,7 @@ A Azure suporta várias distribuições Linux (ver [Distribuição Endossada).](
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
 * [SLES e openSUSE](suse-create-upload-vhd.md)
 * [Ubuntu](create-upload-ubuntu.md)
-* [Outros: Distribuições Não Endossadas](create-upload-generic.md)
+* [Outros: Distribuições Não Aprovadas pelo Azure](create-upload-generic.md)
 
 Consulte também as [Notas de Instalação Linux](create-upload-generic.md#general-linux-installation-notes) para obter dicas mais gerais sobre a preparação das imagens Linux para Azure.
 
@@ -121,7 +121,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>Criar a VM
 
-Crie o seu VM com [az vm criar](/cli/azure/vm#az-vm-create) e fixar (--attach-os-disk) o disco gerido como o disco DE. O exemplo a seguir cria um VM chamado *myNewVM* utilizando o disco gerido que criou a partir do seu VHD carregado:
+Crie o seu VM com [az vm criar](/cli/azure/vm#az_vm_create) e fixar (--attach-os-disk) o disco gerido como o disco DE. O exemplo a seguir cria um VM chamado *myNewVM* utilizando o disco gerido que criou a partir do seu VHD carregado:
 
 ```azurecli
 az vm create \

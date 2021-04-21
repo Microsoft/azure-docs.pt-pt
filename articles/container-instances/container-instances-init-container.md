@@ -3,12 +3,12 @@ title: Executar recipientes init
 description: Execute recipientes init em Instâncias de Contentores Azure para executar tarefas de configuração num grupo de contentores antes do funcionamento dos recipientes de aplicação.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 5a729263ee632eb9227694ec8684eb6889c6324b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ccaf1a67d6ca3bcff422acb591b528cc72a9608
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85954286"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763942"
 ---
 # <a name="run-an-init-container-for-setup-tasks-in-a-container-group"></a>Executar um recipiente init para tarefas de configuração em um grupo de contentores
 
@@ -219,6 +219,6 @@ Azure Container Instances fornece outras opções para modificar o comportamento
 * [Definir a linha de comando numa instância de contentor para anular a operação da linha de comando predefinido](container-instances-start-command.md)
 
 
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-container-logs]: /cli/azure/container#az-container-logs
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-container-logs]: /cli/azure/container#az_container_logs

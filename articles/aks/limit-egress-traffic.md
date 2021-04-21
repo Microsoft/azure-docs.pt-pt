@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: 9e65e2736578ce04dfa79d5a7827e190d47fb312
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 39c0877b96a3e8c6c716c1ab9ae7ba11575990a0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103573834"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765598"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlo tráfego de saídas para nós de cluster no Serviço Azure Kubernetes (AKS)
 
@@ -803,9 +803,9 @@ Se pretender restringir a forma como as cápsulas comunicam entre si e East-West
 [install-azure-cli]: /cli/azure/install-azure-cli
 [network-policy]: use-network-policies.md
 [azure-firewall]: ../firewall/overview.md
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [aks-upgrade]: upgrade-cluster.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md

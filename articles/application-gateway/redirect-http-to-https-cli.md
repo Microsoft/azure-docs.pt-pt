@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 0d56a1c46f251307755416ef44991ac6f809f330
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e66eca305433a89496f72aac667512efd418a369
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566746"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784772"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Criar um gateway de aplicações com HTTP para https redirecionamento usando o Azure CLI
 
@@ -83,7 +83,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, sku e definições de HTTP. 
+Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway#az_network_application_gateway_create) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, sku e definições de HTTP. 
 
 O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. Neste exemplo, vai associar o certificado que criou e a respetiva palavra-passe quando criar o gateway de aplicação. 
 
@@ -118,7 +118,7 @@ az network application-gateway create \
 
 ### <a name="add-the-http-port"></a>Adicione a porta HTTP
 
-Pode utilizar [a porta frontal de porta frontend de gateway de aplicações az](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) para adicionar a porta HTTP ao gateway de aplicações.
+Pode utilizar [a porta frontal de porta frontend de gateway de aplicações az](/cli/azure/network/application-gateway/frontend-port#az_network-application_gateway_frontend_port_create) para adicionar a porta HTTP ao gateway de aplicações.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -130,7 +130,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-the-http-listener"></a>Adicione o ouvinte HTTP
 
-Pode utilizar [o http-listener de aplicação da rede Az](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) para adicionar o ouvinte nomeado *myListener* ao gateway de aplicações.
+Pode utilizar [o http-listener de aplicação da rede Az](/cli/azure/network/application-gateway/http-listener#az_network_application_gateway_http_listener_create) para adicionar o ouvinte nomeado *myListener* ao gateway de aplicações.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -143,7 +143,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Adicione a configuração de redirecionamento
 
-Adicione a configuração de reorientação HTTPS ao gateway de aplicações utilizando [a az rede de aplicações-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
+Adicione a configuração de reorientação HTTPS ao gateway de aplicações utilizando [a az rede de aplicações-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az_network_application_gateway_redirect_config_create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -158,7 +158,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-the-routing-rule"></a>Adicione a regra de encaminhamento
 
-Adicione a regra de encaminhamento denominada *regra 2* com a configuração de redireccionamento para o gateway de aplicação utilizando [a regra de gateway de aplicação de rede az criar](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
+Adicione a regra de encaminhamento denominada *regra 2* com a configuração de redireccionamento para o gateway de aplicação utilizando [a regra de gateway de aplicação de rede az criar](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -172,7 +172,7 @@ az network application-gateway rule create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 
-Neste exemplo, cria-se um conjunto de escala de máquina virtual chamado *Myvmss* que fornece servidores para o pool backend no gateway de aplicações. As máquinas virtuais no conjunto de dimensionamento são associadas a *myBackendSubnet* e *appGatewayBackendPool*. Para criar o conjunto de dimensionamento, pode utilizar [az vmss create](/cli/azure/vmss#az-vmss-create).
+Neste exemplo, cria-se um conjunto de escala de máquina virtual chamado *Myvmss* que fornece servidores para o pool backend no gateway de aplicações. As máquinas virtuais no conjunto de dimensionamento são associadas a *myBackendSubnet* e *appGatewayBackendPool*. Para criar o conjunto de dimensionamento, pode utilizar [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \

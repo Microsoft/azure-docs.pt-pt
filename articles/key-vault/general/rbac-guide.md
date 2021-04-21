@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9fb8eb79a381473b26a6ea14d8b71d24ac26f485
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 966f704bd47b4b238ed72579a6103bd2e4348849
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749461"
+ms.locfileid: "107772222"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure
 
@@ -236,7 +236,7 @@ Criar um novo segredo (Segredos \> +Gerar/Importar) deve mostrar abaixo o erro:
 
 ### <a name="creating-custom-roles"></a>Criação de papéis personalizados 
 
-[definição de função az criar comando](/cli/azure/role/definition#az-role-definition-create)
+[definição de função az criar comando](/cli/azure/role/definition#az_role_definition_create)
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 ```azurecli

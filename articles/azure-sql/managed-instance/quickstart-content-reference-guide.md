@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: c84c81fa81cf4ba9be454eea5782927a09c3252a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec767e5f3a88c52f9686eec8f7e458ab517ee35f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101690969"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784340"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Começando com Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,7 +44,7 @@ Como primeiro passo, você precisaria criar a sua primeira SQL Managed Instance 
   > - Também pode utilizar a rota expressa ou a ligação site-to-site a partir da sua rede local, mas estas abordagens estão fora do âmbito destes arranques rápidos.
   > - Se alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, note que a retenção só se aplicará aos registos escritos após a alteração do valor da retenção (os registos escritos durante o período em que a retenção foi definida para ilimitada são preservados, mesmo após a retenção ser ativada).
 
-Como alternativa à criação manual de SQL Managed Instance, pode utilizar [o PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell com o modelo de Gestor de Recursos,](./create-template-quickstart.md)ou [Azure CLI](/cli/azure/sql/mi#az-sql-mi-create) para scriptar e automatizar este processo.
+Como alternativa à criação manual de SQL Managed Instance, pode utilizar [o PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell com o modelo de Gestor de Recursos,](./create-template-quickstart.md)ou [Azure CLI](/cli/azure/sql/mi#az_sql_mi_create) para scriptar e automatizar este processo.
 
 ### <a name="migrate-your-databases"></a>Migrar as suas bases de dados
 

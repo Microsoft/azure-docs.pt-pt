@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ce3bda82e634cd80560d7915a08fa33218173779
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: eb8bbf852803df53c43cef90bd2229bfcddd60d4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967204"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766192"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar a forma como uma conta de armazenamento é replicada
 
@@ -79,7 +79,7 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para alterar a opção de redundância da sua conta de armazenamento com o Azure CLI, ligue para o comando de atualização da [conta de armazenamento AZ](/cli/azure/storage/account#az-storage-account-update) e especifique o `--sku` parâmetro:
+Para alterar a opção de redundância da sua conta de armazenamento com o Azure CLI, ligue para o comando de atualização da [conta de armazenamento AZ](/cli/azure/storage/account#az_storage_account_update) e especifique o `--sku` parâmetro:
 
 ```azurecli-interactive
 az storage account update \

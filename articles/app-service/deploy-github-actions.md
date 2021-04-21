@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 59eb56dd188edf258c3631cde957c0864454ad76
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 1ed2b007ae00516a030e67b7f6abacbd00a8d403
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106582303"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772888"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementar no Serviço de Aplicações através do GitHub Actions
 
@@ -80,7 +80,7 @@ Um perfil de publicação é uma credencial de nível de aplicação. Configura 
 
 # <a name="service-principal"></a>[Service principal (Principal de serviço)](#tab/userlevel)
 
-Pode criar um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) no [Azure CLI](/cli/azure/). Executar este comando com [Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Try it.**
+Pode criar um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) no [Azure CLI](/cli/azure/). Executar este comando com [Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Try it.**
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \

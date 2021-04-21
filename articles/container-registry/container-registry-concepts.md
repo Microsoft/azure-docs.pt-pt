@@ -3,12 +3,12 @@ title: Sobre registos, repositórios, imagens e artefactos
 description: Introdução a conceitos-chave de registos de contentores Azure, repositórios, imagens de contentores e outros artefactos.
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 27c4604820dda50686b6cb3f36e69b38283750c3
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 64ab3812b3f23a7b3a480d3530c82bd39f2d29a5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381927"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784088"
 ---
 # <a name="about-registries-repositories-and-artifacts"></a>Sobre registos, repositórios e artefactos
 
@@ -184,6 +184,4 @@ Saiba mais sobre [o armazenamento de registos](container-registry-storage.md) e 
 Aprenda a [empurrar e a retirar imagens](container-registry-get-started-docker-cli.md) do Registo do Contentor Azure.
 
 <!-- LINKS - Internal -->
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
-
-
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests

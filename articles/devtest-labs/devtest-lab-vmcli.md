@@ -3,12 +3,12 @@ title: Criar e gerir máquinas virtuais em Laboratórios DevTest com Azure CLI
 description: Saiba como usar a Azure DevTest Labs para criar e gerir máquinas virtuais com o Azure CLI
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 22ee6bf607fe1b66cece0e7ddb25a2da2830258b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 95e0add8ce14e47c609b1ae951673c261316293f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102201469"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763546"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Criar e gerir máquinas virtuais com DevTest Labs usando o Azure CLI
 Este quickstart irá guiá-lo através da criação, partida, ligação, atualização e limpeza de uma máquina de desenvolvimento no seu laboratório. 
@@ -48,7 +48,7 @@ O seguinte comando cria um VM a partir de uma imagem de mercado com autenticaç�
 az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh --generate-ssh-keys --ip-configuration public 
 ```
 
-Também pode criar máquinas virtuais com base em fórmulas, definindo o parâmetro **do tipo de imagem** para a **fórmula**. Se precisar de escolher uma rede virtual específica para a sua máquina virtual, utilize os parâmetros **de nome vnet** e **sub-rede.** Para mais informações, consulte [a criação do laboratório AZ Vm](/cli/azure/lab/vm#az-lab-vm-create).
+Também pode criar máquinas virtuais com base em fórmulas, definindo o parâmetro **do tipo de imagem** para a **fórmula**. Se precisar de escolher uma rede virtual específica para a sua máquina virtual, utilize os parâmetros **de nome vnet** e **sub-rede.** Para mais informações, consulte [a criação do laboratório AZ Vm](/cli/azure/lab/vm#az_lab_vm_create).
 
 ## <a name="verify-that-the-vm-is-available"></a>Verifique se o VM está disponível.
 Utilize o `az lab vm show` comando para verificar se o VM está disponível antes de iniciar e ligar-lhe. 

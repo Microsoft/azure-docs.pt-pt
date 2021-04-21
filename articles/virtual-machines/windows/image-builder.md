@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: 918cee723bfde69d08532aee6fe4f395dbddb4ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b93d236d0b716bfaf7dfb45b21c9524ece75fcae
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695452"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764572"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Pré-visualização: Criar um Windows VM com Azure Image Builder
 
@@ -199,7 +199,7 @@ az resource delete \
 ```
 
 ## <a name="start-the-image-build"></a>Inicie a construção de imagem
-Inicie o processo de construção de imagens utilizando [recurso az invocação de ação](/cli/azure/resource#az-resource-invoke-action).
+Inicie o processo de construção de imagens utilizando [recurso az invocação de ação](/cli/azure/resource#az_resource_invoke_action).
 
 ```azurecli-interactive
 az resource invoke-action \

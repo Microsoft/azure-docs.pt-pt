@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: bbfafeaf9ce24911bb4893748d456d22e02fc411
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 870a04af244d18826e1041316895f746e27870eb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104879215"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786590"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma aplicação Azure Spring Cloud
 
@@ -29,14 +29,14 @@ O Azure Key Vault pode ser usado para armazenar e controlar de forma segura o ac
 * [Instalar Maven 3.0 ou superior](https://maven.apache.org/download.cgi)
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos para conter tanto o Cofre de Chaves como a Nuvem de primavera utilizando o grupo de comando [az criar:](/cli/azure/group#az-group-create)
+Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos para conter tanto o Cofre de Chaves como a Nuvem de primavera utilizando o grupo de comando [az criar:](/cli/azure/group#az_group_create)
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
 ```
 
 ## <a name="set-up-your-key-vault"></a>Configurar o seu Cofre de Chaves
-Para criar um Cofre de Chaves, utilize o teclado de comando [az create](/cli/azure/keyvault#az-keyvault-create):
+Para criar um Cofre de Chaves, utilize o teclado de comando [az create](/cli/azure/keyvault#az_keyvault_create):
 
 > [!Important]
 > Cada Cofre-Chave deve ter um nome único. Substitua <o seu nome de chave-> pelo nome do seu Cofre de Chaves nos seguintes exemplos.
@@ -47,7 +47,7 @@ az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 
 Tome nota do devolvido `vaultUri` , que estará no formato "https://<o seu nome de keyvault>.vault.azure.net". Será usado no passo seguinte.
 
-Agora pode colocar um segredo no seu Cofre de Chaves com o conjunto secreto de comando [az keyvault](/cli/azure/keyvault/secret#az-keyvault-secret-set):
+Agora pode colocar um segredo no seu Cofre de Chaves com o conjunto secreto de comando [az keyvault](/cli/azure/keyvault/secret#az_keyvault_secret_set):
 
 ```azurecli-interactive
 az keyvault secret set --vault-name "<your-keyvault-name>" \

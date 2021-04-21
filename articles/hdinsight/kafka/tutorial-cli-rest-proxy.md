@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ff11b8461b483f5a66df19bb1b108a1fe1168fb9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfb9ff9e6b107c9da84b164a055453994fc29229
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98944029"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786644"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Tutorial: Criar um aglomerado de proxy Apache Kafka REST em HDInsight usando Azure CLI
 
@@ -82,7 +82,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     export componentVersion=kafka=2.1
     ```
 
-1. [Crie o grupo de recursos](/cli/azure/group#az-group-create) introduzindo o comando abaixo:
+1. [Crie o grupo de recursos](/cli/azure/group#az_group_create) introduzindo o comando abaixo:
 
     ```azurecli
      az group create \
@@ -90,7 +90,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
         --name $resourceGroupName
     ```
 
-1. [Crie uma conta de Armazenamento Azure](/cli/azure/storage/account#az-storage-account-create) introduzindo o comando abaixo:
+1. [Crie uma conta de Armazenamento Azure](/cli/azure/storage/account#az_storage_account_create) introduzindo o comando abaixo:
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -103,7 +103,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
         --sku Standard_LRS
     ```
 
-1. [Extrair a chave primária](/cli/azure/storage/account/keys#az-storage-account-keys-list) da conta de Armazenamento Azure e armazená-la numa variável introduzindo o comando abaixo:
+1. [Extrair a chave primária](/cli/azure/storage/account/keys#az_storage_account_keys_list) da conta de Armazenamento Azure e armazená-la numa variável introduzindo o comando abaixo:
 
     ```azurecli
     export storageAccountKey=$(az storage account keys list \
@@ -112,7 +112,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
         --query [0].value -o tsv)
     ```
 
-1. [Crie um recipiente de armazenamento Azure](/cli/azure/storage/container#az-storage-container-create) introduzindo o comando abaixo:
+1. [Crie um recipiente de armazenamento Azure](/cli/azure/storage/container#az_storage_container_create) introduzindo o comando abaixo:
 
     ```azurecli
     az storage container create \
@@ -121,7 +121,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
         --account-name $storageAccount
     ```
 
-1. [Crie o cluster HDInsight](/cli/azure/hdinsight#az-hdinsight-create). Antes de entrar no comando, observe os seguintes parâmetros:
+1. [Crie o cluster HDInsight](/cli/azure/hdinsight#az_hdinsight_create). Antes de entrar no comando, observe os seguintes parâmetros:
 
     1. Parâmetros necessários para os clusters kafka:
 

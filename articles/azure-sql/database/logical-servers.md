@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 09e8ef85b6df48b6b442351135d4ae4ed55e9b45
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c76d3ae78bf2b9b4a71d9520f7f1c6c2c322483b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641076"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784520"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>O que é um servidor SQL lógico na Base de Dados Azure SQL e Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -114,25 +114,25 @@ Para criar e gerir servidores, bases de dados e firewalls com o [Azure CLI,](/cl
 
 | Cmdlet | Descrição |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Cria uma base de dados|
-|[lista de az sql db](/cli/azure/sql/db#az-sql-db-list)|Lista todas as bases de dados geridas por um servidor, ou todas as bases de dados numa piscina elástica|
-|[az sql db lista-edições](/cli/azure/sql/db#az-sql-db-list-editions)|Lista objetivos de serviço disponíveis e limites de armazenamento|
-|[az sql db lista-usos](/cli/azure/sql/db#az-sql-db-list-usages)|Devoluções de utilizações de bases de dados|
-|[az sql db show](/cli/azure/sql/db#az-sql-db-show)|Obtém uma base de dados
-|[az sql db update](/cli/azure/sql/db#az-sql-db-update)|Atualiza uma base de dados|
-|[az sql db apagar](/cli/azure/sql/db#az-sql-db-delete)|Remove uma base de dados|
-|[az group create](/cli/azure/group#az-group-create)|Cria um grupo de recursos|
-|[az sql server create](/cli/azure/sql/server#az-sql-server-create)|Cria um servidor|
-|[lista de servidores az sql](/cli/azure/sql/server#az-sql-server-list)|Lista servidores|
-|[lista de servidores az sql](/cli/azure/sql/server#az-sql-server-list-usages)|Retorna os usos do servidor|
-|[show de servidor az sql](/cli/azure/sql/server#az-sql-server-show)|Obtém um servidor|
-|[atualização do servidor az sql](/cli/azure/sql/server#az-sql-server-update)|Atualiza um servidor|
-|[servidor az sql eliminar](/cli/azure/sql/server#az-sql-server-delete)|Elimina um servidor|
-|[az sql servidor firewall-rule criar](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Cria uma regra de firewall do servidor|
-|[lista de regras de firewall do servidor az sql](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Lista as regras de firewall num servidor|
-|[az sql servidor firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Mostra o detalhe de uma regra de firewall|
-|[az sql servidor firewall-rule](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Atualiza uma regra de firewall|
-|[az sql servidor firewall-regra eliminar](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Elimina uma regra de firewall|
+|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Cria uma base de dados|
+|[lista de az sql db](/cli/azure/sql/db#az_sql_db_list)|Lista todas as bases de dados geridas por um servidor, ou todas as bases de dados numa piscina elástica|
+|[az sql db lista-edições](/cli/azure/sql/db#az_sql_db_list_editions)|Lista objetivos de serviço disponíveis e limites de armazenamento|
+|[az sql db lista-usos](/cli/azure/sql/db#az_sql_db_list_usages)|Devoluções de utilizações de bases de dados|
+|[az sql db show](/cli/azure/sql/db#az_sql_db_show)|Obtém uma base de dados
+|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Atualiza uma base de dados|
+|[az sql db apagar](/cli/azure/sql/db#az_sql_db_delete)|Remove uma base de dados|
+|[az group create](/cli/azure/group#az_group_create)|Cria um grupo de recursos|
+|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Cria um servidor|
+|[lista de servidores az sql](/cli/azure/sql/server#az_sql_server_list)|Lista servidores|
+|[lista de servidores az sql](/cli/azure/sql/server#az_sql_server_list-usages)|Retorna os usos do servidor|
+|[show de servidor az sql](/cli/azure/sql/server#az_sql_server_show)|Obtém um servidor|
+|[atualização do servidor az sql](/cli/azure/sql/server#az_sql_server_update)|Atualiza um servidor|
+|[servidor az sql eliminar](/cli/azure/sql/server#az_sql_server_delete)|Elimina um servidor|
+|[az sql servidor firewall-rule criar](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Cria uma regra de firewall do servidor|
+|[lista de regras de firewall do servidor az sql](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Lista as regras de firewall num servidor|
+|[az sql servidor firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Mostra o detalhe de uma regra de firewall|
+|[az sql servidor firewall-rule](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Atualiza uma regra de firewall|
+|[az sql servidor firewall-regra eliminar](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Elimina uma regra de firewall|
 
 > [!TIP]
 > Para obter um quickstart Azure CLI, consulte [criar uma base de dados na Base de Dados Azure SQL utilizando o Azure CLI](az-cli-script-samples-content-guide.md). Para scripts de exemplo Azure CLI, consulte [utilizar o CLI para criar uma base de dados na Base de Dados Azure SQL e configurar uma regra de firewall](scripts/create-and-configure-database-cli.md) e utilizar o [CLI para monitorizar e escalar uma base de dados na Base de Dados Azure SQL](scripts/monitor-and-scale-database-cli.md).

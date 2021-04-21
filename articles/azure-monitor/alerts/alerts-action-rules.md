@@ -3,12 +3,12 @@ title: Regras de ação para alertas do Monitor Azure
 description: Compreender quais são as regras de ação no Azure Monitor e como configurá-las e geri-las.
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: df71883d04106dd341af4571c13cc55f35a1ecc3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 4f54ee7d21d52386bd18921aec33cabe02046852
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304822"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772564"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (pré-visualização)
 
@@ -43,7 +43,7 @@ Pode aceder à funcionalidade selecionando **ações** de Gestão a partir da p�
 
 Selecione **+ Nova Regra de Ação**.
 
-![A screenshot mostra a página 'Gerir ações' com o botão New Action Rule realçado.](media/alerts-action-rules/action-rules-new-rule.png)
+![A screenshot mostra a página 'Gerir acções' com o botão New Action Rule realçado.](media/alerts-action-rules/action-rules-new-rule.png)
 
 Em alternativa, pode criar uma regra de ação enquanto configura uma regra de alerta.
 
@@ -143,7 +143,7 @@ Pode criar regras de ação com o CLI Azure utilizando o comando [de criação d
 
 1. Inicie sessão.
 
-   Se estiver a utilizar uma instalação local do CLI, inicie sessão com o comando [de login az.](/cli/azure/reference-index#az-login)  Siga os passos apresentados no seu terminal para concluir o processo de autenticação.
+   Se estiver a utilizar uma instalação local do CLI, inicie sessão com o comando [de login az.](/cli/azure/reference-index#az_login)  Siga os passos apresentados no seu terminal para concluir o processo de autenticação.
 
     ```azurecli
     az login

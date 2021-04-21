@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.openlocfilehash: fc33b24aac8964d0a8390b4b38c5e1862ed639a8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: be1b0da23841b5a63ec044e04a5465e29345f9d1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198919"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772204"
 ---
 # <a name="tutorial-access-azure-blob-storage-using-azure-databricks-and-azure-key-vault"></a>Tutorial: Access Azure Blob Storage usando Azure Databricks e Azure Key Vault
 
@@ -33,7 +33,7 @@ Antes de iniciar este tutorial, instale o [Azure CLI](/cli/azure/install-azure-c
 
 ## <a name="create-a-storage-account-and-blob-container-with-azure-cli"></a>Criar uma conta de armazenamento e recipiente blob com Azure CLI
 
-Primeiro, terá de criar uma conta de armazenamento para fins gerais para usar bolhas. Se não tiver um [grupo de recursos,](/cli/azure/group#az-group-create)crie um antes de executar o comando. O seguinte comando cria e exibe os metadados do recipiente de armazenamento. Copie o **ID.**
+Primeiro, terá de criar uma conta de armazenamento para fins gerais para usar bolhas. Se não tiver um [grupo de recursos,](/cli/azure/group#az_group_create)crie um antes de executar o comando. O seguinte comando cria e exibe os metadados do recipiente de armazenamento. Copie o **ID.**
 
 ```azurecli
 az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob
@@ -94,7 +94,7 @@ az keyvault secret set --vault-name contosoKeyVault10 --name storageKey --value 
 
 ## <a name="create-an-azure-databricks-workspace-and-add-key-vault-secret-scope"></a>Crie um espaço de trabalho Azure Databricks e adicione o âmbito secreto do Key Vault
 
-Esta secção não pode ser completada através da linha de comando. Siga este [guia.](/azure/databricks/scenarios/store-secrets-azure-key-vault#create-an-azure-databricks-workspace-and-add-a-secret-scope) Terá de aceder ao [portal Azure](https://ms.portal.azure.com/#home) para:
+Esta secção não pode ser completada através da linha de comando. Siga este [guia](/azure/databricks/scenarios/store-secrets-azure-key-vault#create-an-azure-databricks-workspace-and-add-a-secret-scope). Terá de aceder ao [portal Azure](https://ms.portal.azure.com/#home) para:
 
 1. Crie o seu recurso Azure Databricks
 1. Lance o seu espaço de trabalho
@@ -102,7 +102,7 @@ Esta secção não pode ser completada através da linha de comando. Siga este [
 
 ## <a name="access-your-blob-container-from-azure-databricks-workspace"></a>Aceda ao seu recipiente blob a partir do espaço de trabalho Azure Databricks
 
-Esta secção não pode ser completada através da linha de comando. Siga este [guia.](/azure/databricks/scenarios/store-secrets-azure-key-vault#access-your-blob-container-from-azure-databricks) Você precisará usar o espaço de trabalho Azure Databricks para:
+Esta secção não pode ser completada através da linha de comando. Siga este [guia](/azure/databricks/scenarios/store-secrets-azure-key-vault#access-your-blob-container-from-azure-databricks). Você precisará usar o espaço de trabalho Azure Databricks para:
 
 1. Criar um **novo cluster**
 1. Criar um **novo caderno**

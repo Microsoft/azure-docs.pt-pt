@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0c9b0c1948dc4ecef74cd78ec1736803a0c0b4bc
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 85d6350a36e62ace8f1922d30493d0f1d448d315
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497375"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765940"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-azure-cli"></a>Alterar o disco DE utilizado por um Azure VM utilizando o Azure CLI
 
@@ -47,7 +47,7 @@ az vm stop \
 ```
 
 
-Utilize [a atualização az vm](/cli/azure/vm#az-vm-update) com o ID completo do novo disco para o `--osdisk` parâmetro 
+Utilize [a atualização az vm](/cli/azure/vm#az_vm_update) com o ID completo do novo disco para o `--osdisk` parâmetro 
 
 ```azurecli-interactive 
 az vm update \

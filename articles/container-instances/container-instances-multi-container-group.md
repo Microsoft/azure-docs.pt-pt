@@ -4,12 +4,12 @@ description: Neste tutorial, você aprende a implantar um grupo de contentores c
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: bc956bed8324398c2d60f4641cd0bcb821fb51c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93ab139342795634a968cd538672e0e1b9bb08ae
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93091366"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763906"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutorial: Implementar um grupo multi-contentores usando um modelo de Gestor de Recursos
 
@@ -236,8 +236,8 @@ Também pode especificar um grupo multi-contentores utilizando um [ficheiro YAML
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
 [template-reference]: /azure/templates/microsoft.containerinstance/containergroups

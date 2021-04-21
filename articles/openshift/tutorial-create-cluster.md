@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
-ms.openlocfilehash: 55c1b6f6c6690f0c8f00a8a2469834781f35fb3c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dda4fc6a80bbe07977f8d2a5ffcbea895a4e1fe6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449803"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771844"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um aglomerado Azure Red Hat OpenShift 4
 
@@ -112,7 +112,7 @@ Em seguida, irá criar uma rede virtual contendo duas sub-redes vazias. Se tiver
 
 2. **Criar um grupo de recursos.**
 
-   Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. Quando cria um grupo de recursos, é-lhe pedido que especifique uma localização. Esta localização é onde os metadados do grupo de recursos são armazenados, e é também onde os seus recursos funcionam em Azure se você não especificar outra região durante a criação de recursos. Criar um grupo de recursos utilizando o [grupo az criar](/cli/azure/group#az-group-create) comando.
+   Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. Quando cria um grupo de recursos, é-lhe pedido que especifique uma localização. Esta localização é onde os metadados do grupo de recursos são armazenados, e é também onde os seus recursos funcionam em Azure se você não especificar outra região durante a criação de recursos. Criar um grupo de recursos utilizando o [grupo az criar](/cli/azure/group#az_group_create) comando.
     
    > [!NOTE] 
    > O Azure Red Hat OpenShift não está disponível em todas as regiões onde um grupo de recursos Azure pode ser criado. Consulte [as regiões disponíveis](https://azure.microsoft.com/en-gb/global-infrastructure/services/?products=openshift) para obter informações sobre o suporte do Azure Red Hat OpenShift.

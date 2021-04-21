@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bbaf2fb99f1268a752fab4322078b0566a054d30
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80a0b4634a2e84181271b515d2f6f63271cce7f2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98222858"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784970"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Name resolution for resources in Azure virtual networks (Resolução de nomes para recursos em redes virtuais do Azure)
 
@@ -176,7 +176,7 @@ Quando está a utilizar a resolução de nomes fornecida pelo Azure, o Protocolo
 
 Se necessário, pode determinar o sufixo de DNS interno utilizando o PowerShell ou a API:
 
-* Para redes virtuais em modelos de implementação do Azure Resource Manager, o sufixo está disponível através da interface de [rede REST API,](/rest/api/virtualnetwork/networkinterfaces)o [cmdlet Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) PowerShell e o comando [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI.
+* Para redes virtuais em modelos de implementação do Azure Resource Manager, o sufixo está disponível através da interface de [rede REST API,](/rest/api/virtualnetwork/networkinterfaces)o [cmdlet Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) PowerShell e o comando [az network nic show](/cli/azure/network/nic#az_network_nic_show) Azure CLI.
 * Nos modelos clássicos de implantação, o sufixo está disponível através da chamada [Get Deployment API](/previous-versions/azure/reference/ee460804(v=azure.100)) ou do [cmdlet Get-AzureVM -Debug.](/powershell/module/servicemanagement/azure.service/get-azurevm)
 
 Se as consultas de encaminhamento para Azure não se adequam às suas necessidades, deverá fornecer a sua própria solução de DNS. A sua solução DNS precisa de:
