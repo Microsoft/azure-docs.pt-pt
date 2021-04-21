@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 871c9f83d7bdc3f4c9e2f3b53c0b855483995152
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 573e4c9d8db3f07f223826ab648f2ef57e1d9c58
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748615"
+ms.locfileid: "107766322"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerir chaves de conta de armazenamento com o Key Vault e o Azure CLI
 > [!IMPORTANT]
@@ -67,14 +67,14 @@ Utilize a atribuição de função Azure CLI [az criar](/cli/azure/role/assignme
 
 - `--role`: Passe a função Azure "Função de Serviço do Operador da Chave de Armazenamento" . Esta função limita o âmbito de acesso à sua conta de armazenamento. Para uma conta de armazenamento clássica, passe "Classic Storage Account Operator Operator Service Role" em vez disso.
 - `--assignee`: Passe o valor " https://vault.azure.net ", que é o url para Key Vault na nuvem pública Azure. (Para a nuvem de Azure Goverment use '--asingee-object-id' em vez disso, consulte [iD de aplicação principal do serviço](#service-principal-application-id).)
-- `--scope`: Passe o ID do seu recurso de conta de armazenamento, que está no formulário `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>` . Para encontrar o seu ID de subscrição, utilize o comando da lista de conta Azure CLI [az;](/cli/azure/account?#az-account-list) para encontrar o nome da sua conta de armazenamento e grupo de recursos de conta de armazenamento, use o comando da lista de conta de armazenamento Azure CLI [az.](/cli/azure/storage/account?#az-storage-account-list)
+- `--scope`: Passe o ID do seu recurso de conta de armazenamento, que está no formulário `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>` . Para encontrar o seu ID de subscrição, utilize o comando da lista de conta Azure CLI [az;](/cli/azure/account?#az_account_list) para encontrar o nome da sua conta de armazenamento e grupo de recursos de conta de armazenamento, use o comando da lista de conta de armazenamento Azure CLI [az.](/cli/azure/storage/account?#az_storage_account_list)
 
 ```azurecli-interactive
 az role assignment create --role "Storage Account Key Operator Service Role" --assignee 'https://vault.azure.net' --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
 ### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Dê permissão à sua conta de utilizador para contas de armazenamento geridas
 
-Utilize o cmdlet [de política de chave-tevault-set-keyvault-set-set do](/cli/azure/keyvault?#az-keyvault-set-policy) Azure CLI para atualizar a política de acesso ao Cofre-chave e conceder permissões de conta de armazenamento na sua conta de utilizador.
+Utilize o cmdlet [de política de chave-tevault-set-keyvault-set-set do](/cli/azure/keyvault?#az_keyvault_set_policy) Azure CLI para atualizar a política de acesso ao Cofre-chave e conceder permissões de conta de armazenamento na sua conta de utilizador.
 
 ```azurecli-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
@@ -85,11 +85,11 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage
 Note que as permissões para contas de armazenamento não estão disponíveis na página "Políticas de acesso" da conta de armazenamento no portal Azure.
 ### <a name="create-a-key-vault-managed-storage-account"></a>Criar uma conta de armazenamento gerido por cofre chave
 
- Crie uma conta de armazenamento gerida pelo Key Vault utilizando o comando de [armazenamento de keyvault](/cli/azure/keyvault/storage?#az-keyvault-storage-add) Azure CLI. Desabar um período de regeneração de 90 dias. Quando é hora de rodar, o KeyVault regenera a chave que não está ativa e, em seguida, define a chave recém-criada como ativa. Apenas uma das chaves é usada para emitir fichas SAS a qualquer momento, esta é a chave ativa. Fornecer ao comando os seguintes valores de parâmetro:
+ Crie uma conta de armazenamento gerida pelo Key Vault utilizando o comando de [armazenamento de keyvault](/cli/azure/keyvault/storage?#az_keyvault_storage_add) Azure CLI. Desabar um período de regeneração de 90 dias. Quando é hora de rodar, o KeyVault regenera a chave que não está ativa e, em seguida, define a chave recém-criada como ativa. Apenas uma das chaves é usada para emitir fichas SAS a qualquer momento, esta é a chave ativa. Fornecer ao comando os seguintes valores de parâmetro:
 
-- `--vault-name`: Passe o nome do seu cofre chave. Para encontrar o nome do seu cofre chave, use o comando da lista de [keyvault](/cli/azure/keyvault?#az-keyvault-list) Azure CLI.
-- `-n`: Passe o nome da sua conta de armazenamento. Para encontrar o nome da sua conta de armazenamento, utilize o comando da lista de conta de armazenamento Azure CLI [az.](/cli/azure/storage/account?#az-storage-account-list)
-- `--resource-id`: Passe o ID do seu recurso de conta de armazenamento, que está no formulário `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>` . Para encontrar o seu ID de subscrição, utilize o comando da lista de conta Azure CLI [az;](/cli/azure/account?#az-account-list) para encontrar o nome da sua conta de armazenamento e grupo de recursos de conta de armazenamento, use o comando da lista de conta de armazenamento Azure CLI [az.](/cli/azure/storage/account?#az-storage-account-list)
+- `--vault-name`: Passe o nome do seu cofre chave. Para encontrar o nome do seu cofre chave, use o comando da lista de [keyvault](/cli/azure/keyvault?#az_keyvault_list) Azure CLI.
+- `-n`: Passe o nome da sua conta de armazenamento. Para encontrar o nome da sua conta de armazenamento, utilize o comando da lista de conta de armazenamento Azure CLI [az.](/cli/azure/storage/account?#az_storage_account_list)
+- `--resource-id`: Passe o ID do seu recurso de conta de armazenamento, que está no formulário `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>` . Para encontrar o seu ID de subscrição, utilize o comando da lista de conta Azure CLI [az;](/cli/azure/account?#az_account_list) para encontrar o nome da sua conta de armazenamento e grupo de recursos de conta de armazenamento, use o comando da lista de conta de armazenamento Azure CLI [az.](/cli/azure/storage/account?#az_storage_account_list)
    
  ```azurecli-interactive
 az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
@@ -108,7 +108,7 @@ Os comandos nesta secção completam as seguintes ações:
 
 ### <a name="create-a-shared-access-signature-token"></a>Criar um token de assinatura de acesso partilhado
 
-Crie uma definição de assinatura de acesso partilhado utilizando o comando [de confli de armazenamento](/cli/azure/storage/account?#az-storage-account-generate-sas) Azure CLI. Esta operação requer as `storage` `setsas` permissões.
+Crie uma definição de assinatura de acesso partilhado utilizando o comando [de confli de armazenamento](/cli/azure/storage/account?#az_storage_account_generate_sas) Azure CLI. Esta operação requer as `storage` `setsas` permissões.
 
 
 ```azurecli-interactive
@@ -124,7 +124,7 @@ Esta saída será passada para o `--template-uri` parâmetro no passo seguinte.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>Gerar uma definição de assinatura de acesso partilhado
 
-Utilize o azure CLI [az keyvault de armazenamento sas-definição criar](/cli/azure/keyvault/storage/sas-definition?#az-keyvault-storage-sas-definition-create) comando, passando a saída do passo anterior para o `--template-uri` parâmetro, para criar uma definição de assinatura de acesso partilhado.  Pode fornecer o nome da sua escolha ao `-n` parâmetro.
+Utilize o azure CLI [az keyvault de armazenamento sas-definição criar](/cli/azure/keyvault/storage/sas-definition?#az_keyvault_storage_sas_definition_create) comando, passando a saída do passo anterior para o `--template-uri` parâmetro, para criar uma definição de assinatura de acesso partilhado.  Pode fornecer o nome da sua escolha ao `-n` parâmetro.
 
 ```azurecli-interactive
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>

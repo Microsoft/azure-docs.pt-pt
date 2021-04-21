@@ -6,12 +6,12 @@ ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 99e3611711e9a25119a4428d7736a36073163894
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b737ea751d3b3d2132691e04a1a2cd853748db65
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104879223"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792512"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Tutorial: Use uma identidade gerida para invocar funções Azure a partir de uma aplicação Azure Spring Cloud
 
@@ -29,7 +29,7 @@ Tanto as Funções Azure como os Serviços de Aplicações construíram suporte 
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos para conter tanto a app Function como a Cloud de primavera utilizando o grupo de comando [az criar:](/cli/azure/group#az-group-create)
+Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos para conter tanto a app Function como a Cloud de primavera utilizando o grupo de comando [az criar:](/cli/azure/group#az_group_create)
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location eastus
 
 
 ## <a name="create-a-function-app"></a>Criar uma Aplicação de Funções
-Para criar uma aplicação Function tem primeiro de criar uma conta de armazenamento de suporte, utilize a conta de armazenamento command [az create](/cli/azure/storage/account#az-storage-account-create):
+Para criar uma aplicação Function tem primeiro de criar uma conta de armazenamento de suporte, utilize a conta de armazenamento command [az create](/cli/azure/storage/account#az_storage_account_create):
 
 > [!Important]
 > Cada aplicação de função e conta de armazenamento deve ter um nome único. Substitua <o nome do seu> de aplicação por funções pelo nome da sua aplicação Function e <o nome da sua contagem de armazenamento> pelo nome da sua Conta de Armazenamento nos seguintes exemplos.

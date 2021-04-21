@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
-ms.openlocfilehash: ff024ff97baa8a80ae6b1fcdafba010e482afd98
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 7e300f896bb11ed7c77738836f894cff41cc8bf3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106074627"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781834"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operação what-if da implementação de modelos do Resource Manager
 
@@ -95,17 +95,17 @@ Os comandos anteriores devolvem um resumo de texto que pode inspecionar manualme
 
 Para pré-visualizar alterações antes de implementar um modelo, use:
 
-* [grupo de implantação az e se](/cli/azure/deployment/group#az-deployment-group-what-if) para implantações de grupos de recursos
-* [az implantação sub-e-se](/cli/azure/deployment/sub#az-deployment-sub-what-if) para implementações de nível de subscrição
-* [az implantação mg e se](/cli/azure/deployment/mg#az-deployment-mg-what-if) para implantações de grupos de gestão
-* [az inquilino de implantação o que se](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) para implantações de inquilinos
+* [grupo de implantação az e se](/cli/azure/deployment/group#az_deployment_group_what_if) para implantações de grupos de recursos
+* [az implantação sub-e-se](/cli/azure/deployment/sub#az_deployment_sub_what_if) para implementações de nível de subscrição
+* [az implantação mg e se](/cli/azure/deployment/mg#az_deployment_mg_what_if) para implantações de grupos de gestão
+* [az inquilino de implantação o que se](/cli/azure/deployment/tenant#az_deployment_tenant_what_if) para implantações de inquilinos
 
 Pode utilizar o `--confirm-with-what-if` interruptor (ou a sua forma `-c` curta) para visualizar as alterações e ser solicitado para continuar com a implementação. Adicione este interruptor a:
 
-* [az grupo de implementação criar](/cli/azure/deployment/group#az-deployment-group-create)
-* [sub de implantação az criar](/cli/azure/deployment/sub#az-deployment-sub-create).
-* [mg de implantação az criar](/cli/azure/deployment/mg#az-deployment-mg-create)
-* [inquilino de implantação az criar](/cli/azure/deployment/tenant#az-deployment-tenant-create)
+* [az grupo de implementação criar](/cli/azure/deployment/group#az_deployment_group_create)
+* [sub de implantação az criar](/cli/azure/deployment/sub#az_deployment_sub_create).
+* [mg de implantação az criar](/cli/azure/deployment/mg#az_deployment_mg_create)
+* [inquilino de implantação az criar](/cli/azure/deployment/tenant#az_deployment_tenant_create)
 
 Por exemplo, utilização `az deployment group create --confirm-with-what-if` ou `-c` para implantações de grupos de recursos.
 

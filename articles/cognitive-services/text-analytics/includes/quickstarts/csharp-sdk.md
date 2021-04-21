@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/11/2021
+ms.date: 04/19/2021
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: d36efaf64edd51fd1c2b46b959af1a994f6ec956
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 1fd102f0f94f1ce53bebfba94d4f4c1a1f9e3812
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105582461"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765147"
 ---
 <a name="HOLTop"></a>
 

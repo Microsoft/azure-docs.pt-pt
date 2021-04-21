@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: c7bd942b427bdbd2d8184f712f97dd2a0a57fa90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0568860c387aa1239ec56005e404606272ae8275
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102178082"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107800234"
 ---
 Neste passo, você cria um [servidor SQL lógico](../database/logical-servers.md) e uma [única base de dados](../database/single-database-overview.md) que utiliza dados de amostras AdventureWorksLT. Pode criar a base de dados utilizando menus e ecrãs do portal Azure, ou utilizando um script Azure CLI ou PowerShell na Azure Cloud Shell.
 
@@ -151,11 +151,11 @@ O código anterior utiliza estes comandos Azure CLI:
 
 | Comando | Descrição |
 |---|---|
-| [conjunto de conta az](/cli/azure/account#az-account-set) | Define uma subscrição para ser a subscrição ativa atual. |
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Cria um servidor que acolhe bases de dados e piscinas elásticas. |
-| [az sql servidor firewall-rule criar](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Cria uma regra de firewall ao nível do servidor. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Cria uma base de dados. |
+| [conjunto de conta az](/cli/azure/account#az_account_set) | Define uma subscrição para ser a subscrição ativa atual. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Cria um servidor que acolhe bases de dados e piscinas elásticas. |
+| [az sql servidor firewall-rule criar](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_create) | Cria uma regra de firewall ao nível do servidor. |
+| [az sql db create](/cli/azure/sql/db#az_sql_db_create) | Cria uma base de dados. |
 
 Para obter mais amostras do Azure SQL Database Azure CLI, consulte [as amostras do Azure CLI](../database/az-cli-script-samples-content-guide.md).
 

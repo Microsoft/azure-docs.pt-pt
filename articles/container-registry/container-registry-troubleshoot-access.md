@@ -3,12 +3,12 @@ title: Problemas de rede de resolução de problemas com registo
 description: Sintomas, causas e resolução de problemas comuns ao aceder a um registo de contentores Azure numa rede virtual ou atrás de uma firewall
 ms.topic: article
 ms.date: 03/30/2021
-ms.openlocfilehash: 0fdedf109703eb443904989d2c0b2d75a6ba5bb1
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: dc2110405713791d11fb438565fc091da9c9dd5c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481230"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780757"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Problemas de rede de resolução de problemas com registo
 
@@ -39,7 +39,7 @@ Pode incluir um ou mais dos seguintes:
 
 ## <a name="further-diagnosis"></a>Diagnóstico adicional 
 
-Faça o comando [de check-health az acr](/cli/azure/acr#az-acr-check-health) para obter mais informações sobre a saúde do ambiente de registo e acesso opcional a um registo-alvo. Por exemplo, diagnosticar certos problemas de conectividade ou configuração da rede. 
+Faça o comando [de check-health az acr](/cli/azure/acr#az_acr_check_health) para obter mais informações sobre a saúde do ambiente de registo e acesso opcional a um registo-alvo. Por exemplo, diagnosticar certos problemas de conectividade ou configuração da rede. 
 
 Consulte [a saúde de um registo de contentores Azure](container-registry-check-health.md) para obter exemplos de comando. Se forem reportados erros, reveja a [referência de erro](container-registry-health-error-reference.md) e as seguintes secções para obter soluções recomendadas.
 

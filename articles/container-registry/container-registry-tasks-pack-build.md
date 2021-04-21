@@ -3,13 +3,13 @@ title: Construa imagem com Buildpack Nativo nuvem
 description: Utilize o comando de construção de az acr para construir uma imagem de contentor a partir de uma aplicação e empurre para o Registo do Contentor de Azure, sem usar um Dockerfile.
 ms.topic: article
 ms.date: 10/24/2019
-ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 264fc7314c78088ebfefb9ddb8edbe38fa16581a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-js
+ms.openlocfilehash: 1700c8fda8ac91e7d447d35c0989da2d5fc3aefe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92736637"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780934"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Construa e empurre uma imagem a partir de uma aplicação usando um Cloud Native Buildpack
 
@@ -107,4 +107,4 @@ Para obter mais informações sobre as funcionalidades de Tarefas ACR, consulte 
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr/task
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build

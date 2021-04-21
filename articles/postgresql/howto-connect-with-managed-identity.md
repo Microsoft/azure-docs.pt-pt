@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d59b449a2dbf2ed3b1177db6e543de4c34a8ecb1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: beb5930e98a5c5498349dc3aa773423ee5d281bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604163"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792476"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Ligar à Base de Dados do Azure para PostgreSQL com a Identidade Gerida
 
@@ -34,13 +34,13 @@ Saiba como:
 
 ## <a name="creating-a-user-assigned-managed-identity-for-your-vm"></a>Criar uma identidade gerida atribuída ao utilizador para o seu VM
 
-Crie uma identidade na sua subscrição utilizando o comando [de criação de identidade az.](/cli/azure/identity#az-identity-create) Pode utilizar o mesmo grupo de recursos em que a sua máquina virtual funciona, ou um outro.
+Crie uma identidade na sua subscrição utilizando o comando [de criação de identidade az.](/cli/azure/identity#az_identity_create) Pode utilizar o mesmo grupo de recursos em que a sua máquina virtual funciona, ou um outro.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myManagedIdentity
 ```
 
-Para configurar a identidade nos seguintes passos, utilize o comando [de demonstração de identidade az](/cli/azure/identity#az-identity-show) para armazenar o ID de recursos da identidade e o ID do cliente em variáveis.
+Para configurar a identidade nos seguintes passos, utilize o comando [de demonstração de identidade az](/cli/azure/identity#az_identity_show) para armazenar o ID de recursos da identidade e o ID do cliente em variáveis.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -50,7 +50,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myManagedI
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
-Podemos agora atribuir a identidade atribuída ao VM com o comando [de atribuição de identidade az vm:](/cli/azure/vm/identity#az-vm-identity-assign)
+Podemos agora atribuir a identidade atribuída ao VM com o comando [de atribuição de identidade az vm:](/cli/azure/vm/identity#az_vm_identity_assign)
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID

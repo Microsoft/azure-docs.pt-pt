@@ -3,12 +3,12 @@ title: Descrição geral das Tarefas do ACR
 description: Uma introdução ao ACR Tasks, um conjunto de funcionalidades no Registo de Contentores Azure que proporciona uma construção, gestão e remendos de imagem de contentores seguros e automatizados na nuvem.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 1cf9faf934cebfb5abe0d2e1b26ffd7da2d6c549
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a42a2bfcdc1621689421940c4db2fcf4f5e64b89
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606791"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781006"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar a imagem do contentor constrói e manutenção com tarefas ACR
 
@@ -127,7 +127,7 @@ Por padrão, a ACR Tasks constrói imagens para o Linux OS e para a arquitetura 
 
 ## <a name="view-task-output"></a>Ver resultado das tarefas
 
-Cada execução de tarefa gera saída de log que pode inspecionar para determinar se os passos de tarefa foram executados com sucesso. Quando ativa uma tarefa manualmente, a saída de registo para a execução da tarefa é transmitida para a consola e também armazenada para posterior recuperação. Quando uma tarefa é automaticamente ativada, por exemplo, por um código fonte ou por uma atualização de imagem base, os registos de tarefas são armazenados apenas. Ver os registos de execução no portal Azure ou utilizar o comando [de registos de tarefas az acr.](/cli/azure/acr/task#az-acr-task-logs)
+Cada execução de tarefa gera saída de log que pode inspecionar para determinar se os passos de tarefa foram executados com sucesso. Quando ativa uma tarefa manualmente, a saída de registo para a execução da tarefa é transmitida para a consola e também armazenada para posterior recuperação. Quando uma tarefa é automaticamente ativada, por exemplo, por um código fonte ou por uma atualização de imagem base, os registos de tarefas são armazenados apenas. Ver os registos de execução no portal Azure ou utilizar o comando [de registos de tarefas az acr.](/cli/azure/acr/task#az_acr_task_logs)
 
 Ver mais sobre [visualização e gestão de registos de tarefas](container-registry-tasks-logs.md).
 
@@ -143,11 +143,11 @@ Instale opcionalmente a [extensão do Docker para o Código do Estúdio Visual](
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-login]: /cli/azure/reference-index#az_login
 [az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->

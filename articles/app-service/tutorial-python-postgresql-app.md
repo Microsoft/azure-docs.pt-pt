@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 8e9656aa1f850dc9e59ab71b5df605df8dd49269
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 882a9fb0f8d528ca21cdc8149c60b9d5bdaf1723
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732810"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767100"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementar uma aplicação web Django com PostgreSQL no Azure App Service
 
@@ -160,7 +160,7 @@ Quando o comando termina, produz um objeto JSON que contém diferentes cadeias d
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> `-l <location-name>`, pode ser definido para qualquer uma das [regiões de Azure](https://azure.microsoft.com/global-infrastructure/regions/). Pode disponibilizar as regiões à sua subscrição com o [`az account list-locations`](/cli/azure/account#az-account-list-locations) comando. Para aplicações de produção, coloque a sua base de dados e a sua aplicação no mesmo local.
+> `-l <location-name>`, pode ser definido para qualquer uma das [regiões de Azure](https://azure.microsoft.com/global-infrastructure/regions/). Pode disponibilizar as regiões à sua subscrição com o [`az account list-locations`](/cli/azure/account#az_account_list_locations) comando. Para aplicações de produção, coloque a sua base de dados e a sua aplicação no mesmo local.
 
 Tendo problemas? [Deixe-nos saber.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -172,7 +172,7 @@ Nesta secção, cria-se um anfitrião de aplicações na aplicação App Service
 
 No terminal, certifique-se de que está na pasta do repositório *de djangoapp* que contém o código da aplicação.
 
-Criar uma aplicação de Serviço de Aplicações (o processo de anfitrião) com o [`az webapp up`](/cli/azure/webapp#az-webapp-up) comando:
+Criar uma aplicação de Serviço de Aplicações (o processo de anfitrião) com o [`az webapp up`](/cli/azure/webapp#az_webapp_up) comando:
 
 ```azurecli
 az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --plan DjangoPostgres-tutorial-plan --sku B1 --name <app-name>
@@ -205,7 +205,7 @@ Com o código agora implementado para o Serviço de Aplicações, o próximo pas
 
 O código da aplicação espera encontrar informação sobre bases de dados em quatro variáveis ambientais denominada `DBHOST` `DBNAME` , e `DBUSER` `DBPASS` .
 
-Para definir variáveis ambientais no Serviço de Aplicações, crie "configurações de aplicações" com o seguinte comando de [configuração de configurações de appsapp az.](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set)
+Para definir variáveis ambientais no Serviço de Aplicações, crie "configurações de aplicações" com o seguinte comando de [configuração de configurações de appsapp az.](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set)
 
 ```azurecli
 az webapp config appsettings set --settings DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"

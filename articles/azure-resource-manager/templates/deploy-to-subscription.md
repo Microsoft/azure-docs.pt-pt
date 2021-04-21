@@ -3,12 +3,12 @@ title: Mobilizar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Também mostra como implantar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: f557a3a15da33b7394d22784bcd2c1c914ad6201
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3598fe290fd993cbbc662ba9d3a3c5ba8c207bc0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889438"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781924"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implementações de subscrição com modelos ARM
 
@@ -92,7 +92,7 @@ Para implementar uma subscrição, utilize os comandos de implementação de ní
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para o Azure CLI, utilize [o sub-imposição Az](/cli/azure/deployment/sub#az-deployment-sub-create). O exemplo a seguir implementa um modelo para criar um grupo de recursos:
+Para o Azure CLI, utilize [o sub-imposição Az](/cli/azure/deployment/sub#az_deployment_sub_create). O exemplo a seguir implementa um modelo para criar um grupo de recursos:
 
 ```azurecli-interactive
 az deployment sub create \

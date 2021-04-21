@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c2d4181a80f48f5f6dd5775e6eb3bd172a65df8
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 94077a1c6329aa1fecf9593f2df41fa77afc8a44
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209634"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765922"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Reposição personalizada de palavra-passe do AAD
 
@@ -93,7 +93,7 @@ Quando não necessita de registo, os utilizadores não são solicitados durante 
 
 Para garantir que os métodos de autenticação estão corretos quando são necessários para redefinir ou alterar a sua palavra-passe, pode exigir que os utilizadores confirmem as suas informações registadas após um determinado período de tempo. Esta opção só está disponível se permitir que os **utilizadores do Requererem** o registo ao assinarem na opção.
 
-Os valores válidos para solicitar ao utilizador que confirme os seus métodos registados são de *0* a *730* dias. Definir este valor para *0* significa que os utilizadores nunca são convidados a confirmar as suas informações de autenticação.
+Os valores válidos para solicitar ao utilizador que confirme os seus métodos registados são de *0* a *730* dias. Definir este valor para *0* significa que os utilizadores nunca são convidados a confirmar as suas informações de autenticação. Ao utilizarem a experiência de registo combinado, os utilizadores serão obrigados a confirmar a sua identidade antes de reconfirmar as suas informações.
 
 ## <a name="authentication-methods"></a>Métodos de autenticação
 

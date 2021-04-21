@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 668988ae34c2f97f3baca3f360c13e3ec3e30731
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 771c79f56a31c83f2152886ad6cf68367776f83f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586352"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767233"
 ---
 # <a name="app-service-overview"></a>Descrição geral do Serviço de Aplicações
 
@@ -44,7 +44,7 @@ O Serviço de Aplicações também pode hospedar aplicações web de forma nativ
 
 ### <a name="built-in-languages-and-frameworks"></a>Línguas e quadros incorporados
 
-O Serviço de Aplicações no Linux suporta uma série de imagens incorporadas específicas do idioma. Basta implementar o seu código. As línguas suportadas incluem: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core e Ruby. Corra [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) para ver os mais recentes idiomas e versões suportadas. Se o tempo de execução que a sua aplicação necessita não for suportado nas imagens incorporadas, pode implantá-la com um recipiente personalizado.
+O Serviço de Aplicações no Linux suporta uma série de imagens incorporadas específicas do idioma. Basta implementar o seu código. As línguas suportadas incluem: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core e Ruby. Corra [`az webapp list-runtimes --linux`](/cli/azure/webapp#az_webapp_list_runtimes) para ver os mais recentes idiomas e versões suportadas. Se o tempo de execução que a sua aplicação necessita não for suportado nas imagens incorporadas, pode implantá-la com um recipiente personalizado.
 
 Os tempos de execução desatualizados são periodicamente removidos das lâminas de criação e configuração de aplicações web no Portal. Estes tempos de execução são escondidos do Portal quando são depreciados pela organização de manutenção ou se constatam que têm vulnerabilidades significativas. Estas opções estão escondidas para guiar os clientes para os tempos mais recentes onde serão os mais bem sucedidos. 
 

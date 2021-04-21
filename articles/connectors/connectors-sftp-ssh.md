@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: article
-ms.date: 04/05/2021
+ms.topic: conceptual
+ms.date: 04/19/2021
 tags: connectors
-ms.openlocfilehash: 5eae6b48a65f919ea233ad77a215ed5672425175
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: a19253e117f748b4d4045bfd2a29552018bba91e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385858"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781564"
 ---
 # <a name="create-and-manage-sftp-files-using-ssh-and-azure-logic-apps"></a>Criar e gerir ficheiros SFTP utilizando apps SSH e Azure Logic
 
@@ -51,7 +51,7 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a sec
 
   | Ação | Suporte de chunking | Sobrepor suporte do tamanho do pedaço |
   |--------|------------------|-----------------------------|
-  | **Ficheiro de cópia** | Não | Não aplicável |
+  | **Ficheiro de cópia** | No | Não aplicável |
   | **Criar ficheiro** | Yes | Yes |
   | **Criar pasta** | Não aplicável | Não aplicável |
   | **Eliminar ficheiro** | Não aplicável | Não aplicável |
@@ -62,7 +62,7 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a sec
   | **Obtenha metadados de ficheiros usando o caminho** | Não aplicável | Não aplicável |
   | **Listar ficheiros na pasta** | Não aplicável | Não aplicável |
   | **Arquivo de renomeação** | Não aplicável | Não aplicável |
-  | **Atualizar ficheiro** | Não | Não aplicável |
+  | **Atualizar ficheiro** | No | Não aplicável |
   ||||
 
 * Os gatilhos SFTP-SSH não suportam a mensagem a bater. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 15 MB ou menores. Para obter ficheiros maiores que 15 MB, siga este padrão em vez disso:
@@ -123,7 +123,7 @@ Quando um gatilho encontra um novo ficheiro, o gatilho verifica se o novo fichei
 
 ### <a name="trigger-recurrence-shift-and-drift"></a>Mudança de recorrência do gatilho e deriva
 
-Os gatilhos baseados em ligação onde é necessário criar uma ligação em primeiro lugar, como o gatilho SFTP-SSH, diferem dos gatilhos incorporados que funcionam de forma nativa em Azure Logic Apps, como o [gatilho de Recorrência](../connectors/connectors-native-recurrence.md). Em gatilhos baseados em ligação recorrente, o calendário de recorrência não é o único condutor que controla a execução, e o fuso horário apenas determina a hora de início inicial. As execuções subsequentes dependem do calendário de recorrência, da última execução do *gatilho, e* de outros fatores que podem causar tempos de fuga ou produzir comportamentos inesperados. Por exemplo, o comportamento inesperado pode incluir a falha na manutenção do horário especificado quando o horário de verão (DST) começa e termina. Para garantir que o tempo de recorrência não muda quando o DST faz efeito, ajuste manualmente a recorrência. Assim, o seu fluxo de trabalho continua a funcionar no momento esperado. Caso contrário, a hora de início muda uma hora para a frente quando o DST começa e uma hora para trás quando o DST termina. Para obter mais informações, consulte [Recorrência para gatilhos baseados em ligação](../connectors/apis-list.md#recurrence-connection-based).
+Os gatilhos baseados em ligação onde é necessário criar uma ligação em primeiro lugar, como o gatilho SFTP-SSH, diferem dos gatilhos incorporados que funcionam de forma nativa em Azure Logic Apps, como o [gatilho de Recorrência](../connectors/connectors-native-recurrence.md). Em gatilhos baseados em ligação recorrente, o calendário de recorrência não é o único condutor que controla a execução, e o fuso horário apenas determina a hora de início inicial. As execuções subsequentes dependem do calendário de recorrência, da última execução do *gatilho, e* de outros fatores que podem causar tempos de fuga ou produzir comportamentos inesperados. Por exemplo, o comportamento inesperado pode incluir a falha na manutenção do horário especificado quando o horário de verão (DST) começa e termina. Para garantir que o tempo de recorrência não muda quando o DST faz efeito, ajuste manualmente a recorrência. Assim, o seu fluxo de trabalho continua a funcionar no momento esperado. Caso contrário, a hora de início muda uma hora para a frente quando o DST começa e uma hora para trás quando o DST termina. Para obter mais informações, consulte [Recorrência para gatilhos baseados em ligação](../connectors/apis-list.md#recurrence-for-connection-based-triggers).
 
 <a name="convert-to-openssh"></a>
 
