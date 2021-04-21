@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: b29609d2bc2c518312bc777d1464755091c11b26
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: f76f036e2101fb1dbb4483ba417f5cf10f3e37f4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482590"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782419"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>Conecte uma aplicação de Serviço de Aplicações à Cosmos DB usando o CLI
 
@@ -38,12 +38,12 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, app A
 
 | Comando | Notas |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Cria uma aplicação de Serviço de Aplicações. |
-| [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Cosmos DB. |
-| [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb#az-cosmosdb-list-connection-strings) | Lista cadeias de ligação para a conta do Cosmos DB especificada. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Cria ou atualiza uma configuração de aplicação para uma aplicação do Serviço de Aplicações. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
+| [`az group create`](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um plano do Serviço de Aplicações. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Cria uma aplicação de Serviço de Aplicações. |
+| [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create) | Cria uma conta do Cosmos DB. |
+| [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) | Lista cadeias de ligação para a conta do Cosmos DB especificada. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Cria ou atualiza uma configuração de aplicação para uma aplicação do Serviço de Aplicações. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

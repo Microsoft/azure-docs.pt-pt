@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 886db905008af94b66a902cc551e4d55b36572a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 17968f2c137eef51eecdb6c7098c7056944dc970
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98250133"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782194"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da grelha de eventos Azure para funções Azure
 
@@ -446,7 +446,7 @@ Para obter mais informações sobre como criar subscrições utilizando o portal
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para criar uma subscrição utilizando [o Azure CLI,](/cli/azure/get-started-with-azure-cli)utilize o comando [de criação de eventos az eventgrid.](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create)
+Para criar uma subscrição utilizando [o Azure CLI,](/cli/azure/get-started-with-azure-cli)utilize o comando [de criação de eventos az eventgrid.](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create)
 
 O comando requer o URL do ponto final que invoca a função. O exemplo a seguir mostra o padrão de URL específico da versão:
 
@@ -571,7 +571,7 @@ Para testar um gatilho de Grade de Eventos localmente, tem de obter pedidos HTTP
 1. [Gere um pedido](#generate-a-request) e copie o corpo de pedido da aplicação do espectador.
 1. [Publique manualmente o pedido](#manually-post-the-request) para o URL local da sua função de gatilho de Grelha de Evento.
 
-Quando terminar os testes, pode utilizar a mesma subscrição para produção atualizando o ponto final. Utilize o comando Azure CLI [da atualização de subscrição de eventos](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) Azure.
+Quando terminar os testes, pode utilizar a mesma subscrição para produção atualizando o ponto final. Utilize o comando Azure CLI [da atualização de subscrição de eventos](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_update) Azure.
 
 ### <a name="create-a-viewer-web-app"></a>Criar uma aplicação web de espectadores
 

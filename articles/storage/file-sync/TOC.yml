@@ -1,0 +1,268 @@
+- name: Documentação Azure File Sync
+  href: index.yml
+- name: Descrição Geral
+  expanded: true
+  items:
+    - name: O que é o Azure File Sync?
+      href: file-sync-introduction.md
+- name: Tutoriais
+  items:
+    - name: Expandir servidores de ficheiros do Windows com o Azure File Sync
+      href: file-sync-extend-servers.md
+- name: Conceitos
+  items:
+    - name: Planear uma implementação da Sincronização de Ficheiros do Azure
+      href: file-sync-planning.md
+    - name: Considerações de rede para acesso híbrido
+      href: file-sync-networking-overview.md
+    - name: Disposição em camadas na cloud
+      items:
+        - name: Visão geral do tiering da nuvem
+          href: file-sync-cloud-tiering-overview.md
+        - name: Visão geral das políticas de nivelamento da nuvem
+          href: file-sync-cloud-tiering-policy.md
+        - name: Escolha as suas políticas de nivelamento em nuvem
+          href: file-sync-choose-cloud-tiering-policies.md
+        - name: Monitorizar o nível da nuvem
+          href: file-sync-monitor-cloud-tiering.md
+    - name: Metas de escalabilidade e desempenho
+      href: ../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: Impedir eliminações de dados acidentais
+      href: ../files/storage-files-prevent-file-share-deletion.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: Fazer cópia de segurança de partilhas de ficheiros
+      href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: Compreender a faturação
+      href: ../files/understanding-billing.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: Encriptação
+      items:
+        - name: Encriptação em inatividade
+          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Encriptação inativa com chaves geridas pelo cliente
+          href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: Ofertas de conformidade
+      href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: FAQ
+      href: ../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+- name: Guias de procedimentos
+  items:
+    - name: Implementação
+      items:
+        - name: Criar uma partilha de ficheiros SMB
+          href: ../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Implementar Azure File Sync
+          href: file-sync-deployment-guide.md
+    - name: Rede
+      items:
+        - name: Configurar pontos finais de rede do Azure File Sync
+          href: file-sync-networking-endpoints.md
+        - name: Configurar as definições do proxy e da firewall do File Sync
+          href: file-sync-firewall-and-proxy.md
+        - name: Configurar uma VPN Site a Site
+          href: ../files/storage-files-configure-s2s-vpn.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Configurar uma VPN Ponto a Site no Windows
+          href: ../files/storage-files-configure-p2s-vpn-windows.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: Gerir
+      items:
+        - name: Registar um servidor na Sincronização de Ficheiros do Azure
+          href: file-sync-server-registration.md
+        - name: Adicionar um ponto final de servidor da Sincronização de Ficheiros do Azure
+          href: file-sync-server-endpoint.md
+        - name: Gerir o armazenamento nas clouds independentes do Azure
+          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Iniciar a ativação pós-falha de uma conta
+          href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Gerir ficheiros hierárquicos
+          href: file-sync-how-to-manage-tiered-files.md
+        - name: 'Mover recursos para outros grupos de recursos, subscrições e inquilinos da AAD'
+          href: file-sync-resource-move.md
+    - name: Proteção de dados
+      items:
+        - name: Ativar a eliminação recuperável
+          href: ../files/storage-files-enable-soft-delete.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Alterar a forma como os dados são replicados
+          href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Gerir redundância de dados
+          items:
+            - name: Alterar a forma como os dados são replicados
+              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: Conceber aplicações Web de elevada disponibilidade
+              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Gerir a recuperação após desastre
+          items:
+            - name: Consulte a propriedade Last Sync Time
+              href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: Iniciar a ativação pós-falha da conta
+              href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Fazer cópia de segurança de partilhas de ficheiros
+          items:
+            - name: Portal
+              href: ../../backup/backup-afs.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: CLI
+              href: ../../backup/backup-afs-cli.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: PowerShell
+              href: ../../backup/backup-azure-afs-automation.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: API REST
+              href: ../../backup/backup-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Restaurar partilhas de ficheiros
+          items:
+            - name: Portal
+              href: ../../backup/restore-afs.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: CLI
+              href: ../../backup/restore-afs-cli.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: PowerShell
+              href: ../../backup/restore-afs-powershell.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: API REST
+              href: ../../backup/restore-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Gerir partilhas de ficheiros
+          items:
+            - name: Portal
+              href: ../../backup/manage-afs-backup.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: CLI
+              href: ../../backup/manage-afs-backup-cli.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: PowerShell
+              href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: API REST
+              href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: Monitorizar
+      items:
+        - name: Monitorizar os Ficheiros do Azure
+          href: ../files/storage-files-monitoring.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Monitorizar o Azure File Sync
+          href: file-sync-monitoring.md
+    - name: Migrar
+      items:
+        - name: Migrar para partilhas de ficheiros do Azure
+          href: ../files/storage-files-migration-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Definir o destino de uma implementação híbrida
+          items:
+            - name: Migrar dados em massa para o Azure File Sync com o Azure Data Box
+              href: file-sync-offline-data-transfer.md
+            - name: Migrar do Linux para um servidor de ficheiros híbrido com o Azure File Sync
+              href: ../files/storage-files-migration-linux-hybrid.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: Migrar de um NAS no local para um servidor de ficheiros híbrido com o Azure File Sync
+              href: ../files/storage-files-migration-nas-hybrid.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: Migrar de um NAS no local para um servidor de ficheiros híbrido com DataBox
+              href: ../files/storage-files-migration-nas-hybrid-databox.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: A partir do StorSimple
+          items:
+            - name: Guia de migração do StorSimple 8100 e 8600
+              href: ../files/storage-files-migration-storsimple-8000.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: Guia de migração do StorSimple 1200
+              href: ../files/storage-files-migration-storsimple-1200.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: Permitir partilha de ficheiros de grandes dimensões
+      href: ../files/storage-files-how-to-create-large-file-share.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: Proteger
+      items:
+        - name: Gerir as chaves de encriptação da conta de armazenamento
+          items:
+            - name: Verificar o modelo da chave de encriptação da conta
+              href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: Configurar a encriptação com chaves geridas pelo cliente
+              items:
+                - name: Armazenar chaves geridas pelo cliente num cofre de chaves
+                  href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+                - name: Armazenar chaves geridas pelo cliente num HSM gerido
+                  href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Ativar a encriptação da infraestrutura para a conta
+          href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Configurar o Azure Defender para proteção contra ameaças
+          href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Configurar firewalls e redes virtuais
+          href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Requer transferência segura
+          href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Gerir o Transport Layer Security (TLS)
+          items:
+            - name: Impor a versão mínima do TLS para pedidos recebidos
+              href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+            - name: Configurar a versão do TLS para uma aplicação cliente
+              href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: Resolução de problemas
+      items:
+        - name: Resolver problemas dos Ficheiros do Azure no Windows (SMB)
+          href: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Resolver problemas de desempenho das partilhas de ficheiros do Azure
+          href: ../files/storage-troubleshooting-files-performance.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Resolver problemas da Sincronização de Ficheiros do Azure
+          href: file-sync-troubleshoot.md
+        - name: Resolver problemas de eliminação das partilhas de ficheiros do Azure
+          href: ../files/storage-troubleshoot-cannot-delete-files-azure-file-share.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+        - name: Resolver problemas com a cópia de segurança de partilhas de ficheiros
+          href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+- name: Referência
+  items:
+    - name: Referência dos Ficheiros do Azure
+      href: ../files/reference.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: Monitorizar a referência dos Ficheiros do Azure
+      href: ../files/storage-files-monitoring-reference.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: Modelo do Resource Manager
+      displayName: arm
+      href: /azure/templates/microsoft.storage/allversions
+    - name: Amostras
+      href: 'https://azure.microsoft.com/documentation/samples/?service=storage&term=file'
+    - name: Comparação de ficheiros Azure e Azure NetApp
+      href: ../files/storage-files-netapp-comparison.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+- name: Recursos
+  items:
+    - name: Atualizações do Azure
+      href: 'https://azure.microsoft.com/updates/?category=storage'
+    - name: Notas de versão do Azure File Sync
+      href: file-sync-release-notes.md
+    - name: Ficheiros do Azure no Microsoft Q&A
+      href: /answers/topics/azure-files.html
+    - name: Ficheiros do Azure no Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-files'
+    - name: Preços dos Ficheiros do Azure
+      href: 'https://azure.microsoft.com/pricing/details/storage/files/'
+    - name: Calculadora de preços do Azure
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+    - name: Pacotes NuGet (.NET)
+      items:
+        - name: Microsoft.Azure.Storage.Common (versão 11.x)
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
+        - name: Azure.Storage.Common (versão 12.x - pré-visualização)
+          href: 'https://www.nuget.org/packages/Azure.Storage.Common/'
+        - name: Microsoft.Azure.Storage.File (versão 11.x)
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.File/'
+        - name: Azure.Storage.File (versão 12.x - pré-visualização)
+          href: 'https://www.nuget.org/packages/Azure.Storage.Files/'
+        - name: Gestor de Configuração do Azure
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
+        - name: Biblioteca do Movimento de Dados do Armazenamento do Azure
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+        - name: Biblioteca do Fornecedor de Recursos de Armazenamento
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/'
+    - name: Código de origem
+      items:
+        - name: .NET
+          items:
+            - name: Biblioteca de cliente do Armazenamento do Azure
+              items:
+                - name: Versão 12.x (pré-visualização)
+                  href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage'
+                - name: Versão 11.x e anteriores
+                  href: 'https://github.com/Azure/azure-storage-net'
+            - name: Biblioteca do Movimento de Dados
+              href: 'https://github.com/Azure/azure-storage-net-data-movement'
+            - name: Biblioteca do Fornecedor de Recursos de Armazenamento
+              href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage'
+        - name: Java
+          items:
+            - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 12.x (pré-visualização)'
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage'
+            - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 8.x e anteriores'
+              href: 'https://github.com/Azure/azure-storage-java'
+        - name: Node.js
+          items:
+            - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 12.x (pré-visualização)'
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage'
+            - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 10.x'
+              href: 'https://github.com/Azure/azure-storage-node'
+        - name: Python
+          items:
+            - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 12.x (pré-visualização)'
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage'
+            - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 2.1'
+              href: 'https://github.com/Azure/azure-storage-python'

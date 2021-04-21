@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 7204f32b8fec411fba2afa39b011a8755aea3744
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 21ac73b461ebcb171f48621aa27a16dfc0e8c936
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309684"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781744"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -125,9 +125,9 @@ Uma falha pode ser iniciada usando PowerShell, REST API ou Azure CLI:
 
 |Tipo de implantação|PowerShell|API REST| CLI do Azure|
 |:---|:---|:---|:---|
-|Base de Dados|[Invocar-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Falha na base de dados](/rest/api/sql/databases/failover)|[az descanso](/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada de API REST de Azure CLI|
-|Conjunto elástico|[Invocar-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Falha na piscina elástica](/javascript/api/@azure/arm-sql/elasticpools#failover_string__string__string__msRest_RequestOptionsBase)|[az descanso](/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada de API REST de Azure CLI|
-|Instância Gerida|[Invocar-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Casos Geridos - Failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
+|Base de Dados|[Invocar-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Falha na base de dados](/rest/api/sql/databases/failover)|[az descanso](/cli/azure/reference-index#az_rest) pode ser usado para invocar uma chamada de API REST de Azure CLI|
+|Conjunto elástico|[Invocar-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Falha na piscina elástica](/javascript/api/@azure/arm-sql/elasticpools#failover_string__string__string__msRest_RequestOptionsBase)|[az descanso](/cli/azure/reference-index#az_rest) pode ser usado para invocar uma chamada de API REST de Azure CLI|
+|Instância Gerida|[Invocar-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Casos Geridos - Failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az_sql_mi_failover)|
 
 > [!IMPORTANT]
 > O comando Failover não está disponível para réplicas secundárias legíveis de bases de dados de Hiperescala.

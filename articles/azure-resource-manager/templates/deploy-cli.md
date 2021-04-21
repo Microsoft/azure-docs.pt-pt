@@ -3,12 +3,12 @@ title: Implementar recursos com CLI E modelo Azure
 description: Utilize o Azure Resource Manager e o Azure CLI para mobilizar recursos para a Azure. Os recursos são definidos num modelo de Gestor de Recursos ou num ficheiro Bicep.
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: b19dc6cc292306cc796f8c1d8f93b358a079d83b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f616a40f2683268f0cc26314fcc88ecca23bdbcf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544439"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782068"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementar recursos com modelos ARM e Azure CLI
 
@@ -24,13 +24,13 @@ Se não tiver o Azure CLI instalado, pode utilizar a Azure Cloud Shell. Para obt
 
 Pode direcionar a sua implementação para um grupo de recursos, subscrição, grupo de gestão ou inquilino. Dependendo do alcance da implantação, utiliza-se diferentes comandos.
 
-* Para implementar num **grupo de recursos,** utilize [o grupo de implantação az create](/cli/azure/deployment/group#az-deployment-group-create):
+* Para implementar num **grupo de recursos,** utilize [o grupo de implantação az create](/cli/azure/deployment/group#az_deployment_group_create):
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template-or-bicep>
   ```
 
-* Para implementar uma **subscrição,** utilize [o sub-utilização az create](/cli/azure/deployment/sub#az-deployment-sub-create):
+* Para implementar uma **subscrição,** utilize [o sub-utilização az create](/cli/azure/deployment/sub#az_deployment_sub_create):
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template-or-bicep>
@@ -38,7 +38,7 @@ Pode direcionar a sua implementação para um grupo de recursos, subscrição, g
 
   Para obter mais informações sobre as implementações do nível de subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição.](deploy-to-subscription.md)
 
-* Para implantar num **grupo de gestão,** utilize [a az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
+* Para implantar num **grupo de gestão,** utilize [a az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create):
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template-or-bicep>
@@ -46,7 +46,7 @@ Pode direcionar a sua implementação para um grupo de recursos, subscrição, g
 
   Para obter mais informações sobre as implementações de nível de grupo de gestão, consulte [Criar recursos ao nível do grupo de gestão.](deploy-to-management-group.md)
 
-* Para implantar para um **inquilino,** use [az inusitário de implantação criar:](/cli/azure/deployment/tenant#az-deployment-tenant-create)
+* Para implantar para um **inquilino,** use [az inusitário de implantação criar:](/cli/azure/deployment/tenant#az_deployment_tenant_create)
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template-or-bicep>

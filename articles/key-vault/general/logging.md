@@ -3,19 +3,18 @@ title: Azure Key Vault registando | Microsoft Docs
 description: Saiba como monitorizar o acesso aos seus cofres chave, permitindo o registo do Cofre da Chave Azure, que guarda informações numa conta de armazenamento Azure que fornece.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 99313cf1248ef5e90d7cd60d528a58c7925298d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5847fcb2cf553e1fcc744877e52dbbdf1f24d992
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499531"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751837"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 
@@ -62,7 +61,7 @@ A tabela que se segue lista os nomes e descrições do campo:
 | Nome do campo | Description |
 | --- | --- |
 | **Hora** |Data e hora na UTC. |
-| **recursosId** |Identificação de recursos do Azure Resource Manager. Para os registos do Cofre de Chaves, este é sempre o ID de recurso key Vault. |
+| **resourceId** |Identificação de recursos do Azure Resource Manager. Para os registos do Cofre de Chaves, este é sempre o ID de recurso key Vault. |
 | **operationName** |Nome da operação, conforme documentada na tabela seguinte. |
 | **operaçãoVer** |Versão REST API solicitada pelo cliente. |
 | **categoria** |Tipo de resultado. Para os registos key vault, `AuditEvent` é o valor único disponível. |

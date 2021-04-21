@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 4/16/2021
-ms.openlocfilehash: 7dcbcddc5062470cc3d44fa55ea2591dd989d22d
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: d5b0c8e60632be5e058900680dc376b7f0761150
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576419"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781582"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -255,7 +255,7 @@ Modificar os vCores máximos ou mínimos e o atraso de automatização é realiz
 
 ### <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
 
-Modificar os vCores máximos ou mínimos e o atraso de automatização é realizado utilizando o comando [de atualização az sql db](/cli/azure/sql/db#az-sql-db-update) em Azure CLI utilizando o `capacity` , e `min-capacity` `auto-pause-delay` argumentos.
+Modificar os vCores máximos ou mínimos e o atraso de automatização é realizado utilizando o comando [de atualização az sql db](/cli/azure/sql/db#az_sql_db_update) em Azure CLI utilizando o `capacity` , e `min-capacity` `auto-pause-delay` argumentos.
 
 
 ## <a name="monitoring"></a>Monitorização

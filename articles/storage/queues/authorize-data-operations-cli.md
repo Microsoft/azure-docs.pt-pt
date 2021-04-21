@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2f7092d8ce184d7021774814e96935e46d1ffb56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b3ac012da97194134f58d061dd9d84e945db554
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363173"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774472"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Escolha como autorizar o acesso aos dados da fila com o Azure CLI
 
@@ -63,7 +63,7 @@ O exemplo a seguir mostra como criar uma fila a partir do Azure CLI utilizando a
     > [!IMPORTANT]
     > As atribuições de funções azure podem demorar alguns minutos a propagar-se.
 
-1. Ligue para o [`az storage queue create`](/cli/azure/storage/queue#az-storage-queue-create) comando com o parâmetro definido para criar a fila `--auth-mode` `login` usando as suas credenciais AZure AD. Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
+1. Ligue para o [`az storage queue create`](/cli/azure/storage/queue#az_storage_queue_create) comando com o parâmetro definido para criar a fila `--auth-mode` `login` usando as suas credenciais AZure AD. Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
 
     ```azurecli
     az storage queue create \

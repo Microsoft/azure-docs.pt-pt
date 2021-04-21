@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2aa6730759a9aa1aaab3156c55bf19e82641b8ea
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 80df7b85ec1ad9e273081f9a6a96b9a9d7ec8cd9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739337"
+ms.locfileid: "107791198"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizar o acesso a dados de blob e fila com identidades geridas para recursos Azure
 
@@ -67,7 +67,7 @@ Se o seu ambiente de desenvolvimento não suporta um único login ou login atrav
 
 #### <a name="create-the-service-principal"></a>Criar o principal de serviço
 
-Para criar um diretor de serviço com Azure CLI e atribuir um papel Azure, ligue para o comando [ad sp create-for-rbac.](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) Forneça uma função de acesso aos dados do Azure Storage para atribuir ao novo diretor de serviço. Além disso, forneça a margem para a atribuição de funções. Para obter mais informações sobre as funções incorporadas previstas para o Azure Storage, consulte [as funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
+Para criar um diretor de serviço com Azure CLI e atribuir um papel Azure, ligue para o comando [ad sp create-for-rbac.](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) Forneça uma função de acesso aos dados do Azure Storage para atribuir ao novo diretor de serviço. Além disso, forneça a margem para a atribuição de funções. Para obter mais informações sobre as funções incorporadas previstas para o Azure Storage, consulte [as funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
 
 Se não tiver permissões suficientes para atribuir uma função ao titular do serviço, poderá ter de pedir ao titular ou administrador da conta para desempenhar a função.
 

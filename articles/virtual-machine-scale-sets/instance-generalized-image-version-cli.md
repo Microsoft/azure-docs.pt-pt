@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e360ae3cf0c463add9e6445a96c118d9f40ce9cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de50540345ac6170d229549cad736dafb04e488c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878041"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792368"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Crie um conjunto de escala a partir de uma imagem generalizada com Azure CLI
 
@@ -24,7 +24,7 @@ Se optar por instalar e utilizar o CLI localmente, este tutorial requer que este
 
 Substitua os nomes de recursos necessários neste exemplo. 
 
-Listar as definições de imagem numa galeria utilizando [a lista de definições de imagem az sig](/cli/azure/sig/image-definition#az-sig-image-definition-list) para ver o nome e o ID das definições.
+Listar as definições de imagem numa galeria utilizando [a lista de definições de imagem az sig](/cli/azure/sig/image-definition#az_sig_image_definition_list) para ver o nome e o ID das definições.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -36,7 +36,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Crie o conjunto de escala utilizando [`az vmss create`](/cli/azure/vmss#az-vmss-create) . 
+Crie o conjunto de escala utilizando [`az vmss create`](/cli/azure/vmss#az_vmss_create) . 
 
 Utilize o ID de definição de imagem `--image` para criar as instâncias definidas na escala a partir da versão mais recente da imagem que está disponível. Também pode criar as instâncias definidas em escala a partir de uma versão específica, fornecendo o ID da versão de imagem para `--image` . Esteja ciente de que usar uma versão de imagem específica significa que a automatização pode falhar se essa versão de imagem específica não estiver disponível porque foi eliminada ou removida da região. Recomendamos a utilização do ID de definição de imagem para criar o seu novo VM, a menos que seja necessária uma versão de imagem específica.
 

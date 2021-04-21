@@ -3,12 +3,12 @@ title: Início de sessão de resolução de problemas para o registo
 description: Sintomas, causas e resolução de problemas comuns ao iniciar sessão num registo de contentores Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5deb1717cf3886d8ea9c021d92afa358946b16dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47186cc8256836e5367ecee520787b67662eb42f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99052083"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780736"
 ---
 # <a name="troubleshoot-registry-login"></a>Login de registo de resolução de problemas
 
@@ -36,7 +36,7 @@ Pode incluir um ou mais dos seguintes:
 
 ## <a name="further-diagnosis"></a>Diagnóstico adicional 
 
-Faça o comando [de check-health az acr](/cli/azure/acr#az-acr-check-health) para obter mais informações sobre a saúde do ambiente de registo e acesso opcional a um registo-alvo. Por exemplo, diagnosticar erros de configuração do Docker ou problemas de login do Azure Ative Directory. 
+Faça o comando [de check-health az acr](/cli/azure/acr#az_acr_check_health) para obter mais informações sobre a saúde do ambiente de registo e acesso opcional a um registo-alvo. Por exemplo, diagnosticar erros de configuração do Docker ou problemas de login do Azure Ative Directory. 
 
 Consulte [a saúde de um registo de contentores Azure](container-registry-check-health.md) para obter exemplos de comando. Se forem reportados erros, reveja a [referência de erro](container-registry-health-error-reference.md) e as seguintes secções para obter soluções recomendadas.
 
@@ -64,7 +64,7 @@ Ao utilizar `docker login` , forneça o nome completo do servidor de login do re
 docker login myregistry.azurecr.io
 ```
 
-Ao utilizar [o login az acr](/cli/azure/acr#az-acr-login) com uma identidade do Azure Ative Directory, inicie [primeiro o login no CLI Azure](/cli/azure/authenticate-azure-cli)e, em seguida, especifique o nome do recurso Azure do registo. O nome do recurso é o nome fornecido quando o registo foi criado, como *a miogitária* (sem sufixo de domínio). Exemplo:
+Ao utilizar [o login az acr](/cli/azure/acr#az_acr_login) com uma identidade do Azure Ative Directory, inicie [primeiro o login no CLI Azure](/cli/azure/authenticate-azure-cli)e, em seguida, especifique o nome do recurso Azure do registo. O nome do recurso é o nome fornecido quando o registo foi criado, como *a miogitária* (sem sufixo de domínio). Exemplo:
 
 ```azurecli
 az acr login --name myregistry
@@ -72,7 +72,7 @@ az acr login --name myregistry
 
 Links relacionados:
 
-* [az acr login sucede mas docker falha com erro: não autorizado: autenticação necessária](container-registry-faq.md#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required )
+* [az acr login sucede mas docker falha com erro: não autorizado: autenticação necessária](container-registry-faq.md#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
 
 ### <a name="confirm-credentials-to-access-registry"></a>Confirmar credenciais de acesso ao registo
 
@@ -94,7 +94,7 @@ Links relacionados:
 * [Iniciar sessão com token de âmbito repositório](container-registry-repository-scoped-permissions.md)
 * [Faça login com conta de administração](container-registry-authentication.md#admin-account)
 * [Códigos de autenticação e erro de autorização Azure AD](../active-directory/develop/reference-aadsts-error-codes.md)
-* referência [de login az acr](/cli/azure/acr#az-acr-login)
+* referência [de login az acr](/cli/azure/acr#az_acr_login)
 
 ### <a name="confirm-credentials-are-authorized-to-access-registry"></a>Confirme credenciais são autorizadas a aceder ao registo
 
@@ -125,7 +125,7 @@ As credenciais de Tokens e Ative Directory podem expirar após períodos definid
 
 Links relacionados:
 
-* [Credenciais principais do serviço de reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset)
+* [Credenciais principais do serviço de reset](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset)
 * [Regenerar senhas simbólicas](container-registry-repository-scoped-permissions.md#regenerate-token-passwords)
 * [Login individual com Azure AD](container-registry-authentication.md#individual-login-with-azure-ad)
 

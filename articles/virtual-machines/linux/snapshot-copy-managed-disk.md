@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d041f864c6c8cd3ae9c522d79447d71c86f9ac04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab19bb1c6cc43334a3d0d427b6aff6ced2d6cc69
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98875609"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789668"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>Crie um instantâneo utilizando o portal ou O Azure CLI
 
@@ -26,7 +26,7 @@ O exemplo a seguir requer que utilize [a Cloud Shell](https://shell.azure.com/ba
 
 Os passos a seguir mostram como tirar uma fotografia utilizando o **instantâneo az criar** comando com o parâmetro **--fonte-disco.** O exemplo a seguir pressupõe que existe um VM chamado *myVM* no grupo de recursos *myResourceGroup.*
 
-Obtenha o ID do disco usando [o show az vm](/cli/azure/vm#az-vm-show).
+Obtenha o ID do disco usando [o show az vm](/cli/azure/vm#az_vm_show).
 
 ```azurecli-interactive
 osDiskId=$(az vm show \
@@ -36,7 +36,7 @@ osDiskId=$(az vm show \
    -o tsv)
 ```
 
-Tire uma foto chamada *osDisk-backup* usando [az snapshot create](/cli/azure/snapshot#az-snapshot-create).
+Tire uma foto chamada *osDisk-backup* usando [az snapshot create](/cli/azure/snapshot#az_snapshot_create).
 
 ```azurecli-interactive
 az snapshot create \
@@ -48,7 +48,7 @@ az snapshot create \
 > [!NOTE]
 > Se você gostaria de armazenar o seu instantâneo em armazenamento resiliente de zona, você precisa criá-lo em uma região que suporta [zonas de disponibilidade](../../availability-zones/az-overview.md) e incluir o parâmetro **--sku Standard_ZRS.**
 
-Pode ver uma lista dos instantâneos utilizando [a lista de instantâneos az](/cli/azure/snapshot#az-snapshot-list).
+Pode ver uma lista dos instantâneos utilizando [a lista de instantâneos az](/cli/azure/snapshot#az_snapshot_list).
 
 ```azurecli-interactive
 az snapshot list \

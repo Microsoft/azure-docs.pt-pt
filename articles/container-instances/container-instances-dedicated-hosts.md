@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: 68b9b31cdfb55e8150b05e3efd35389320905cdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72ad05eea9232e7a0d6ac24d1d0d22a971a7f6a5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98034276"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790838"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Implementar em anfitriões dedicados
 
@@ -149,8 +149,8 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 Dentro de alguns segundos, deverá receber uma resposta inicial do Azure. Uma implantação bem sucedida ocorre num hospedeiro dedicado.
 
 <!-- LINKS - Internal -->
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

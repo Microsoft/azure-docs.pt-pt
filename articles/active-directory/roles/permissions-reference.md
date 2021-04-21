@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 04/20/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9266322d424d57ac847df85513db34d4a42e47e1
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: cf614922503212488c822ac020960b0ddb99fc28
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389830"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780070"
 ---
 # <a name="azure-ad-built-in-roles"></a>Funções incorporadas do Azure AD
 
@@ -30,7 +30,7 @@ Este artigo lista as funções incorporadas AD AZure que pode atribuir para perm
 ## <a name="all-roles"></a>Todos os papéis
 
 > [!div class="mx-tableFixed"]
-> | Função | Descrição | ID do Modelo |
+> | Função | Description | ID do Modelo |
 > | --- | --- | --- |
 > | [Administrador de Aplicações](#application-administrator) | Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações empresariais. | 9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3 |
 > | [Programador de Aplicações](#application-developer) | Pode criar registos de aplicações independentemente da definição de "Os Utilizadores podem registar as aplicações". | cf1c38e5-3621-4004-a7cb-879624dced7c |
@@ -519,7 +519,7 @@ Gere os [pedidos de Lockbox do Cliente](/office365/admin/manage/customer-lockbox
 
 ## <a name="desktop-analytics-administrator"></a>Administrador de Análise de Desktop
 
-Os utilizadores desta função podem gerir os serviços de Política de & de Personalização do Desktop Analytics e Office. Para desktop Analytics, isto inclui a capacidade de visualizar o inventário de ativos, criar planos de implementação, ver implementação e estado de saúde. Para o serviço de personalização do Office & Policy, esta função permite aos utilizadores gerir as políticas do Office.
+Os utilizadores desta função podem gerir o serviço Desktop Analytics. Isto inclui a capacidade de visualizar o inventário de ativos, criar planos de implementação e ver a implementação e o estado de saúde.
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -527,9 +527,6 @@ Os utilizadores desta função podem gerir os serviços de Política de & de Per
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir bilhetes de apoio Azure |
 > | microsoft.office365.desktopAnalytics/allEntities/allTasks | Gerir todos os aspetos do Desktop Analytics |
-> | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o serviço de saúde no centro de administração Microsoft 365 |
-> | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir pedidos de serviço microsoft 365 |
-> | microsoft.office365.webPortal/allEntities/standard/read | Leia propriedades básicas em todos os recursos no centro de administração Microsoft 365 |
 
 ## <a name="directory-readers"></a>Leitores de Diretório
 
@@ -1861,7 +1858,7 @@ Por exemplo:
 
 `microsoft.directory/applications/credentials/update`
 
-| Elemento de permissão | Descrição |
+| Elemento de permissão | Description |
 | --- | --- |
 | espaço de nomes | Produto ou serviço que expõe a tarefa e está preparado com `microsoft` . Por exemplo, todas as tarefas em Azure AD usam o `microsoft.directory` espaço de nome. |
 | entidade | Característica lógica ou componente exposto pelo serviço no Microsoft Graph. Por exemplo, a Azure AD expõe o Utilizador e os Grupos, o OneNote expõe notas e a Exchange expõe caixas de correio e calendários. Existe uma `allEntities` palavra-chave especial para especificar todas as entidades num espaço de nome. Isto é frequentemente usado em papéis que concedem acesso a um produto inteiro. |

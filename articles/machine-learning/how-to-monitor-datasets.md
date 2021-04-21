@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml, contperf-fy21q2
-ms.openlocfilehash: e7da81e896c0d59af966cca2760b1adb163762aa
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 95fb2dfeea98b988eaeaea43efc4ea44fd6e33fd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067508"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770314"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detetar deriva de dados (pré-visualização) em conjuntos de dados
 
@@ -28,7 +28,7 @@ Com monitores de conjunto de dados Azure Machine Learning (pré-visualização),
 * **Monitorize novos dados** para as diferenças entre qualquer conjunto de dados de base e de destino.
 * **Perfil apresenta-se em dados** para acompanhar como as propriedades estatísticas mudam ao longo do tempo.
 * **Adavie os alertas sobre a deriva de dados** para avisos precoces para potenciais problemas. 
-* **[Criar uma nova versão do conjunto de dados](conjuntos de dados de rastreio de como versão** quando determinar que os dados se desviaram demasiado.
+* **[Crie uma nova versão do conjunto de dados](how-to-version-track-datasets.md)** quando determinar que os dados se desviaram demasiado.
 
 Um [conjunto de dados de aprendizagem Azure Machine](how-to-create-register-datasets.md) é utilizado para criar o monitor. O conjunto de dados deve incluir uma coluna de horatamp.
 

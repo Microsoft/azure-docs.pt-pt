@@ -345,7 +345,7 @@
 - name: Recursos
   items:
     - name: FAQ
-      href: service-bus-faq.md
+      href: service-bus-faq.yml
     - name: Desenvolva as suas competências com o Microsoft Learn
       href: /learn/browse/?products=azure-service-bus
     - name: Mapa do Azure

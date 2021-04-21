@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4ba48377d868404ff130ec458e50e2b42fae977
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92547712"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790522"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de consulta do encaminhamento de mensagens do Hub IoT
 
@@ -168,6 +168,13 @@ length($body.Weather.Location.State) = 2
 ```sql
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
+
+> [!NOTE] 
+> Pode executar consultas e funções apenas em propriedades na referência do corpo. Não pode executar consultas ou funções em toda a referência do corpo. Por exemplo, a seguinte consulta *não* é suportada e `undefined` regressará:
+> 
+> ```sql
+> $body[0] = 'Feb'
+> ```
 
 ## <a name="message-routing-query-based-on-device-twin"></a>Consulta de encaminhamento de mensagens com base no twin do dispositivo 
 

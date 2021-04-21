@@ -12,14 +12,15 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31d82906625bc55cbdba21f2e356ee3f29f9d436
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: fc51c645c470f2b5b0a009eaf831db2f1957617e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567388"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780143"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Quickstart: Criar um novo inquilino no Azure Ative Directory
+
 Pode fazer todas as suas tarefas administrativas com o portal do Microsoft Azure Active Directory (Microsoft Azure AD), incluindo a criação de um novo inquilino para a sua organização. 
 
 Neste início rápido, ficará a saber como aceder ao portal do Azure e do Microsoft Azure Active Directory e aprenderá como criar um inquilino básico para a sua organização.
@@ -27,6 +28,7 @@ Neste início rápido, ficará a saber como aceder ao portal do Azure e do Micro
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-a-new-tenant-for-your-organization"></a>Criar um novo inquilino para a sua organização
+
 Depois de iniciar sessão no portal do Azure, pode criar um novo inquilino para a sua organização. O novo inquilino representa a sua organização e ajuda-o a gerir uma instância específica dos serviços cloud da Microsoft para os seus utilizadores internos e externos.
 
 ### <a name="to-create-a-new-tenant"></a>Para criar um novo inquilino
@@ -61,11 +63,15 @@ O novo inquilino é criado com o domínio contoso.onmicrosoft.com.
 
 ## <a name="your-user-account-in-the-new-tenant"></a>A sua conta de utilizador no novo inquilino
 
-Quando se cria um novo inquilino da AAD, torna-se o primeiro utilizador desse inquilino. Como primeiro utilizador, é-lhe atribuído automaticamente o papel [de Administrador Global.](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#global-administrator) Consulte a sua conta de utilizador navegando na página [**do Utilizador.**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers)
+Quando cria um novo inquilino da AD Azure, torna-se o primeiro utilizador desse inquilino. Como primeiro utilizador, é-lhe atribuído automaticamente o papel [de Administrador Global.](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#global-administrator) Consulte a sua conta de utilizador navegando na página [**do Utilizador.**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers)
 
 Por defeito, também está listado como [contacto técnico](https://docs.microsoft.com/microsoft-365/admin/manage/change-address-contact-and-more?view=o365-worldwide#what-do-these-fields-mean) para o inquilino. As informações técnicas de contacto são algo que pode alterar em [**Propriedades.**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
 
+> [!WARNING]
+> Certifique-se de que o seu diretório tem pelo menos duas contas com privilégios de administrador global atribuídos a eles. Isto ajudará no caso de um administrador global estar bloqueado. Para mais detalhes consulte o artigo, [Gerencie as contas de acesso de emergência em Azure AD](../roles/security-emergency-access.md).
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
+
 Se não continuar a utilizar esta aplicação, pode eliminar o arrendatário utilizando os seguintes passos:
 
 - Certifique-se de que está inscrito no diretório que pretende eliminar através do filtro **de subscrição Do Diretório +** no portal Azure. Mude para o diretório alvo, se necessário.
@@ -76,6 +82,7 @@ Se não continuar a utilizar esta aplicação, pode eliminar o arrendatário uti
     <kbd>![Página geral, com botão de diretório de delete realçado](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)</kbd>
 
 ## <a name="next-steps"></a>Passos seguintes
+
 - Para alterar ou adicionar nomes de domínio, veja [Como adicionar um nome de domínio personalizado ao Microsoft Azure Active Directory](add-custom-domain.md)
 
 - Para adicionar utilizadores, veja [Adicionar ou eliminar um novo utilizador](add-users-azure-active-directory.md)

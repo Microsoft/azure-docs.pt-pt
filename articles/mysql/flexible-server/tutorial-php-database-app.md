@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 93e605cb20d593750100ec8e340a7ad74c4dd385
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb38b72af6e7c649c0904c41d3052b15a4c36955
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97587898"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770062"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>Tutorial: Construa uma app PHP (Laravel) e MySQL Flexible Server (Preview) no Azure App Service
 
@@ -139,7 +139,7 @@ Navegue para `http://localhost:8000` num browser. Adicione algumas tarefas à p�
 Para parar o PHP, escreva `Ctrl + C` no terminal.
 
 ## <a name="create-a-mysql-flexible-server-preview"></a>Criar um Servidor Flexível MySQL (Pré-visualização)
-Neste passo, cria uma base de dados MySQL na [Base de Dados Azure para o MySQL Flexible Server](../index.yml) que está em pré-visualização pública. Posteriormente, vai configurar a aplicação PHP para se ligar a esta base de dados. No [Azure Cloud Shell,](../../cloud-shell/overview.md)crie um servidor com o [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) comando.
+Neste passo, cria uma base de dados MySQL na [Base de Dados Azure para o MySQL Flexible Server](../index.yml) que está em pré-visualização pública. Posteriormente, vai configurar a aplicação PHP para se ligar a esta base de dados. No [Azure Cloud Shell,](../../cloud-shell/overview.md)crie um servidor com o [`az flexible-server create`](/cli/azure/mysql/server#az_mysql_flexible_server_create) comando.
 
 ```azurecli-interactive
 az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>
@@ -280,7 +280,7 @@ Neste passo, vai implementar a aplicação PHP ligada ao MySQL no Serviço de Ap
 
 A FTP e o Git local podem implementar para uma aplicação web Azure utilizando um utilizador de implementação. Uma vez configurar o utilizador de implementação, pode usá-lo para todas as suas implementações Azure. O nome de utilizador e palavra-passe de implementação ao nível da sua conta são diferentes das suas credenciais de subscrição Azure.
 
-Para configurar o utilizador de implementação, executar o comando [de configuração de implementação az webapp](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) em Azure Cloud Shell. Substitua _&lt; o nome de utilizador>_ e>de _&lt; palavra-passe_ pelo nome de utilizador e palavra-passe do utilizador da sua implementação.
+Para configurar o utilizador de implementação, executar o comando [de configuração de implementação az webapp](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) em Azure Cloud Shell. Substitua _&lt; o nome de utilizador>_ e>de _&lt; palavra-passe_ pelo nome de utilizador e palavra-passe do utilizador da sua implementação.
 
 O nome de utilizador deve ser único dentro do Azure, e para os pushes git locais, não deve conter o símbolo '@'.
 A palavra-passe deve ter pelo menos oito caracteres, com dois dos seguintes três elementos: letras, números e símbolos.
@@ -293,7 +293,7 @@ A saída JSON mostra a palavra-passe como nula. Se tiver um "Conflito". Detalhes
 
 ### <a name="create-an-app-service-plan"></a>Crie um plano do Serviço de Aplicações
 
-Na Cloud Shell, crie um plano de Serviço de Aplicações no grupo de recursos com o [plano de appservice az criar](/cli/azure/appservice/plan#az-appservice-plan-create) comando. O exemplo a seguir cria um plano de Serviço de Aplicações chamado myAppServicePlan no nível de preços gratuitos (-sku F1) e num recipiente Linux (--is-linux).
+Na Cloud Shell, crie um plano de Serviço de Aplicações no grupo de recursos com o [plano de appservice az criar](/cli/azure/appservice/plan#az_appservice_plan_create) comando. O exemplo a seguir cria um plano de Serviço de Aplicações chamado myAppServicePlan no nível de preços gratuitos (-sku F1) e num recipiente Linux (--is-linux).
 
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux
 
@@ -303,7 +303,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 Crie uma [aplicação web](../../app-service/overview.md#app-service-on-linux) no plano de Serviço de Aplicações myAppServicePlan.
 
-Na Cloud Shell, pode utilizar o comando [de criação de webapp az.](/cli/azure/webapp#az-webapp-create) No exemplo seguinte, substitua o _&lt; nome da aplicação>_ por um nome de aplicação globalmente único (caracteres válidos são , e `a-z` `0-9` `-` ). O runtime está definido como `PHP|7.0`. Para ver todos os tempos de execução suportados, executar [az webapp list-runtimes -- linux](/cli/azure/webapp#az-webapp-list-runtimes).
+Na Cloud Shell, pode utilizar o comando [de criação de webapp az.](/cli/azure/webapp#az_webapp_create) No exemplo seguinte, substitua o _&lt; nome da aplicação>_ por um nome de aplicação globalmente único (caracteres válidos são , e `a-z` `0-9` `-` ). O runtime está definido como `PHP|7.0`. Para ver todos os tempos de execução suportados, executar [az webapp list-runtimes -- linux](/cli/azure/webapp#az_webapp_list_runtimes).
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
@@ -334,7 +334,7 @@ Criou uma nova aplicação Web vazia, com a implementação de git ativada.
 
 ### <a name="configure-database-settings"></a>Configurar as definições da base de dados
 
-No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set).
+No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set).
 
 O comando seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua o _&lt; nome de aplicativos dos_ espaços reservados>e _&lt; o nome do meu servidor mysql-server>_.
 
@@ -365,7 +365,7 @@ Na janela de terminal local, utilize `php artisan` para gerar uma chave de aplic
 php artisan key:generate --show
 ```
 
-Na Cloud Shell, desaprove a chave de aplicação na aplicação Do Serviço de Aplicações utilizando o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) comando. Substitua o nome de>de _&lt; aplicação_ dos espaços reservados e _&lt; a saídaofphpartisankey:gere>_.
+Na Cloud Shell, desaprove a chave de aplicação na aplicação Do Serviço de Aplicações utilizando o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) comando. Substitua o nome de>de _&lt; aplicação_ dos espaços reservados e _&lt; a saídaofphpartisankey:gere>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"

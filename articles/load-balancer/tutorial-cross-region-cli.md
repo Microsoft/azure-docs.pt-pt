@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 03/04/2021
-ms.openlocfilehash: 83efb428a94d49b77ecd923d4868afe034374b5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca4134ff25dc9915f256b5a7bdd9404021b60a8e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225188"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791918"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-cli"></a>Tutorial: Criar um balanceador de carga azure cross-region usando Azure CLI
 
@@ -54,7 +54,7 @@ Nesta secção, você vai criar um equilibrador de carga transversal, endereço 
 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-Criar um grupo de recursos com [a criação de grupo az:](/cli/azure/group#az-group-create)
+Criar um grupo de recursos com [a criação de grupo az:](/cli/azure/group#az_group_create)
 
 * Denominado **myResourceGroupLB-CR**.
 * Na **localização oeste.**
@@ -157,7 +157,7 @@ Utilize [o endereço de piscina de endereços cross-region-lb](/cli/azure/networ
 
 Nesta secção, você vai testar o equilibrador de carga cross-region. Você vai ligar ao endereço IP público em um navegador web.  Você vai parar as máquinas virtuais em uma das piscinas regionais de backend balancer de carga e observar o failover.
 
-1. Para obter o endereço IP público do esquilibrador de carga, utilize [o programa público-ip da rede Az:](/cli/azure/network/public-ip#az-network-public-ip-show)
+1. Para obter o endereço IP público do esquilibrador de carga, utilize [o programa público-ip da rede Az:](/cli/azure/network/public-ip#az_network_public_ip_show)
 
     ```azurecli-interactive
       az network public-ip show \
@@ -174,7 +174,7 @@ Nesta secção, você vai testar o equilibrador de carga cross-region. Você vai
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não for necessário, utilize o comando de eliminação do [grupo AZ](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o equilibrador de carga e todos os recursos relacionados.
+Quando já não for necessário, utilize o comando de eliminação do [grupo AZ](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o equilibrador de carga e todos os recursos relacionados.
 
 ```azurecli-interactive
   az group delete \

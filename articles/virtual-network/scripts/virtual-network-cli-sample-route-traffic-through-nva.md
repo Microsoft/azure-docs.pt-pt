@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 964fda8168867c115502c7262dc1d41e55075866
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7dca5e36144fe17b39f76bb61543f59a1c6d7772
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91317655"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790192"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance---azure-cli-script-sample"></a>Tráfego de rotas através de um aparelho virtual de rede - amostra de script Azure CLI
 
@@ -58,8 +58,8 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 | [az network nsg create](/cli/azure/network/nsg) | Cria um grupo de segurança de rede (NSG). |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | Cria regras de NSG que permitem as portas HTTP e HTTPS de entrada para a VM. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet)| Associa os NSGs e as tabelas de rotas às sub-redes. |
-| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Cria uma tabela de rotas para todas as rotas. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Cria rotas para encaminhar o tráfego entre as sub-redes e a Internet através da VM. |
+| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| Cria uma tabela de rotas para todas as rotas. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Cria rotas para encaminhar o tráfego entre as sub-redes e a Internet através da VM. |
 | [az vm create](/cli/azure/vm) | Cria uma máquina virtual e anexa o NIC à mesma. Este comando também especifica a imagem da máquina virtual a utilizar e as credenciais administrativas. |
 | [az group delete](/cli/azure/group) | Elimina um grupo de recursos e todos os recursos contidos no mesmo. |
 
