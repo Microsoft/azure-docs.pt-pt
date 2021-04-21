@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6ddafb0e76799e3d8011232534c505f97c79b22e
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 71249534c6a088088213659b5a45e042229721c7
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751135"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813187"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Encriptação das áreas de trabalho do Azure Synapse Analytics
 
@@ -53,7 +53,7 @@ Os espaços de trabalho podem ser configurados para permitir a dupla encriptaç�
 
 ### <a name="key-access-and-workspace-activation"></a>Acesso chave e ativação do espaço de trabalho
 
-O modelo de encriptação Azure Synapse com chaves geridas pelo cliente envolve o espaço de trabalho que acede às chaves no Cofre da Chave Azure para encriptar e desencriptar conforme necessário. As chaves são tornadas acessíveis ao espaço de trabalho através de uma política de acesso ou [do acesso RBAC do Azure Key Vault](../../key-vault/general/rbac-guide.md). Ao conceder permissões através de uma política de acesso a Azure Key Vault, escolha a opção ["Apenas para aplicação"](../../key-vault/general/security-overview.md#key-vault-authentication-options) durante a criação de políticas (selecione a identidade gerida do espaço de trabalho e não a adicione como uma aplicação autorizada).
+O modelo de encriptação Azure Synapse com chaves geridas pelo cliente envolve o espaço de trabalho que acede às chaves no Cofre da Chave Azure para encriptar e desencriptar conforme necessário. As chaves são tornadas acessíveis ao espaço de trabalho através de uma política de acesso ou [do acesso RBAC do Azure Key Vault](../../key-vault/general/rbac-guide.md). Ao conceder permissões através de uma política de acesso a Azure Key Vault, escolha a opção ["Apenas para aplicação"](../../key-vault/general/security-features.md#key-vault-authentication-options) durante a criação de políticas (selecione a identidade gerida do espaço de trabalho e não a adicione como uma aplicação autorizada).
 
  A identidade gerida pelo espaço de trabalho deve ser concedida as permissões que necessita no cofre da chave antes de o espaço de trabalho poder ser ativado. Esta abordagem faseada da ativação do espaço de trabalho garante que os dados no espaço de trabalho são encriptados com a chave gerida pelo cliente. Note que a encriptação pode ser ativada ou desativada para piscinas SQL dedicadas, cada pool não está ativado para encriptação por padrão.
 

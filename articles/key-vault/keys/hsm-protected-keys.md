@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: 171e0c03dc6f246d0f56d11f793ca711b0082f49
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: d2719f473caa8d7fa6ce1480a35ddc6cca8a33d6
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588297"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815635"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Key Vault
 
@@ -46,5 +46,5 @@ A transferência de chaves protegidas pelo HSM para o Key Vault é suportada atr
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Reveja a [visão geral](../general/security-overview.md) de segurança do Cofre chave para garantir segurança, durabilidade e monitorização das suas chaves.
+* Reveja a [visão geral](../general/security-features.md) de segurança do Cofre chave para garantir segurança, durabilidade e monitorização das suas chaves.
 * Consulte a [especificação BYOK](./byok-specification.md) para uma descrição completa do novo método BYOK

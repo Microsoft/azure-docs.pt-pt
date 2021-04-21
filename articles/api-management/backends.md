@@ -9,12 +9,13 @@ ms.service: api-management
 ms.topic: article
 ms.date: 01/29/2021
 ms.author: apimpm
-ms.openlocfilehash: 54a46e999391507f5ec7d927f62b88fcd2169b75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a0ef3a2c1f2f1fc5cdf00737d1984f6cb13c40d0
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99500620"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813025"
 ---
 # <a name="backends-in-api-management"></a>Backends na Gestão da API
 

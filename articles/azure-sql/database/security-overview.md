@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
-ms.openlocfilehash: 39012e1f5a0282da7dda6bab216719e31fdc5061
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 084f9aae16cfbf495f05c90c8244b2b9b71cf624
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752179"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812989"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Uma visão geral da Base de Dados Azure SQL e capacidades de segurança de instância gerida sql
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -114,11 +114,11 @@ Por exemplo, ao utilizar o ADO.NET controlador, isto é realizado através do  *
 
 [A encriptação de dados transparente (TDE) para a Base de Dados SQL, SQL Managed Instance e Azure Synapse Analytics](transparent-data-encryption-tde-overview.md) adiciona uma camada de segurança para ajudar a proteger os dados em repouso do acesso não autorizado ou offline a ficheiros ou cópias de segurança brutos. Os cenários comuns incluem roubo de centros de dados ou eliminação não garantida de hardware ou meios, tais como discos e fitas de backup.O TDE encripta toda a base de dados usando um algoritmo de encriptação AES, que não requer que os desenvolvedores de aplicações façam quaisquer alterações às aplicações existentes.
 
-No Azure, todas as bases de dados recentemente criadas são encriptadas por padrão e a chave de encriptação da base de dados está protegida por um certificado de servidor incorporado.  A manutenção e rotação do certificado são geridas pelo serviço e não requerem qualquer entrada do utilizador. Os clientes que preferirem assumir o controlo das chaves de encriptação podem gerir as chaves no [Cofre da Chave Azure](../../key-vault/general/security-overview.md).
+No Azure, todas as bases de dados recentemente criadas são encriptadas por padrão e a chave de encriptação da base de dados está protegida por um certificado de servidor incorporado.  A manutenção e rotação do certificado são geridas pelo serviço e não requerem qualquer entrada do utilizador. Os clientes que preferirem assumir o controlo das chaves de encriptação podem gerir as chaves no [Cofre da Chave Azure](../../key-vault/general/security-features.md).
 
 ### <a name="key-management-with-azure-key-vault"></a>Gestão chave com cofre de chaves Azure
 
-[O](transparent-data-encryption-byok-overview.md) suporte da Sua Própria Chave (BYOK) para [encriptação de dados transparentes](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) permite que os clientes tomem posse de gestão e rotação de chaves usando [o Azure Key Vault](../../key-vault/general/security-overview.md), o sistema de gestão de chaves externo baseado na nuvem da Azure. Se o acesso da base de dados ao cofre de chaves for revogado, uma base de dados não pode ser desencriptado e lido na memória. O Azure Key Vault fornece uma plataforma central de gestão de chaves, aproveita módulos de segurança de hardware bem monitorizados (HSMs) e permite a separação de deveres entre a gestão de chaves e dados para ajudar a satisfazer os requisitos de conformidade de segurança.
+[O](transparent-data-encryption-byok-overview.md) suporte da Sua Própria Chave (BYOK) para [encriptação de dados transparentes](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) permite que os clientes tomem posse de gestão e rotação de chaves usando [o Azure Key Vault](../../key-vault/general/security-features.md), o sistema de gestão de chaves externo baseado na nuvem da Azure. Se o acesso da base de dados ao cofre de chaves for revogado, uma base de dados não pode ser desencriptado e lido na memória. O Azure Key Vault fornece uma plataforma central de gestão de chaves, aproveita módulos de segurança de hardware bem monitorizados (HSMs) e permite a separação de deveres entre a gestão de chaves e dados para ajudar a satisfazer os requisitos de conformidade de segurança.
 
 ### <a name="always-encrypted-encryption-in-use"></a>Sempre encriptado (encriptação em uso)
 

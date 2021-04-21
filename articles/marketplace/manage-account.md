@@ -7,12 +7,12 @@ ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 04/07/2021
-ms.openlocfilehash: c76d9d06425405cf7f43e089cb9c2995e30410ee
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 6b721e7acb7907743c0696aff6c11ad59f5ceba9
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108473"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812575"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerir a sua conta de mercado comercial no Partner Center
 
@@ -179,7 +179,7 @@ As definições de gestão do dispositivo aplicam-se apenas à publicação univ
 
 ## <a name="create-a-billing-profile"></a>Criar um perfil de faturação
 
-Se estiver a publicar uma [Oferta Dinâmica 365 para o Envolvimento do Cliente & Power Apps](./partner-center-portal/create-new-customer-engagement-offer.md) ou a Oferta Dinâmica [365 para Operações,](./partner-center-portal/create-new-operations-offer.md) tem de completar o seu *perfil de faturação*.
+Se estiver a publicar uma [Oferta Dinâmica 365 para o Envolvimento do Cliente & Power Apps](dynamics-365-customer-engage-offer-setup.md) ou a Oferta Dinâmica [365 para Operações,](./partner-center-portal/create-new-operations-offer.md) tem de completar o seu *perfil de faturação*.
 
 O endereço de faturação é pré-preenchido da sua entidade legal, e pode atualizar este endereço mais tarde. Os campos de identificação do IRS e do IVA são necessários para alguns países e opcionais para outros. O nome e o nome da empresa do país/região não podem ser editados.
 

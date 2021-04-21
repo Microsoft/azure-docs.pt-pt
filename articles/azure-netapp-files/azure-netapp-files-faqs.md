@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 04/20/2021
 ms.author: b-juche
-ms.openlocfilehash: a8c06b25b923d663e982e940100be7b9a2a009e1
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 6cef4860184b217e96e8967ab24a3befc632e316
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726849"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811855"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -213,6 +213,11 @@ A gestão de `SMB Shares` , e através da Consola de `Sessions` `Open Files` Ges
 ### <a name="how-can-i-obtain-the-ip-address-of-an-smb-volume-via-the-portal"></a>Como posso obter o endereço IP de um volume SMB através do portal?
 
 Utilize o link **JSON View** no painel de visão geral do volume e procure o identificador **startIp** em **propriedades**  ->  **mountTargets**.
+
+### <a name="can-an-azure-netapp-files-smb-share-act-as-an-dfs-namespace-dfs-n-root"></a>Pode um Azure NetApp Files SMB agir como uma raiz dfs namespace (DFS-N)
+
+N.º No entanto, as ações SMB de Ficheiros Azure NetApp podem servir como alvo de pasta DFS Namespace (DFS-N).   
+Para utilizar uma partilha SMB de Ficheiros Azure NetApp como alvo de pasta DFS-N, forneça o caminho de montagem da Azure NetApp Files SMB utilizando o procedimento [DFS Add Folder Target.](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target)  
 
 ### <a name="smb-encryption-faqs"></a>Perguntas frequentes de encriptação SMB
 
