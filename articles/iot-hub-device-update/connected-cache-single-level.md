@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ae07926d7d8c768170e945e916367bee41999571
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c116bbf5ea9f5fc6e58962e02c93c630fc747d9e
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101665030"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811729"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-samples"></a>Amostras de cenário de visualização da Cache conectadas com o Microsoft Connected Cache
 
@@ -22,23 +22,23 @@ O diagrama abaixo descreve o cenário em que um gateway Azure IoT Edge que tem a
 
   :::image type="content" source="media/connected-cache-overview/disconnected-device-update.png" alt-text="Atualização de dispositivo desligado da cache conectada da Microsoft" lightbox="media/connected-cache-overview/disconnected-device-update.png":::
 
-1. Adicione o módulo cache ligado à sua implementação do dispositivo de gateway Azure IoT Edge no Azure IoT Hub (consulte `MCC concepts` para obter detalhes sobre como obter o módulo).
+1. Adicione o módulo cache ligado à sua implementação do dispositivo de gateway Azure IoT Edge no Azure IoT Hub (consulte [Suporte para Dispositivos Desligados](connected-cache-disconnected-device-update.md) para obter detalhes sobre como obter o módulo).
 2. Adicione as variáveis ambientais para a implantação. Abaixo está um exemplo das variáveis ambientais.
 
     **Variáveis ambientais**
     
-    | Name                 | Valor                                       |
-    | ----------------------------- | --------------------------------------------| 
-    | CACHE_NODE_ID                 | Consulte a descrição variável do ambiente acima. |
-    | CUSTOMER_ID                   | Consulte a descrição variável do ambiente acima. |
-    | CUSTOMER_KEY                  | Consulte a descrição variável do ambiente acima. |
-    | STORAGE_ *N* _SIZE_GB           | N = 5                                       |
+    | Name                          | Valor                                                                 |
+    | ----------------------------- | ----------------------------------------------------------------------| 
+    | CACHE_NODE_ID                 | Ver descrições [variáveis do ambiente](connected-cache-configure.md) |
+    | CUSTOMER_ID                   | Ver descrições [variáveis do ambiente](connected-cache-configure.md) |
+    | CUSTOMER_KEY                  | Ver descrições [variáveis do ambiente](connected-cache-configure.md) |
+    | STORAGE_1_SIZE_GB             | 10                                                                    |
 
 3. Adicione o recipiente criar opções para a implantação. Abaixo está um exemplo do recipiente criar opções.
 
 ### <a name="container-create-options"></a>Opções de criação de contentores
 
-```markdown
+```json
 {
     "HostConfig": {
         "Binds": [
@@ -57,12 +57,13 @@ O diagrama abaixo descreve o cenário em que um gateway Azure IoT Edge que tem a
             ]
         }
     }
+}
 ```
 
-Para uma validação do funcionamento correto da Cache Microsoft, execute o seguinte comando no terminal do dispositivo IoT Edge que hospeda o módulo ou qualquer dispositivo na rede.
+Para uma validação do funcionamento correto da Cache Microsoft, execute o seguinte comando no terminal do dispositivo IoT Edge que hospeda o módulo ou qualquer dispositivo na rede. \<Azure IoT Edge Gateway IP\>Substitua-o pelo endereço IP ou nome de anfitrião do seu gateway IoT Edge. (ver detalhes variáveis ambientais para informações sobre a visibilidade deste relatório).
 
 ```bash
-    wget "http://<IOT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
+    wget http://<IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
 ```
 
 ## <a name="single-level-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Gateway de borda Azure IoT de nível único com procuração não autenticada de saída
@@ -76,16 +77,16 @@ Neste cenário existe um Azure IoT Edge Gateway que tem acesso aos recursos da C
 
     **Variáveis ambientais**
 
-    | Name                 | Valor                                       |
-    | ----------------------------- | --------------------------------------------| 
-    | CACHE_NODE_ID                 | Consulte a descrição variável do ambiente acima. |
-    | CUSTOMER_ID                   | Consulte a descrição variável do ambiente acima. |
-    | CUSTOMER_KEY                  | Consulte a descrição variável do ambiente acima. |
-    | STORAGE_ *N* _SIZE_GB           | N = 5                                       |
-    | CACHEABLE_CUSTOM_1_HOST       | Packagerepo.com:80                          |
-    | CACHEABLE_CUSTOM_1_CANONICAL  | Packagerepo.com                             |
-    | IS_SUMMARY_ACCESS_UNRESTRICTED| true                                        |
-    | UPSTREAM_PROXY                | Proxy servidor IP ou FQDN                     |
+    | Name                          | Valor                                                                 |
+    | ----------------------------- | ----------------------------------------------------------------------| 
+    | CACHE_NODE_ID                 | Ver descrições [variáveis do ambiente](connected-cache-configure.md) |
+    | CUSTOMER_ID                   | Ver descrições [variáveis do ambiente](connected-cache-configure.md) |
+    | CUSTOMER_KEY                  | Ver descrições [variáveis do ambiente](connected-cache-configure.md) |
+    | STORAGE_1_SIZE_GB             | 10                                                                    |
+    | CACHEABLE_CUSTOM_1_HOST       | Packagerepo.com:80                                                    |
+    | CACHEABLE_CUSTOM_1_CANONICAL  | Packagerepo.com                                                       |
+    | IS_SUMMARY_ACCESS_UNRESTRICTED| true                                                                  |
+    | UPSTREAM_PROXY                | O seu servidor proxy IP ou FQDN                                          |
 
 3. Adicione o recipiente criar opções para a implantação. Não há diferença no que se passa no contentor MCC, a partir do exemplo anterior. Abaixo está um exemplo do recipiente criar opções.
 
@@ -110,10 +111,11 @@ Neste cenário existe um Azure IoT Edge Gateway que tem acesso aos recursos da C
             ]
         }
     }
+}
 ```
 
-Para uma validação do funcionamento correto da Cache Microsoft, execute o seguinte comando no terminal do dispositivo Azure IoT Edge que hospeda o módulo ou qualquer dispositivo na rede.
+Para uma validação do funcionamento correto da Cache Microsoft, execute o seguinte comando no terminal do dispositivo Azure IoT Edge que hospeda o módulo ou qualquer dispositivo na rede. \<Azure IoT Edge Gateway IP\>Substitua-o pelo endereço IP ou nome de anfitrião do seu gateway IoT Edge. (ver detalhes variáveis ambientais para informações sobre a visibilidade deste relatório).
 
 ```bash
-    wget "http://<Azure IOT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
+    wget http://<Azure IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com 
 ```
