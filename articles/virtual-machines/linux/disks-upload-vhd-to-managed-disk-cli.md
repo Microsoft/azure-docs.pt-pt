@@ -8,12 +8,12 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 473e87904742395eca6b7eeba0875cd93789104d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 285f0acd5097ce68cddee6f732b17944dffb0eba
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91978990"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762574"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Faça o upload de um VHD para Azure ou copie um disco gerido para outra região - Azure CLI
 
@@ -44,7 +44,7 @@ Este tipo de disco gerido tem dois estados únicos:
 
 Antes de criar um HDD padrão vazio para o upload, vai precisar do tamanho do ficheiro do VHD que pretende carregar, em bytes. Para conseguir isso, pode usar um `wc -c <yourFileName>.vhd` `ls -al <yourFileName>.vhd` ou. Este valor é utilizado ao especificar o parâmetro **--upload-size-bytes.**
 
-Crie um HDD padrão vazio para o upload especificando tanto o parâmetro **-- para carregar** e o parâmetro **--upload-size-bytes** em um [disco criar](/cli/azure/disk#az-disk-create) cmdlet:
+Crie um HDD padrão vazio para o upload especificando tanto o parâmetro **-- para carregar** e o parâmetro **--upload-size-bytes** em um [disco criar](/cli/azure/disk#az_disk_create) cmdlet:
 
 `<yourdiskname>` `<yourresourcegroupname>` Substitua, por `<yourregion>` valores à sua escolha. O `--upload-size-bytes` parâmetro contém um valor de exemplo `34359738880` de, substitua-o por um valor apropriado para si.
 

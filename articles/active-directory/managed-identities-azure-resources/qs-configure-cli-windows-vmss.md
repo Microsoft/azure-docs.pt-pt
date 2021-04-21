@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f88eccc524ffac424f8f5048990f693aa67613d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e6e7e1724247c0e6d2b9db2fdf6980e8ef553c7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97590941"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788192"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Configure identidades geridas para recursos Azure em um conjunto de escala de máquina virtual usando Azure CLI
 
@@ -59,13 +59,13 @@ Nesta secção, aprende-se a ativar e desativar a identidade gerida atribuída p
 
 Para criar um conjunto de escala de máquina virtual com a identidade gerida atribuída pelo sistema:
 
-1. Crie um [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para a contenção e implantação do seu conjunto de escalas de máquinas virtuais e seus recursos relacionados, utilizando a [criação do grupo AZ](/cli/azure/group/#az-group-create). Pode saltar este passo se já tiver um grupo de recursos que gostaria de utilizar:
+1. Crie um [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para a contenção e implantação do seu conjunto de escalas de máquinas virtuais e seus recursos relacionados, utilizando a [criação do grupo AZ](/cli/azure/group/#az_group_create). Pode saltar este passo se já tiver um grupo de recursos que gostaria de utilizar:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-1. [Crie](/cli/azure/vmss/#az-vmss-create) um conjunto de escala de máquina virtual. O exemplo a seguir cria um conjunto de escala de máquina virtual chamado *myVMSS* com uma identidade gerida atribuída ao sistema, conforme solicitado pelo `--assign-identity` parâmetro. Os parâmetros `--admin-username` e `--admin-password` especificam o nome e a palavra-passe da conta de utilizador administrativo para início de sessão na máquina virtual. Atualize estes valores conforme adequado para o seu ambiente: 
+1. [Crie](/cli/azure/vmss/#az_vmss_create) um conjunto de escala de máquina virtual. O exemplo a seguir cria um conjunto de escala de máquina virtual chamado *myVMSS* com uma identidade gerida atribuída ao sistema, conforme solicitado pelo `--assign-identity` parâmetro. Os parâmetros `--admin-username` e `--admin-password` especificam o nome e a palavra-passe da conta de utilizador administrativo para início de sessão na máquina virtual. Atualize estes valores conforme adequado para o seu ambiente: 
 
    ```azurecli-interactive 
    az vmss create --resource-group myResourceGroup --name myVMSS --image win2016datacenter --upgrade-policy-mode automatic --custom-data cloud-init.txt --admin-username azureuser --admin-password myPassword12 --assign-identity --generate-ssh-keys
@@ -73,7 +73,7 @@ Para criar um conjunto de escala de máquina virtual com a identidade gerida atr
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Ativar a identidade gerida atribuída pelo sistema num conjunto de escala de máquina virtual Azure existente
 
-Se precisar de [ativar](/cli/azure/vmss/identity/#az-vmss-identity-assign) a identidade gerida atribuída pelo sistema num conjunto de escala de máquina virtual Azure existente:
+Se precisar de [ativar](/cli/azure/vmss/identity/#az_vmss_identity_assign) a identidade gerida atribuída pelo sistema num conjunto de escala de máquina virtual Azure existente:
 
 ```azurecli-interactive
 az vmss identity assign -g myResourceGroup -n myVMSS
@@ -104,13 +104,13 @@ Nesta secção, aprende-se a ativar e remover uma identidade gerida atribuída a
 
 Esta secção acompanha-o através da criação de um conjunto de escala de máquina virtual e atribuição de uma identidade gerida atribuída pelo utilizador ao conjunto de escala de máquina virtual. Se já tiver um conjunto de balança de máquina virtual que pretende utilizar, salte esta secção e proceda à seguinte.
 
-1. Pode saltar este passo se já tiver um grupo de recursos que gostaria de utilizar. Crie um [grupo de recursos](~/articles/azure-resource-manager/management/overview.md#terminology) para a contenção e implantação da sua identidade gerida atribuída pelo utilizador, utilizando a [criação do grupo AZ](/cli/azure/group/#az-group-create). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<LOCATION>` pelos seus próprios valores. :
+1. Pode saltar este passo se já tiver um grupo de recursos que gostaria de utilizar. Crie um [grupo de recursos](~/articles/azure-resource-manager/management/overview.md#terminology) para a contenção e implantação da sua identidade gerida atribuída pelo utilizador, utilizando a [criação do grupo AZ](/cli/azure/group/#az_group_create). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<LOCATION>` pelos seus próprios valores. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. Crie uma identidade gerida atribuída pelo utilizador com [az identity create](/cli/azure/identity#az-identity-create).  O parâmetro `-g` especifica o grupo de recursos onde a identidade gerida atribuída pelo utilizador é criada e o parâmetro `-n` especifica o respetivo nome. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
+2. Crie uma identidade gerida atribuída pelo utilizador com [az identity create](/cli/azure/identity#az_identity_create).  O parâmetro `-g` especifica o grupo de recursos onde a identidade gerida atribuída pelo utilizador é criada e o parâmetro `-n` especifica o respetivo nome. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
 
    [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -134,7 +134,7 @@ Esta secção acompanha-o através da criação de um conjunto de escala de máq
    }
    ```
 
-3. [Crie](/cli/azure/vmss/#az-vmss-create) um conjunto de escala de máquina virtual. O exemplo a seguir cria um conjunto de escala de máquina virtual associado à nova identidade gerida atribuída pelo utilizador, conforme especificado pelo `--assign-identity` parâmetro. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` e `<USER ASSIGNED IDENTITY>` pelos seus próprios valores. 
+3. [Crie](/cli/azure/vmss/#az_vmss_create) um conjunto de escala de máquina virtual. O exemplo a seguir cria um conjunto de escala de máquina virtual associado à nova identidade gerida atribuída pelo utilizador, conforme especificado pelo `--assign-identity` parâmetro. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` e `<USER ASSIGNED IDENTITY>` pelos seus próprios valores. 
 
    ```azurecli-interactive 
    az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY>
@@ -142,7 +142,7 @@ Esta secção acompanha-o através da criação de um conjunto de escala de máq
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-virtual-machine-scale-set"></a>Atribua uma identidade gerida atribuída ao utilizador a um conjunto de escala de máquina virtual existente
 
-1. Crie uma identidade gerida atribuída pelo utilizador com [az identity create](/cli/azure/identity#az-identity-create).  O parâmetro `-g` especifica o grupo de recursos onde a identidade gerida atribuída pelo utilizador é criada e o parâmetro `-n` especifica o respetivo nome. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
+1. Crie uma identidade gerida atribuída pelo utilizador com [az identity create](/cli/azure/identity#az_identity_create).  O parâmetro `-g` especifica o grupo de recursos onde a identidade gerida atribuída pelo utilizador é criada e o parâmetro `-n` especifica o respetivo nome. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
@@ -172,7 +172,7 @@ Esta secção acompanha-o através da criação de um conjunto de escala de máq
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Remova uma identidade gerida atribuída pelo utilizador de um conjunto de escala de máquina virtual Azure
 
-Para [remover](/cli/azure/vmss/identity#az-vmss-identity-remove) uma identidade gerida atribuída pelo utilizador de uma utilização de escala de máquina virtual `az vmss identity remove` . Se esta for a única identidade gerida atribuída ao utilizador atribuída ao conjunto de escala de máquina virtual, `UserAssigned` será removida do valor do tipo de identidade.  Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VIRTUAL MACHINE SCALE SET NAME>` pelos seus próprios valores. A `<USER ASSIGNED IDENTITY>` propriedade da identidade gerida atribuída ao `name` utilizador, que pode ser encontrada na secção de identidade do conjunto de escala de máquina virtual `az vmss identity show` utilizando:
+Para [remover](/cli/azure/vmss/identity#az_vmss_identity_remove) uma identidade gerida atribuída pelo utilizador de uma utilização de escala de máquina virtual `az vmss identity remove` . Se esta for a única identidade gerida atribuída ao utilizador atribuída ao conjunto de escala de máquina virtual, `UserAssigned` será removida do valor do tipo de identidade.  Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VIRTUAL MACHINE SCALE SET NAME>` pelos seus próprios valores. A `<USER ASSIGNED IDENTITY>` propriedade da identidade gerida atribuída ao `name` utilizador, que pode ser encontrada na secção de identidade do conjunto de escala de máquina virtual `az vmss identity show` utilizando:
 
 ```azurecli-interactive
 az vmss identity remove -g <RESOURCE GROUP> -n <VIRTUAL MACHINE SCALE SET NAME> --identities <USER ASSIGNED IDENTITY>

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 04/16/2021
-ms.openlocfilehash: 9887350842749809dd4c3708acc71a08f416e54f
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 286da1412e8a74ffbf34e4abb493241914d4f925
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565887"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764878"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -391,7 +391,7 @@ Quando a sua aplicação lógica precisa de comunicar através de uma firewall q
 
 Por exemplo, para apoiar chamadas que aplicações lógicas na região oeste dos EUA enviam ou recebem através de gatilhos e ações incorporadas, como o [trigger http ou ação](../connectors/connectors-native-http.md), a sua firewall precisa de permitir o acesso a *todos os* endereços IP de entrada de serviço de Aplicações Lógicas *e* endereços IP de saída que existem na região oeste dos EUA.
 
-Se a sua aplicação lógica também utilizar [conectores geridos](../connectors/apis-list.md#managed-api-connectors)– como o conector Office 365 Outlook ou o conector SQL, ou utilizar [conectores personalizados](/connectors/custom-connectors/)– a firewall também precisa de permitir o acesso de *todos os* [endereços IP de saída geridos](#outbound) do conector na região Azure da sua aplicação lógica. Além disso, se utilizar conectores personalizados que acedam aos recursos no local através do [recurso de gateway de dados no local em Azure,](logic-apps-gateway-connection.md)é necessário configurar a instalação gateway para permitir o acesso aos *[respetivos conectores](#outbound)geridos endereços IP de saída.*
+Se a sua aplicação lógica também utilizar [conectores geridos](../connectors/managed.md)– como o conector Office 365 Outlook ou o conector SQL, ou utilizar [conectores personalizados](/connectors/custom-connectors/)– a firewall também precisa de permitir o acesso de *todos os* [endereços IP de saída geridos](#outbound) do conector na região Azure da sua aplicação lógica. Além disso, se utilizar conectores personalizados que acedam aos recursos no local através do [recurso de gateway de dados no local em Azure,](logic-apps-gateway-connection.md)é necessário configurar a instalação gateway para permitir o acesso aos *[respetivos conectores](#outbound)geridos endereços IP de saída.*
 
 Para obter mais informações sobre a configuração das definições de comunicação no gateway, consulte estes tópicos:
 
@@ -406,7 +406,7 @@ Antes de configurar a sua firewall com endereços IP, reveja estas consideraçõ
 
 * Se estiver a utilizar [o Power Automamate](/power-automate/getting-started), algumas ações, como **HTTP** e HTTP **+ OpenAPI,** aceda diretamente ao serviço Azure Logic Apps e venha dos endereços IP listados aqui. Para obter mais informações sobre os endereços IP utilizados pela Power Automamate, consulte [Limites e configuração para Automatizar energia](/flow/limits-and-config#ip-address-configuration).
 
-* Para [o Azure China 21Vianet,](/azure/china/)os endereços IP fixos ou reservados não estão disponíveis para [conectores personalizados](../logic-apps/custom-connector-overview.md) e para [conectores geridos](../connectors/apis-list.md#managed-api-connectors), tais como Azure Storage, SQL Server, Office 365 Outlook, e assim por diante.
+* Para [o Azure China 21Vianet,](/azure/china/)os endereços IP fixos ou reservados não estão disponíveis para [conectores personalizados](../logic-apps/custom-connector-overview.md) e para [conectores geridos](../connectors/managed.md), tais como Azure Storage, SQL Server, Office 365 Outlook, e assim por diante.
 
 * Se as suas aplicações lógicas funcionarem num [ambiente de serviço de integração (ISE),](connect-virtual-network-vnet-isolated-environment-overview.md)certifique-se de que também abre estas [portas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 

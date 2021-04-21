@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 4a01429e938b09752fa93b440877a5a4928b9d27
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 2d385357f7d4b1d1edec1cf336628bf8b3f9dda3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750937"
+ms.locfileid: "107764644"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release-for-linux-vms"></a>Criar e configurar um cofre chave para encriptação de disco Azure com Azure AD (versão anterior) para Os VMs Linux
 
@@ -66,16 +66,16 @@ Pode criar um cofre com Azure PowerShell utilizando o cmdlet [New-AzKeyVault.](/
 
 
 ### <a name="create-a-key-vault-with-azure-cli"></a><a name="bkmk_KVCLI"></a> Crie um cofre com Azure CLI
-Pode gerir o seu cofre com o Azure CLI utilizando os comandos [az keyvault.](/cli/azure/keyvault#commands) Para criar um cofre chave, use [az keyvault create](/cli/azure/keyvault#az-keyvault-create).
+Pode gerir o seu cofre com o Azure CLI utilizando os comandos [az keyvault.](/cli/azure/keyvault#commands) Para criar um cofre chave, use [az keyvault create](/cli/azure/keyvault#az_keyvault_create).
 
-1. Criar um novo grupo de recursos, se necessário, com [a criação do grupo AZ](/cli/azure/group#az-group-create). Para listar locais, use [as localizações da lista de conta az](/cli/azure/account#az-account-list) 
+1. Criar um novo grupo de recursos, se necessário, com [a criação do grupo AZ](/cli/azure/group#az_group_create). Para listar locais, use [as localizações da lista de conta az](/cli/azure/account#az_account_list) 
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
      az group create -n "MyKeyVaultResourceGroup" -l "East US"
      ```
 
-3. Crie um novo cofre de chaves utilizando [a criação de keyvault az](/cli/azure/keyvault#az-keyvault-create).
+3. Crie um novo cofre de chaves utilizando [a criação de keyvault az](/cli/azure/keyvault#az_keyvault_create).
     
      ```azurecli-interactive
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
@@ -151,7 +151,7 @@ A sua aplicação AZure AD precisa de direitos para aceder às chaves ou segredo
      ```
 
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-cli"></a><a name="bkmk_KVAPCLI"></a> Desconfiem da política de acesso ao cofre da chave para a app Azure AD com o Azure CLI
-Utilize a política de definição de [keyvault az](/cli/azure/keyvault#az-keyvault-set-policy) para definir a política de acesso. Para obter mais informações, consulte [Manage Key Vault utilizando o CLI 2.0](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
+Utilize a política de definição de [keyvault az](/cli/azure/keyvault#az_keyvault_set_policy) para definir a política de acesso. Para obter mais informações, consulte [Manage Key Vault utilizando o CLI 2.0](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
 
 Dê ao diretor de serviço que criou através do Azure CLI acesso para obter segredos e embrulhar chaves com o seguinte comando:
 
@@ -197,7 +197,7 @@ A plataforma Azure precisa de acesso às chaves de encriptação ou segredos no 
      ```
 
 ### <a name="set-key-vault-advanced-access-policies-using-the-azure-cli"></a><a name="bkmk_KVperCLI"></a> Definir políticas de acesso avançado de cofre de chaves usando o CLI Azure
-Utilize [a atualização do keyvault az](/cli/azure/keyvault#az-keyvault-update) para ativar a encriptação do disco para o cofre da chave. 
+Utilize [a atualização do keyvault az](/cli/azure/keyvault#az_keyvault_update) para ativar a encriptação do disco para o cofre da chave. 
 
  - **Ativar o Cofre da Chave para encriptação do disco:** É necessária encriptação ativada para o disco. 
 

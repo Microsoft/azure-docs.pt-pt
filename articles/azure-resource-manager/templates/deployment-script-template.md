@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.author: jgao
-ms.openlocfilehash: d35deb978b3b60b73ac393b241471cb528817d35
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c39b332e9ee62a8502d5e2fdf155819194a30e34
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536960"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762196"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Use scripts de implementação em modelos ARM
 
@@ -397,10 +397,10 @@ Timeout             : PT1H
 
 Utilizando o CLI Azure, pode gerir scripts de implementação no âmbito de subscrição ou grupo de recursos:
 
-- [az implementações-scripts eliminar](/cli/azure/deployment-scripts#az-deployment-scripts-delete): Eliminar um script de implementação.
-- [lista de scripts de implementação az](/cli/azure/deployment-scripts#az-deployment-scripts-list): Listar todos os scripts de implantação.
-- [az deployment-scripts show](/cli/azure/deployment-scripts#az-deployment-scripts-show): Recuperar um script de implementação.
-- [az implementação-scripts show-log](/cli/azure/deployment-scripts#az-deployment-scripts-show-log): Mostrar registos de scripts de implementação.
+- [az implementações-scripts eliminar](/cli/azure/deployment-scripts#az_deployment_scripts_delete): Eliminar um script de implementação.
+- [lista de scripts de implementação az](/cli/azure/deployment-scripts#az_deployment_scripts_list): Listar todos os scripts de implantação.
+- [az deployment-scripts show](/cli/azure/deployment-scripts#az_deployment_scripts_show): Recuperar um script de implementação.
+- [az implementação-scripts show-log](/cli/azure/deployment-scripts#az_deployment_scripts_show_log): Mostrar registos de scripts de implementação.
 
 A saída do comando da lista é semelhante a:
 

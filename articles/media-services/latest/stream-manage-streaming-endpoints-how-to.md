@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 5ad7ef447e1b8e5ac141e4feb65f1b8361b2a646
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 2b442edc537ec64b12df215a18ab017ee47becff
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106282172"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791738"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gerir pontos finais de streaming com os Media Services v3
 
@@ -73,7 +73,7 @@ az ams streaming-endpoint start [--account-name]
                                 [--subscription]
 ```
 
-Para obter mais informações, consulte [o início do ponto de streaming az ams](/cli/azure/ams/streaming-endpoint#az-ams-streaming-endpoint-start).
+Para obter mais informações, consulte [o início do ponto de streaming az ams](/cli/azure/ams/streaming-endpoint#az_ams_streaming_endpointstart).
 
 ## <a name="use-sdks"></a>Utilizar SDKs
 

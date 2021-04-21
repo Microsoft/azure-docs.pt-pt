@@ -4,12 +4,12 @@ description: Saiba as diferentes formas de implantar código para as Funções A
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 4a65a00c28a20c9381d3dcc6fd7545137528d5c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca81067fa60836d77c4d8af121ebf415c772a1d7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943629"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789218"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
 
@@ -106,7 +106,7 @@ Os seguintes métodos de implantação estão disponíveis em Funções Azure.
 
 Pode utilizar um URL de pacote externo para fazer referência a um ficheiro de pacote remoto (.zip) que contenha a sua aplicação de função. O ficheiro é descarregado a partir do URL fornecido, e a aplicação é executada no modo [Run From Package.](run-functions-from-deployment-package.md)
 
->__Como usá-lo:__ Adicione [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) às definições da sua aplicação. O valor desta definição deve ser um URL (a localização do ficheiro de pacote específico que pretende executar). Pode adicionar definições [no portal](functions-how-to-use-azure-function-app-settings.md#settings) ou utilizando o [CLI Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+>__Como usá-lo:__ Adicione [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) às definições da sua aplicação. O valor desta definição deve ser um URL (a localização do ficheiro de pacote específico que pretende executar). Pode adicionar definições [no portal](functions-how-to-use-azure-function-app-settings.md#settings) ou utilizando o [CLI Azure](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
 >
 >Se utilizar o armazenamento Azure Blob, utilize um recipiente privado com uma [assinatura de acesso partilhado (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para dar às Funções acesso ao pacote. Sempre que a aplicação reinicia, recolhe uma cópia do conteúdo. A sua referência deve ser válida para o tempo de vida do pedido.
 
@@ -118,7 +118,7 @@ Utilize o zip implementar para empurrar um ficheiro .zip que contenha a sua apli
 
 >__Como usá-lo:__ Implemente utilizando a sua ferramenta cliente favorita: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), Visual [Studio,](functions-develop-vs.md#publish-to-azure)ou a partir da linha de comando utilizando as [Ferramentas Principais de Funções Azure](functions-run-local.md#project-file-deployment). Por predefinição, estas ferramentas utilizam a implementação de zíper e [funcionam a partir do pacote](run-functions-from-deployment-package.md). As Ferramentas Core e a extensão visual Studio Code permitem a [construção remota](#remote-build) ao implementar em Linux. Para implementar manualmente um ficheiro .zip na sua aplicação de função, siga as instruções em [Implementar a partir de um ficheiro de .zip ou URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
->Quando implementar utilizando o zip, pode definir a sua aplicação para executar a [partir do pacote](run-functions-from-deployment-package.md). Para executar a partir do pacote, defina o `WEBSITE_RUN_FROM_PACKAGE` valor de definição de aplicação .md#website_run_from_package para `1` . Recomendamos a colocação de zíper. Produz tempos de carregamento mais rápidos para as suas aplicações, e é o padrão para VS Code, Visual Studio e o Azure CLI.
+>Quando implementar utilizando o zip, pode definir a sua aplicação para executar a [partir do pacote](run-functions-from-deployment-package.md). Para correr a partir da embalagem, defina o valor de definição da [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) aplicação para `1` . Recomendamos a colocação de zíper. Produz tempos de carregamento mais rápidos para as suas aplicações, e é o padrão para VS Code, Visual Studio e o Azure CLI.
 
 >__Quando usá-lo:__ A implementação zip é a tecnologia de implantação recomendada para funções Azure.
 
@@ -218,7 +218,7 @@ Quando implementar a sua aplicação de função para Azure, pode implementar pa
 
 Leia estes artigos para saber mais sobre a implementação das suas aplicações de função:
 
-+ [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)
++ [Implantação contínua para funções Azure](functions-continuous-deployment.md)
 + [Entrega contínua utilizando Azure DevOps](functions-how-to-azure-devops.md)
 + [Implementações zip para funções Azure](deployment-zip-push.md)
 + [Executar as suas Funções Azure a partir de um ficheiro de pacote](run-functions-from-deployment-package.md)

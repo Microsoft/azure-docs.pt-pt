@@ -3,12 +3,12 @@ title: Como direcionar as versões de tempo de execução do Azure Functions
 description: O Azure Functions suporta várias versões do tempo de execução. Saiba como especificar a versão de tempo de execução de uma aplicação de função hospedada no Azure.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: e9aa5546b5f07b724fe22bc1e20a2e97feb2aec2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9a9f8fca1c39fd0251df3e3a8da3d789aae4d3d6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102435567"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779278"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como direcionar as versões de tempo de execução do Azure Functions
 
@@ -106,7 +106,7 @@ az functionapp config appsettings set --name <FUNCTION_APP> \
 
 `<FUNCTION_APP>`Substitua-o pelo nome da sua aplicação de função. Substitua também `<RESOURCE_GROUP>` o nome do grupo de recursos para a sua aplicação de função. Além disso, `<VERSION>` substitua-a por uma versão específica, ou `~3` , ou `~2` `~1` .
 
-Escolha **Experimentá-lo** no exemplo de código anterior para executar o comando em [Azure Cloud Shell](../cloud-shell/overview.md). Também pode executar o [Azure CLI localmente](/cli/azure/install-azure-cli) para executar este comando. Ao correr localmente, deve primeiro fazer [login](/cli/azure/reference-index#az-login) para iniciar sessão.
+Escolha **Experimentá-lo** no exemplo de código anterior para executar o comando em [Azure Cloud Shell](../cloud-shell/overview.md). Também pode executar o [Azure CLI localmente](/cli/azure/install-azure-cli) para executar este comando. Ao correr localmente, deve primeiro fazer [login](/cli/azure/reference-index#az_login) para iniciar sessão.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -165,7 +165,7 @@ az functionapp config set --name <FUNCTION_APP> \
 
 `<FUNCTION_APP>`Substitua-o pelo nome da sua aplicação de função. Substitua também `<RESOURCE_GROUP>` o nome do grupo de recursos para a sua aplicação de função. Além disso, `<LINUX_FX_VERSION>` substitua-o pelo valor de uma imagem específica, conforme descrito acima.
 
-Pode executar este comando a partir da [Azure Cloud Shell](../cloud-shell/overview.md) escolhendo-o na amostra de código anterior.  Também pode utilizar o [Azure CLI localmente](/cli/azure/install-azure-cli) para executar este comando depois de executar [o login az](/cli/azure/reference-index#az-login) para iniciar sessão.
+Pode executar este comando a partir da [Azure Cloud Shell](../cloud-shell/overview.md) escolhendo-o na amostra de código anterior.  Também pode utilizar o [Azure CLI localmente](/cli/azure/install-azure-cli) para executar este comando depois de executar [o login az](/cli/azure/reference-index#az_login) para iniciar sessão.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

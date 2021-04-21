@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 844846afa438a2d3425ecf6392b50f0411d8c03e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e698061122fcc8ff8019907b5fdeba5b2df58407
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309004"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779350"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure uma aplicação Linux Python para o Azure App Service
 
@@ -27,7 +27,7 @@ Pode utilizar o [portal Azure](https://portal.azure.com) ou o CLI Azure para con
 - **Azure CLI:** tem duas opções.
 
     - Executar comandos na [Azure Cloud Shell](../cloud-shell/overview.md).
-    - Executar comandos localmente instalando a versão mais recente do [Azure CLI,](/cli/azure/install-azure-cli)em seguida, inicie sessão no Azure usando [login az](/cli/azure/reference-index#az-login).
+    - Executar comandos localmente instalando a versão mais recente do [Azure CLI,](/cli/azure/install-azure-cli)em seguida, inicie sessão no Azure usando [login az](/cli/azure/reference-index#az_login).
     
 > [!NOTE]
 > O Linux é atualmente a opção recomendada para executar aplicações Python no Serviço de Aplicações. Para obter informações sobre a opção Windows, consulte [Python no sabor Windows do Serviço de Aplicações.](/visualstudio/python/managing-python-on-azure-app-service)

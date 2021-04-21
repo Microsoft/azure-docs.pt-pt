@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 5080d16a7b14506b24e07e2ee4ba862c645f83a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed87a5a744defb15d4a898aeabdce5267b7431fe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98875454"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775660"
 ---
 # <a name="manage-your-function-app"></a>Gerir a sua aplicação de função 
 
@@ -46,14 +46,14 @@ O **separador de definições de aplicação** mantém as definições que são 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli)
 
-O [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) comando devolve as definições de aplicação existentes, como no exemplo seguinte:
+O [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_list) comando devolve as definições de aplicação existentes, como no exemplo seguinte:
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-O [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) comando adiciona ou atualiza uma definição de aplicação. O exemplo a seguir cria uma definição com uma chave nomeada `CUSTOM_FUNCTION_APP_SETTING` e um valor `12345` de:
+O [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) comando adiciona ou atualiza uma definição de aplicação. O exemplo a seguir cria uma definição com uma chave nomeada `CUSTOM_FUNCTION_APP_SETTING` e um valor `12345` de:
 
 
 ```azurecli-interactive
@@ -260,7 +260,7 @@ Quando configurar a lista **de origens permitidas** para a sua aplicação de fu
 
 Quando o wildcard `*` é usado, todos os outros domínios são ignorados. 
 
-Utilize o [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) comando para adicionar um domínio à lista de origens permitidas. O seguinte exemplo adiciona o domínio contoso.com:
+Utilize o [`az functionapp cors add`](/cli/azure/functionapp/cors#az_functionapp_cors_add) comando para adicionar um domínio à lista de origens permitidas. O seguinte exemplo adiciona o domínio contoso.com:
 
 ```azurecli-interactive
 az functionapp cors add --name <FUNCTION_APP_NAME> \
@@ -268,7 +268,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 --allowed-origins https://contoso.com
 ```
 
-Utilize o [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) comando para listar as origens atuais permitidas.
+Utilize o [`az functionapp cors show`](/cli/azure/functionapp/cors#az_functionapp_cors_show) comando para listar as origens atuais permitidas.
 
 ### <a name="authentication"></a><a name="auth"></a>Autenticação
 
@@ -280,7 +280,7 @@ Quando as funções utilizarem um gatilho HTTP, pode exigir que as chamadas seja
 ## <a name="next-steps"></a>Passos seguintes
 
 + [Configurações de serviço de aplicações Azure configurações](../app-service/configure-common.md)
-+ [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)
++ [Implantação contínua para funções Azure](functions-continuous-deployment.md)
 
 [CLI do Azure]: /cli/azure/
 [Portal do Azure]: https://portal.azure.com

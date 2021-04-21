@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 10/07/2020
-ms.openlocfilehash: 6e76da71cb14122817090e64354babf5a618db8b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12ee46316a3eadceedf6f1772ae41938d1cc903e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94562666"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761942"
 ---
 # <a name="throughput-rus-operations-with-azure-cli-for-a-table-for-azure-cosmos-db-table-api"></a>Operações de produção (RU/s) com a Azure CLI para uma tabela para Azure Cosmos DB Table API
 [!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
@@ -41,12 +41,12 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Azure Cosmos DB. |
-| [az cosmosdb criar](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) | Cria uma tabela API de tabela Azure Cosmos. |
-| [az cosmosdb tabela de saída](/cli/azure/cosmosdb/table/throughput#az-cosmosdb-table-throughput-update) | Atualizar a produção para uma tabela API de tabela Azure Cosmos. |
-| [az cosmosdb tabela de produção migram](/cli/azure/cosmosdb/table/throughput#az-cosmosdb-table-throughput-migrate) | Migrar para uma tabela API da tabela AZure Cosmos. |
-| [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Cria uma conta do Azure Cosmos DB. |
+| [az cosmosdb criar](/cli/azure/cosmosdb/table#az_cosmosdb_table_create) | Cria uma tabela API de tabela Azure Cosmos. |
+| [az cosmosdb tabela de saída](/cli/azure/cosmosdb/table/throughput#az_cosmosdb_table_throughput_update) | Atualizar a produção para uma tabela API de tabela Azure Cosmos. |
+| [az cosmosdb tabela de produção migram](/cli/azure/cosmosdb/table/throughput#az_cosmosdb_table_throughput_migrate) | Migrar para uma tabela API da tabela AZure Cosmos. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

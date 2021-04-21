@@ -3,12 +3,12 @@ title: Criptografe a sua fonte de aplicação em repouso
 description: Saiba como encriptar os dados da sua aplicação no Azure Storage e implemente-os como um ficheiro de pacote.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 5524b749b1e15342dd0133920d7190e33ced18ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a26660723fbe96a9b765401af1f0c9cfc80dbc3f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92146038"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779439"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Encriptação em repouso usando chaves geridas pelo cliente
 
@@ -43,7 +43,7 @@ A adição desta definição de aplicação faz com que a sua aplicação web re
 
 Agora pode substituir o valor da definição de `WEBSITE_RUN_FROM_PACKAGE` aplicação por uma referência do Cofre de Chaves ao URL codificado pelo SAS. Isto mantém o URL SAS encriptado no Key Vault, que fornece uma camada extra de segurança.
 
-1. Utilize o seguinte [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create) comando para criar uma instância key vault.       
+1. Utilize o seguinte [`az keyvault create`](/cli/azure/keyvault#az_keyvault_create) comando para criar uma instância key vault.       
 
     ```azurecli    
     az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus    
@@ -51,13 +51,13 @@ Agora pode substituir o valor da definição de `WEBSITE_RUN_FROM_PACKAGE` aplic
 
 1. Siga [estas instruções para conceder acesso](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) à sua aplicação ao cofre da chave:
 
-1. Utilize o seguinte [`az keyvault secret set`](/cli/azure/keyvault/secret#az-keyvault-secret-set) comando para adicionar o seu URL externo como segredo no seu cofre chave:   
+1. Utilize o seguinte [`az keyvault secret set`](/cli/azure/keyvault/secret#az_keyvault_secret_set) comando para adicionar o seu URL externo como segredo no seu cofre chave:   
 
     ```azurecli    
     az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<SAS-URL>"    
     ```    
 
-1.  Utilize o seguinte [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) comando para criar a definição de `WEBSITE_RUN_FROM_PACKAGE` aplicação com o valor como referência do Cofre de Chaves ao URL externo:
+1.  Utilize o seguinte [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) comando para criar a definição de `WEBSITE_RUN_FROM_PACKAGE` aplicação com o valor como referência do Cofre de Chaves ao URL externo:
 
     ```azurecli    
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    

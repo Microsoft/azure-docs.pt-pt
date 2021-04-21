@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c40bc01553b9e848d668c0a699e9dcc9929f079e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90055304"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779332"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Configure um aplicativo PHP para o Azure App Service
 
@@ -243,7 +243,7 @@ getenv("DB_HOST")
 
 A estrutura web da sua escolha pode usar um subdirecional como raiz do site. Por exemplo, [Laravel,](https://laravel.com/)utiliza o público/subdireoriário como raiz do site. 
 
-Para personalizar a raiz do site, desacorra o caminho de aplicação virtual para a aplicação utilizando o [`az resource update`](/cli/azure/resource#az-resource-update) comando. O exemplo a seguir define  a raiz do site para o público/subdireorito no seu repositório. 
+Para personalizar a raiz do site, desacorra o caminho de aplicação virtual para a aplicação utilizando o [`az resource update`](/cli/azure/resource#az_resource_update) comando. O exemplo a seguir define  a raiz do site para o público/subdireorito no seu repositório. 
 
 ```azurecli-interactive
 az resource update --name web --resource-group <group-name> --namespace Microsoft.Web --resource-type config --parent sites/<app-name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -492,4 +492,3 @@ Quando uma aplicação PHP funcionada se comporta de forma diferente no Serviço
 > [FAQ do Serviço de Aplicações no Linux](faq-app-service-linux.md)
 
 ::: zone-end
-

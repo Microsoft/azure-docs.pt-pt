@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: feac7b890c973b1541c5362f860432687082953f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31812a7b2dddad474ab5cd422a15f6e5368dba5c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96533881"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774634"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar o público anónimo ler acesso a contentores e bolhas
 
@@ -239,7 +239,7 @@ Quando o acesso público é proibido para a conta de armazenamento, o nível de 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para atualizar o nível de acesso público para um ou mais contentores com O Azure CLI, ligue para o comando [de autorização do recipiente de armazenamento AZ.](/cli/azure/storage/container#az-storage-container-set-permission) Autorize esta operação passando na sua chave de conta, uma cadeia de ligação ou uma assinatura de acesso partilhado (SAS). A operação [set Container ACL](/rest/api/storageservices/set-container-acl) que define o nível de acesso público do contentor não suporta a autorização com a Azure AD. Para obter mais informações, consulte [permissões para ligar para as operações de dados de blob e fila.](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)
+Para atualizar o nível de acesso público para um ou mais contentores com O Azure CLI, ligue para o comando [de autorização do recipiente de armazenamento AZ.](/cli/azure/storage/container#az_storage_container_set_permission) Autorize esta operação passando na sua chave de conta, uma cadeia de ligação ou uma assinatura de acesso partilhado (SAS). A operação [set Container ACL](/rest/api/storageservices/set-container-acl) que define o nível de acesso público do contentor não suporta a autorização com a Azure AD. Para obter mais informações, consulte [permissões para ligar para as operações de dados de blob e fila.](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)
 
 O exemplo a seguir cria um recipiente com acesso público desativado e, em seguida, atualiza a definição de acesso público do contentor para permitir o acesso anónimo ao contentor e às suas bolhas. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 

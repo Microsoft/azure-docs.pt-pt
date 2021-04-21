@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres Azure VM com recuperaç
 description: Resume o apoio à recuperação de desastres dos VMs do Azure para uma região secundária com recuperação do local de Azure.
 ms.topic: article
 ms.date: 11/29/2020
-ms.openlocfilehash: 79cde5957b2090b8337a3af424dbda7e42608398
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: daba23ec1382f1b5fb18bffba48d0571fe998a2f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713341"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792458"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -53,6 +53,12 @@ Alemanha    | Alemanha Central, Alemanha Nordeste
 China | China Leste, China Norte, China Norte2, China Leste2
 Brasil | Sul do Brasil
 Regiões restritas reservadas à recuperação de desastres no país |Suíça West reservada para suíça Norte, França Sul reservada para France Central, UAE Central restrita para os clientes do Norte dos Emirados Árabes Unidos, Noruega Oeste para clientes noruegueses leste, JIO India Central para clientes JIO Índia West, Brasil Sudeste para Brasil Sul
+
+A replicação e recuperação de VMs entre duas regiões em diferentes continentes limita-se aos seguintes pares de regiões:
+
+* Sudeste Asiático e Austrália Oriental
+* Sudeste asiático e sudeste da Austrália
+* Europa Ocidental e Centro Sul dos EUA.
 
 >[!NOTE]
 >

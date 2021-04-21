@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 52e855cb4ab42ed78a055ecdc31cffa886dc9bf2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5e7f71f91e5778b4f096bb760bfe5a0a89b5cbcb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731994"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764284"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>O que mudar para volume de quota dura significa para o seu serviço Azure NetApp Files
 
@@ -196,13 +196,13 @@ Esta ação abrirá a Azure Cloud Shell:
 
 [![Screenshot que mostra a janela Cloud Shell. ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png)](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png#lightbox)
 
-Os seguintes exemplos utilizam os comandos para [mostrar](/cli/azure/netappfiles/volume#az-netappfiles-volume-show) e [atualizar](/cli/azure/netappfiles/volume#az-netappfiles-volume-update) o tamanho de um volume:
+Os seguintes exemplos utilizam os comandos para [mostrar](/cli/azure/netappfiles/volume#az_netappfiles_volume_show) e [atualizar](/cli/azure/netappfiles/volume#az_netappfiles_volume_update) o tamanho de um volume:
  
 [![Screenshot que mostra usar o PowerShell para mostrar o tamanho do volume. ](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png)](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png#lightbox)
 
 [![Screenshot que mostra usar o PowerShell para atualizar o tamanho do volume. ](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png)](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png#lightbox)
 
-Os seguintes exemplos utilizam os comandos para [mostrar](/cli/azure/netappfiles/pool#az-netappfiles-pool-show) e [atualizar](/cli/azure/netappfiles/pool#az-netappfiles-pool-update) o tamanho de um pool de capacidade:
+Os seguintes exemplos utilizam os comandos para [mostrar](/cli/azure/netappfiles/pool#az_netappfiles_pool_show) e [atualizar](/cli/azure/netappfiles/pool#az_netappfiles_pool_update) o tamanho de um pool de capacidade:
 
 [![Screenshot que mostra usar o PowerShell para mostrar o tamanho da piscina de capacidade. ](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png)](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png#lightbox) 
 

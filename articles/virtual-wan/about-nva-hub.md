@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: scottnap
-ms.openlocfilehash: e70b899ea0133704e4ecab42dd4c2a09bca41804
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 7c3ae14cd409e7bfc9be77c1a593964b73a12ddc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226316"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791054"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Sobre o aparelho virtual de rede num hub Azure Virtual WAN (Pré-visualização)
 
@@ -77,13 +77,14 @@ A NVA no centro virtual está disponível para visualização nas seguintes regi
 
 |Região geopolítica | Regiões do Azure|
 |---|---|
-| América do Norte| West US, South Central US, East US 2   |
-| América do Sul | Sul do Brasil |
-| Europa | West Europe, Reino Unido Sul|
+| América do Norte| Canadá Central, Canadá Leste, Central EUA, Leste dos EUA, Leste dos EUA 2, Centro Norte-Americano, Centro Ocidental DOS EUA, Eua Ocidental, Oeste dos EUA 2 |
+| América do Sul | Brasil Sul, Sudeste brasileiro |
+| Europa | França Central, França Sul, Alemanha Norte, Alemanha West Central, Norte da Europa, Noruega Leste, Noruega Oeste, Suíça Norte, Suíça Oeste, Reino Unido Sul, Reino Unido, Europa Ocidental|
 |  Médio Oriente | Uae Norte |
-| Ásia | Leste do Japão |
-| Austrália | Leste da Austrália |
-
+| Ásia |  Ásia Oriental, Japão Leste, Japão Ocidental, Coreia Central, Coreia do Sul, Sudeste Asiático | 
+| Austrália | Austrália Sudeste, Austrália Leste, Austrália Central, Austrália Central 2|
+| África | Norte da África do Sul |
+| Índia | Sul da Índia, Índia Ocidental, Índia Central | 
 ## <a name="faq"></a>FAQ
 
 ### <a name="i-am-a-network-appliance-partner-and-want-to-get-our-nva-in-the-hub--can-i-join-this-partner-program"></a>Sou um parceiro de eletrodomésticos de rede e quero colocar a nossa NVA no centro.  Posso juntar-me a este programa de parceiros?
@@ -92,7 +93,7 @@ Infelizmente, não temos capacidade para embarcar quaisquer novos parceiros nest
 
 ### <a name="can-i-deploy-any-nva-from-azure-marketplace-into-the-virtual-wan-hub"></a>Posso colocar qualquer NVA do Azure Marketplace no centro virtual WAN?
 
-Neste momento, apenas a [Aplicação Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer) e [Cisco Cloud vWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) estão disponíveis para serem implantadas no centro virtual WAN.
+Neste momento, apenas [a Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer)  [Cisco Cloud vWAN Application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) e a [VMware Sd-WAN](https://aka.ms/vmwareMarketplaceLink) estão disponíveis para serem implantadas no centro virtual WAN.
 
 ### <a name="what-is-the-cost-of-the-nva"></a>Qual é o custo da NVA?
 
@@ -104,7 +105,7 @@ N.º Tem de utilizar um hub Standard se quiser implantar um NVA.
 
 ### <a name="can-i-deploy-an-nva-into-a-secure-hub"></a>Posso colocar um NVA num centro seguro?
 
-Sim. Barracuda CloudGen WAN pode ser implantado num hub com Azure Firewall.
+Sim. Os Parceiros NVA's podem ser implantados num hub com a Azure Firewall.
 
 ### <a name="can-i-connect-any-cpe-device-in-my-branch-office-to-barracuda-cloudgen-wan-nva-in-the-hub"></a>Posso ligar algum dispositivo CPE na minha sucursal à Barracuda CloudGen WAN NVA no centro?
 

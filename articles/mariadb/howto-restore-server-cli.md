@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a6e46efd7f998437c3998df9a989ef9e1500e888
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af197f2dd144e7541f669fdd67b58c38d91b4400
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664839"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777136"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Como fazer o back up e restaurar um servidor na Base de Dados Azure para MariaDB usando o Azure CLI
 
@@ -57,7 +57,7 @@ O período de retenção de backups regula o quão longe no tempo um restauro de
 
 Pode restaurar o servidor num ponto anterior no tempo. Os dados restaurados são copiados para um novo servidor, e o servidor existente é deixado como está. Por exemplo, se uma mesa for acidentalmente largada ao meio-dia de hoje, pode restaurar a hora pouco antes do meio-dia. Em seguida, pode recuperar a tabela e os dados em falta a partir da cópia restaurada do servidor.
 
-Para restaurar o servidor, utilize o comando de restauro do [servidor Mariadb](/cli/azure/mariadb/server#az-mariadb-server-restore) Azure CLI az.
+Para restaurar o servidor, utilize o comando de restauro do [servidor Mariadb](/cli/azure/mariadb/server#az_mariadb_server_restore) Azure CLI az.
 
 ### <a name="run-the-restore-command"></a>Executar o comando de restauro
 

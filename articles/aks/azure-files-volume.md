@@ -5,12 +5,12 @@ description: Saiba como criar manualmente um volume com ficheiros Azure para uti
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 4e009c5de2e24c1b0bd94fb4c11b0c52a3bc378d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f3c8ae63e908f440740277084293a011b80b9d7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102609078"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776093"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Criar e utilizar manualmente um volume com a partilha de Ficheiros Azure no Serviço Azure Kubernetes (AKS)
 
@@ -245,10 +245,10 @@ Para parâmetros de classe de armazenamento, consulte [Disposição Estática (t
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az-group-create
-[az-storage-create]: /cli/azure/storage/account#az-storage-account-create
-[az-storage-key-list]: /cli/azure/storage/account/keys#az-storage-account-keys-list
-[az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create
+[az-group-create]: /cli/azure/group#az_group_create
+[az-storage-create]: /cli/azure/storage/account#az_storage_account_create
+[az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
+[az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

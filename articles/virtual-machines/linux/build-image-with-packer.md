@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
 ms.collection: linux
-ms.openlocfilehash: 4d85106cb78b5f4799a78d18463d83594f54dbac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b40646109265b803945b43d7cc855688c5b47c5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556745"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764662"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquinas virtuais Linux em Azure
 Cada máquina virtual (VM) em Azure é criada a partir de uma imagem que define a distribuição Linux e a versão OS. As imagens podem incluir aplicações e configurações pré-instaladas. O Azure Marketplace fornece muitas imagens de primeira e de terceiros para a distribuição mais comum e ambientes de aplicações, ou pode criar as suas próprias imagens personalizadas adaptadas às suas necessidades. Este artigo detalha como usar a ferramenta de código aberto [Packer](https://www.packer.io/) para definir e construir imagens personalizadas em Azure.
@@ -209,7 +209,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Se desejar criar VMs num grupo ou região de recursos diferente do que a sua imagem Packer, especifique o ID de imagem em vez do nome da imagem. Pode obter o ID de imagem com [um mostrador de imagem az](/cli/azure/image#az-image-show).
+Se desejar criar VMs num grupo ou região de recursos diferente do que a sua imagem Packer, especifique o ID de imagem em vez do nome da imagem. Pode obter o ID de imagem com [um mostrador de imagem az](/cli/azure/image#az_image_show).
 
 Leva alguns minutos para criar o VM. Uma vez criado o VM, tome nota do `publicIpAddress` mostrado pelo CLI Azure. Este endereço é utilizado para aceder ao site do NGINX através de um navegador web.
 

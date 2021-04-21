@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 24fbe843986b732a04c9e356c54f3d768d6739be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77a01a270f47ddacb71962188e7fedd0a0a9f6d0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100558186"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790442"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurar a encriptação com chaves geridas pelo cliente armazenadas no Azure Key Vault
 
@@ -83,7 +83,7 @@ Set-AzKeyVaultAccessPolicy `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para criar um novo cofre de chaves utilizando o Azure CLI, chame [a az keyvault criar](/cli/azure/keyvault#az-keyvault-create). Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
+Para criar um novo cofre de chaves utilizando o Azure CLI, chame [a az keyvault criar](/cli/azure/keyvault#az_keyvault_create). Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 
 ```azurecli-interactive
 az keyvault create \
@@ -97,7 +97,7 @@ Para aprender a permitir a proteção de purga num cofre de chaves existente com
 
 Em seguida, atribua uma identidade gerida atribuída ao sistema para a conta de armazenamento. Usará esta identidade gerida para conceder permissão à conta de armazenamento para aceder ao cofre das chaves. Para obter mais informações sobre identidades geridas atribuídas pelo sistema, veja [quais são as identidades geridas para os recursos Azure?](../../active-directory/managed-identities-azure-resources/overview.md)
 
-Para atribuir uma identidade gerida utilizando o Azure CLI, ligue para [atualização da conta de armazenamento AZ](/cli/azure/storage/account#az-storage-account-update):
+Para atribuir uma identidade gerida utilizando o Azure CLI, ligue para [atualização da conta de armazenamento AZ](/cli/azure/storage/account#az_storage_account_update):
 
 ```azurecli-interactive
 az storage account update \
@@ -108,7 +108,7 @@ az storage account update \
 
 Finalmente, configurar a política de acesso para o cofre chave para que a conta de armazenamento tenha permissões para aceder ao mesmo. Neste passo, utilizará a identidade gerida que atribuiu anteriormente à conta de armazenamento.
 
-Para definir a política de acesso para o cofre de chaves, ligue para [a política de definição de keyvault az](/cli/azure/keyvault#az-keyvault-set-policy):
+Para definir a política de acesso para o cofre de chaves, ligue para [a política de definição de keyvault az](/cli/azure/keyvault#az_keyvault_set_policy):
 
 ```azurecli-interactive
 storage_account_principal=$(az storage account show \
@@ -147,7 +147,7 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para adicionar uma chave com Azure CLI, chame [a chave az keyvault criar](/cli/azure/keyvault/key#az-keyvault-key-create). Lembre-se de substituir os valores do espaço reservado nos parênteses pelos seus próprios valores.
+Para adicionar uma chave com Azure CLI, chame [a chave az keyvault criar](/cli/azure/keyvault/key#az_keyvault_key_create). Lembre-se de substituir os valores do espaço reservado nos parênteses pelos seus próprios valores.
 
 ```azurecli-interactive
 az keyvault key create \
@@ -213,7 +213,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 Para configurar as teclas geridas pelo cliente com a atualização automática da versão chave com o Azure CLI, instale [a versão 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) ou posterior do Azure CLI. Para mais informações, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
-Para atualizar automaticamente a versão chave para uma chave gerida pelo cliente, omita a versão chave quando configurar a encriptação com as chaves geridas pelo cliente para a conta de armazenamento. Ligue para a atualização da [conta de armazenamento AZ](/cli/azure/storage/account#az-storage-account-update) para atualizar as definições de encriptação da conta de armazenamento, como mostrado no exemplo seguinte. Inclua o `--encryption-key-source` parâmetro e desa cose para `Microsoft.Keyvault` ativar as chaves geridas pelo cliente para a conta.
+Para atualizar automaticamente a versão chave para uma chave gerida pelo cliente, omita a versão chave quando configurar a encriptação com as chaves geridas pelo cliente para a conta de armazenamento. Ligue para a atualização da [conta de armazenamento AZ](/cli/azure/storage/account#az_storage_account_update) para atualizar as definições de encriptação da conta de armazenamento, como mostrado no exemplo seguinte. Inclua o `--encryption-key-source` parâmetro e desa cose para `Microsoft.Keyvault` ativar as chaves geridas pelo cliente para a conta.
 
 Lembre-se de substituir os valores do espaço reservado nos parênteses pelos seus próprios valores.
 
@@ -273,7 +273,7 @@ Quando atualizar manualmente a versão chave, terá de atualizar as definições
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para configurar as teclas geridas pelo cliente com a atualização manual da versão chave, forneça explicitamente a versão chave quando configurar a encriptação para a conta de armazenamento. Ligue para a atualização da [conta de armazenamento AZ](/cli/azure/storage/account#az-storage-account-update) para atualizar as definições de encriptação da conta de armazenamento, como mostrado no exemplo seguinte. Inclua o `--encryption-key-source` parâmetro e desa cose para `Microsoft.Keyvault` ativar as chaves geridas pelo cliente para a conta.
+Para configurar as teclas geridas pelo cliente com a atualização manual da versão chave, forneça explicitamente a versão chave quando configurar a encriptação para a conta de armazenamento. Ligue para a atualização da [conta de armazenamento AZ](/cli/azure/storage/account#az_storage_account_update) para atualizar as definições de encriptação da conta de armazenamento, como mostrado no exemplo seguinte. Inclua o `--encryption-key-source` parâmetro e desa cose para `Microsoft.Keyvault` ativar as chaves geridas pelo cliente para a conta.
 
 Lembre-se de substituir os valores do espaço reservado nos parênteses pelos seus próprios valores.
 
@@ -297,7 +297,7 @@ az storage account update
     --encryption-key-vault $key_vault_uri
 ```
 
-Quando atualizar manualmente a versão chave, terá de atualizar as definições de encriptação da conta de armazenamento para utilizar a nova versão. Em primeiro lugar, consulta para o cofre-chave URI chamando [az keyvault show](/cli/azure/keyvault#az-keyvault-show), e para a versão chave, chamando [az key-key-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Em [seguida,](/cli/azure/storage/account#az-storage-account-update) ligue para a atualização da conta de armazenamento AZ para atualizar as definições de encriptação da conta de armazenamento para usar a nova versão da chave, como mostrado no exemplo anterior.
+Quando atualizar manualmente a versão chave, terá de atualizar as definições de encriptação da conta de armazenamento para utilizar a nova versão. Em primeiro lugar, consulta para o cofre-chave URI chamando [az keyvault show](/cli/azure/keyvault#az_keyvault_show), e para a versão chave, chamando [az key-key-versions](/cli/azure/keyvault/key#az_keyvault_key_list-versions). Em [seguida,](/cli/azure/storage/account#az_storage_account_update) ligue para a atualização da conta de armazenamento AZ para atualizar as definições de encriptação da conta de armazenamento para usar a nova versão da chave, como mostrado no exemplo anterior.
 
 ---
 
@@ -319,7 +319,7 @@ Para alterar a tecla com o PowerShell, ligue para [o Set-AzStorageAccount](/powe
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para alterar a tecla com o Azure CLI, ligue para [a atualização da conta de armazenamento AZ,](/cli/azure/storage/account#az-storage-account-update) como mostrado na [encriptação Configure com as teclas geridas pelo cliente](#configure-encryption-with-customer-managed-keys) e forneça o novo nome e versão chave. Se a nova chave estiver num cofre diferente, também deve atualizar o cofre uri do cofre de chaves.
+Para alterar a tecla com o Azure CLI, ligue para [a atualização da conta de armazenamento AZ,](/cli/azure/storage/account#az_storage_account_update) como mostrado na [encriptação Configure com as teclas geridas pelo cliente](#configure-encryption-with-customer-managed-keys) e forneça o novo nome e versão chave. Se a nova chave estiver num cofre diferente, também deve atualizar o cofre uri do cofre de chaves.
 
 ---
 
@@ -342,7 +342,7 @@ Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Pode revogar as chaves geridas pelo cliente removendo a política de acesso ao cofre. Para revogar uma chave gerida pelo cliente com o Azure CLI, ligue para o comando [de exclusão de chave az,](/cli/azure/keyvault#az-keyvault-delete-policy) como mostra o exemplo seguinte. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores e utilizar as variáveis definidas nos exemplos anteriores.
+Pode revogar as chaves geridas pelo cliente removendo a política de acesso ao cofre. Para revogar uma chave gerida pelo cliente com o Azure CLI, ligue para o comando [de exclusão de chave az,](/cli/azure/keyvault#az_keyvault_delete_policy) como mostra o exemplo seguinte. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores e utilizar as variáveis definidas nos exemplos anteriores.
 
 ```azurecli-interactive
 az keyvault delete-policy \
@@ -375,7 +375,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para desativar as teclas geridas pelo cliente com o Azure CLI, ligue para a atualização da [conta de armazenamento Az](/cli/azure/storage/account#az-storage-account-update) e desative-as para , como mostra o exemplo `--encryption-key-source parameter` `Microsoft.Storage` seguinte. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores e utilizar as variáveis definidas nos exemplos anteriores.
+Para desativar as teclas geridas pelo cliente com o Azure CLI, ligue para a atualização da [conta de armazenamento Az](/cli/azure/storage/account#az_storage_account_update) e desative-as para , como mostra o exemplo `--encryption-key-source parameter` `Microsoft.Storage` seguinte. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores e utilizar as variáveis definidas nos exemplos anteriores.
 
 ```azurecli-interactive
 az storage account update

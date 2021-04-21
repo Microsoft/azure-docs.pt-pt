@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/26/2021
-ms.openlocfilehash: c0149dbb5f17af87229d951cf744c285e54835af
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: f3bc1dfcfeeb6dda110f71ed7a1c53909153cf00
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375955"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762160"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir a falha transparente e coordenada de várias bases de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -434,11 +434,11 @@ Tal como discutido anteriormente, os grupos de auto-failover e a geo-replicaçã
 
 | Comando | Descrição |
 | --- | --- |
-| [az sql failover grupo criar](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Este comando cria um grupo de failover e regista-o em servidores primários e secundários|
-| [az sql failover grupo delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Remove um grupo de failover do servidor |
-| [az sql failover grupo show](/cli/azure/sql/failover-group#az-sql-failover-group-show) | Recupera uma configuração de grupo de failover |
-| [az sql failover-group update](/cli/azure/sql/failover-group#az-sql-failover-group-update) |Modifica a configuração e/ou adiciona uma ou mais bases de dados a um grupo de failover|
-| [az sql failover grupo set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Desencadeia falha de um grupo de failover para o servidor secundário |
+| [az sql failover grupo criar](/cli/azure/sql/failover-group#az_sql_failover_group_create) |Este comando cria um grupo de failover e regista-o em servidores primários e secundários|
+| [az sql failover grupo delete](/cli/azure/sql/failover-group#az_sql_failover_group_delete) | Remove um grupo de failover do servidor |
+| [az sql failover grupo show](/cli/azure/sql/failover-group#az_sql_failover_group_show) | Recupera uma configuração de grupo de failover |
+| [az sql failover-group update](/cli/azure/sql/failover-group#az_sql_failover_group_update) |Modifica a configuração e/ou adiciona uma ou mais bases de dados a um grupo de failover|
+| [az sql failover grupo set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) | Desencadeia falha de um grupo de failover para o servidor secundário |
 
 # <a name="rest-api"></a>[Repouso API](#tab/rest-api)
 
@@ -472,11 +472,11 @@ Tal como discutido anteriormente, os grupos de auto-failover e a geo-replicaçã
 
 | Comando | Descrição |
 | --- | --- |
-| [az sql failover grupo criar](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Este comando cria um grupo de failover e regista-o em servidores primários e secundários|
-| [az sql failover grupo delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Remove um grupo de failover do servidor |
-| [az sql failover grupo show](/cli/azure/sql/failover-group#az-sql-failover-group-show) | Recupera uma configuração de grupo de failover |
-| [az sql failover-group update](/cli/azure/sql/failover-group#az-sql-failover-group-update) |Modifica a configuração e/ou adiciona uma ou mais bases de dados a um grupo de failover|
-| [az sql failover grupo set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Desencadeia falha de um grupo de failover para o servidor secundário |
+| [az sql failover grupo criar](/cli/azure/sql/failover-group#az_sql_failover_group_create) |Este comando cria um grupo de failover e regista-o em servidores primários e secundários|
+| [az sql failover grupo delete](/cli/azure/sql/failover-group#az_sql_failover_group_delete) | Remove um grupo de failover do servidor |
+| [az sql failover grupo show](/cli/azure/sql/failover-group#az_sql_failover_group_show) | Recupera uma configuração de grupo de failover |
+| [az sql failover-group update](/cli/azure/sql/failover-group#az_sql_failover_group_update) |Modifica a configuração e/ou adiciona uma ou mais bases de dados a um grupo de failover|
+| [az sql failover grupo set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) | Desencadeia falha de um grupo de failover para o servidor secundário |
 
 # <a name="rest-api"></a>[Repouso API](#tab/rest-api)
 

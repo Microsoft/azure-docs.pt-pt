@@ -3,12 +3,12 @@ title: Executar comandos em execução de caso de contentor
 description: Saiba como executar um comando num contentor que está atualmente a funcionar em Instâncias de Contentores Azure
 ms.topic: article
 ms.date: 03/30/2018
-ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42832910efff67f111c669793798d9ff0e413536
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "79247205"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790784"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Execute um comando em uma instância de contentor Azure em execução
 
@@ -89,6 +89,6 @@ A azure Container Instances suporta atualmente o lançamento de um único proces
 Saiba mais sobre outras ferramentas de resolução de problemas e problemas comuns de implantação em [contentores de resolução de problemas e problemas de implantação em instâncias de contentores Azure](container-instances-troubleshooting.md).
 
 <!-- LINKS - internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-exec]: /cli/azure/container#az-container-exec
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-exec]: /cli/azure/container#az_container_exec
 [azure-cli]: /cli/azure

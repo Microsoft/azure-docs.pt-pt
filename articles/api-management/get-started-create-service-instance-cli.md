@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 72d1faac02a21f23d46eb992af1d501bca89e71f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19fc2e1629e7f67063e3cc3eec8cb3707b6dd2e4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688081"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775858"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli"></a>Quickstart: Criar uma nova instância de serviço de gestão API Azure utilizando o Azure CLI
 
@@ -30,7 +30,7 @@ Este quickstart descreve os passos para criar uma nova instância de Gestão de 
 
 Os casos de Gestão da API da Azure, como todos os recursos da Azure, devem ser implantados num grupo de recursos. Os grupos de recursos permitem organizar e gerir recursos relacionados do Azure.
 
-Em primeiro lugar, crie um grupo de recursos chamado *myResourceGroup* na localização central dos EUA com o seguinte [grupo az criar](/cli/azure/group#az-group-create) comando:
+Em primeiro lugar, crie um grupo de recursos chamado *myResourceGroup* na localização central dos EUA com o seguinte [grupo az criar](/cli/azure/group#az_group_create) comando:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location centralus
@@ -38,7 +38,7 @@ az group create --name myResourceGroup --location centralus
 
 ## <a name="create-a-new-service"></a>Criar um novo serviço
 
-Agora que tem um grupo de recursos, pode criar uma instância de serviço de Gestão API. Crie um utilizando o [az apim criar](/cli/azure/apim#az-apim-create) comando e fornecer um nome de serviço e detalhes do editor. O nome de serviço deve ser único dentro de Azure. 
+Agora que tem um grupo de recursos, pode criar uma instância de serviço de Gestão API. Crie um utilizando o [az apim criar](/cli/azure/apim#az_apim_create) comando e fornecer um nome de serviço e detalhes do editor. O nome de serviço deve ser único dentro de Azure. 
 
 No exemplo seguinte, *o myapim* é utilizado para o nome de serviço. Atualize o nome para um valor único. Atualize também o nome da organização da editora API e o endereço de e-mail para receber notificações. 
 
@@ -53,7 +53,7 @@ Por predefinição, o comando cria a instância no nível de Desenvolvedor, uma 
 > [!TIP]
 > Pode levar entre 30 a 40 minutos para criar e ativar um serviço de Gestão API neste nível. O comando anterior utiliza a `--no-wait` opção para que o comando retorne imediatamente enquanto o serviço é criado.
 
-Verifique o estado da implantação executando o comando [az apim show:](/cli/azure/apim#az-apim-show)
+Verifique o estado da implantação executando o comando [az apim show:](/cli/azure/apim#az_apim_show)
 
 ```azurecli-interactive
 az apim show --name myapim --resource-group myResourceGroup --output table
@@ -79,7 +79,7 @@ Quando o seu serviço de gestão API estiver online, está pronto para usá-lo. 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não é necessário, pode utilizar o comando de eliminação do [grupo AZ](/cli/azure/group#az-group-delete) para remover o grupo de recursos e a instância do serviço de gestão da API.
+Quando já não é necessário, pode utilizar o comando de eliminação do [grupo AZ](/cli/azure/group#az_group_delete) para remover o grupo de recursos e a instância do serviço de gestão da API.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

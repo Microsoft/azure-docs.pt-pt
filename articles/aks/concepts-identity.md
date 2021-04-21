@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/24/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 76871565e0bb4ca1811d46531d07b89181d07e19
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: b10d31cf069bc4f28a1597ec12160fa6ed98b8ce
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105923"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789560"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Access and identity options for Azure Kubernetes Service (AKS) (Opções de acesso e de identidade do Azure Kubernetes Service (AKS))
 
@@ -267,7 +267,7 @@ Para obter mais informações sobre os conceitos core Kubernetes e AKS, consulte
 
 <!-- LINKS - Internal -->
 [openid-connect]: ../active-directory/develop/v2-protocols-oidc.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [azure-rbac]: ../role-based-access-control/overview.md
 [aks-aad]: managed-aad.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md

@@ -7,18 +7,21 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 4f1f432da33bded4fc0f04170673e5943dec5fb0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: b20a1670c13a272ed48088567a205d854ac99179
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311333"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791252"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub Actions fluxos de trabalho para Azure Static Web Apps Preview
 
-Quando cria um novo recurso Azure Static Web App, o Azure gera um fluxo de trabalho GitHub Actions para controlar a implementação contínua da aplicação. O fluxo de trabalho é impulsionado por um ficheiro YAML. Este artigo detalha a estrutura e as opções do ficheiro de fluxo de trabalho.
+Quando cria um novo recurso Azure Static Web Apps, o Azure gera um fluxo de trabalho GitHub Actions para controlar a implementação contínua da aplicação. O fluxo de trabalho é impulsionado por um ficheiro YAML. Este artigo detalha a estrutura e as opções do ficheiro de fluxo de trabalho.
 
 As implementações são iniciadas por [gatilhos,](#triggers)que executam [trabalhos](#jobs) que são definidos por [passos](#steps)individuais.
+
+> [!NOTE]
+> A azure Static Web Apps também suporta Azure DevOps. Consulte [a Publicação com a Azure DevOps](publish-devops.md) para obter informações sobre a criação de um oleoduto.
 
 ## <a name="file-location"></a>Localização do arquivo
 
@@ -179,13 +182,16 @@ with:
 
 ## <a name="route-file-location"></a>Localização do ficheiro de rota
 
-Pode personalizar o fluxo de trabalho para procurar o [staticwebapp.config.jsem](routes.md) qualquer pasta do seu repositório. A seguinte propriedade pode ser definida sob a secção de um `with` trabalho.
+Pode personalizar o fluxo de trabalho para procurar o [routes.jsem](routes.md) qualquer pasta do seu repositório. A seguinte propriedade pode ser definida sob a secção de um `with` trabalho.
 
 | Propriedade          | Descrição                                                                                                                                 |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `routes_location` | Define o local do diretório onde se encontra a _staticwebapp.config.jsno_ ficheiro. Esta localização é relativa à raiz do repositório. |
+| `routes_location` | Define o local do diretório onde se encontra a _routes.jsno_ ficheiro. Esta localização é relativa à raiz do repositório. |
 
-Ser explícito sobre a localização do seu _staticwebapp.config.jsem_ ficheiro é particularmente importante se o seu passo de construção de quadro frontal não mover este ficheiro para o `output_location` por padrão.
+Ser explícito sobre a localização do seu _routes.jsem_ ficheiro é particularmente importante se o seu passo de construção de quadro frontal não mover este ficheiro para o `output_location` por padrão.
+
+> [!IMPORTANT]
+> A funcionalidade definida no _routes.jsem_ ficheiro é agora depreciada. Consulte o ficheiro de [configuração](./configuration.md) de Aplicações Web Estáticas Azure para obter informações sobre _staticwebapp.config.jsem_.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 

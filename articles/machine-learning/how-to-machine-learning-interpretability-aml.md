@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: 2d60c6dbedb24847b95ce268bedafcb073421319
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: d79458cfc76adcfd35a6b8dee40c0c45786abc28
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576521"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763294"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utilize o pacote de interpretação para explicar os modelos ML & previsões em Python (pré-visualização)
 
@@ -34,8 +34,9 @@ Neste guia de como orientar, aprende-se a utilizar o pacote de interpretação d
 * Coloque um explicador de pontuação ao lado do seu modelo para observar explicações durante a inferencção.
 
 
-
 Para obter mais informações sobre as técnicas de interpretação suportadas e modelos de machine learning, consulte [a interpretação do Modelo em Azure Machine Learning](how-to-machine-learning-interpretability.md) e amostra de [cadernos.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
+
+Para obter orientações sobre como permitir a interpretação para modelos treinados com aprendizagem automática de máquinas ver, [Interpretação: explicações de modelos para modelos automatizados de aprendizagem automática de máquinas (pré-visualização)](how-to-machine-learning-interpretability-automl.md). 
 
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Gere um valor de importância de recurso na sua máquina pessoal 
 O exemplo a seguir mostra como utilizar o pacote de interpretação na sua máquina pessoal sem contactar os serviços da Azure.

@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: acaeaa2e5338c86fa59d0e2941719f8fa2708ef1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0d872a60c4aea89e621fe25ade45697244a74fa8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176826"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779728"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Aceda ao painel web Kubernetes no Serviço Azure Kubernetes (AKS)
 
@@ -209,8 +209,8 @@ Para obter mais informações sobre o dashboard Kubernetes, consulte o [Painel d
 [aad-cluster]: ./azure-ad-integration-cli.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [aks-service-accounts]: ./concepts-identity.md#kubernetes-service-accounts
-[az-account-get-access-token]: /cli/azure/account#az-account-get-access-token
-[az-aks-browse]: /cli/azure/aks#az-aks-browse
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-account-get-access-token]: /cli/azure/account#az_account_get-access-token
+[az-aks-browse]: /cli/azure/aks#az_aks_browse
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
 [kubernetes-portal]: ./kubernetes-portal.md

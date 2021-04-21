@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 41c6995f16b836231142520362f9aace7d91ffe0
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: a5e0e5544c5e66f43b56de49beaa3ef3932d33f9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500316"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776884"
 ---
 # <a name="create-a-vm-from-a-generalized-image-version-using-the-azure-cli"></a>Criar um VM a partir de uma versão de imagem generalizada usando o Azure CLI
 
@@ -23,7 +23,7 @@ Crie um VM a partir de uma [versão de imagem generalizada](./shared-image-galle
 
 ## <a name="get-the-image-id"></a>Obtenha a imagem ID
 
-Listar as definições de imagem numa galeria utilizando [a lista de definições de imagem az sig](/cli/azure/sig/image-definition#az-sig-image-definition-list) para ver o nome e o ID das definições.
+Listar as definições de imagem numa galeria utilizando [a lista de definições de imagem az sig](/cli/azure/sig/image-definition#az_sig_image_definition_list) para ver o nome e o ID das definições.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -33,7 +33,7 @@ az sig image-definition list --resource-group $resourceGroup --gallery-name $gal
 
 ## <a name="create-the-vm"></a>Criar a VM
 
-Crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Para utilizar a versão mais recente da imagem, `--image` desafine-se no ID da definição de imagem. 
+Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). Para utilizar a versão mais recente da imagem, `--image` desafine-se no ID da definição de imagem. 
 
 Substitua os nomes de recursos necessários neste exemplo. 
 

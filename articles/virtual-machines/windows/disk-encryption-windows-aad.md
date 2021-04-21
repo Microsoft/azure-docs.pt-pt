@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3b7f6f63953ba09e57e4586c698e16b9abb8aa1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 081ead434dbdc3b9c348e3fa35068a638bab6e62
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555283"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776866"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Encriptação do disco Azure com Azure AD para VMs do Windows (versão anterior)
 
@@ -37,7 +37,7 @@ Pode ativar a encriptação do disco em novo IaaS Windows VM a partir do Marketp
 2. Selecione a subscrição, grupo de recursos, localização do grupo de recursos, parâmetros, termos legais e acordo. Clique **em Comprar** para implementar um novo IaaS VM onde a encriptação está ativada.
 
 3. Depois de implementar o modelo, verifique o estado de encriptação VM utilizando o seu método preferido:
-     - Verifique com o CLI Azure utilizando o comando [do programa de encriptação az vm.](/cli/azure/vm/encryption#az-vm-encryption-show) 
+     - Verifique com o CLI Azure utilizando o comando [do programa de encriptação az vm.](/cli/azure/vm/encryption#az_vm_encryption_show) 
 
          ```azurecli-interactive 
          az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
@@ -124,7 +124,7 @@ Utilize o [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute
      ```
 
 ### <a name="enable-encryption-on-existing-or-running-vms-with--azure-cli"></a><a name="bkmk_RunningWinVMCLI"></a>Ativar a encriptação em VMs existentes ou em execução com CLI Azure
-Utilize a [encriptação az vm ativar](/cli/azure/vm/encryption#az-vm-encryption-enable) o comando para ativar a encriptação numa máquina virtual IaaS em execução em Azure.
+Utilize a [encriptação az vm ativar](/cli/azure/vm/encryption#az_vm_encryption_enable) o comando para ativar a encriptação numa máquina virtual IaaS em execução em Azure.
 
 - **Criptografe um VM em execução usando um segredo de cliente:**
 
@@ -141,13 +141,13 @@ Utilize a [encriptação az vm ativar](/cli/azure/vm/encryption#az-vm-encryption
      >[!NOTE]
      > A sintaxe para o valor do parâmetro de chave-chave de encriptação de disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name] </br> A sintaxe para o valor do parâmetro chave-chave de encriptação é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Verifique se os discos estão encriptados:** Para verificar o estado de encriptação de um IaaS VM, utilize o comando [do programa de encriptação az vm.](/cli/azure/vm/encryption#az-vm-encryption-show) 
+- **Verifique se os discos estão encriptados:** Para verificar o estado de encriptação de um IaaS VM, utilize o comando [do programa de encriptação az vm.](/cli/azure/vm/encryption#az_vm_encryption_show) 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **Desativar a encriptação:** Para desativar a encriptação, utilize o comando [de desativação de encriptação az vm.](/cli/azure/vm/encryption#az-vm-encryption-disable) 
+- **Desativar a encriptação:** Para desativar a encriptação, utilize o comando [de desativação de encriptação az vm.](/cli/azure/vm/encryption#az_vm_encryption_disable) 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```
@@ -319,7 +319,7 @@ Pode desativar a encriptação utilizando o Azure PowerShell, o Azure CLI ou com
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
 
-- **Desative a encriptação com o Azure CLI:** Para desativar a encriptação, utilize o comando [de desativação de encriptação az vm.](/cli/azure/vm/encryption#az-vm-encryption-disable) 
+- **Desative a encriptação com o Azure CLI:** Para desativar a encriptação, utilize o comando [de desativação de encriptação az vm.](/cli/azure/vm/encryption#az_vm_encryption_disable) 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```

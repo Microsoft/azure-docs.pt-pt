@@ -9,16 +9,16 @@ author: rolyon
 ms.author: rolyon
 ms.date: 04/09/2021
 ms.custom: generated
-ms.openlocfilehash: e11e03ec7379dede6bf998f639a237201c297e72
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d6126e9d782765b992ae2fd51016984389c9b187
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303632"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778306"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações de fornecedor de recursos Azure
 
-Esta secção lista as operações para os fornecedores de recursos Azure, que são utilizados em funções incorporadas. Você pode usar estas operações em suas [próprias funções personalizadas Azure](custom-roles.md) para fornecer controlo de acesso granular aos recursos em Azure. As operações do fornecedor de recursos estão sempre a evoluir. Para obter as últimas operações, utilize a lista de operações [da Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [do fornecedor az](/cli/azure/provider/operation#az-provider-operation-list).
+Esta secção lista as operações para os fornecedores de recursos Azure, que são utilizados em funções incorporadas. Você pode usar estas operações em suas [próprias funções personalizadas Azure](custom-roles.md) para fornecer controlo de acesso granular aos recursos em Azure. As operações do fornecedor de recursos estão sempre a evoluir. Para obter as últimas operações, utilize a lista de operações [da Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [do fornecedor az](/cli/azure/provider/operation#az_provider_operation_list).
 
 Clique no nome do fornecedor de recursos na tabela seguinte para ver a lista de operações.
 
@@ -4259,8 +4259,8 @@ Serviço Azure: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQ
 > | Microsoft.Sql/locations/longTermRetentionManagedInstanceBackupAzureAsyncOperation/read | Obtenha o estado da operação de backup de retenção de longo prazo gerida |
 > | Microsoft.Sql/locations/longTermRetentionManagedInstanceBackupOperationResults/read | Obtenha o estado da operação de backup de retenção de longo prazo gerida |
 > | Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read | Devolve uma lista de cópias de segurança LTR de instância gerida para uma localização específica  |
-> | Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read | Devolve uma lista de backups LTR para uma base de dados de casos geridos |
-> | Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/deletes/deletes | Elimina uma cópia de segurança LTR para uma base de dados de casos geridos |
+> | Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read | Devolve uma lista de backups LTR para uma base de dados de casos geridos |
+> | Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete | Elimina uma cópia de segurança LTR para uma base de dados de casos geridos |
 > | Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read | Devolve uma lista de cópias de segurança LTR de instância gerida para uma instância gerida específica |
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read | Lista as cópias de segurança de retenção a longo prazo para cada base de dados de um servidor |
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/copy/action | Copie uma cópia de retenção de longo prazo |
@@ -6549,7 +6549,7 @@ Serviço Azure: [Âncoras Espaciais Azure](../spatial-anchors/index.yml)
 > | Microsoft.MixedReality/unregister/action | Não registra uma subscrição para o fornecedor de recursos de Realidade Mista. |
 > | Microsoft.MixedReality/locations/checknameavailability/read | Verificações de disponibilidade de nomes |
 > | Microsoft.MixedReality/ObjectAnchorsAccounts/delete | Eliminar uma conta de âncoras de objetos |
-> | Microsoft.MixedReality/ObjectAnchorsAccounts/listkeys/action | Listar as chaves de uma conta 'Âncoras de Objeto' |
+> | Microsoft.MixedReality/ObjectAnchorsAccounts/listkeys/action | Listar as chaves de uma conta 'Âncoras de Objecto' |
 > | Microsoft.MixedReality/ObjectAnchorsAccounts/read | Leia as propriedades de uma conta de Âncoras de Objeto |
 > | Microsoft.MixedReality/ObjectAnchorsAccounts/regeneratekeys/action | Regenerar as chaves de uma conta de Âncoras de Objetos |
 > | Microsoft.MixedReality/ObjectAnchorsAccounts/write | Atualizar as propriedades de uma conta De Âncoras de Objeto |

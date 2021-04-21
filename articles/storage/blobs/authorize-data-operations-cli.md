@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 06b37e8b25d932115384124a45156c801fb9708f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53ad6dd922c1ccebd79aebcd2966b23b38de00e7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361677"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776902"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-with-azure-cli"></a>Escolha como autorizar o acesso a dados blob com o Azure CLI
 
@@ -63,7 +63,7 @@ O exemplo a seguir mostra como criar um recipiente a partir do Azure CLI utiliza
     > [!IMPORTANT]
     > As atribuições de funções azure podem demorar alguns minutos a propagar-se.
 
-1. Ligue para o [recipiente de armazenamento az criar](/cli/azure/storage/container#az-storage-container-create) comando com o parâmetro definido para criar o recipiente `--auth-mode` `login` usando as suas credenciais AZure AD. Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
+1. Ligue para o [recipiente de armazenamento az criar](/cli/azure/storage/container#az_storage_container_create) comando com o parâmetro definido para criar o recipiente `--auth-mode` `login` usando as suas credenciais AZure AD. Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
 
     ```azurecli
     az storage container create \

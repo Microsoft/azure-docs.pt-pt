@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 242c0819e916f3ea7912d4d57b7d3e338152e4d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 115c083a75adab96e416fc200bf7db287a99ff4e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878515"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788426"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Problemas de resolução de ficheiros Azure no Windows (SMB)
 
@@ -28,7 +28,7 @@ Quando tentar montar uma partilha de ficheiros, poderá receber o seguinte erro:
 
 - Ocorreu o erro de sistema 5. O acesso é negado.
 
-### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: Canal de comunicação não encriptado
+### <a name="cause-1-unencrypted-communication-channel"></a>Motivo 1: Canal de comunicação não encriptado
 
 Por motivos de segurança, as ligações para as partilhas de ficheiros do Azure serão bloqueadas se o canal de comunicação não estiver encriptado e se a tentativa de ligação não for feita a partir do mesmo datacenter onde residem as partilhas de ficheiros do Azure. As ligações não encriptadas dentro do mesmo datacenter poderão também ser bloqueadas se a definição [Transferência segura necessária](../common/storage-require-secure-transfer.md) estiver ativada na conta de armazenamento. Será fornecido um canal de comunicação encriptado apenas se o SO do cliente do utilizador suportar a encriptação SMB.
 
@@ -39,7 +39,7 @@ O Windows 8, o Windows Server 2012 e versões posteriores de cada sistema nego
 1. Conecte-se a partir de um cliente que suporte encriptação SMB (Windows 8, Windows Server 2012 ou posterior) ou conecte-se a partir de uma máquina virtual no mesmo centro de dados que a conta de armazenamento Azure que é usada para a partilha de ficheiros Azure.
 2. Verifique se a [definição de transferência necessária](../common/storage-require-secure-transfer.md) para a transferência segura está desativada na conta de armazenamento se o cliente não suportar encriptação SMB.
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: As regras de rede virtual ou firewall estão ativadas na conta de armazenamento 
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Motivo 2: As regras de firewall ou de rede virtual estão ativadas na conta de armazenamento 
 
 Caso estejam configuradas regras de firewall ou de rede virtual (VNET) na conta de armazenamento, será negado o acesso ao tráfego de rede, a menos que o endereço IP do cliente ou a rede virtual tenha permissão de acesso.
 
@@ -111,7 +111,7 @@ TcpTestSucceeded : True
 ### <a name="solution-for-cause-1"></a>Solução para o motivo 1
 
 #### <a name="solution-1---use-azure-file-sync"></a>Solução 1 – Utilize o Azure File Sync
-O Azure File Sync pode transformar o seu Windows Server no local numa cache rápida da sua partilha de ficheiros Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. O Azure File Sync funciona na porta 443 e pode assim servir como uma solução alternativa para aceder aos Ficheiros do Azure de clientes que tenham a porta 445 bloqueada. [Saiba como configurar o Azure File Sync](./storage-sync-files-extend-servers.md).
+O Azure File Sync pode transformar o seu Windows Server no local numa cache rápida da sua partilha de ficheiros Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. O Azure File Sync funciona na porta 443 e pode assim servir como uma solução alternativa para aceder aos Ficheiros do Azure de clientes que tenham a porta 445 bloqueada. [Saiba como configurar o Azure File Sync](../file-sync/file-sync-extend-servers.md).
 
 #### <a name="solution-2---use-vpn"></a>Solução 2 – Utilizar a VPN
 Ao configurar uma VPN na sua conta de armazenamento específica, o tráfego passará por um túnel seguro em oposição à internet. Siga as [instruções para configurar a VPN](storage-files-configure-p2s-vpn-windows.md) para aceder aos Ficheiros do Azure a partir do Windows.

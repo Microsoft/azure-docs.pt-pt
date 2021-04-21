@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ec48ec32250e271eff9e40535689f83dd9d3b60c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: b77a26f61e1168846156de990806bbed2f7c41e3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483638"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789542"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configure credenciais de implementação para o Azure App Service
 Para garantir a implementação de aplicações a partir de um computador local, [o Azure App Service](./overview.md) suporta dois tipos de credenciais para a [implementação local](deploy-local-git.md) do Git e para a [implementação ftp/S](deploy-ftp.md). Estas credenciais não são as mesmas que as suas credenciais de subscrição Azure.
@@ -24,9 +24,9 @@ Para garantir a implementação de aplicações a partir de um computador local,
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Executar o comando [de conjunto de utilizadores de implementação az webapp.](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) Substitua \<username> e por um nome de utilizador de \<password> implementação e senha. 
+Executar o comando [de conjunto de utilizadores de implementação az webapp.](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) Substitua \<username> e por um nome de utilizador de \<password> implementação e senha. 
 
-- O nome de utilizador deve ser único dentro do Azure, e para os pushes git locais, não deve conter o símbolo de ™ de €@â€ . 
+- O nome de utilizador deve ser único dentro do Azure, e para os pushes git locais, não deve conter o símbolo '@'. 
 - A palavra-passe deve ter pelo menos oito caracteres, com dois dos seguintes três elementos: letras, números e símbolos. 
 
 ```azurecli-interactive
@@ -144,7 +144,7 @@ Para desativar o acesso FTP ao site, executar o seguinte comando CLI. Substitua 
 az resource update --resource-group <resource-group> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-Para confirmar que o acesso FTP está bloqueado, pode tentar autenticar usando um cliente FTP, como o FileZilla. Para obter as credenciais de publicação, vá à lâmina de visão geral do seu site e clique em Baixar Perfil de Publicação. Utilize o nome de anfitrião FTP, nome de utilizador e palavra-passe do ficheiro€™, o nome de utilizador e a palavra-passe para autenticar, e obterá uma resposta de erro 401, indicando que não está autorizado.
+Para confirmar que o acesso FTP está bloqueado, pode tentar autenticar usando um cliente FTP, como o FileZilla. Para obter as credenciais de publicação, vá à lâmina de visão geral do seu site e clique em Baixar Perfil de Publicação. Utilize o nome de anfitrião FTP do ficheiro, o nome de utilizador e a palavra-passe para autenticar, e obterá uma resposta de erro 401, indicando que não está autorizado.
 
 ### <a name="webdeploy-and-scm"></a>WebDeploy e SCM
 

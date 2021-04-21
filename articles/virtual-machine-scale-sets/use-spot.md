@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ec73d1363fb18d1d6c46589fe69879a8f6df1dab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61bb87d84b96f988ae065a70b85d445fc8b96ccf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722570"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762952"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Máquinas virtuais Azure Spot para conjuntos de escala de máquinas virtuais 
 
@@ -82,7 +82,7 @@ Antes de poder utilizar a função de restauro &, tem de registar a sua subscri�
 
 **Utilizar a CLI**
 
-Utilize [o registo de funcionalidades AZ](/cli/azure/feature#az-feature-register) para ativar a pré-visualização da sua subscrição. 
+Utilize [o registo de funcionalidades AZ](/cli/azure/feature#az_feature_register) para ativar a pré-visualização da sua subscrição. 
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SpotTryRestore 

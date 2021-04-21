@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 4/14/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: b5f6f06af3eecabe26f7b587a790912f99b006e4
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 4a18e0f257ac8d7b7d981d53249cf29f2f8f38bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107496763"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790154"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -135,7 +135,7 @@ Pode recuperar programáticamente a lista atual de tags de serviço juntamente c
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
-- [CLI do Azure](/cli/azure/network#az-network-list-service-tags)
+- [CLI do Azure](/cli/azure/network#az_network_list_service_tags)
 
 > [!NOTE]
 > Leva até 4 semanas para que novos dados de Marca de Serviço se propaguem nos resultados da API. O número de alteração nos metadados de resposta será incrementado quando isso acontecer. Pode haver diferenças temporárias nos resultados quando são especificados valores de localização diferentes. Ao utilizar os resultados para criar regras NSG, deve definir o paramater de localização para corresponder à região do NSG. 

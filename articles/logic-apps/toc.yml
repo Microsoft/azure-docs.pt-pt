@@ -36,8 +36,12 @@
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic'
 - name: Conceitos
   items:
-    - name: Conectores para as Logic Apps
+    - name: Visão geral dos conectores para apps lógicas
       href: ../connectors/apis-list.md
+    - name: Conectores geridos para aplicações lógicas
+      href: ../connectors/managed.md
+    - name: Conectores incorporados para aplicações lógicas
+      href: ../connectors/built-in.md
     - name: Agendar fluxos de trabalho periódicos
       href: concepts-schedule-automated-recurring-tasks-workflows.md
     - name: Sem servidor com o Azure

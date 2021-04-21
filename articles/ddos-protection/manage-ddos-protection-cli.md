@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 98c71f3cf1c521c08d177acb89aad85301e61579
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 8a8da50dc703d59dc16b5cb6253d39aeb33fd76d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103016"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777640"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>Quickstart: Criar e configurar norma de proteção Azure DDoS usando Azure CLI
 
@@ -39,7 +39,7 @@ Se optar por instalar e utilizar o CLI localmente, este arranque rápido requer 
 
 Em Azure, aloca recursos relacionados a um grupo de recursos. Pode utilizar um grupo de recursos existente ou criar um novo.
 
-Para criar um grupo de recursos, utilize [o grupo AZ criar](/cli/azure/group#az-group-create). Neste exemplo, vamos nomear o nosso grupo de recursos _MyResourceGroup_ e usar a localização _dos EUA orientais:_
+Para criar um grupo de recursos, utilize [o grupo AZ criar](/cli/azure/group#az_group_create). Neste exemplo, vamos nomear o nosso grupo de recursos _MyResourceGroup_ e usar a localização _dos EUA orientais:_
 
 ```azurecli-interactive
 az group create \

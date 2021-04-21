@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 89bd77c30ec52a72087598b86f22e85659fa1b0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8bdb843ab6304f2f38228f37d8709e4084ee52e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102203900"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775336"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integre as Gémeas Digitais Azure com o Serviço Azure SignalR
 
@@ -189,7 +189,7 @@ Isto abrirá uma janela do navegador que executa a aplicação da amostra, que e
 
 Se já não necessitar dos recursos criados neste artigo, siga estes passos para os eliminar. 
 
-Utilizando o Azure Cloud Shell ou o Azure CLI local, pode eliminar todos os recursos Azure num grupo de recursos com o comando de eliminação do [grupo Az.](/cli/azure/group#az-group-delete) A remoção do grupo de recursos também removerá...
+Utilizando o Azure Cloud Shell ou o Azure CLI local, pode eliminar todos os recursos Azure num grupo de recursos com o comando de eliminação do [grupo Az.](/cli/azure/group#az_group_delete) A remoção do grupo de recursos também removerá...
 * o exemplo das Gémeas Digitais Azure (do tutorial de ponta a ponta)
 * o hub IoT e o registo do dispositivo do hub (do tutorial de ponta a ponta)
 * o tópico da grelha de eventos e subscrições associadas

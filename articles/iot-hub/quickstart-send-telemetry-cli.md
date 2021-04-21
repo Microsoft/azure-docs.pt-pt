@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 4671880490a9ce9e29f49ede0e7687bdcf639a7e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a34fd5480ae47678f250dbf888005c396ba32f38
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199803"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792152"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT e monitorizá-lo com o Azure CLI
 
@@ -55,7 +55,7 @@ Nesta secção, prepare duas sessões Azure CLI. Se estiver a utilizar o Cloud S
 
 O Azure CLI requer que você esteja registado na sua conta Azure. Toda a comunicação entre a sua sessão de concha Azure CLI e o seu hub IoT é autenticada e encriptada. Como resultado, este quickstart não necessita de autenticação adicional que utilizaria com um dispositivo real, como uma cadeia de ligação.
 
-*  Executar o comando [de adicionar extensão az](/cli/azure/extension#az-extension-add) para adicionar a extensão IoT do Microsoft Azure para Azure CLI à sua concha CLI. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
+*  Executar o comando [de adicionar extensão az](/cli/azure/extension#az_extension_add) para adicionar a extensão IoT do Microsoft Azure para Azure CLI à sua concha CLI. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
 
    ```azurecli
    az extension add --name azure-iot
@@ -76,13 +76,13 @@ Nesta secção, você usa o CLI Azure para criar um grupo de recursos e um Hub I
 > [!TIP]
 > Opcionalmente, pode criar um grupo de recursos Azure, um Hub IoT e outros recursos utilizando o [portal Azure](iot-hub-create-through-portal.md), [Visual Studio Code,](iot-hub-create-use-iot-toolkit.md)ou outros métodos programáticos.  
 
-1. Executar o [grupo az criar](/cli/azure/group#az-group-create) comando para criar um grupo de recursos. O seguinte comando cria um grupo de recursos chamado *MyResourceGroup* na localização *leste.* 
+1. Executar o [grupo az criar](/cli/azure/group#az_group_create) comando para criar um grupo de recursos. O seguinte comando cria um grupo de recursos chamado *MyResourceGroup* na localização *leste.* 
 
     ```azurecli
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Executar o [hub az iot criar](/cli/azure/iot/hub#az-iot-hub-create) comando para criar um hub IoT. Pode levar alguns minutos para criar um hub IoT. 
+1. Executar o [hub az iot criar](/cli/azure/iot/hub#az_iot_hub_create) comando para criar um hub IoT. Pode levar alguns minutos para criar um hub IoT. 
 
     *Seu Nome YourIotHub.* Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. Um nome de hub IoT deve ser globalmente único em Azure. Este espaço reservado é utilizado no resto deste quickstart para representar o seu nome de hub IoT.
 
@@ -184,12 +184,12 @@ Se continuar com o próximo artigo recomendado, pode manter os recursos que já 
 > A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. 
 
 Para eliminar um grupo de recursos por nome:
-1. Executar o [comando de eliminação do grupo az.](/cli/azure/group#az-group-delete) Isto remove o grupo de recursos, o Hub IoT e o registo do dispositivo que criou.
+1. Executar o [comando de eliminação do grupo az.](/cli/azure/group#az_group_delete) Isto remove o grupo de recursos, o Hub IoT e o registo do dispositivo que criou.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Executar o comando [da lista de grupos az](/cli/azure/group#az-group-list) para confirmar que o grupo de recursos é eliminado.  
+1. Executar o comando [da lista de grupos az](/cli/azure/group#az_group_list) para confirmar que o grupo de recursos é eliminado.  
 
     ```azurecli
     az group list

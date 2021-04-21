@@ -12,12 +12,12 @@ ms.date: 04/09/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: no local, OCR, Docker, contentor
-ms.openlocfilehash: 1b4af5dddf8878118bc5f222532cc9e2d0f9dd66
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: dead48d7d449d1d403359c518eb842b32a54c634
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308793"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779098"
 ---
 # <a name="install-read-ocr-docker-containers"></a>Instalar Ler recipientes OCR Docker
 
@@ -452,6 +452,6 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 
 * [Rever recipientes de configuração](computer-vision-resource-container-config.md) para configurações de configuração
 * Reveja a [visão geral](overview-ocr.md) do OCR para saber mais sobre o reconhecimento de texto impresso e manuscrito
-* Consulte a [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) para obter mais informações sobre os métodos suportados pelo recipiente.
+* Consulte a [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) para obter mais informações sobre os métodos suportados pelo recipiente.
 * Consulte [perguntas frequentes (FAQ)](FAQ.md) para resolver problemas relacionados com a funcionalidade de Visão de Computador.
 * Use mais [recipientes de serviços cognitivos](../cognitive-services-container-support.md)

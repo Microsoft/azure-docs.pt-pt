@@ -3,12 +3,12 @@ title: Definir variáveis ambientais em instância de contentor
 description: Saiba como definir variáveis ambientais nos recipientes que corre em Instâncias de Contentores Azure
 ms.topic: article
 ms.date: 04/17/2019
-ms.openlocfilehash: 92ae59f69b7cb43fee1d3ce8190a85fc20a11f60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d95ee3d64460aa5e11f450c9e582cdc0de4f0ae
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86169770"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790802"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Definir variáveis ambientais em instâncias de contentores
 
@@ -248,10 +248,10 @@ Cenários baseados em tarefas, como o processamento de um grande conjunto de dad
 [aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-exec]: /cli/azure/container#az-container-exec
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-exec]: /cli/azure/container#az_container_exec
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
 [azure-powershell-install]: /powershell/azure/install-Az-ps

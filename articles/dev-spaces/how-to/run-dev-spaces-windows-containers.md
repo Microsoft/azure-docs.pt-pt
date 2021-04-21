@@ -5,12 +5,12 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Saiba como executar espaços Azure Dev em um cluster existente com recipientes Windows
 keywords: Espaços Azure Dev, Espaços Dev, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores, contentores Windows
-ms.openlocfilehash: 682af37b79083fb360a17f87624f69239c03549d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bbef5eafe44e38691327714c14c6a6026d45a3c7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198188"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777442"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interaja com recipientes Windows usando espaços Azure Dev
 
@@ -179,6 +179,6 @@ Saiba mais sobre o funcionamento da Azure Dev Spaces.
 [helm-installed]: https://helm.sh/docs/intro/install/
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [using-taints]: ../../aks/use-multiple-node-pools.md#setting-nodepool-taints
 [windows-container-cli]: ../../aks/windows-container-cli.md

@@ -3,15 +3,15 @@ title: Continuidade de negócio e recuperação após desastre
 description: Desenhe a sua estratégia para proteger os dados, recupere rapidamente de eventos disruptivos, restaure os recursos exigidos pelas funções críticas do negócio e mantenha a continuidade do negócio para a Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: f974a99c59b19b5df7bf6ffcc66c2dc133743f0a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89658211"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790544"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuidade de negócios e recuperação de desastres para Azure Logic Apps
 
@@ -46,7 +46,7 @@ Para a estratégia de failover, as suas aplicações lógicas e locais devem sat
 
 * Ambas as instâncias de aplicações lógicas têm o mesmo tipo de anfitrião. Assim, ou ambas as instâncias são implementadas em regiões no Azure multi-inquilino global, ou ambas as instâncias são implementadas para ISEs, que permitem que as suas aplicações lógicas acedam diretamente a recursos numa rede virtual Azure. Para as melhores práticas e mais informações sobre as regiões emparelhadas para o BCDR, consulte [a continuidade do Negócio e a recuperação de desastres (BCDR): regiões emparelhadas azure](../best-practices-availability-paired-regions.md).
 
-  Por exemplo, tanto as localizações primárias como secundárias devem ser ISEs quando a aplicação de lógica primária é executada num ISE e utiliza [conectores com versão ISE](../connectors/apis-list.md#ise-connectors), ações HTTP para chamar recursos na rede virtual Azure, ou ambos. Neste cenário, a sua aplicação de lógica secundária também deve ter uma configuração semelhante no local secundário como a aplicação lógica primária.
+  Por exemplo, tanto as localizações primárias como secundárias devem ser ISEs quando a aplicação de lógica primária é executada num ISE e utiliza [conectores com versão ISE](../connectors/managed.md#ise-connectors), ações HTTP para chamar recursos na rede virtual Azure, ou ambos. Neste cenário, a sua aplicação de lógica secundária também deve ter uma configuração semelhante no local secundário como a aplicação lógica primária.
 
   > [!NOTE]
   > Para cenários mais avançados, você pode misturar tanto o Azure multi-inquilino como um ISE como locais. No entanto, certifique-se de que considera e compreende as [diferenças entre a forma como as aplicações lógicas funcionam num ISE contra o multi-inquilino Azure.](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference)

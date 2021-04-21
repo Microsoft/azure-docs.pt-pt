@@ -4,12 +4,12 @@ description: Este artigo fornece um script Azure CLI que para e elimina uma máq
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
-ms.openlocfilehash: 3f3802837685281339f0ca355c677e1a0ceac067
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e30ee47c4f34fe6a71e8c934a4f36cb7edbbe20e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198217"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777346"
 ---
 # <a name="use-azure-cli-to-stop-and-delete-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Utilizar a CLI do Azure para parar e eliminar uma máquina virtual num laboratório no Azure DevTest Labs
 
@@ -29,8 +29,8 @@ Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| [az lab vm stop](/cli/azure/lab/vm#az-lab-vm-stop) | Para uma máquina virtual (VM) num laboratório. Esta operação pode demorar algum tempo. |
-| [az lab vm delete](/cli/azure/lab/vm#az-lab-vm-delete) | Elimina uma máquina virtual (VM) num laboratório. Esta operação pode demorar algum tempo. |
+| [az lab vm stop](/cli/azure/lab/vm#az_lab_vm_stop) | Para uma máquina virtual (VM) num laboratório. Esta operação pode demorar algum tempo. |
+| [az lab vm delete](/cli/azure/lab/vm#az_lab_vm_delete) | Elimina uma máquina virtual (VM) num laboratório. Esta operação pode demorar algum tempo. |
 
 
 ## <a name="next-steps"></a>Passos seguintes

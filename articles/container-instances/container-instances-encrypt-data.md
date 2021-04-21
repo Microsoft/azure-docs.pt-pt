@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: 1b73ce5c994231a1c7b2f26ad702f2ad5880ba44
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23c81aeab3bf6e9ee7f2d89fbdf8def20dab4aa7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94686281"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790874"
 ---
 # <a name="encrypt-deployment-data"></a>Encriptar dados de implementação
 
@@ -242,5 +242,5 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 Dentro de alguns segundos, deverá receber uma resposta inicial do Azure. Uma vez concluída a implementação, todos os dados relacionados com o mesmo persistidos pelo serviço ACI serão encriptados com a chave fornecida.
 
 <!-- LINKS - Internal -->
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group/#az-deployment-group-create
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group/#az_deployment_group_create

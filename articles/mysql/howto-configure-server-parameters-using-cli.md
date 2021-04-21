@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a5a84d93400e713f66545387fd146148ee735c06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94dd7f72f6411934587c76850a05d6885e9f6862
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94541543"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763222"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-cli"></a>Configurar os parâmetros do servidor na Base de Dados Azure para o MySQL utilizando o Azure CLI
 Pode listar, mostrar e atualizar parâmetros de configuração para uma Base de Dados Azure para o servidor MySQL utilizando o Azure CLI, o utilitário da linha de comando Azure. Um subconjunto de configurações do motor é exposto ao nível do servidor e pode ser modificado. 
@@ -27,7 +27,7 @@ Para passar por este guia, precisa:
 - Utilitário da linha de comando [Azure CLI](/cli/azure/install-azure-cli) ou use o Azure Cloud Shell no navegador.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Listar os parâmetros de configuração do servidor para Azure Database para o servidor MySQL
-Para listar todos os parâmetros modificáveis num servidor e os seus valores, execute o comando da lista de configuração do [servidor az mysql.](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list)
+Para listar todos os parâmetros modificáveis num servidor e os seus valores, execute o comando da lista de configuração do [servidor az mysql.](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list)
 
 Pode listar os parâmetros de configuração do servidor para o **servidor mydemoserver.mysql.database.azure.com** no grupo de recursos **myresourcegroup**.
 ```azurecli-interactive
@@ -36,14 +36,14 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 Para a definição de cada um dos parâmetros listados, consulte a secção de referência MySQL nas [Variáveis do Sistema do Servidor](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
 
 ## <a name="show-server-configuration-parameter-details"></a>Mostrar detalhes do parâmetro de configuração do servidor
-Para mostrar detalhes sobre um parâmetro de configuração particular para um servidor, executar o comando de configuração do [servidor az mysql.](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show)
+Para mostrar detalhes sobre um parâmetro de configuração particular para um servidor, executar o comando de configuração do [servidor az mysql.](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_show)
 
 Este exemplo mostra detalhes do parâmetro de configuração do servidor **\_ de \_ registo** de consulta lenta para **mydemoserver.mysql.database.azure.com** de servidor sob o grupo de recursos **myresourcegroup.**
 ```azurecli-interactive
 az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="modify-a-server-configuration-parameter-value"></a>Modificar o valor do parâmetro de configuração do servidor
-Também pode modificar o valor de um determinado parâmetro de configuração do servidor, que atualiza o valor de configuração subjacente ao motor do servidor MySQL. Para atualizar a configuração, utilize o comando de configuração do [servidor az mysql.](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) 
+Também pode modificar o valor de um determinado parâmetro de configuração do servidor, que atualiza o valor de configuração subjacente ao motor do servidor MySQL. Para atualizar a configuração, utilize o comando de configuração do [servidor az mysql.](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) 
 
 Para atualizar o parâmetro de configuração do servidor de **\_ \_ registo** de consulta lenta do servidor **mydemoserver.mysql.database.azure.com** no grupo de recursos **myresourcegroup.**
 ```azurecli-interactive
@@ -87,7 +87,7 @@ SELECT name FROM mysql.time_zone_name;
 
 ### <a name="setting-the-global-level-time-zone"></a>Definição do fuso horário de nível global
 
-O fuso horário de nível global pode ser definido usando o comando de configuração do [servidor az mysql.](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set)
+O fuso horário de nível global pode ser definido usando o comando de configuração do [servidor az mysql.](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set)
 
 O comando seguinte atualiza o parâmetro de configuração do servidor do fuso **\_ horário** do servidor **mydemoserver.mysql.database.azure.com** no âmbito do grupo de recursos **myresourcegroup** para **EUA/Pacífico**.
 

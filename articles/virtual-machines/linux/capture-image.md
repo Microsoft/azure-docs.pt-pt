@@ -9,12 +9,12 @@ ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
-ms.openlocfilehash: 8e81c204c1f05b7fc6bdf1efc7060e2094c648e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dddbad2403734bc749497a7acca16b2a5b6076f4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102630627"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792260"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem gerida de uma máquina virtual ou VHD
 
@@ -32,7 +32,7 @@ Vai precisar dos seguintes itens antes de criar uma imagem:
 
 * Um Azure VM criado no modelo de implementação do Gestor de Recursos que utiliza discos geridos. Se ainda não criou um Linux VM, pode utilizar o [portal](quick-create-portal.md), o [Azure CLI](quick-create-cli.md)ou [os modelos Resource Manager](create-ssh-secured-vm-from-template.md). Configure o VM conforme necessário. Por exemplo, [adicione discos de dados,](add-disk.md)aplique atualizações e instale aplicações. 
 
-* O mais recente [Azure CLI](/cli/azure/install-az-cli2) instalou e foi iniciado numa conta Azure com [login az](/cli/azure/reference-index#az-login).
+* O mais recente [Azure CLI](/cli/azure/install-az-cli2) instalou e foi iniciado numa conta Azure com [login az](/cli/azure/reference-index#az_login).
 
 ## <a name="prefer-a-tutorial-instead"></a>Prefere um tutorial?
 
@@ -77,7 +77,7 @@ Utilize o CLI Azure para marcar o VM como generalizado e capturar a imagem. Nos 
 
     Um VM que foi generalizado já não pode ser reiniciado.
 
-3. Crie uma imagem do recurso VM com [a imagem az criar](/cli/azure/image#az-image-create). O exemplo a seguir cria uma imagem chamada *myImage* no grupo de recursos chamado *myResourceGroup* usando o recurso VM chamado *myVM*.
+3. Crie uma imagem do recurso VM com [a imagem az criar](/cli/azure/image#az_image_create). O exemplo a seguir cria uma imagem chamada *myImage* no grupo de recursos chamado *myResourceGroup* usando o recurso VM chamado *myVM*.
    
     ```azurecli
     az image create \
@@ -106,7 +106,7 @@ az vm create \
 
 ### <a name="creating-the-vm-in-another-resource-group"></a>Criar o VM em outro grupo de recursos 
 
-Pode criar VMs a partir de uma imagem em qualquer grupo de recursos dentro da sua subscrição. Para criar um VM num grupo de recursos diferente da imagem, especifique o ID completo do recurso para a sua imagem. Use [a lista de imagens az](/cli/azure/image#az-image-list) para ver uma lista de imagens. O resultado será semelhante ao seguinte exemplo.
+Pode criar VMs a partir de uma imagem em qualquer grupo de recursos dentro da sua subscrição. Para criar um VM num grupo de recursos diferente da imagem, especifique o ID completo do recurso para a sua imagem. Use [a lista de imagens az](/cli/azure/image#az_image_list) para ver uma lista de imagens. O resultado será semelhante ao seguinte exemplo.
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -114,7 +114,7 @@ Pode criar VMs a partir de uma imagem em qualquer grupo de recursos dentro da su
    "name": "myImage",
 ```
 
-O exemplo a seguir utiliza [a criação de az vm](/cli/azure/vm#az-vm-create) para criar um VM num grupo de recursos diferente da imagem de origem, especificando o ID do recurso de imagem.
+O exemplo a seguir utiliza [a criação de az vm](/cli/azure/vm#az_vm_create) para criar um VM num grupo de recursos diferente da imagem de origem, especificando o ID do recurso de imagem.
 
 ```azurecli
 az vm create \
@@ -128,7 +128,7 @@ az vm create \
 
 ## <a name="step-4-verify-the-deployment"></a>Passo 4: Verificar a implantação
 
-SSH na máquina virtual que criou para verificar a implementação e começar a usar o novo VM. Para ligar via SSH, encontre o endereço IP ou FQDN do seu VM com [a az vm show](/cli/azure/vm#az-vm-show).
+SSH na máquina virtual que criou para verificar a implementação e começar a usar o novo VM. Para ligar via SSH, encontre o endereço IP ou FQDN do seu VM com [a az vm show](/cli/azure/vm#az_vm_show).
 
 ```azurecli
 az vm show \

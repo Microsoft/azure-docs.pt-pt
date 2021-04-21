@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: 23ae69f49d37a210dd9fa1bfeedeca6c1b461e20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 721fe31f514cb948c93dc2a779a92ef3b2775ef9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94888866"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779242"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Quickstart: Criar um fornecedor personalizado e implementar recursos personalizados
 
@@ -27,7 +27,7 @@ Prepare o seu ambiente para o Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Exemplos de Azure CLI usam `az rest` para `REST` pedidos. Para mais informações, consulte [az rest](/cli/azure/reference-index#az-rest).
+Exemplos de Azure CLI usam `az rest` para `REST` pedidos. Para mais informações, consulte [az rest](/cli/azure/reference-index#az_rest).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -52,7 +52,7 @@ Para implementar o fornecedor personalizado, utilize o Azure CLI, PowerShell ou 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Este exemplo leva-o a introduzir um grupo de recursos, localização e o nome da aplicação de função do fornecedor. Os nomes são armazenados em variáveis que são usadas em outros comandos. O [grupo AZ cria](/cli/azure/group#az-group-create) e o grupo de [implantação AZ cria](/cli/azure/deployment/group#az-deployment-group-create) comandos que implantam os recursos.
+Este exemplo leva-o a introduzir um grupo de recursos, localização e o nome da aplicação de função do fornecedor. Os nomes são armazenados em variáveis que são usadas em outros comandos. O [grupo AZ cria](/cli/azure/group#az_group_create) e o grupo de [implantação AZ cria](/cli/azure/deployment/group#az_deployment_group_create) comandos que implantam os recursos.
 
 ```azurecli-interactive
 read -p "Enter a resource group name:" rgName &&
