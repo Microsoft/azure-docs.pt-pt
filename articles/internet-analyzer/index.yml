@@ -10,12 +10,12 @@ metadata:
   author: megan-beatty
   ms.author: mebeatty
   ms.date: 10/16/2019
-  ms.openlocfilehash: 31e2ef7a9f3b41de18ce0989a096977b22bd9b26
-  ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+  ms.openlocfilehash: ac69e359187a7560960ed81a86a8ea53b050248a
+  ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102200067"
+  ms.lasthandoff: 04/22/2021
+  ms.locfileid: "107870323"
 landingContent:
 - title: Acerca do Internet Analyzer
   linkLists:
@@ -48,4 +48,4 @@ landingContent:
     - text: Resolução de problemas do Internet Analyzer
       url: troubleshoot.md
     - text: Referência da CLI do Internet Analyzer
-      url: /cli/azure/ext/internet-analyzer/internet-analyzer
+      url: /cli/azure/internet-analyzer

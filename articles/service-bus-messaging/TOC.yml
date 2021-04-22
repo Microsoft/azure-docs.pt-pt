@@ -110,6 +110,8 @@
           href: message-transfers-locks-settlement.md
         - name: Filas de mensagens não entregues
           href: service-bus-dead-letter-queues.md
+        - name: Diferimento de mensagens
+          href: message-deferral.md
         - name: Otimizar o desempenho
           href: service-bus-performance-improvements.md
         - name: Recuperação após desastre geográfica e georreplicação
@@ -206,8 +208,6 @@
           items:
             - name: Obtenção prévia de mensagens
               href: service-bus-prefetch.md
-            - name: Diferimento de mensagens
-              href: message-deferral.md
             - name: Encadear entidades com o reencaminhamento automático
               href: service-bus-auto-forwarding.md
             - name: Processamento de transações

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09f98e3d6c7997d9cae2737b25f4323021e29bfb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84c8b82219f2b2aea39bbcd23f030243d9ea8635
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98892444"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861810"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimentos: Bloquear a autenticação legada ao Azure Active Directory com o Acesso Condicional   
 
 Para facilitar o acesso dos seus utilizadores às suas aplicações na nuvem, o Azure Ative Directory (Azure AD) suporta uma grande variedade de protocolos de autenticação, incluindo a autenticação antiga. No entanto, os protocolos legados não suportam a autenticação de vários fatores (MFA). MFA é em muitos ambientes um requisito comum para abordar o roubo de identidade. 
 
-Alex Weinert, Diretor de Segurança de Identidade da Microsoft, no seu post de 12 de março de 2020 [Novas ferramentas para bloquear a autenticação de legados na sua organização](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#) enfatizam porque é que as organizações devem bloquear a autenticação de legados e que ferramentas adicionais a Microsoft fornece para realizar esta tarefa:
+Alex Weinert, Diretor de Segurança de Identidade da Microsoft, no seu post de 12 de março de 2020 [Novas ferramentas para bloquear a autenticação de legados na sua organização](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#) enfatizam porque é que as organizações devem bloquear a autenticação de legados e quais as outras ferramentas que a Microsoft fornece para realizar esta tarefa:
 
 > Para que o MFA seja eficaz, também é necessário bloquear a autenticação do legado. Isto porque protocolos de autenticação de legados como POP, SMTP, IMAP e MAPI não podem impor MFA, tornando-os pontos de entrada preferidos para adversários que atacam a sua organização...
 > 
@@ -33,7 +33,7 @@ Alex Weinert, Diretor de Segurança de Identidade da Microsoft, no seu post de 1
 > - Contas AZURE AD em organizações que desativaram a autenticação de legados 67 por cento menos compromissos do que aqueles onde a autenticação do legado está ativada
 >
 
-Se o seu ambiente estiver pronto para bloquear a autenticação do legado para melhorar a proteção do seu inquilino, pode atingir este objetivo com acesso condicional. Este artigo explica como pode configurar políticas de Acesso Condicional que bloqueiam a autenticação do legado para o seu inquilino.
+Se o seu ambiente estiver pronto para bloquear a autenticação do legado para melhorar a proteção do seu inquilino, pode atingir este objetivo com acesso condicional. Este artigo explica como pode configurar políticas de Acesso Condicional que bloqueiam a autenticação do legado para o seu inquilino. Os clientes sem licenças que incluam Acesso Condicional podem recorrer a falhas de [segurança)](../fundamentals/concept-fundamentals-security-defaults.md)para bloquear a autenticação do legado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,7 +46,7 @@ A Azure AD suporta vários dos protocolos de autenticação e autorização mais
 - Aplicativos mais antigos do Microsoft Office
 - Aplicativos que usam protocolos de correio como POP, IMAP e SMTP
 
-A autenticação de um único fator (por exemplo, nome de utilizador e palavra-passe) não é suficiente nos dias de hoje. As palavras-passe são más porque são fáceis de adivinhar e nós (humanos) somos maus na escolha de boas senhas. As palavras-passe também são vulneráveis a uma variedade de ataques como phishing e spray de senha. Uma das coisas mais fáceis que pode fazer para proteger contra ameaças de senha é implementar a autenticação de vários fatores (MFA). Com o MFA, mesmo que um intruso obtenha na posse da senha de um utilizador, a palavra-passe por si só não é suficiente para autenticar e aceder com sucesso aos dados.
+A autenticação de um único fator (por exemplo, nome de utilizador e palavra-passe) não é suficiente nos dias de hoje. As palavras-passe são más porque são fáceis de adivinhar e nós (humanos) somos maus na escolha de boas senhas. As palavras-passe também são vulneráveis a vários ataques, como phishing e spray de senha. Uma das coisas mais fáceis que pode fazer para proteger contra ameaças de senha é implementar a autenticação de vários fatores (MFA). Com o MFA, mesmo que um intruso obtenha na posse da senha de um utilizador, a palavra-passe por si só não é suficiente para autenticar e aceder com sucesso aos dados.
 
 Como evitar que as aplicações que utilizam a autenticação antiga acedam aos recursos do seu inquilino? A recomendação é apenas bloqueá-los com uma política de acesso condicional. Se necessário, permite que certos utilizadores e localizações específicas da rede utilizem aplicações baseadas na autenticação antiga.
 
@@ -85,7 +85,7 @@ Antes de bloquear a autenticação do legado no seu diretório, tem de primeiro 
 1. **Adicionar filtros**  >  **A App do Cliente** > selecione todos os protocolos de autenticação do legado. Selecione fora da caixa de diálogo de filtragem para aplicar as suas seleções e feche a caixa de diálogo.
 1. Se tiver ativado a [pré-visualização dos novos relatórios de atividade de inscrição,](../reports-monitoring/concept-all-sign-ins.md)repita os passos acima também no separador **'Iniciar ins') do Utilizador (não interativo).**
 
-A filtragem só lhe mostrará as tentativas de inscrição que foram feitas por protocolos de autenticação de legados. Clicar em cada tentativa de inscrição individual irá mostrar-lhe detalhes adicionais. O campo **de Aplicação do Cliente** no separador **Informações Básicas** indicará qual o protocolo de autenticação legado utilizado.
+A filtragem só lhe mostrará as tentativas de inscrição que foram feitas por protocolos de autenticação de legados. Clicar em cada tentativa de inscrição individual irá mostrar-lhe mais detalhes. O campo **de Aplicação do Cliente** no separador **Informações Básicas** indicará qual o protocolo de autenticação legado utilizado.
 
 Estes registos indicam quais os utilizadores que ainda estão dependentes da autenticação antiga e quais as aplicações que estão a utilizar protocolos legados para fazer pedidos de autenticação. Para os utilizadores que não aparecem nestes registos e que se confirmam não estarem a utilizar a autenticação antiga, implemente uma política de Acesso Condicional apenas para estes utilizadores.
 

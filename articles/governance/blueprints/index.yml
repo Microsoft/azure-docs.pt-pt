@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 08/27/2020
-  ms.openlocfilehash: 1ec5453abd9d33b475b732a853294933cda02117
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-  ms.translationtype: HT
+  ms.openlocfilehash: 37098495b0cafe3fc839b18f48844f18fc4fe176
+  ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89051377"
+  ms.lasthandoff: 04/22/2021
+  ms.locfileid: "107865896"
 landingContent:
 - title: Acerca do Azure Blueprints
   linkLists:
@@ -100,7 +100,7 @@ landingContent:
     - text: Módulo do PowerShell (PSGallery)
       url: https://www.powershellgallery.com/packages/Az.Blueprint
     - text: CLI do Azure
-      url: /cli/azure/ext/blueprint/blueprint
+      url: /cli/azure/blueprint
     - text: Azure PowerShell
       url: /powershell/module/az.blueprint/#blueprint
     - text: SDK do Azure para .NET

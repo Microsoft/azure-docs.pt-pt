@@ -67,7 +67,7 @@
 - name: Referência
   items:
     - name: CLI do Azure
-      href: /cli/azure/ext/blockchain/blockchain
+      href: /cli/azure/blockchain
 - name: Recursos
   items:
     - name: Development Kit do Azure Blockchain

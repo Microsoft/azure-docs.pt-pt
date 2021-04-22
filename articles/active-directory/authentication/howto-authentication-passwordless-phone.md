@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 04/21/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51e6cd7efcd0e851c15975aba5ff9b99c615eb7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d586294f101c271f139867d0046576dc9a32f076
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653478"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861792"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Ativar o acesso sem palavras-passe com a aplicação Microsoft Authenticator 
 
@@ -38,6 +38,7 @@ Para utilizar o acesso telefónico sem palavras-passe com a aplicação Microsof
 
 - Autenticação multi-factor Azure AD, com notificações push permitidas como método de verificação.
 - A versão mais recente do Microsoft Authenticator instalada em dispositivos com o iOS 8.0 ou superior, ou Android 6.0 ou superior.
+- O dispositivo no qual a aplicação Microsoft Authenticator está instalada deve estar registado dentro do inquilino Azure AD para um utilizador individual. 
 
 > [!NOTE]
 > Se ativou o pedido de entrada sem palavras-passe do Microsoft Authenticator utilizando o Azure AD PowerShell, foi ativado para todo o seu diretório. Se ativar a utilização deste novo método, substitui a política PowerShell. Recomendamos que ative todos os utilizadores do seu inquilino através do novo menu *Métodos de Autenticação,* caso contrário os utilizadores que não constam da nova política já não possam iniciar sação sem senha.

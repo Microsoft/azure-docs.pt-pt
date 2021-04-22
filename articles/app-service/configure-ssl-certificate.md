@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 99dc8cb2acf06faae16df6d3a48c4d38b1be46d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e05435f364cc30b351275439a04caff47c35512
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577789"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871800"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL no Serviço de Aplicações do Azure
 
@@ -217,7 +217,7 @@ Quando a operação estiver concluída, consulte o certificado na lista **de Cer
 ![Certificado de Abóbada de Chave de Importação concluído](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
 
 > [!NOTE]
-> Se atualizar o seu certificado no Key Vault com um novo certificado, o Serviço de Aplicações sincroniza automaticamente o seu certificado dentro de 48 horas.
+> Se atualizar o seu certificado no Key Vault com um novo certificado, o Serviço de Aplicações sincroniza automaticamente o seu certificado dentro de 24 horas.
 
 > [!IMPORTANT] 
 > Para garantir um domínio personalizado com este certificado, ainda precisa de criar um certificado vinculativo. Siga os passos em [Criar ligação](configure-ssl-bindings.md#create-binding).
@@ -325,7 +325,7 @@ A rekeying do seu certificado revira o certificado com um novo certificado emiti
 Assim que a operação de rekey estiver concluída, clique em **Sync**. A operação de sincronização atualiza automaticamente as ligações do nome anfitrião para o certificado no Serviço de Aplicações sem causar qualquer tempo de inatividade nas suas apps.
 
 > [!NOTE]
-> Se não clicar em **Sync,** o Serviço de Aplicações sincroniza automaticamente o seu certificado dentro de 48 horas.
+> Se não clicar em **Sync,** o Serviço de Aplicações sincroniza automaticamente o seu certificado dentro de 24 horas.
 
 ### <a name="renew-certificate"></a>Renovar certificado
 
@@ -340,7 +340,7 @@ Para renovar manualmente o certificado, clique em **Renovar Manualmente.** Pode 
 Assim que a operação de renovação estiver concluída, clique em **Sync**. A operação de sincronização atualiza automaticamente as ligações do nome anfitrião para o certificado no Serviço de Aplicações sem causar qualquer tempo de inatividade nas suas apps.
 
 > [!NOTE]
-> Se não clicar em **Sync,** o Serviço de Aplicações sincroniza automaticamente o seu certificado dentro de 48 horas.
+> Se não clicar em **Sync,** o Serviço de Aplicações sincroniza automaticamente o seu certificado dentro de 24 horas.
 
 ### <a name="export-certificate"></a>Exportar o certificado
 

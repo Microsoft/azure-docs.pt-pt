@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96a6692524eca3a2845d648ab3df2932d00ce823
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4519bc187c4ec53294e5eef15c4ad1954b691224
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91951150"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870846"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Desenvolver um módulo C# IoT Edge para mover ficheiros com Azure Stack Edge Pro
 
@@ -57,7 +57,7 @@ Antes de começar, certifique-se de que tem:
     - [Visual Studio Code](https://code.visualstudio.com/).
     - [Extensão C# para Visual Studio Code (com tecnologia da OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
     - [Extensão Azure IoT Edge para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
-    - [SDK de .NET Core 2.1](https://www.microsoft.com/net/download).
+    - [SDK de .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1).
     - [Docker CE.](https://store.docker.com/editions/community/docker-ce-desktop-windows) Poderá ter de criar uma conta para descarregar e instalar o software.
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentor

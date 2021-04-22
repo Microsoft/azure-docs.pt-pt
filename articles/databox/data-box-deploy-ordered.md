@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: eae8cca0302993c16ea29adddf6e4ee9b5b24be8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ed539df9fec3c66b3881257ff1ce68d03cf4c382
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770903"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878601"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -449,7 +449,7 @@ Faça os seguintes passos utilizando o Azure CLI para encomendar um dispositivo:
    |consulta| A cadeia de consulta JMESPath. Para mais informações, consulte [o JMESPath.](http://jmespath.org/) | -consulta <string>|
    |verbose| Inclua a registo verboso. | -verbose |
 
-2. No seu pedido de comando de escolha ou terminal, executar [a az data box job criar](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-create) para criar a sua encomenda Azure Data Box.
+2. No seu pedido de comando de escolha ou terminal, executar [a az data box job criar](/cli/azure/databox/job#az_databox_job_create) para criar a sua encomenda Azure Data Box.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -617,7 +617,7 @@ Em seguida, a Microsoft prepara e expede os seus dispositivos através de uma tr
 
 ### <a name="track-a-single-order"></a>Acompanhe uma única encomenda
 
-Para obter informações de rastreio sobre uma única encomenda existente da Caixa de Dados Azure, corra [`az databox job show`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-show) . O comando apresenta informações sobre a ordem, como, mas não se limitando a: nome, grupo de recursos, informações de rastreio, ID de subscrição, informações de contacto, tipo de envio e sku do dispositivo.
+Para obter informações de rastreio sobre uma única encomenda existente da Caixa de Dados Azure, corra [`az databox job show`](/cli/azure/databox/job#az_databox_job_show) . O comando apresenta informações sobre a ordem, como, mas não se limitando a: nome, grupo de recursos, informações de rastreio, ID de subscrição, informações de contacto, tipo de envio e sku do dispositivo.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -658,7 +658,7 @@ Para obter informações de rastreio sobre uma única encomenda existente da Cai
 
 ### <a name="list-all-orders"></a>Listar todas as encomendas
 
-Se tiver encomendado vários dispositivos, pode correr [`az databox job list`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-list) para ver todas as suas encomendas da Caixa de Dados Azure. O comando lista todas as ordens que pertencem a um grupo de recursos específicos. Também apresentado na saída: nome da encomenda, estado do envio, região Azure, tipo de entrega, estado da encomenda. As encomendas canceladas também estão incluídas na lista.
+Se tiver encomendado vários dispositivos, pode correr [`az databox job list`](/cli/azure/databox/job#az_databox_job_list) para ver todas as suas encomendas da Caixa de Dados Azure. O comando lista todas as ordens que pertencem a um grupo de recursos específicos. Também apresentado na saída: nome da encomenda, estado do envio, região Azure, tipo de entrega, estado da encomenda. As encomendas canceladas também estão incluídas na lista.
 O comando também apresenta selos temporais de cada ordem.
 
 ```azurecli
@@ -777,7 +777,7 @@ Para eliminar uma encomenda cancelada, vá ao **Overview** e selecione **Delete*
 
 ### <a name="cancel-an-order"></a>Cancelar uma encomenda
 
-Para cancelar uma encomenda da Caixa de Dados Azure, corra [`az databox job cancel`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-cancel) . É-lhe exigido que especifique a sua razão para cancelar a encomenda.
+Para cancelar uma encomenda da Caixa de Dados Azure, corra [`az databox job cancel`](/cli/azure/databox/job#az_databox_job_cancel) . É-lhe exigido que especifique a sua razão para cancelar a encomenda.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -814,7 +814,7 @@ Para cancelar uma encomenda da Caixa de Dados Azure, corra [`az databox job canc
 
 ### <a name="delete-an-order"></a>Apagar uma encomenda
 
-Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode correr [`az databox job delete`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-delete) para apagar a encomenda.
+Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode correr [`az databox job delete`](/cli/azure/databox/job#az_databox_job_delete) para apagar a encomenda.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]

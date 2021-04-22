@@ -4,12 +4,12 @@ description: Instale o runtime e o SDK e crie um cluster de desenvolvimento loca
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fcf0aeec27415d03c528e42ad5341a92bd299d88
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93086895"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869406"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar o ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -261,7 +261,7 @@ Depois de instalar os geradores, crie serviços de contentor ou executáveis con
 
 ## <a name="set-up-net-core-31-development"></a>Configurar o desenvolvimento .NET Core 3.1
 
-Instale o [.NET Core 3.1 SDK para ubuntu](https://www.microsoft.com/net/core#linuxubuntu) começar a [criar aplicações C# Service Fabric](service-fabric-create-your-first-linux-application-with-csharp.md). Os pacotes para aplicações de tecido de serviço .NET Core fabric são hospedados em NuGet.org.
+Instale o [.NET Core 3.1 SDK para ubuntu](/dotnet/core/install/linux-ubuntu) começar a [criar aplicações C# Service Fabric](service-fabric-create-your-first-linux-application-with-csharp.md). Os pacotes para aplicações de tecido de serviço .NET Core fabric são hospedados em NuGet.org.
 
 ## <a name="set-up-java-development"></a>Configurar o desenvolvimento em Java
 

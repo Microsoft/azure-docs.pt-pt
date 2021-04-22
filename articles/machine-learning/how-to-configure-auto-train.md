@@ -11,19 +11,19 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 146697dec7e3d22e745fba2a1e9fae5d486195ef
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: d0a15b16c04a28bcc67caeeceedfcbad485b7157
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107819323"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861468"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 
 
 Neste guia, aprenda a definir várias configurações das suas experiências automatizadas de aprendizagem automática de máquinas com o [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). A aprendizagem automática de máquinas escolhe um algoritmo e hiperparímetros para si e gera um modelo pronto para ser implantado. Existem várias opções que pode usar para configurar experiências automatizadas de aprendizagem automática de máquinas.
 
-Para ver exemplos de experiências automatizadas de aprendizagem automática de máquinas, consulte [Tutorial: Treine um modelo de classificação com machine learning automatizado](tutorial-auto-train-models.md) ou [modelos de comboio com aprendizagem automática de máquinas na nuvem.](how-to-auto-train-remote.md)
+Para terminar o exemplo de uma experiência automatizada de aprendizagem automática, consulte [Tutorial: Treine um modelo de classificação com aprendizagem automática de máquinas.](tutorial-auto-train-models.md)
 
 Opções de configuração disponíveis em machine learning automatizado:
 
@@ -552,7 +552,7 @@ Para obter informações gerais sobre como as explicações dos modelos e a impo
 
 + Saiba mais sobre [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 
-+ Saiba mais sobre [como treinar um modelo de regressão com machine learning automatizado](tutorial-auto-train-models.md) ou como treinar utilizando [aprendizagem automática de máquinas num recurso remoto.](how-to-auto-train-remote.md)
++ Saiba mais sobre [como treinar um modelo de regressão com aprendizagem automática de máquinas.](tutorial-auto-train-models.md)
 
 + Saiba como treinar vários modelos com AutoML no [Acelerador de Soluções de Muitos Modelos.](https://aka.ms/many-models)
 

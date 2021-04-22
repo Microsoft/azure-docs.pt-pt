@@ -5,12 +5,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/19/2021
 ms.author: aahi
-ms.openlocfilehash: cee201c11d0415e1f63e7e6a9157b96a059503ba
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d36666ea35a4ce3fc894e35dd8ca3860900ecef6
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765124"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107880711"
 ---
 <a name="HOLTop"></a>
 
@@ -805,7 +805,7 @@ key_phrase_extraction_example(client)
 
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
-Criar uma nova função chamada `analyze_batch_actions_example()` que leva o cliente como um argumento, e depois chama a `begin_analyze_batch_actions()` função. O resultado será uma operação de longa duração que será sondada para obter resultados.
+Criar uma nova função chamada `analyze_batch_example()` que leva o cliente como um argumento, e depois chama a `begin_analyze_batch_actions()` função. O resultado será uma operação de longa duração que será sondada para obter resultados.
 
 ```python
 from azure.ai.textanalytics import (

@@ -1,18 +1,18 @@
 ---
 title: Utilize o IoT Plug e reprodução em dispositivos constrangidos | Microsoft Docs
 description: Saiba como pode implementar IoT Plug e Play em dispositivos constrangidos utilizando o SDK para Embedded C ou Azure RTOS.
-author: elhorton
-ms.author: elhorton
+author: EliotSeattle
+ms.author: eliotgra
 ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: cfa71e02688d5bf63d894ae42dabab7da1d4174c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 6c792fbbb44b7dc769e7cdc56850684bd69ea40b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057319"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864142"
 ---
 # <a name="implement-iot-plug-and-play-on-constrained-devices"></a>Implementar IoT Plug e Reproduzir em dispositivos constrangidos
 

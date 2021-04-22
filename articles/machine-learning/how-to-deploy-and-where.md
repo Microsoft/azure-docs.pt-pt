@@ -12,12 +12,12 @@ ms.date: 03/25/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2
 adobe-target: true
-ms.openlocfilehash: 598da277214a2ee8e52cc5baaf2c792dfdc0429d
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: f2128949090ce0ec2aa4ed66eb476384d662953a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220237"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872646"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Implementar modelos de aprendizagem automática para Azure
 
@@ -112,7 +112,7 @@ az ml model register -n onnx_mnist -p mnist/model.onnx
 
 Para incluir vários ficheiros no registo do modelo, definido `-p` para o caminho de uma pasta que contém os ficheiros.
 
-Para obter mais `az ml model register` informações, consulte a [documentação de referência.](/cli/azure/ext/azure-cli-ml/ml/model)
+Para obter mais `az ml model register` informações, consulte a [documentação de referência.](/cli/azure/ml/model)
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -355,13 +355,13 @@ Durante a implementação do modelo, poderá ver a alteração do estado de serv
 
 A tabela a seguir descreve os diferentes estados de serviço:
 
-| Estado do serviço web | Descrição | Estado final?
+| Estado do serviço web | Description | Estado final?
 | ----- | ----- | ----- |
-| Transição | O serviço está em processo de implantação. | Não |
-| Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | Não |
-| Insodulável | O serviço não pode ser implantado neste momento devido à falta de recursos. | Não |
-| Com falhas | O serviço falhou em ser acionado devido a um erro ou acidente. | Sim |
-| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Sim |
+| Transição | O serviço está em processo de implantação. | No |
+| Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | No |
+| Insodulável | O serviço não pode ser implantado neste momento devido à falta de recursos. | No |
+| Com falhas | O serviço falhou em ser acionado devido a um erro ou acidente. | Yes |
+| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Yes |
 
 > [!TIP]
 > Ao implementar, as imagens do Docker para alvos de computação são construídas e carregadas a partir do Registo de Contentores de Azure (ACR). Por predefinição, o Azure Machine Learning cria um ACR que utiliza o nível *básico* de serviço. Mudar o ACR para o seu espaço de trabalho para um nível normal ou premium pode reduzir o tempo que leva para construir e implementar imagens para os seus alvos de computação. Para mais informações, consulte [os níveis de serviço de registo de contentores Azure.](../container-registry/container-registry-skus.md)
@@ -390,7 +390,7 @@ Para eliminar um serviço web implantado, utilize `az ml service <name of webser
 
 Para eliminar um modelo registado do seu espaço de trabalho, utilize `az ml model delete <model id>`
 
-Leia mais sobre [a eliminação de um serviço web](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) e a [eliminação de um modelo.](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete)
+Leia mais sobre [a eliminação de um serviço web](/cli/azure/ml/service#az_ml_service_delete) e a [eliminação de um modelo.](/cli/azure/ml/model#az_ml_model_delete)
 
 # <a name="python"></a>[Python](#tab/python)
 

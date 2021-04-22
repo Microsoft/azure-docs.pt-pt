@@ -11,12 +11,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6325a890ea297a3aa2bdad76a1d95c10448a7b61
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0e6a872891f09f60ea963fa783e6f49dc4e94a54
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033919"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861864"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Adicionar Acesso Condicional aos fluxos de utilizadores no Azure Ative Directory B2C
 
@@ -160,6 +160,71 @@ Para adicionar uma política de acesso condicional:
 Depois de ter adicionado a política de acesso condicional Azure AD, permita o acesso condicional no fluxo do utilizador ou na política personalizada. Quando ativa o acesso condicional, não precisa de especificar um nome de política.
 
 As políticas de acesso condicional múltiplas podem aplicar-se a um utilizador individual a qualquer momento. Neste caso, a política de controlo de acessos mais rigorosa tem precedência. Por exemplo, se uma política necessitar de autenticação multi-factor (MFA), enquanto a outra bloqueia o acesso, o utilizador ficará bloqueado.
+
+## <a name="conditional-access-template-1-sign-in-risk-based-conditional-access"></a>Modelo de acesso condicional 1: Acesso condicional baseado no risco
+
+A maioria dos utilizadores tem um comportamento normal que pode ser controlado. Quando fugirem a esta norma, pode ser arriscado permitir-lhes iniciar sessão. Pode querer bloquear esse utilizador ou talvez apenas pedir-lhes para realizar a autenticação de vários fatores para provar que são realmente quem dizem ser.
+
+Um risco de entrada representa a probabilidade de um dado pedido de autenticação não ser autorizado pelo proprietário da identidade. Organizações com licenças P2 podem criar políticas de acesso condicional incorporando [deteções de risco de acesso à proteção de identidade Azure AD.](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks#sign-in-risk) Por favor, note as [limitações das deteções de Proteção de Identidade para B2C](https://docs.microsoft.com/azure/active-directory-b2c/identity-protection-investigate-risk?pivots=b2c-user-flow#service-limitations-and-considerations).
+
+Se o risco for detetado, os utilizadores podem efetuar a autenticação de vários fatores para se auto-remediar e fechar o evento de sinalização de risco para evitar ruídos desnecessários para os administradores.
+
+As organizações devem escolher uma das seguintes opções para permitir uma política de acesso condicional baseada no risco de inscrição que exija a autenticação de vários fatores (MFA) quando o risco de inscrição for médio ou alto.
+
+### <a name="enable-with-conditional-access-policy"></a>Ativar com política de acesso condicional
+
+1. Inicie sessão no **portal do Azure**.
+2. Navegue pelo acesso condicional de segurança **Azure AD B2C**  >    >  .
+3. Selecione **Nova política**.
+4. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
+5. Em **Atribuições**, selecione **Utilizadores e grupos**.
+   1. Em **Incluir**, selecione **Todos os utilizadores**.
+   2. Em **'Excluir',** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou break-glass da sua organização. 
+   3. Selecione **Concluído**.
+6. No **âmbito de aplicações ou ações cloud**  >  **Inclua**, selecione todas as **aplicações em nuvem**.
+7. Em **Condições**  >  **de risco de inscrição,** definir **Configurar** para **Sim**. Em **Selecione o nível de risco de inscrição esta política aplicar-se-á a** 
+   1. Selecione **Alto** e **Médio**.
+   2. Selecione **Concluído**.
+8. Sob **controlos de acesso**  >  **Grant**, selecione Grant **access**, **Require multi-factor authentication**, e selecione **Select**.
+9. Confirme as suas definições e defina **Ativar** a política para **on**.
+10. Selecione **Criar** para criar para ativar a sua política.
+
+### <a name="enable-with-conditional-access-apis"></a>Ativar com APIs de acesso condicional
+
+Para criar uma política de acesso condicional baseada no risco com APIs de acesso condicional, consulte a documentação para [APIs de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api).
+
+O modelo a seguir pode ser utilizado para criar uma política de acesso condicional com o nome de exibição "CA002: Exigir MFA para risco de entrada médio+ no modo apenas de relatório" no modo de reporte.
+
+```json
+{
+    "displayName": "Template 1: Require MFA for medium+ sign-in risk",
+    "state": "enabledForReportingButNotEnforced",
+    "conditions": {
+        "signInRiskLevels": [ "high" ,
+            "medium"
+        ],
+        "applications": {
+            "includeApplications": [
+                "All"
+            ]
+        },
+        "users": {
+            "includeUsers": [
+                "All"
+            ],
+            "excludeUsers": [
+                "f753047e-de31-4c74-a6fb-c38589047723"
+            ]
+        }
+    },
+    "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+            "mfa"
+        ]
+    }
+}
+```
 
 ## <a name="enable-multi-factor-authentication-optional"></a>Ativar a autenticação de vários fatores (opcional)
 

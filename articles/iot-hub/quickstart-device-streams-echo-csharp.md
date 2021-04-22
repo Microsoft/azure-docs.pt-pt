@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 3eb65db27e5b96f4b12973154bc860a2ab3df020
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4f6e06524412c76661623cb5ef2985a41f2d7fc
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98624613"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864097"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Quickstart: Comunicar a uma aplicação do dispositivo em C# via streams de dispositivo ioT Hub (pré-visualização)
 
@@ -36,7 +36,7 @@ O Azure IoT Hub suporta atualmente os fluxos de dispositivos como [uma funcional
 
 * As duas aplicações de amostra que você executou neste quickstart estão escritas em C#. Precisa do .NET Core SDK 2.1.0 ou mais tarde na sua máquina de desenvolvimento.
 
-    Descarregue o [.NET Core SDK para várias plataformas a partir de .NET](https://www.microsoft.com/net/download/all).
+    Descarregue o [.NET Core SDK para várias plataformas a partir de .NET](https://dotnet.microsoft.com/download).
 
     Verifique a versão atual de C# na sua máquina de desenvolvimento utilizando o seguinte comando:
 

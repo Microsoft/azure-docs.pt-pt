@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 67153fa750fee765dcaa1072eec87a2f6169b918
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7fb40d95c4659bf353366770da7c903ffa1bd09
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93397285"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107867228"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um gateway de aplicações com HTTP para https redirecionamento usando o portal Azure
 
@@ -34,7 +34,7 @@ Este tutorial requer a versão 1.0.0 ou posterior do módulo Azure PowerShell pa
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
-Para uso de produção, deve importar um certificado válido assinado por um fornecedor de confiança. Neste tutorial, crie um certificado autoassinado com [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Pode utilizar [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) com o Thumbprint que foi devolvido para exportar um ficheiro pfx do certificado.
+Para uso de produção, deve importar um certificado válido assinado por um fornecedor de confiança. Neste tutorial, crie um certificado autoassinado com [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate). Pode utilizar [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) com o Thumbprint que foi devolvido para exportar um ficheiro pfx do certificado.
 
 ```powershell
 New-SelfSignedCertificate `

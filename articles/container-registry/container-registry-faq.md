@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: a8c007d7f4419ddbe1555b50ceb6fb92ea0a6f98
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e5c855675990d6fd3ec97b839539acd843016a7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783904"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864708"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registo de Contentores Azure
 
@@ -274,6 +274,7 @@ Pode desativar o acesso anónimo a qualquer momento, definindo `--anonymous-pull
 > * Antes de tentar uma operação de atração anónima, corra `docker logout` para garantir que limpe as credenciais existentes do Docker.
 > * Apenas as operações de data-plane estão disponíveis para clientes não autenticados.
 > * O registo pode acelerar uma elevada taxa de pedidos não autenticados.
+> * Atualmente, o acesso anónimo não é suportado em regiões de registo [geo-replicadas.](container-registry-geo-replication.md)
 
 > [!WARNING]
 > O acesso anónimo aplica-se atualmente a todos os repositórios do registo. Se gerir o acesso ao [repositório utilizando fichas com âmbito de repositório,](container-registry-repository-scoped-permissions.md)esteja ciente de que todos os utilizadores podem retirar desses repositórios num registo habilitado para a atração anónima. Recomendamos a eliminação de fichas quando o acesso anónimo estiver ativado.

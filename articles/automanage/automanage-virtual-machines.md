@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 514f1af2a1b120254840986fc5ceb803dfc24345
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 42b469963761ae1ffc736c719487ee93c3a1c149
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363381"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863124"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuais
 
@@ -183,6 +183,12 @@ Leia atentamente através das mensagens no pop-up resultante antes de concordar 
 
 
 Em primeiro lugar, não vamos desabar a máquina virtual de nenhum dos serviços a que a embarcamos e configuramos. Assim, quaisquer encargos incorridos por esses serviços continuarão a ser faturadas. Terá de sair do quadro, se necessário. Qualquer comportamento de auto-condutor parará imediatamente. Por exemplo, deixaremos de monitorizar o VM para deriva.
+
+## <a name="automanage-and-azure-disk-encryption"></a>Automanagem e Encriptação do Disco Azure
+A automanagem é compatível com VMs que têm encriptação do disco Azure (ADE) ativada.
+
+Se estiver a utilizar o ambiente de Produção, também estará a bordo do Azure Backup. Existe um pré-requisito para utilizar com sucesso o ADE e o Azure Backup:
+* Antes de embarcar no seu VM habilitado para o ambiente de produção da Automanage, certifique-se de que seguiu os passos localizados na secção Antes de **iniciar** [este documento](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#before-you-start).
 
 ## <a name="next-steps"></a>Passos seguintes
 

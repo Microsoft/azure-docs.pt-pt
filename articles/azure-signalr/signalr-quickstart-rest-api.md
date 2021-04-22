@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 2613f91e8c7f1ad3a05792a9a165f4560c09a637
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfcbb00ec20797248f41cc1676809f3198d51527
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94874530"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866166"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início rápido: Transmitir mensagens em tempo real a partir da aplicação de consola
 
@@ -23,7 +23,7 @@ Neste início rápido, irá aprender a enviar mensagens a partir de uma aplicaç
 
 Este início rápido pode ser executado no macOS, Windows ou Linux.
 
-* [SDK .NET Core](https://www.microsoft.com/net/download/core)
+* [SDK .NET Core](https://dotnet.microsoft.com/download)
 * Um editor de texto ou editor de código da sua preferência.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

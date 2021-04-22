@@ -1,22 +1,22 @@
 ---
 title: Estenda a Azure IoT Central com | de análise personalizada Microsoft Docs
 description: Como desenvolvedor de soluções, configurar uma aplicação IoT Central para fazer análises e visualizações personalizadas. Esta solução utiliza a Azure Databricks.
-author: TheRealJasonAndrew
-ms.author: v-anjaso
+author: philmea
+ms.author: philmea
 ms.date: 03/15/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 3132ec8fb3cb123653887d92a2f33788f40564c0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ada9947b217944d9aec9f785f4716bfe43315b1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105033828"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872772"
 ---
-# <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estenda a Azure IoT Central com análises personalizadas usando Azure Databricks
+# <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Expandir o Azure IoT Central com análises personalizadas através do Azure Databricks 
 
 Este guia de como fazer mostra-lhe, como um desenvolvedor de soluções, como estender a sua aplicação IoT Central com análises e visualizações personalizadas. O exemplo utiliza um espaço de trabalho [Azure Databricks](/azure/azure-databricks/) para analisar o fluxo de telemetria IoT Central e gerar visualizações como [parcelas de caixa.](https://wikipedia.org/wiki/Box_plot)  
 

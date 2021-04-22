@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-csharp-ieux
-ms.openlocfilehash: e5a8a0a32196d4f4b988083f22930829418fa1b8
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c2585fcef3133c1f07832b13fcae9973cdd8090a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832019"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866220"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Quickstart: Criar uma função C# em Azure a partir da linha de comando
 
@@ -34,7 +34,7 @@ Antes de começar, deve ter o seguinte:
 
 + Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-+ O [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
++ O [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
 
 + A versão 3.x [das Ferramentas Principais do Azure Functions.](functions-run-local.md#v2)
 

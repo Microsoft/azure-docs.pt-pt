@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 06/29/2020
-  ms.openlocfilehash: 5a485618b1c10e1ff81bf141ef76002d1536d9e3
-  ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+  ms.openlocfilehash: 12711df7515e3b1aff07f6599d90b2754986eac3
+  ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/02/2021
-  ms.locfileid: "106222270"
+  ms.lasthandoff: 04/22/2021
+  ms.locfileid: "107870522"
 landingContent:
 - title: Acerca do Azure Resource Graph
   linkLists:
@@ -104,7 +104,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: CLI do Azure
-      url: /cli/azure/ext/resource-graph/graph
+      url: /cli/azure/graph
     - text: Azure PowerShell
       url: /powershell/module/az.resourcegraph/#resourcegraph
     - text: SDK do Azure para .NET

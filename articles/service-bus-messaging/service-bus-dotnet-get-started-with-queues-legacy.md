@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8e70884838d56003694e2da09668527ce5b6c7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d92a5e0b0d1a6953d0043f85ff98f6740aaacebb
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652994"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864019"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Service Bus
 Neste tutorial, cria aplicações de consola .NET Core para enviar mensagens e receber mensagens de uma fila de Service Bus.
@@ -21,7 +21,7 @@ Neste tutorial, cria aplicações de consola .NET Core para enviar mensagens e r
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
-- [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
+- [SDK NET Core](https://dotnet.microsoft.com/download), versão 2.0 ou posterior.
 - Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar os [benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
 - Se não tiver uma fila para trabalhar, siga os passos no [portal Use Azure para criar um](service-bus-quickstart-portal.md) artigo de fila de Service Bus para criar uma fila.
 

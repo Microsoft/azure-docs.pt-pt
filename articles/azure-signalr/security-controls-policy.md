@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para Azure SignalR
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para Azure SignalR. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: sample
 author: sffamily
 ms.author: zhshang
 ms.service: signalr
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 9331f42103f02044c20c6c2af3fa68e18dddd43b
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: f98cab7f08b6541932485fd3dfa93af22853dc3b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501366"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869838"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-signalr"></a>Controlos de conformidade regulamentar da política Azure para Azure SignalR
 

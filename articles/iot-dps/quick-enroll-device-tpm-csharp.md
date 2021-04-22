@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 14f17c6716fe98a11d03e8d1021bcdb1058fe671
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73a9b27c7b9119ee49fc451ca0a1c03d8db3db0e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94968116"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868632"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Quickstart: Inscreva o dispositivo TPM no Serviço de Provisionamento de Dispositivos IoT Hub utilizando o serviço C# SDK
 
@@ -26,7 +26,7 @@ Este artigo mostra como criar programáticamente uma inscrição individual para
 
 1. Verifique se tem [o Visual Studio 2019](https://www.visualstudio.com/vs/) instalado no seu computador.
 
-1. Verifique se tem o [.NET Core SDK](https://www.microsoft.com/net/download/windows) instalado no seu computador.
+1. Verifique se tem o [.NET Core SDK](https://dotnet.microsoft.com/download) instalado no seu computador.
 
 1. Complete os passos na [Configuração do Serviço de Provisionamento de Dispositivos IoT Hub com o portal Azure](./quick-setup-auto-provision.md) antes de continuar.
 

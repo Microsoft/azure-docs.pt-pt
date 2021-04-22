@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 63a179f7123f088c9c60fbfb8996a5b21d1c704d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 02934a1943ef37d282dd2a2e7862c5695bbd6ecb
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773271"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862710"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar uma Cache Azure HPC
 
@@ -107,7 +107,7 @@ Quando a criação termina, uma notificação aparece com um link para a nova in
 > [!NOTE]
 > Atualmente, o CLI Azure não suporta a criação de um cache com chaves de encriptação geridas pelo cliente. Utilize o portal do Azure.
 
-Utilize o comando [az hpc-cache](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) para criar uma nova Cache Azure HPC.
+Utilize o comando [az hpc-cache](/cli/azure/hpc-cache#az_hpc_cache_create) para criar uma nova Cache Azure HPC.
 
 Fornecer estes valores:
 
@@ -126,7 +126,7 @@ nets/<cache_subnet_name>"``
   * O tamanho da cache (em GB)
   * O SKU das máquinas virtuais utilizadas na infraestrutura de cache
 
-  [az hpc-cache skus lista](/cli/azure/ext/hpc-cache/hpc-cache/skus) mostra as SKUs disponíveis e as opções de tamanho de cache válidos para cada um. As opções de tamanho da cache variam de 3 TB a 48 TB, mas apenas alguns valores são suportados.
+  [az hpc-cache skus lista](/cli/azure/hpc-cache/skus) mostra as SKUs disponíveis e as opções de tamanho de cache válidos para cada um. As opções de tamanho da cache variam de 3 TB a 48 TB, mas apenas alguns valores são suportados.
 
   Este gráfico mostra qual o tamanho da cache e as combinações SKU válidas no momento em que este documento está a ser preparado (julho de 2020).
 

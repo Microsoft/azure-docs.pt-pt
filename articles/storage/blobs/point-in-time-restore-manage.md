@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 01/29/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b62e341d35a4ff7fd5a7ddd6d9f19b138aaf0aa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8c926c2fbc5b19f67fb78d321ee3293c73be939
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071652"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869352"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Execute uma restauração pontual em dados de blob de bloco
 
@@ -86,7 +86,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para configurar o ponto-a-tempo com O Azure CLI, instale primeiro a versão Azure CLI 2.2.0 ou posterior. Em seguida, ligue para o comando [de atualização de propriedades de serviço de armazenamento az](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) para permitir a restauração pontual e as outras definições de proteção de dados necessárias para a conta de armazenamento.
+Para configurar o ponto-a-tempo com O Azure CLI, instale primeiro a versão Azure CLI 2.2.0 ou posterior. Em seguida, ligue para o comando [de atualização de propriedades de serviço de armazenamento az](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) para permitir a restauração pontual e as outras definições de proteção de dados necessárias para a conta de armazenamento.
 
 O exemplo a seguir permite a eliminação suave e define o período de retenção de eliminação suave para 14 dias, permite alterar o feed e a versão, e permite a restauração pontual com um período de restauração de 7 dias. Ao executar o exemplo, lembre-se de substituir os valores em suportes angulares pelos seus próprios valores:
 
@@ -315,6 +315,6 @@ Para executar a **bolha de armazenamento az restaurar** o comando sincronizado e
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Restauro pontual para bolhas de bloco](point-in-time-restore-overview.md)
-- [Eliminação recuperável](./soft-delete-blob-overview.md)
+- [Excluir suave](./soft-delete-blob-overview.md)
 - [Alterar alimentação](storage-blob-change-feed.md)
 - [Versão blob](versioning-overview.md)
