@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2021
 ms.author: mbullwin
-ms.openlocfilehash: f2e227b2a589955191a2e602495cf0ffbb3f6d8b
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: e85f54beb9a3d4203e527ed9c8ce5582b6a2f5b0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107732451"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107879443"
 ---
 Começa com a biblioteca multivariada do Detetor de Anomalias para a Java. Siga estes passos para instalar o pacote comece a usar os algoritmos fornecidos pelo serviço. As novas APIs de deteção de anomalias multivariadas permitem aos desenvolvedores integrar facilmente a IA avançada para detetar anomalias de grupos de métricas, sem necessidade de conhecimentos de aprendizagem automática ou dados rotulados. As dependências e as inter-correlações entre diferentes sinais são automaticamente contabilizadas como factores-chave. Isto ajuda-o a proteger proativamente os seus sistemas complexos de falhas.
 
@@ -23,7 +23,7 @@ Utilize a biblioteca multivariada do Detetor de Anomalias para a Java para:
 * Quando qualquer série de tempo individual não lhe dirá muito e tem que olhar todos os sinais para detetar um problema.
 * Manutenção pré-ativa de ativos físicos dispendiosos com dezenas a centenas de diferentes tipos de sensores medindo vários aspetos da saúde do sistema.
 
-[Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/anomalydetector/azure-ai-anomalydetector)  |  [Pacote (Maven)](https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/)
+[Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/anomalydetector/azure-ai-anomalydetector)  |  [Pacote (Maven)](https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/)  |  [Código de amostra](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/src/samples/java/com/azure/ai/anomalydetector/MultivariateSample.java)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -255,6 +255,8 @@ Pode construir a aplicação com:
 gradle build
 ```
 ### <a name="run-the-application"></a>Executar a aplicação
+
+Antes de escorrê-lo pode ser útil verificar o seu código com o [código de amostra completo](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/src/samples/java/com/azure/ai/anomalydetector/MultivariateSample.java).
 
 Executar a aplicação com o `run` objetivo:
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 39c649cccdf159810ad01c2312c4ea4837d9f4fc
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: d8f74e438175758b1f09e1809b5eba15c1b26c3c
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478646"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873636"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planear e gerir os custos para a Azure Machine Learning
 
@@ -121,7 +121,7 @@ Também pode configurar a quantidade de tempo que o nó está inativo antes de r
 + Se realizar menos experimentação iterativa, reduza este tempo para economizar custos.
 + Se realizar uma experimentação altamente iterativa dev/teste, poderá ter de aumentar o tempo para não pagar por uma escalada constante após cada alteração ao seu script de treino ou ambiente.
 
-Os clusters AmlCompute podem ser configurados para os seus requisitos de carga de trabalho em mudança no portal Azure, utilizando a [classe AmlCompute SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute), [AmlCompute CLI,](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)com as [APIs REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+Os clusters AmlCompute podem ser configurados para os seus requisitos de carga de trabalho em mudança no portal Azure, utilizando a [classe AmlCompute SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute), [AmlCompute CLI,](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_amlcompute)com as [APIs REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300

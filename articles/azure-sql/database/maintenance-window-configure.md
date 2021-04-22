@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/23/2021
-ms.openlocfilehash: 8688458d85084f3d3dab4678fa91ed827a337739
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9771c68dda6f457586f27ea45fbc52aa118e8006
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047356"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874788"
 ---
 # <a name="configure-maintenance-window-preview"></a>Janela de manutenção configurada (Pré-visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -178,7 +178,7 @@ Ao definir a janela de manutenção, cada região tem as suas próprias opções
 
 ### <a name="discover-sql-database-and-elastic-pool-maintenance-windows"></a>Descubra a Base de Dados SQL e janelas elásticas de manutenção da piscina
 
-O exemplo a seguir devolve as janelas de manutenção disponíveis para a região *leste22* utilizando o comando da [lista de configuração pública de manutenção az.](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list) Para bases de dados e piscinas elásticas, definido `maintenanceScope` para `SQLDB` .
+O exemplo a seguir devolve as janelas de manutenção disponíveis para a região *leste22* utilizando o comando da [lista de configuração pública de manutenção az.](/cli/azure/maintenance/public-configuration#az_maintenance_public_configuration_list) Para bases de dados e piscinas elásticas, definido `maintenanceScope` para `SQLDB` .
 
    ```azurecli
    location="eastus2"
@@ -188,7 +188,7 @@ O exemplo a seguir devolve as janelas de manutenção disponíveis para a regiã
 
 ### <a name="discover-sql-managed-instance-maintenance-windows"></a>Descubra janelas de manutenção de instância gerida sql
 
-O exemplo a seguir devolve as janelas de manutenção disponíveis para a região *leste22* utilizando o comando da [lista de configuração pública de manutenção az.](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list) Para casos geridos, definido `maintenanceScope` para `SQLManagedInstance` .
+O exemplo a seguir devolve as janelas de manutenção disponíveis para a região *leste22* utilizando o comando da [lista de configuração pública de manutenção az.](/cli/azure/maintenance/public-configuration#az_maintenance_public_configuration_list) Para casos geridos, definido `maintenanceScope` para `SQLManagedInstance` .
 
    ```azurecli
    az maintenance public-configuration list --query "[?location=='eastus2'&&contains(maintenanceScope,'SQLManagedInstance')]"

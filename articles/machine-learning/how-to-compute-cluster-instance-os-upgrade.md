@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/03/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 710a860b1ed87f176b6f42b4963dad17acb323b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7445de8349d025679b1560e065ed15d9eec3b08f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954059"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872016"
 ---
 # <a name="upgrade-compute-instance-and-compute-cluster-host-os"></a>Atualizar instância de computação e computação cluster host OS
 
@@ -41,7 +41,7 @@ Se tiver clusters de computação ou instâncias computativas existentes criadas
     * Se o cluster estiver configurado com __nónóulas min = 0,__ será automaticamente atualizado quando todos os trabalhos estiverem concluídos e reduzir-se a zero nós.
     * Se __os nós min > 0,__ altere temporariamente os nós mínimos para zero e deixe o cluster reduzir para zero nós.
 
-    Para obter mais informações sobre a alteração dos nós mínimos, consulte a [atualização amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/update#ext_azure_cli_ml_az_ml_computetarget_update_amlcompute) Azure CLI ou a referência [AmlCompute.update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-) SDK.
+    Para obter mais informações sobre a alteração dos nós mínimos, consulte a [atualização amlcompute](https://docs.microsoft.com/cli/azure/ml/computetarget/update#az_ml_computetarget_update_amlcompute) Azure CLI ou a referência [AmlCompute.update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-) SDK.
 
 * __Exemplo de computação Azure Machine Learning__: Crie uma nova instância computacional (que utilizará Ubuntu 18.04) e elimine a antiga instância.
 

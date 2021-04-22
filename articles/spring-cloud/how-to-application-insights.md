@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: c7083cb6669d7bc779a8e69babfef38988819f8c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: b704d2cf8e2cc8e6cf5d8049290379dd45e26737
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483778"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870342"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud-preview"></a>Insights de aplicação Java In-Process Agente em Azure Spring Cloud (Preview)
 

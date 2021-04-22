@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a595d677cf0964083526cb7e2c73471148be0fd4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d4d3b44b0ee878028df369de41451e3dc1d3c6de
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778439"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875238"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Quickstart: Criar uma Base de Dados Azure para servidor PostgreSQL utilizando o Azure CLI
 
@@ -24,7 +24,7 @@ Este quickstart mostra como usar comandos [Azure CLI](/cli/azure/get-started-wit
 - Este artigo requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
     > [!TIP]
-    >  Considere usar os [postgres az](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) mais simples até o comando Azure CLI que está atualmente em pré-visualização. Experimente o [arranque rápido.](./quickstart-create-server-up-azure-cli.md)
+    >  Considere usar os [postgres az](/cli/azure/postgres#az_postgres_up) mais simples até o comando Azure CLI que está atualmente em pré-visualização. Experimente o [arranque rápido.](./quickstart-create-server-up-azure-cli.md)
 
 - Selecione o ID de subscrição específico na sua conta utilizando o comando [conjunto de conta az.](/cli/azure/account)
 

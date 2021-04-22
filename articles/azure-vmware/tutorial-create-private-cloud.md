@@ -3,12 +3,12 @@ title: Tutorial - Implementar uma nuvem privada Azure VMware Solution
 description: Saiba como criar e implementar uma nuvem privada Azure VMware Solution
 ms.topic: tutorial
 ms.date: 02/22/2021
-ms.openlocfilehash: 89a44ce7e5910609068f72c321971ced2e3646b4
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: ea4bf27a1ff14e4872bc2a0e19daa032dd4ba66d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374850"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870918"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>Tutorial: Implementar uma nuvem privada Azure VMware Solution
 
@@ -40,7 +40,7 @@ Pode criar uma nuvem privada Azure VMware Solution utilizando o [portal Azure](#
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Em vez do portal Azure para criar uma nuvem privada Azure VMware Solution, pode utilizar o Azure CLI utilizando a Azure Cloud Shell.  Para obter uma lista de comandos que pode utilizar com a Solução VMware [Azure, consulte os comandos Azure VMware](/cli/azure/ext/vmware/vmware).
+Em vez do portal Azure para criar uma nuvem privada Azure VMware Solution, pode utilizar o Azure CLI utilizando a Azure Cloud Shell.  Para obter uma lista de comandos que pode utilizar com a Solução VMware [Azure, consulte os comandos Azure VMware](/cli/azure/vmware).
 
 #### <a name="open-azure-cloud-shell"></a>Abrir o Azure Cloud Shell
 
@@ -74,7 +74,7 @@ az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --locati
 
 ## <a name="azure-vmware-commands"></a>Comandos Azure VMware
 
-Para obter uma lista de comandos que pode utilizar com a Solução VMware [Azure, consulte os comandos Azure VMware](/cli/azure/ext/vmware/vmware).
+Para obter uma lista de comandos que pode utilizar com a Solução VMware [Azure, consulte os comandos Azure VMware](/cli/azure/vmware).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/02/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 28e94cdb0df0a18b41f4c8a0ded362b50df6dcac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a64ccec49248f48a85782cfe9537513a97b2bdfc
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652977"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868164"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Service Bus
 Este tutorial contém os seguintes passos:
@@ -30,7 +30,7 @@ Este tutorial contém os seguintes passos:
     3. Crie um **tópico** no espaço de nomes.
     4. Crie **uma subscrição** do tópico no espaço de nomes.
 3. [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior.
-4. [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
+4. [SDK NET Core](https://dotnet.microsoft.com/download), versão 2.0 ou posterior.
  
 ## <a name="send-messages-to-the-topic"></a>Enviar mensagens para o tópico
 

@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47d7d541ed7d9805641ffdfde381d482c8700006
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee22ba3816e667bc58247fa81142e54587124fd6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96858744"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865302"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização hash de palavras-passe com a sincronização do Azure AD Connect
 Este artigo fornece informações de que precisa de sincronizar as suas palavras-passe de utilizador de uma instância do Ative Directory no local para uma instância do Azure Ative Directory (Azure AD) baseada na nuvem.
@@ -210,7 +210,7 @@ Se o seu servidor tiver sido bloqueado de acordo com o Federal Information Proce
 
 **Para ativar a sincronização de haxixe de palavra-passe MD5, execute os seguintes passos:**
 
-1. Vá a %programfiles%\Azure AD Sync\Bin.
+1. Vá a %programfiles%\Microsoft Azure AD Sync\Bin.
 2. Abra miiserver.exe.config.
 3. Vá para o nó de configuração/tempo de execução no final do ficheiro.
 4. Adicione o seguinte nó: `<enforceFIPSPolicy enabled="false"/>`

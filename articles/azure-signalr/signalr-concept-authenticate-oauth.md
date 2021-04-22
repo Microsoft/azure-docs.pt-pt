@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cd5b709843ba2d98170aaa58eb5c3cc1ec8883af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aace45f78bab273b792d10754be431ed3949e4c6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98734686"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869856"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service authentication (Autenticação do Azure SignalR Service)
 
@@ -47,7 +47,7 @@ Para concluir este tutorial, deve ter os seguintes pré-requisitos:
 
 - Uma conta criada no [GitHub](https://github.com/)
 - [Git](https://git-scm.com/)
-- [SDK .NET Core](https://www.microsoft.com/net/download/windows)
+- [SDK .NET Core](https://dotnet.microsoft.com/download)
 - [Azure Cloud Shell](../cloud-shell/quickstart.md) configurado para o ambiente de festa.
 - Faça o download ou clone do repositório GitHub [da amostra AzureSignalR.](https://github.com/aspnet/AzureSignalR-samples)
 

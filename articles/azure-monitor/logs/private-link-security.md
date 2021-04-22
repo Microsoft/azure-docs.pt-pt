@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 97e589755602c14a11873fee5288ee8c6e24ba83
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: b3bbd8510c47831c9568bb10c62e2a5ca751902a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714303"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863034"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilizar o Azure Private Link para se ligar em segurança a redes do Azure Monitor
 
@@ -294,7 +294,7 @@ Pode automatizar o processo descrito anteriormente utilizando modelos de Gestor 
 
 Para criar e gerir os âmbitos de ligação privados, utilize o [REST API](/rest/api/monitor/privatelinkscopes(preview)/private%20link%20scoped%20resources%20(preview)) ou [o Azure CLI (az monitor-link-scope)](/cli/azure/monitor/private-link-scope).
 
-Para gerir o acesso à rede, utilize as bandeiras `[--ingestion-access {Disabled, Enabled}]` e nos espaços de trabalho do Log `[--query-access {Disabled, Enabled}]` [Analytics](/cli/azure/monitor/log-analytics/workspace) ou nos componentes do [Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component).
+Para gerir o acesso à rede, utilize as bandeiras `[--ingestion-access {Disabled, Enabled}]` e nos espaços de trabalho do Log `[--query-access {Disabled, Enabled}]` [Analytics](/cli/azure/monitor/log-analytics/workspace) ou nos componentes do [Application Insights](/cli/azure/monitor/app-insights/component).
 
 ## <a name="collect-custom-logs-and-iis-log-over-private-link"></a>Colete registos personalizados e registo do IIS sobre o Link Privado
 

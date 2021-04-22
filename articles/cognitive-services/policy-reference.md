@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para serviços cognitivos da Azure
 description: Lista definições políticas incorporadas da Azure Policy para os Serviços Cognitivos Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 author: nitinme
 ms.author: nitinme
 ms.service: cognitive-services
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bf97c37f370b0250203757c37928be38e51175d7
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 7a048a5da972cd4210d2431f681c3ccea2fb727a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500992"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862778"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-cognitive-services"></a>Definições políticas incorporadas da Azure Política para os Serviços Cognitivos Azure
 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: c6a695030d399cb1609c63ef5652419a9bef1bbf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 038403743caf13087655066f4acbec4dcee598c7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105646221"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874212"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas frequentes para acelerador de solução de fábrica conectada
 
@@ -125,7 +125,7 @@ Alternativamente, inicie sessão no VM via SSH e inspecione os ficheiros de regi
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Como posso verificar se a simulação está a enviar dados para a nuvem?
 
-Com o [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) ou o comando [de monitorização de extensão Azure IoT CLI,](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) pode inspecionar os dados enviados para o IoT Hub a partir de determinados dispositivos. Para utilizar estas ferramentas, precisa de saber a cadeia de ligação do hub IoT na sua implantação. Veja [como descuito a cadeia de ligação do hub IoT usado pela minha solução?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+Com o [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) ou o comando [de monitorização de extensão Azure IoT CLI,](/cli/azure/iot/hub#az_iot_hub_monitor_events) pode inspecionar os dados enviados para o IoT Hub a partir de determinados dispositivos. Para utilizar estas ferramentas, precisa de saber a cadeia de ligação do hub IoT na sua implantação. Veja [como descuito a cadeia de ligação do hub IoT usado pela minha solução?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Inspecione os dados enviados por um dos dispositivos editoriais:
 

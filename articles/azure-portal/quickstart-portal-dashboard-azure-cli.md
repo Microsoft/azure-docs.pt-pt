@@ -4,12 +4,12 @@ description: 'Quickstart: Aprenda a criar um dashboard no portal Azure utilizand
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 12/4/2020
-ms.openlocfilehash: d951c692c7d3c282ae68c5f9b53e9cda5407df10
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 581c8cc4c2da275467bc39c5c2008b29a5bc0e0e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481026"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875760"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Quickstart: Criar um painel de porta-porta Azure com Azure CLI
 
@@ -73,20 +73,20 @@ Para obter mais informações, consulte a [referência do modelo do portal do Mi
 
 Agora pode implementar o modelo a partir de Azure CLI.
 
-1. Executar o [painel de instrumentos do portal az criar](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) comando para implementar o modelo:
+1. Executar o [painel de instrumentos do portal az criar](/cli/azure/portal/dashboard#az_portal_dashboard_create) comando para implementar o modelo:
 
    ```azurecli
    az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
       --input-path portal-dashboard-template-testvm.json --location centralus
    ```
 
-1. Verifique se o painel de instrumentos foi criado com sucesso executando o comando [do painel de instrumentos do portal AZ:](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show)
+1. Verifique se o painel de instrumentos foi criado com sucesso executando o comando [do painel de instrumentos do portal AZ:](/cli/azure/portal/dashboard#az_portal_dashboard_show)
 
    ```azurecli
    az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
    ```
 
-Para ver todos os dashboards para a subscrição atual, utilize [a lista do painel de instrumentos do portal Az](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+Para ver todos os dashboards para a subscrição atual, utilize [a lista do painel de instrumentos do portal Az](/cli/azure/portal/dashboard#az_portal_dashboard_list):
 
 ```azurecli
 az portal dashboard list
@@ -98,7 +98,7 @@ Também pode ver todos os dashboards para um grupo de recursos:
 az portal dashboard list --resource-group myResourceGroup
 ```
 
-Pode atualizar um dashboard utilizando o comando de atualização do painel de instrumentos do [portal Az:](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update)
+Pode atualizar um dashboard utilizando o comando de atualização do painel de instrumentos do [portal Az:](/cli/azure/portal/dashboard#az_portal_dashboard_update)
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
@@ -119,7 +119,7 @@ Para remover a máquina virtual e o painel de instrumentos associado, elimine o 
 az group delete --name myResourceGroup
 ```
 
-Para remover apenas o painel de instrumentos, utilize o comando de eliminação do [painel de instrumentos do portal az:](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_delete)
+Para remover apenas o painel de instrumentos, utilize o comando de eliminação do [painel de instrumentos do portal az:](/cli/azure/portal/dashboard#az_portal_dashboard_delete)
 
 ```azurecli
 az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Dashboard"
@@ -127,4 +127,4 @@ az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Da
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o suporte do Azure CLI para os dashboards, consulte [o painel de instrumentos do portal Az](/cli/azure/ext/portal/portal/dashboard).
+Para obter mais informações sobre o suporte do Azure CLI para os dashboards, consulte [o painel de instrumentos do portal Az](/cli/azure/portal/dashboard).

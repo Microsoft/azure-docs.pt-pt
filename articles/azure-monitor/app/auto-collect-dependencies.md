@@ -4,12 +4,12 @@ description: Application Insights recolhem e visualizam automaticamente dependê
 ms.topic: reference
 ms.custom: devx-track-dotnet
 ms.date: 05/06/2020
-ms.openlocfilehash: 8a4d79e52465e93fb4db2625217cb37a06917218
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa4d39ca8964e95ca787d236223e2b475a9597c1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91930871"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873834"
 ---
 # <a name="dependency-auto-collection"></a>Coleção automática da dependência
 
@@ -24,7 +24,7 @@ Abaixo está a lista de chamadas de dependência atualmente suportadas que são 
 | ASP.NET WebAPI | 4.5+ |
 | ASP.NET Core | 1.1+ |
 | <b> Bibliotecas de comunicação</b> |
-| [HttpClient](https://www.microsoft.com/net/) | 4.5+, .NET Core 1.1+ |
+| [HttpClient](https://dotnet.microsoft.com) | 4.5+, .NET Core 1.1+ |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
 | [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0 - última libertação estável. (Ver nota abaixo.)
 | [EventHubs Client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 |

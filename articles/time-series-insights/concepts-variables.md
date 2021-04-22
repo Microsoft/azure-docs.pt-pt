@@ -6,12 +6,12 @@ ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
-ms.openlocfilehash: fd08dc98fa47617bbc7c8d1fff895377837a7327
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01184a4eb2aac81bbcabcebf89ef10afeabddbe8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736739"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872970"
 ---
 # <a name="time-series-model-variables"></a>Variáveis de modelo de série de tempo
 
@@ -32,7 +32,7 @@ Os seguintes visores de tabela que propriedades são relevantes para cada tipo v
 | Propriedade variável | Description |
 | --- | ---|
 | Filtro variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão a ser consideradas para cálculo. |
-| Valor variável | Valores de telemetria utilizados para a computação provenientes do dispositivo ou sensores ou transformados através de Expressões de Séries Tempotacurtas. As variáveis do tipo numérico devem ser do tipo *Double.*|
+| Valor variável | Valores de telemetria utilizados para a computação provenientes do dispositivo ou sensores ou transformados através de Expressões de Séries Tempotacurtas. As variáveis do tipo numérico devem ser `Double` ou corresponder ao tipo de `Long` dados dos dados que chegam.|
 | Interpolação variável | A interpolação especifica como reconstruir um sinal utilizando dados existentes. As opções de interpolação *passo* e *linear* estão disponíveis para variáveis numéricas. |
 | Agregação variável | Execute computações através das funções de agregação suportadas [para tipos de variáveis numéricas](/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
@@ -62,7 +62,7 @@ As variáveis estão em conformidade com o seguinte exemplo JSON:
 | Propriedade variável | Description |
 | --- | ---|
 | Filtro variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão a ser consideradas para cálculo. |
-| Valor variável | Valores de telemetria utilizados para a computação provenientes do dispositivo ou dos sensores. As variáveis de tipo categórico devem ser *longas* ou *de corda.* |
+| Valor variável | Valores de telemetria utilizados para a computação provenientes do dispositivo ou dos sensores. As variáveis de tipo categórico devem ser `Long` ou corresponder ao tipo de `String` dados dos dados que chegam. |
 | Interpolação variável | A interpolação especifica como reconstruir um sinal utilizando dados existentes. A opção de interpolação *Step* está disponível para variáveis categóricas. |
 | Categorias variáveis | As categorias criam um mapeamento entre os valores provenientes do dispositivo ou sensores para uma etiqueta. |
 | Categoria de padrão variável | A categoria padrão é para todos os valores que não estão sendo mapeados na propriedade "categorias". |

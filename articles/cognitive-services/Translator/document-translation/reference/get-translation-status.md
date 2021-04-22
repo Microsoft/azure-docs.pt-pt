@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 8b129974396e420948737c9bdf47a5707decab6b
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c17cd6cb97aaac3cd08342270e4eafa07eb5fd7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107836277"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864888"
 ---
 # <a name="get-translation-status"></a>Obtenha o estado da tradução
 

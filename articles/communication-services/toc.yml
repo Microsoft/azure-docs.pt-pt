@@ -152,7 +152,7 @@
     - name: Descrição geral da documentação de referência
       href: concepts/reference.md
     - name: CLI do Azure
-      href: /cli/azure/ext/communication/communication
+      href: /cli/azure/communication
     - name: Documentação da API REST
       href: /rest/api/communication/
     - name: Bibliotecas de chamadas

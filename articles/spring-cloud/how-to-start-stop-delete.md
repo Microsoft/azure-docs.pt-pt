@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 46d79de612a17c7b21e7cc51dcf4904209e1625d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 914325aba3d123fb1b700f0eff8ddb17119c5d12
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878279"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863214"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Iniciar, parar e eliminar a sua aplicação Azure Spring Cloud
 
@@ -32,7 +32,7 @@ Depois de implementar uma aplicação, pode iniciar, parar e eliminá-la utiliza
 ## <a name="using-the-azure-cli"></a>Com a CLI do Azure
 
 > [!NOTE]
-> Pode utilizar parâmetros opcionais e configurar predefinições com o Azure CLI. Saiba mais sobre o Azure CLI lendo a [nossa documentação de referência.](/cli/azure/ext/spring-cloud/spring-cloud)  
+> Pode utilizar parâmetros opcionais e configurar predefinições com o Azure CLI. Saiba mais sobre o Azure CLI lendo a [nossa documentação de referência.](/cli/azure/spring-cloud)  
 
 Primeiro, instale a extensão Azure Spring Cloud para o Azure CLI da seguinte forma:
 

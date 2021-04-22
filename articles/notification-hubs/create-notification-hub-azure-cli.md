@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d8400eb051c09fac4cb88863ad2fac12d2ca0a1b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d9754bb1390e242b12944b0b59595d4a4d46af33
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789889"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873582"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Quickstart: Criar um centro de notificação Azure utilizando o Azure CLI
 
@@ -48,7 +48,7 @@ az group create --name spnhubrg --location eastus
 
 1. Crie um espaço de nome para os seus centros de notificação.
 
-   Um espaço de nome contém um ou mais hubs, e o nome deve ser único em todas as subscrições do Azure e ter pelo menos seis caracteres de comprimento. Para verificar a disponibilidade de um nome, utilize o comando [de disponibilidade de verificação do espaço de identificação az-hub.](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-check-availability)
+   Um espaço de nome contém um ou mais hubs, e o nome deve ser único em todas as subscrições do Azure e ter pelo menos seis caracteres de comprimento. Para verificar a disponibilidade de um nome, utilize o comando [de disponibilidade de verificação do espaço de identificação az-hub.](/cli/azure/notification-hub/namespace#az_notification_hub_namespace_check-availability)
 
    ```azurecli
    az notification-hub namespace check-availability --name spnhubns
@@ -69,7 +69,7 @@ az group create --name spnhubrg --location eastus
    }
    ```
 
-   Note a segunda linha na resposta Azure CLI, `"isAvailable": true` . Esta linha diz `false` se o nome pretendido especificado para o espaço de nome não estiver disponível. Assim que tiver confirmado a disponibilidade do nome, execute o [espaço de nome az notification-hub criar](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-create) comando para criar o seu espaço de nome.  
+   Note a segunda linha na resposta Azure CLI, `"isAvailable": true` . Esta linha diz `false` se o nome pretendido especificado para o espaço de nome não estiver disponível. Assim que tiver confirmado a disponibilidade do nome, execute o [espaço de nome az notification-hub criar](/cli/azure/notification-hub/namespace#az_notification_hub_namespace_create) comando para criar o seu espaço de nome.  
 
    ```azurecli
    az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
@@ -92,7 +92,7 @@ az group create --name spnhubrg --location eastus
 
 2. Arranja uma lista de espaços para nomes.
 
-   Para ver os detalhes sobre o seu novo espaço de nome, utilize o comando [da lista de nomes az notification-hub.](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-list) O `--resource-group` parâmetro é opcional se quiser ver todos os espaços de nome para uma subscrição.
+   Para ver os detalhes sobre o seu novo espaço de nome, utilize o comando [da lista de nomes az notification-hub.](/cli/azure/notification-hub/namespace#az_notification_hub_namespace_list) O `--resource-group` parâmetro é opcional se quiser ver todos os espaços de nome para uma subscrição.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -102,7 +102,7 @@ az group create --name spnhubrg --location eastus
 
 1. Crie o seu primeiro centro de notificação.
 
-   Um ou mais centros de notificação podem agora ser criados no seu novo espaço de nome. Executar o [centro de notificação az criar](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-create) comando para criar um centro de notificação.
+   Um ou mais centros de notificação podem agora ser criados no seu novo espaço de nome. Executar o [centro de notificação az criar](/cli/azure/notification-hub#az_notification_hub_create) comando para criar um centro de notificação.
 
    ```azurecli
    az notification-hub create --resource-group spnhubrg --namespace-name spnhubns --name spfcmtutorial1nhub --location eastus --sku Free
@@ -118,7 +118,7 @@ az group create --name spnhubrg --location eastus
 
 3. Obtenha uma lista de centros de notificação.
 
-   O Azure CLI devolve uma mensagem de sucesso ou erro a cada comando executado; no entanto, poder consultar uma lista de centros de notificação é reconfortante. O comando [da lista az-hub](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-list) foi projetado para este fim.
+   O Azure CLI devolve uma mensagem de sucesso ou erro a cada comando executado; no entanto, poder consultar uma lista de centros de notificação é reconfortante. O comando [da lista az-hub](/cli/azure/notification-hub#az_notification_hub_list) foi projetado para este fim.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table
@@ -126,7 +126,7 @@ az group create --name spnhubrg --location eastus
 
 ## <a name="work-with-access-policies"></a>Trabalhar com políticas de acesso
 
-1. O Azure Notification Hubs utiliza [a segurança de assinatura](./notification-hubs-push-notification-security.md) de acesso partilhado através da utilização de políticas de acesso. Duas políticas são criadas automaticamente quando cria um centro de notificação. As cadeias de ligação destas políticas são necessárias para configurar notificações push. O comando [da lista de regras de autorização az-hub](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) fornece uma lista de nomes de política e respetivos grupos de recursos.
+1. O Azure Notification Hubs utiliza [a segurança de assinatura](./notification-hubs-push-notification-security.md) de acesso partilhado através da utilização de políticas de acesso. Duas políticas são criadas automaticamente quando cria um centro de notificação. As cadeias de ligação destas políticas são necessárias para configurar notificações push. O comando [da lista de regras de autorização az-hub](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization-rule-list) fornece uma lista de nomes de política e respetivos grupos de recursos.
 
    ```azurecli
    az notification-hub authorization-rule list --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --output table
@@ -135,13 +135,13 @@ az group create --name spnhubrg --location eastus
    > [!IMPORTANT]
    > Não utilize a política _de assinatura DefaultFulFuldAccesss na_ sua aplicação. Esta política deve ser usada apenas no seu back-end. Utilize apenas `Listen` políticas de acesso na aplicação do seu cliente.
 
-2. Se pretender criar regras de autorização adicionais com nomes significativos, pode criar e personalizar a sua própria política de acesso utilizando o comando [de autorização az-hub de autorização do hub.](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-create) O `--rights` parâmetro é uma lista de autorizações delimitadas pelo espaço que pretende atribuir.
+2. Se pretender criar regras de autorização adicionais com nomes significativos, pode criar e personalizar a sua própria política de acesso utilizando o comando [de autorização az-hub de autorização do hub.](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_create) O `--rights` parâmetro é uma lista de autorizações delimitadas pelo espaço que pretende atribuir.
 
    ```azurecli
    az notification-hub authorization-rule create --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --name spnhub1key --rights Listen Manage Send
    ```
 
-3. Existem dois conjuntos de chaves e cordas de ligação para cada política de acesso. Mais tarde, vai precisar deles para [configurar um centro de notificação.](./configure-notification-hub-portal-pns-settings.md) Para listar as chaves e as cordas de ligação para uma política de acesso a Centros de Notificação, utilize o comando [az notification-hub de regra de regra de lista-chaves.](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys)
+3. Existem dois conjuntos de chaves e cordas de ligação para cada política de acesso. Mais tarde, vai precisar deles para [configurar um centro de notificação.](./configure-notification-hub-portal-pns-settings.md) Para listar as chaves e as cordas de ligação para uma política de acesso a Centros de Notificação, utilize o comando [az notification-hub de regra de regra de lista-chaves.](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list_keys)
 
    ```azurecli
    # query the keys and connection strings for DefaultListenSharedAccessSignature
@@ -154,7 +154,7 @@ az group create --name spnhubrg --location eastus
    ```
 
    > [!NOTE]
-   > Um [espaço de nome de Centros de Notificação](/cli/azure/ext/notification-hub/notification-hub/namespace/authorization-rule#ext-notification-hub-az-notification-hub-namespace-authorization-rule-list-keys) e um centro de [notificação](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) têm políticas de acesso separadas. Certifique-se de que está a utilizar a referência Azure CLI correta ao consultar as teclas e as cordas de ligação.
+   > Um [espaço de nome de Centros de Notificação](/cli/azure/notification-hub/namespace/authorization-rule#az_notification_hub_namespace_authorization_rule_list_keys) e um centro de [notificação](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list_keys) têm políticas de acesso separadas. Certifique-se de que está a utilizar a referência Azure CLI correta ao consultar as teclas e as cordas de ligação.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -170,10 +170,10 @@ az group delete --name spnhubrg
 
 * Descubra as extensas capacidades de gestão de centros de notificações com o Azure CLI:
 
-  [Lista completa de referência dos Centros de Notificação](/cli/azure/ext/notification-hub/notification-hub)
+  [Lista completa de referência dos Centros de Notificação](/cli/azure/notification-hub)
 
-  [Lista de referência de espaço de nome de Centros de Notificação](/cli/azure/ext/notification-hub/notification-hub/namespace)
+  [Lista de referência de espaço de nome de Centros de Notificação](/cli/azure/notification-hub/namespace)
 
-  [Lista de referência de regras de autorização de Centros de Notificação](/cli/azure/ext/notification-hub/notification-hub/authorization-rule)
+  [Lista de referência de regras de autorização de Centros de Notificação](/cli/azure/notification-hub/authorization-rule)
 
-  [Lista de referência credenciais de Centros de Notificação](/cli/azure/ext/notification-hub/notification-hub/credential)
+  [Lista de referência credenciais de Centros de Notificação](/cli/azure/notification-hub/credential)

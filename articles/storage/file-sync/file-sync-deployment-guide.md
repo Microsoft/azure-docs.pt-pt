@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 284ef8de1c672fdc0a5bb1a996a3446010253f57
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 64b9ce78f05e1c8d14317f33f21758a86baeabd6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816796"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869190"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -88,7 +88,7 @@ Recomendamos vivamente que leia Planeamento para uma implementação e Planeamen
 
     Siga os passos apresentados no seu terminal para concluir o processo de autenticação.
 
-1. Instale a extensão [Az Filesync](/cli/azure/ext/storagesync/storagesync) Azure CLI.
+1. Instale a extensão [Az Filesync](/cli/azure/storagesync) Azure CLI.
 
    ```azurecli
    az extension add --name storagesync
@@ -380,7 +380,7 @@ New-AzStorageSyncCloudEndpoint `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Utilize o comando [do grupo de sincronização az storagesync](/cli/azure/ext/storagesync/storagesync/sync-group#ext-storagesync-az-storagesync-sync-group-create) para criar um novo grupo de sincronização.  Para desproportuar um grupo de recursos para todos os comandos CLI, utilize [a configuração az](/cli/azure/reference-index#az_configure).
+Utilize o comando [do grupo de sincronização az storagesync](/cli/azure/storagesync/sync-group#az_storagesync_sync_group_create) para criar um novo grupo de sincronização.  Para desproportuar um grupo de recursos para todos os comandos CLI, utilize [a configuração az](/cli/azure/reference-index#az_configure).
 
 ```azurecli
 az storagesync sync-group create --resource-group myResourceGroupName \
@@ -388,7 +388,7 @@ az storagesync sync-group create --resource-group myResourceGroupName \
                                  --storage-sync-service myStorageSyncServiceName \
 ```
 
-Utilize o comando [az storagesync sync-group cloud-endpoint](/cli/azure/ext/storagesync/storagesync/sync-group/cloud-endpoint#ext-storagesync-az-storagesync-sync-group-cloud-endpoint-create) para criar um novo ponto final em nuvem.
+Utilize o comando [az storagesync sync-group cloud-endpoint](/cli/azure/storagesync/sync-group/cloud-endpoint#az_storagesync_sync_group_cloud_endpoint_create) para criar um novo ponto final em nuvem.
 
 ```azurecli
 az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup \
@@ -464,7 +464,7 @@ if ($cloudTieringDesired) {
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Utilize o comando de [fim de servidor do grupo de sincronização az](/cli/azure/ext/storagesync/storagesync/sync-group/server-endpoint#ext-storagesync-az-storagesync-sync-group-server-endpoint-create) para criar um novo ponto final do servidor.
+Utilize o comando de [fim de servidor do grupo de sincronização az](/cli/azure/storagesync/sync-group/server-endpoint#az_storagesync_sync_group_server_endpoint_create) para criar um novo ponto final do servidor.
 
 ```azurecli
 # Create a new sync group server endpoint 

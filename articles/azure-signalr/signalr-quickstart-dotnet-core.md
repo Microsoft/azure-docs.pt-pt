@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: 3cfcf57f455a5c3b17b794acf2ded66ed2285eff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9099a8620f6e4d87ec38c10226d94b1b3cd3462f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94873510"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865986"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Quickstart: Criar uma sala de chat utilizando o Serviço SignalR
 
@@ -29,7 +29,7 @@ O código deste tutorial está disponível para transferência no [repositório 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instale o [.NET Core SDK](https://www.microsoft.com/net/download/windows).
+* Instale o [.NET Core SDK](https://dotnet.microsoft.com/download).
 * Faça o download ou clone do repositório GitHub [da amostra AzureSignalR.](https://github.com/aspnet/AzureSignalR-samples) 
 
 Tendo problemas? Experimente o [guia de resolução de problemas](signalr-howto-troubleshoot-guide.md) ou [avise-nos.](https://aka.ms/asrs/qsnetcore)

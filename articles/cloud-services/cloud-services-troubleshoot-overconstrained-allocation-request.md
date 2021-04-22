@@ -3,25 +3,25 @@ title: Resolução de problemas OverconstrainedAllocationRequest ao implementar 
 description: Este artigo mostra como resolver uma exceção overconstrainedAllocationRequest ao implementar um serviço Cloud (clássico) para Azure.
 services: cloud-services
 documentationcenter: ''
-author: mibufo
-ms.author: v-mibufo
+author: mamccrea
+ms.author: mamccrea
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: 1b50ded166b3f62b38830b4c2d18da7c4c4f0d35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a5880107aaa414da42fe5e36e0cb3315071d8a0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101746648"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877431"
 ---
 # <a name="troubleshoot-overconstrainedallocationrequest-when-deploying-cloud-services-classic-to-azure"></a>Resolução de problemas OverconstrainedAllocationRequest ao implementar serviços cloud (clássico) para Azure
 
 Neste artigo, irá resolver problemas sobre falhas de atribuição restritas que impedem a implantação de Azure Cloud Services (clássico).
 
-Quando implementa casos num Cloud Service ou adiciona novas instâncias de funções web ou de trabalhador, o Microsoft Azure atribui recursos de computação.
+Quando implementa instâncias num Serviço Cloud ou adiciona novas instâncias de funções Web ou de trabalho, o Microsoft Azure aloca recursos de computação.
 
-Pode ocasionalmente receber erros durante estas operações mesmo antes de atingir o limite de subscrição do Azure.
+Ocasionalmente, poderá receber erros durante estas operações mesmo antes de atingir o limite da subscrição do Azure.
 
 > [!TIP]
 > A informação também pode ser útil quando planeia a implantação dos seus serviços.

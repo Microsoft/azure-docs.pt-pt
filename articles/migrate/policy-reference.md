@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para a Azure Migrate
 description: Lista definições políticas incorporadas da Azure Policy para Azure Migrate. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 ms.service: azure-migrate
 author: rayne-wiselman
 ms.author: raynew
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bb982075f4aa6eefb287def3b92f1fa24d13e1af
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 9fedbb52237d26c4521669b5af787dfa3c9c802b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505875"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863498"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-migrate"></a>Azure Policy definições incorporadas para Azure Migrate
 

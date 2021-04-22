@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 5fd53519f20c48261a12b349167993650cac0a67
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 42b3757d6080de1a91b5337c67fd1613569b4a2e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107499666"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877499"
 ---
 |Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -85,4 +85,4 @@ ms.locfileid: "107499666"
 |[Máquinas Windows devem satisfazer requisitos para 'Componentes Windows'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8537fe96-8cbe-43de-b0ef-131bc72bc22a) |As máquinas windows devem ter as definições de Política de Grupo especificadas na categoria "Componentes do Windows" para autenticação básica, tráfego não encriptado, contas microsoft, telemetria, Cortana e outros comportamentos windows. Esta política requer que os pré-requisitos de Configuração de Convidados tenham sido implementados no âmbito de atribuição de políticas. Para mais detalhes, [https://aka.ms/gcpol](https://aka.ms/gcpol) visite. |AuditIfNotExists, Desativado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsComponents_AINE.json) |
 |[As máquinas windows devem satisfazer os requisitos para 'Windows Firewall Properties'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F35d9882c-993d-44e6-87d2-db66ce21b636) |As máquinas windows devem ter as definições de Política de Grupo especificadas na categoria "Windows Firewall Properties" para estado de firewall, ligações, gestão de regras e notificações. Esta política requer que os pré-requisitos de Configuração de Convidados tenham sido implementados no âmbito de atribuição de políticas. Para mais detalhes, [https://aka.ms/gcpol](https://aka.ms/gcpol) visite. |AuditIfNotExists, Desativado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsFirewallProperties_AINE.json) |
 |[As máquinas windows devem satisfazer os requisitos da linha de base do Centro de Segurança Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc) |Requer que os pré-requisitos sejam aplicados no âmbito de atribuição de políticas. Para mais detalhes, [https://aka.ms/gcpol](https://aka.ms/gcpol) visite. As máquinas não são compatíveis se a máquina não estiver configurada corretamente para uma das recomendações da linha de base do Centro de Segurança Azure. |AuditIfNotExists, Desativado |[1.0.0-pré-visualização](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AzureWindowsBaseline_AINE.json) |
-|[Os servidores web do Windows devem ser configurados para utilizar protocolos de comunicação seguros](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |Para proteger a privacidade das informações comunicadas através da Internet, os seus servidores web devem utilizar a versão mais recente do protocolo criptográfico padrão da indústria, Transport Layer Security (TLS). O TLS assegura as comunicações através de uma rede utilizando certificados de segurança para encriptar uma ligação entre máquinas. O TLS 1.3 é mais rápido e seguro do que as versões anteriores: TLS 1.0-1.2 e SSL 2-3, que são todos considerados protocolos legados. |AuditIfNotExists, Desativado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecureWebProtocol_AINE.json) |
+|[Os servidores web do Windows devem ser configurados para utilizar protocolos de comunicação seguros](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |Para proteger a privacidade das informações comunicadas através da Internet, os seus servidores web devem utilizar a versão mais recente do protocolo criptográfico padrão da indústria, Transport Layer Security (TLS). O TLS assegura as comunicações através de uma rede utilizando certificados de segurança para encriptar uma ligação entre máquinas. |AuditIfNotExists, Desativado |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecureWebProtocol_AINE.json) |

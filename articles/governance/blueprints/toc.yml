@@ -272,7 +272,7 @@
 - name: Referência
   items:
     - name: CLI do Azure
-      href: /cli/azure/ext/blueprint/blueprint
+      href: /cli/azure/blueprint
     - name: Azure PowerShell
       href: /powershell/module/az.blueprint/#blueprint
     - name: SDK do Azure para .NET

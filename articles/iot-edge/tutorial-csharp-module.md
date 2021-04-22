@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: b7695c825dbdd2c207c87799ea801026f7506bcb
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: e24c04152911f976907e6bdc433c33e035ade639
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219455"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874752"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-using-linux-containers"></a>Tutorial: Desenvolver um módulo C# IoT Edge utilizando recipientes Linux
 
@@ -60,7 +60,7 @@ Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para 
 Para completar estes tutoriais, prepare os seguintes pré-requisitos adicionais na sua máquina de desenvolvimento:
 
 * [Extensão C# para Visual Studio Code (com tecnologia da OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [SDK de .NET Core 2.1](https://www.microsoft.com/net/download).
+* [SDK de .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1).
 
 ## <a name="create-a-module-project"></a>Criar um projeto de módulo
 

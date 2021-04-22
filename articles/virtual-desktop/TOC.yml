@@ -215,7 +215,7 @@
     - name: Apoio Técnico para Linux
       href: linux-overview.md
     - name: CLI do Azure
-      href: /cli/azure/ext/desktopvirtualization/desktopvirtualization
+      href: /cli/azure/desktopvirtualization
     - name: Estimativa custos do Monitor Azure
       href: azure-monitor-costs.md
     - name: Definições de ficheiro RDP suportadas
@@ -223,7 +223,7 @@
     - name: Diretrizes de dimensionamento de máquinas virtuais
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Interface de linha de comandos (CLI) do Azure
-      href: /cli/azure/ext/desktopvirtualization/
+      href: /cli/azure/
     - name: Cenários de exemplo do Azure
       href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
     - name: Deteção de e-mail

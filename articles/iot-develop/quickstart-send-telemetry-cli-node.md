@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: node
 ms.topic: quickstart
 ms.date: 03/25/2021
-ms.openlocfilehash: 3d42ac814678136c2f6342cd1064e3c3ff394507
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0e1c99124228da9490abaa17ecc41b931631d9fb
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777244"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876981"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-nodejs"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT (Node.js)
 
@@ -91,7 +91,7 @@ Nesta secção, utilizará o Node.js SDK para enviar mensagens do seu dispositiv
     ```bash
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
-1. Na sua concha CLI aberta, corram o comando [de monitor-eventos do hub az iot](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) para começar a monitorizar eventos no seu dispositivo IoT simulado.  As mensagens de evento serão impressas no terminal à medida que chegam.
+1. Na sua concha CLI aberta, corram o comando [de monitor-eventos do hub az iot](/cli/azure/iot/hub#az_iot_hub_monitor_events) para começar a monitorizar eventos no seu dispositivo IoT simulado.  As mensagens de evento serão impressas no terminal à medida que chegam.
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
