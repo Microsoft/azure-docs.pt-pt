@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 1e52d4ff5ccb5047ed82cca2764e98a8bd212305
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 8476c4891cef9d9055b16c7ac574e569ecf5b3f2
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107836284"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864869"
 ---
 # <a name="get-documents-status"></a>Obter estado de documentos
 

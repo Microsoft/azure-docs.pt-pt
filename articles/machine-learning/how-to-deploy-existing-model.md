@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 8076e3f6b2198abe46ae49cd8e0fd2b02f000231
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 46dc9e48ba68189253885ae823457a62c3c4426e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519355"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877809"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Implemente o seu modelo existente com Azure Machine Learning
 
@@ -61,7 +61,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 > [!TIP]
 > Também pode definir objetos adicionais `tags` e `properties` dicionários para o modelo registado. Estes valores podem ser usados mais tarde para ajudar a identificar um modelo específico. Por exemplo, a estrutura utilizada, os parâmetros de formação, etc.
 
-Para mais informações, consulte a referência [de registo do modelo az ml.](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-register)
+Para mais informações, consulte a referência [de registo do modelo az ml.](/cli/azure/ml/model#az_ml_model_register)
 
 
 Para obter mais informações sobre o registo do modelo em geral, consulte [Gerir, implementar e monitorizar modelos de aprendizagem automática.](concept-model-management-and-deployment.md)
@@ -268,7 +268,7 @@ Para colocar o modelo a partir do CLI, utilize o seguinte comando. Este comando 
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json
 ```
 
-Para obter mais informações, consulte a referência de implantação do [modelo az ml.](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy)
+Para obter mais informações, consulte a referência de implantação do [modelo az ml.](/cli/azure/ml/model#az_ml_model_deploy)
 
 Para obter mais informações sobre a implementação, consulte [como e onde implementar modelos.](how-to-deploy-and-where.md)
 

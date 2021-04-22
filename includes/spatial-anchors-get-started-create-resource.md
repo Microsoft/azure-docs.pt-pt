@@ -4,18 +4,18 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
-ms.openlocfilehash: 596b73f8fb205b6a5681fecf3d00fd2a67c1f59f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 2c85e26d5a9115b00621c4099e3ed36afb224e3f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97628736"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107881262"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Criar um recurso de âncoras espaciais
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Aceda ao <a href="https://portal.azure.com" target="_blank">portal do Azure</a>.
+Aceda ao <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>.
 
 No painel esquerdo, **selecione Criar um recurso**.
 
@@ -76,7 +76,7 @@ Comece por preparar o seu ambiente para a CLI do Azure:
 
    [!INCLUDE [resource group intro text](resource-group.md)]
 
-   Pode ver as contas das suas âncoras espaciais atuais para um grupo de recursos utilizando o comando [da lista de âncoras espaciais az:](/cli/azure/ext/mixed-reality/spatial-anchors-account#ext_mixed_reality_az_spatial_anchors_account_list)
+   Pode ver as contas das suas âncoras espaciais atuais para um grupo de recursos utilizando o comando [da lista de âncoras espaciais az:](/cli/azure/spatial-anchors-account#az_spatial_anchors_account_list)
 
    ```azurecli
    az spatial-anchors-account list --resource-group myResourceGroup
@@ -88,13 +88,13 @@ Comece por preparar o seu ambiente para a CLI do Azure:
    az spatial-anchors-account list
    ```
 
-1. Executar a [conta de âncoras espaciais az criar](/cli/azure/ext/mixed-reality/spatial-anchors-account#ext_mixed_reality_az_spatial_anchors_account_create) comando para criar a sua conta de âncoras espaciais:
+1. Executar a [conta de âncoras espaciais az criar](/cli/azure/spatial-anchors-account#az_spatial_anchors_account_create) comando para criar a sua conta de âncoras espaciais:
 
    ```azurecli
    az spatial-anchors-account create --resource-group myResourceGroup --name MySpatialAnchorsQuickStart --location eastus2
    ```
 
-1. Ver as propriedades dos recursos utilizando o comando [de demonstração de âncoras espaciais az:](/cli/azure/ext/mixed-reality/spatial-anchors-account#ext_mixed_reality_az_spatial_anchors_account_show)
+1. Ver as propriedades dos recursos utilizando o comando [de demonstração de âncoras espaciais az:](/cli/azure/spatial-anchors-account#az_spatial_anchors_account_show)
 
    ```azurecli
    az spatial-anchors-account show --resource-group myResourceGroup --name MySpatialAnchorsQuickStart
@@ -102,7 +102,7 @@ Comece por preparar o seu ambiente para a CLI do Azure:
 
    Copie o valor **de ID da conta de** recurso e o valor do domínio da conta **de** recurso num editor de texto para posterior utilização.
 
-1. Executar o comando [de chave de conta de âncoras espaciais az](/cli/azure/ext/mixed-reality/spatial-anchors-account/key#ext_mixed_reality_az_spatial_anchors_account_key_show) para obter as suas chaves primárias e secundárias:
+1. Executar o comando [de chave de conta de âncoras espaciais az](/cli/azure/spatial-anchors-account/key#az_spatial_anchors_account_key_show) para obter as suas chaves primárias e secundárias:
 
    ```azurecli
    az spatial-anchors-account key show --resource-group myResourceGroup --name MySpatialAnchorsQuickStart
@@ -110,14 +110,14 @@ Comece por preparar o seu ambiente para a CLI do Azure:
 
    Copie os valores-chave num editor de texto para utilização posterior.
 
-   Se precisar de regenerar as chaves, utilize o comando [de renovação da chave de renovação da conta de âncoras espaciais az:](/cli/azure/ext/mixed-reality/spatial-anchors-account/key#ext_mixed_reality_az_spatial_anchors_account_key_renew)
+   Se precisar de regenerar as chaves, utilize o comando [de renovação da chave de renovação da conta de âncoras espaciais az:](/cli/azure/spatial-anchors-account/key#az_spatial_anchors_account_key_renew)
 
    ```azurecli
    az spatial-anchors-account key renew --resource-group myResourceGroup --name example --key primary
    az spatial-anchors-account key renew --resource-group myResourceGroup --name example --key secondary
    ```
 
-Pode eliminar uma conta utilizando o comando [de eliminação de âncoras espaciais az:](/cli/azure/ext/mixed-reality/spatial-anchors-account#ext_mixed_reality_az_spatial_anchors_account_delete)
+Pode eliminar uma conta utilizando o comando [de eliminação de âncoras espaciais az:](/cli/azure/spatial-anchors-account#az_spatial_anchors_account_delete)
 
 ```azurecli
 az spatial-anchors-account delete --resource-group myResourceGroup --name MySpatialAnchorsQuickStart

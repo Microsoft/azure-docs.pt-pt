@@ -10,12 +10,12 @@ ms.devlang: java
 ms.custom:
 - devx-track-java
 - mode-api
-ms.openlocfilehash: 15453fb8177248087cbec98fd734bcff3bf66868
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 0d93b9b645aaf4190a36dbc523d40dec2757a18b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533234"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869802"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Quickstart: Use Java para criar uma sala de chat com funções Azure e serviço SignalR
 
@@ -31,7 +31,7 @@ O Serviço Azure SignalR permite-lhe adicionar facilmente funcionalidades em tem
    > As ligações necessárias para o Serviço SignalR em Java só são suportadas na versão 2.4.419 (versão de anfitrião 2.0.12332) ou superior.
 
    > [!NOTE]
-   > Para instalar extensões, as Ferramentas Principais de Funções Azure requerem a instalação [do SDK .NET Core.](https://www.microsoft.com/net/download) No entanto, não precisa de estar familiarizado com o .NET para criar aplicações das Funções do Azure com JavaScript.
+   > Para instalar extensões, as Ferramentas Principais de Funções Azure requerem a instalação [do SDK .NET Core.](https://dotnet.microsoft.com/download) No entanto, não precisa de estar familiarizado com o .NET para criar aplicações das Funções do Azure com JavaScript.
 
 - [Java Development Kit](https://www.azul.com/downloads/zulu/), versão 8
 - [Apache Maven](https://maven.apache.org), versão 3.0 ou superior

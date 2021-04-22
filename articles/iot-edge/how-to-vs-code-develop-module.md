@@ -9,12 +9,12 @@ ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: eae6f1ec8cb6917d0d51deca8c9e88725c9b01a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7cc5061911ffc2cbc91dfa8c0d2fd1a6e59ff1a1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200638"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875670"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o Código do Estúdio Visual para desenvolver e depurar módulos para Azure IoT Edge
 
@@ -47,7 +47,7 @@ Instale primeiro o [Código do Estúdio Visual](https://code.visualstudio.com/) 
 
 Também terá de instalar algumas ferramentas adicionais específicas da linguagem para desenvolver o seu módulo:
 
-- C#, incluindo funções Azure: [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
+- C#, incluindo funções Azure: [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1)
 
 - Python: [Python](https://www.python.org/downloads/) e [Pip](https://pip.pypa.io/en/stable/installing/#installation) para instalar pacotes Python (normalmente incluídos com a sua instalação Python).
 

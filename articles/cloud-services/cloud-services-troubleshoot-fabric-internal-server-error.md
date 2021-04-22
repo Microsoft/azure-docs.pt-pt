@@ -2,25 +2,25 @@
 title: Resolução de problemas FabricInternalServerError ou ServiceAllocationFailure ao implementar um serviço Cloud (clássico) para Azure | Microsoft Docs
 description: Este artigo mostra como resolver uma exceção FabricInternalServerError ou ServiceAllocationFailure ao implementar um serviço Cloud (clássico) para Azure.
 services: cloud-services
-author: mibufo
-ms.author: v-mibufo
+author: mamccrea
+ms.author: mamccrea
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: 0a4111f569b751ace80a2a886ed2ce7e4968ce16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0883178779179df2e531123b8a500c62d42530e4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101746758"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877449"
 ---
 # <a name="troubleshoot-fabricinternalservererror-or-serviceallocationfailure-when-deploying-a-cloud-service-classic-to-azure"></a>Resolução de problemas FabricInternalServerError ou ServiceAllocationFailure ao implementar um serviço cloud (clássico) para Azure
 
 Neste artigo, irá resolver problemas de falhas de atribuição onde o controlador de tecido não pode alocar ao implementar um serviço Azure Cloud (clássico).
 
-Quando implementa casos num Cloud Service ou adiciona novas instâncias de funções web ou de trabalhador, o Microsoft Azure atribui recursos de computação.
+Quando implementa instâncias num Serviço Cloud ou adiciona novas instâncias de funções Web ou de trabalho, o Microsoft Azure aloca recursos de computação.
 
-Pode ocasionalmente receber erros durante estas operações mesmo antes de atingir o limite de subscrição do Azure.
+Ocasionalmente, poderá receber erros durante estas operações mesmo antes de atingir o limite da subscrição do Azure.
 
 > [!TIP]
 > A informação também pode ser útil quando planeia a implantação dos seus serviços.

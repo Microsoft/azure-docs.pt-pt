@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: edb7ebc94d2706d1bf20db8ed9a869107163ff8d
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 0b2bb49863e07e6f06512e868ed12ecf00cc11c2
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387994"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872394"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Modelos de trem com conjuntos de dados de aprendizagem de máquinas Azure 
 
@@ -316,7 +316,7 @@ Se estiver a utilizar a partilha de ficheiros para outras cargas de trabalho, co
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Modelos de aprendizagem automática de máquinas](how-to-auto-train-remote.md) de comboio com Separadors.
+* [Modelos de aprendizagem automática de máquinas](how-to-configure-auto-train.md#data-source-and-format) de comboio com Separadors.
 
 * [Treinar modelos de classificação de imagem](https://aka.ms/filedataset-samplenotebook) com FileDatasets.
 

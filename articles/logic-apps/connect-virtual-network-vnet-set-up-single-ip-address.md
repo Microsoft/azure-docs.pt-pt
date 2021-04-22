@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: e88c4bf05d88007a6e19b568f1bc1085e24b0325
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7ec495dd52607f2f65e0bef50489dd182c2a3253
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211061"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874194"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Crie um único endereço IP para um ou mais ambientes de serviço de integração em Azure Logic Apps
 
@@ -97,7 +97,7 @@ Este tópico mostra como encaminhar o tráfego de saída através de um Azure Fi
    * [Lógica de processamento de regras do Azure Firewall](../firewall/rule-processing.md#network-rules-and-applications-rules)
    * [FAQ do Azure Firewall](../firewall/firewall-faq.yml)
    * [Azure PowerShell: New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
-   * [Azure CLI: regra da rede de firewall da rede az](/cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create)
+   * [Azure CLI: regra da rede de firewall da rede az](/cli/azure/network/firewall/network-rule#az_network_firewall_network_rule_create)
 
 ## <a name="next-steps"></a>Passos seguintes
 

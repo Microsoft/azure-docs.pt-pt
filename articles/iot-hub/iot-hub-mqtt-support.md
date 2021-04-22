@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 9678648b6417138e216ba2dce3a3605bb4c1bce4
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 077b4ea6c7d4506e29673cbb4d6d89a92657b9c1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169237"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873690"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunique com o seu hub IoT usando o protocolo MQTT
 
@@ -115,7 +115,7 @@ Para aprender a adaptar as amostras para utilizar as convenções [Azure IoT Plu
 
 Este repositório contém:
 
-**Para Windows:**
+**Para janelas:**
 
 * TelemetriaMQTTWin32: contém código para enviar uma mensagem de telemetria para um hub Azure IoT, construído e executado numa máquina Windows.
 
@@ -162,7 +162,7 @@ Se um dispositivo não puder utilizar os SDKs do dispositivo, ainda pode ligar-s
 
   Para obter mais informações sobre como gerar fichas SAS, consulte a secção de dispositivos de Utilização de fichas de [segurança IoT Hub](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  Ao testar, também pode utilizar as [ferramentas Azure IoT de](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) plataforma cruzada para Código de Estúdio Visual ou o comando de extensão CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) para gerar rapidamente um token SAS que pode copiar e colar no seu próprio código.
+  Ao testar, também pode utilizar as [ferramentas Azure IoT de](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) plataforma cruzada para Código de Estúdio Visual ou o comando de extensão CLI [az iot hub generate-sas-token](/cli/azure/iot/hub#az_iot_hub_generate_sas_token) para gerar rapidamente um token SAS que pode copiar e colar no seu próprio código.
 
 ### <a name="for-azure-iot-tools"></a>Para ferramentas Azure IoT
 

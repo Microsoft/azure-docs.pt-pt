@@ -3,12 +3,12 @@ title: 'Quickstart: Criar um centro de eventos utilizando powerShell - Azure Eve
 description: Este início rápido descreve como criar um hub de eventos com o Azure PowerShell e, em seguida, enviar e receber eventos com o SDK .NET Standard.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 1c81024a9195e463eeaaf384d5cbbd1e0054c485
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be2761bedd3198d25cb279e6a8ff188db6a51de2
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88933975"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873780"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Início Rápido: Criar um hub de eventos com o Azure PowerShell
 
@@ -24,7 +24,7 @@ Para concluir este tutorial, confirme que tem:
 
 - Subscrição do Azure. Se não tiver uma, [crie uma conta gratuita][] antes de começar.
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
-- [SDK .NET Standard](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
+- [.NET Core SDK](https://dotnet.microsoft.com/download), versão 2.0 ou posterior.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

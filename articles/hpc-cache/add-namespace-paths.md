@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 5427389f007b7598274d35425a9b3e8e10a63e49
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2cb8db4e73a8f4fa299031070bffc15a2b754d7e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798532"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870378"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurar o espaço de nome agregado
 
@@ -65,7 +65,7 @@ A partir do portal Azure, carregue a página de definições **do Namespace.** P
 
 Ao utilizar o Azure CLI, deve adicionar um caminho de espaço de nome quando criar o alvo de armazenamento. Leia [Adicione um novo alvo de armazenamento Azure Blob](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) para mais detalhes.
 
-Para atualizar o caminho do espaço de nome do alvo, utilize o comando [de atualização az-cache blob-storage-target.](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update) Os argumentos para o comando de atualização são semelhantes aos argumentos no comando criar, exceto que não passa o nome do recipiente ou a conta de armazenamento.
+Para atualizar o caminho do espaço de nome do alvo, utilize o comando [de atualização az-cache blob-storage-target.](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_update) Os argumentos para o comando de atualização são semelhantes aos argumentos no comando criar, exceto que não passa o nome do recipiente ou a conta de armazenamento.
 
 Não é possível apagar um caminho de espaço de nome de um alvo de armazenamento de bolhas com o CLI Azure, mas pode substituir o caminho com um valor diferente.
 
@@ -129,7 +129,7 @@ Preencha estes valores para cada caminho do espaço de nome:
 
 Ao utilizar o Azure CLI, deve adicionar pelo menos um caminho de espaço de nome quando criar o alvo de armazenamento. Leia [Adicione um novo alvo de armazenamento NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) para mais detalhes.
 
-Para atualizar o caminho do espaço de nome do alvo ou para adicionar caminhos adicionais, utilize o comando [de atualização az hpc-cache nfs-storage-target.](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update) Utilize a ``--junction`` opção para especificar todos os caminhos do espaço de nome que deseja.
+Para atualizar o caminho do espaço de nome do alvo ou para adicionar caminhos adicionais, utilize o comando [de atualização az hpc-cache nfs-storage-target.](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_update) Utilize a ``--junction`` opção para especificar todos os caminhos do espaço de nome que deseja.
 
 As opções utilizadas para o comando de atualização são semelhantes ao comando "criar", exceto que não passas as informações do sistema de armazenamento (endereço IP ou nome de anfitrião), e o modelo de utilização é opcional. Leia [Adicione um novo alvo de armazenamento NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) para mais detalhes sobre a sintaxe da ``--junction`` opção.
 

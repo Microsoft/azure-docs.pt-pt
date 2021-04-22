@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 3c9f1b76bb707a296da00ac503482efe6a22385b
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 6ee0164dd8243d30cf691350352757f2503e34c8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278342"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862980"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Resolução de problemas erros comuns de auto-produção de bordo
 A auto-produção pode não conseguir embarcar uma máquina no serviço. Este documento explica como resolver falhas de implementação, partilha algumas razões comuns pelas quais as implementações podem falhar e descreve potenciais próximos passos na mitigação.
@@ -41,11 +41,10 @@ Região do espaço de trabalho não corresponde aos requisitos de mapeamento da 
 "Acesso negado por causa da atribuição de negação com o nome 'Sistema negar atribuição criada por aplicação gerida'" | Foi criada uma [assinatura de negação](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) no seu recurso, o que impediu a Automanage de aceder ao seu recurso. Esta negação A assinatura pode ter sido criada por um [Plano](https://docs.microsoft.com/azure/governance/blueprints/concepts/resource-locking) ou por uma [Aplicação Gerida](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview).
 "Informação sobre os OS: Nome='(nulo)",, ver='(nulo)', agente status='Not Ready'." | Certifique-se de que está a executar uma [versão de agente com suporte mínimo,](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version)o agente está em execução[(Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) e [Windows](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/windows-azure-guest-agent)), e que o agente está atualizado[(Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) e [Windows).](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)
 "Incapaz de determinar o SO para o nome VM OS:, ver . Por favor, verifique se o agente VM está em funcionamento, o estado atual está pronto." | Certifique-se de que está a executar uma [versão de agente com suporte mínimo,](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version)o agente está em execução[(Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) e [Windows](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/windows-azure-guest-agent)), e que o agente está atualizado[(Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) e [Windows).](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)
-
 "A VM reportou uma falha no processamento da extensão 'IaaSAntimalware'" | Certifique-se de que não tem outra oferta antimalware/antivírus já instalada no seu VM. Se isso falhar, contacte o suporte.
 Espaço de trabalho ASC: A automanagem não suporta atualmente o serviço Log Analytics no _local._ | Verifique se o seu VM está localizado numa [região apoiada.](./automanage-virtual-machines.md#supported-regions)
 A implementação do modelo falhou devido à violação de políticas. Consulte os detalhes para mais informações. | Existe uma política que impede a Automanagem de embarcar no seu VM. Verifique as políticas que são aplicadas à sua subscrição ou grupo de recursos que contenham o seu VM que pretende embarcar na Automanage.
-"A atribuição falhou; não existe informação adicional disponível" | Por favor, abra um caso com o suporte do Microsoft Azure.
+"A atribuição falhou; não há informação adicional disponível" | Por favor, abra um caso com o suporte do Microsoft Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

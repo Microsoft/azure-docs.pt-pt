@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 04/21/2021
 ms.author: banders
-ms.openlocfilehash: 1523ca77b06281b84ed57fbc0e2e49ffede85fb4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e8a5e6d40b745efb7fcd50919cd27664b3406b7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934347"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862854"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir Reservas para recursos do Azure
 
@@ -177,23 +177,9 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
-
-- [O que são as reservas do Azure?](save-compute-costs-reservations.md)
-
-Para comprar um plano de serviço:
-- [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../../azure-sql/database/reserved-capacity-overview.md)
-- [Efetuar pré-pagamento de recursos do Azure Cosmos DB com capacidade reservada do Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
-
-Para comprar um plano de software:
-- [Efetuar pré-pagamento dos planos de software Red Hat nas Reservas do Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Efetuar o pré-pagamento de planos de software SUSE das Reservas do Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
-
-Compreender o desconto e a utilização:
-- [Compreender como o desconto das reservas das VMs é aplicado](../manage/understand-vm-reservation-charges.md)
-- [Compreender como o desconto do plano de software Red Hat Enterprise Linux é aplicado](understand-rhel-reservation-charges.md)
-- [Compreender como o desconto do plano de software SUSE Linux Enterprise é aplicado](understand-suse-reservation-charges.md)
-- [Compreender como outros descontos das reservas são aplicados](understand-reservation-charges.md)
-- [Compreender a utilização de reservas na sua subscrição Pay As You Go](understand-reserved-instance-usage.md)
-- [Compreender a utilização de reservas na inscrição Enterprise](understand-reserved-instance-usage-ea.md)
-- [Custos de software Windows não incluídos nas Reservas](reserved-instance-windows-software-costs.md)
+ - [Ver utilização da reserva](reservation-utilization.md)
+ - [Troca e reembolso](exchange-and-refund-azure-reservations.md)
+ - [Renovar reservas](reservation-renew.md)
+ - [Transfers entre inquilinos](troubleshoot-reservation-transfers-between-tenants.md)
+ - [Encontre um comprador de reservas a partir de registos Azure](find-reservation-purchaser-from-logs.md)
+ - [Renovar uma reserva](reservation-renew.md)

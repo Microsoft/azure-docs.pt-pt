@@ -11,12 +11,12 @@ ms.date: 02/16/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: 8775696a35bfccc363aa2c6ec06c6c44115916b9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 9b7b8fe9c05d0de64dcd0cf7c6c324e0d03cb1ac
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479275"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874158"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Serviço de alto desempenho com Servidor de Inferência de Tritão (Pré-visualização) 
 
@@ -116,7 +116,7 @@ models
 az ml model register -n my_triton_model -p models --model-framework=Multi
 ```
 
-Para obter mais `az ml model register` informações, consulte a [documentação de referência.](/cli/azure/ext/azure-cli-ml/ml/model)
+Para obter mais `az ml model register` informações, consulte a [documentação de referência.](/cli/azure/ml/model)
 
 Ao registar o modelo em Azure Machine Learning, o valor para o `--model-path  -p` parâmetro deve ser o nome da pasta-mãe do Tritão.  
 No exemplo acima,  `--model-path` está "modelos".
@@ -339,7 +339,7 @@ print(local_service.scoring_uri)
 
 ---
 
-Após a colocação concluída, é apresentado o URI de pontuação. Para esta implantação local, `http://localhost:6789/score` será. Se se deslocar para a nuvem, pode utilizar o comando CLI do [serviço AZ ML](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) para obter o URI de pontuação.
+Após a colocação concluída, é apresentado o URI de pontuação. Para esta implantação local, `http://localhost:6789/score` será. Se se deslocar para a nuvem, pode utilizar o comando CLI do [serviço AZ ML](/cli/azure/ml/service#az_ml_service_show) para obter o URI de pontuação.
 
 Para obter informações sobre como criar um cliente que envia pedidos de inferência para o URI pontuante, consulte [consumir um modelo implantado como serviço web](how-to-consume-web-service.md).
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: f97840a05115bf5659a6f7579b72786e890051a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a38d58eecd200ec312e7677a05531e27bf4ba6b0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92429394"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868704"
 ---
 # <a name="quickstart-provision-a-symmetric-key-device-using-c"></a>Quickstart: Provision a um dispositivo chave simétrico utilizando C #
 
@@ -34,7 +34,7 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Certifique-se de que tem [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/windows) ou mais tarde instalado na sua máquina baseada no Windows.
+* Certifique-se de que tem [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download) ou mais tarde instalado na sua máquina baseada no Windows.
 
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
@@ -103,10 +103,10 @@ O código de provisionamento entrará em contacto com a instância DPS com base 
     ```csharp
         //These are the two keys that belong to your individual enrollment. 
         // Leave them blank if you want to try this sample for an individual enrollment instead
-        //private const string individualEnrollmentPrimaryKey = "";
-        //private const string individualEnrollmentSecondaryKey = "";
+        //private const string individualEnrollmentPrimaryKey = "&quot;;
+        //private const string individualEnrollmentSecondaryKey = &quot;&quot;;
 
-        private static string individualEnrollmentPrimaryKey = Environment.GetEnvironmentVariable("PRIMARY_SYMMETRIC_KEY");;
+        private static string individualEnrollmentPrimaryKey = Environment.GetEnvironmentVariable(&quot;PRIMARY_SYMMETRIC_KEY");;
         private static string individualEnrollmentSecondaryKey = Environment.GetEnvironmentVariable("SECONDARY_SYMMETRIC_KEY");;
     ```
 

@@ -96,6 +96,8 @@
               href: connect-azure-kubernetes-service.md
             - name: Registos da base de dados SQL do Azure
               href: connect-azure-sql-logs.md
+            - name: Contas de Armazenamento do Azure
+              href: connect-azure-storage-account.md
             - name: Firewall de aplicações Web (WAF) do Azure
               href: connect-azure-waf.md
             - name: Defensor de IoT (anteriormente ASC para IoT)
@@ -298,7 +300,7 @@
     - name: Top Azure Sentinel livros
       href: top-workbooks.md
     - name: CLI do Azure
-      href: /cli/azure/ext/sentinel/sentinel
+      href: /cli/azure/sentinel
     - name: Funções RBAC do Azure
       items:
         - name: Todos os papéis de Azure

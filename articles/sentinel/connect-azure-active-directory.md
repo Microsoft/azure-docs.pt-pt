@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/20/2021
+ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: f8931fedb380cf81d72b7b5280a5795498daaa57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2cfc2d592c24cf5d15a489ea4bde36ea3c2f863
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99251986"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872376"
 ---
 # <a name="connect-azure-active-directory-azure-ad-data-to-azure-sentinel"></a>Ligue os dados do Azure Ative Directory (Azure AD) ao Azure Sentinel
 
@@ -44,7 +44,7 @@ Pode utilizar o conector incorporado do Azure Sentinel para recolher dados do [A
 > Como indicado acima, alguns dos tipos de registo disponíveis estão atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais adicionais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Qualquer licença AD Azure (Grátis/O365/P1/P2) é suficiente para ingerir registos de entrada no Azure Sentinel. Podem ser aplicadas taxas adicionais por gigabyte para o Azure Monitor (Log Analytics) e para o Azure Sentinel.
+- Uma licença Azure Ative Directory P1 ou P2 é necessária para ingerir registos de login no Azure Sentinel. Qualquer licença AD Azure (Grátis/O365/P1/P2) é suficiente para ingerir os outros tipos de registo. Podem ser aplicadas taxas adicionais por gigabyte para o Azure Monitor (Log Analytics) e para o Azure Sentinel.
 
 - O seu utilizador deve ser atribuído ao contributo do Azure Sentinel no espaço de trabalho.
 

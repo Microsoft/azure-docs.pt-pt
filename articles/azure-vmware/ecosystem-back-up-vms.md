@@ -2,13 +2,13 @@
 title: Soluções de backup para máquinas virtuais Azure VMware Solution
 description: Saiba mais sobre a cópia de segurança e restaure soluções para as suas máquinas virtuais Azure VMware Solution.
 ms.topic: how-to
-ms.date: 03/17/2021
-ms.openlocfilehash: 92726cae8a6f99140e4401763d14506f71884cc1
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.date: 04/21/2021
+ms.openlocfilehash: fc12c21265e4615e25bb324835364cb9119ac6fa
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166348"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874725"
 ---
 # <a name="backup-solutions-for-azure-vmware-solution-virtual-machines-vms"></a>Soluções de backup para máquinas virtuais Azure VMware Solution (VMs)
 
@@ -19,8 +19,9 @@ Os nossos parceiros de backup têm soluções de backup líderes no setor e rest
 O tráfego de rede de backup entre os VMs da Azure VMware Solution e o repositório de backup em Azure viaja por uma ligação de alta largura de banda e baixa latência. O tráfego de replicação através das regiões viaja através da rede interna de backplane Azure, o que reduz os custos de largura de banda para os utilizadores.
 
 Pode encontrar mais informações sobre estas soluções de backup aqui:
-- [Commvault](https://documentation.commvault.com/11.21/essential/128997_support_for_azure_vmware_solution.html)
-- [Veritas](https://vrt.as/nb4avs)
-- [Veeam](https://www.veeam.com/kb4012)
 - [Coesidade](https://www.cohesity.com/blogs/expanding-cohesitys-support-for-microsofts-ecosystem-azure-stack-and-azure-vmware-solution/)
+- [Commvault](https://documentation.commvault.com/11.21/essential/128997_support_for_azure_vmware_solution.html)
 - [Tecnologias Dell](https://www.delltechnologies.com/resources/en-us/asset/briefs-handouts/solutions/dell-emc-data-protection-for-avs.pdf)
+- [Rubrik](https://www.rubrik.com/en/products/cloud-data-management)
+- [Veeam](https://www.veeam.com/kb4012)
+- [Veritas](https://vrt.as/nb4avs)

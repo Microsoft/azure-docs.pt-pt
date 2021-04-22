@@ -10,12 +10,12 @@ ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 11323f2aec05935b9dc45187ed54597e61af924d
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 4a8d1f872ca042429276b8f0e1112bc5837d8e38
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554127"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869280"
 ---
 # <a name="enable-soft-delete-for-blobs"></a>Ativar a eliminação recuperável para blobs
 
@@ -62,7 +62,7 @@ $properties.DeleteRetentionPolicy.Days
 
 # <a name="cli"></a>[CLI](#tab/azure-CLI)
 
-Para permitir a eliminação suave do blob com O Azure CLI, ligue para o comando [de atualização de propriedades de serviço de armazenamento az,](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) especificando o período de retenção em dias.
+Para permitir a eliminação suave do blob com O Azure CLI, ligue para o comando [de atualização de propriedades de serviço de armazenamento az,](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) especificando o período de retenção em dias.
 
 O exemplo a seguir permite a eliminação suave da bolha e define o período de retenção para sete dias. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 
@@ -73,7 +73,7 @@ az storage account blob-service-properties update --account-name <storage-accoun
     --delete-retention-days 7
 ```
 
-Para verificar as definições atuais para eliminar suavemente blob, ligue para o comando de [série de propriedades de serviço blob-service-properties de armazenamento az:](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_show)
+Para verificar as definições atuais para eliminar suavemente blob, ligue para o comando de [série de propriedades de serviço blob-service-properties de armazenamento az:](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_show)
 
 ```azurecli-interactive
 az storage account blob-service-properties show --account-name <storage-account> \

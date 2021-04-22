@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 04/19/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 01c3dacc2754a3df6afb87b160ca2feea81807ad
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: af591a5defcef1e8d043d54f08447324a34a10c4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107820444"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876300"
 ---
 # <a name="start-monitor-and-track-run-history"></a>Iniciar, monitorizar e rastrear o histórico
 
@@ -101,7 +101,7 @@ Vai precisar dos seguintes itens:
     
         Este comando cria uma `.azureml` subdiretória que contém ficheiros de ambiente runconfig e conda. Também contém um `config.json` ficheiro que é usado para comunicar com o seu espaço de trabalho Azure Machine Learning.
     
-        Para obter mais informações, consulte [o az ml pasta anexa .](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach)
+        Para obter mais informações, consulte [o az ml pasta anexa .](/cli/azure/ml/folder?preserve-view=true&view=azure-cli-latest#az_ml_folder_attach)
     
     2. Para iniciar a execução, utilize o seguinte comando. Ao utilizar este comando, especifique o nome do ficheiro runconfig (o texto antes \* de .runconfig se estiver a olhar para o seu sistema de ficheiros) contra o parâmetro -c.
     
@@ -116,7 +116,7 @@ Vai precisar dos seguintes itens:
         >
         > Para mais ficheiros runconfig, consulte [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
     
-        Para obter mais informações, consulte [o roteiro de submissão az ml run](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
+        Para obter mais informações, consulte [o roteiro de submissão az ml run](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_submit-script).
 
     # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -167,7 +167,7 @@ Vai precisar dos seguintes itens:
     
         Este comando devolve um documento JSON que lista informações sobre execuções para esta experiência.
     
-        Para mais informações, consulte [a lista de experiências az ml](/cli/azure/ext/azure-cli-ml/ml/experiment?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+        Para mais informações, consulte [a lista de experiências az ml](/cli/azure/ml/experiment?preserve-view=true&view=azure-cli-latest#az_ml_experiment_list).
     
     * Para visualizar informações numa execução específica, utilize o seguinte comando. `runid`Substitua-a pelo ID da execução:
     
@@ -177,7 +177,7 @@ Vai precisar dos seguintes itens:
     
         Este comando devolve um documento JSON que lista informações sobre a execução.
     
-        Para mais informações, consulte [o az ml run show](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
+        Para mais informações, consulte [o az ml run show](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_show).
     
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
@@ -259,7 +259,7 @@ No Azure Machine Learning, pode utilizar propriedades e tags para ajudar a organ
     az ml run update -r runid --add-tag quality='fantastic run'
     ```
     
-    Para mais informações, consulte [a atualização de execução az ml](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
+    Para mais informações, consulte [a atualização de execução az ml](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_update).
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
     
@@ -337,7 +337,7 @@ Para cancelar uma execução utilizando o CLI, utilize o seguinte comando. `runi
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-Para mais informações, consulte [a corrida az ml cancelar](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
+Para mais informações, consulte [a corrida az ml cancelar](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_cancel).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 

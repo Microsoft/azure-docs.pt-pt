@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.custom: seodec18, has-adal-ref, devx-track-azurecli
-ms.openlocfilehash: 225e72bc00ce0a80ff655a76562b5c6b70b7fa79
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 8e50b650eaffe3d0ec8d3d2cd1841bd139d33750
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479496"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107867517"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
@@ -79,7 +79,7 @@ Quando o seu ambiente Azure Time Series Insights recebe um pedido, primeiro o si
 
 - Para conceder acesso através do [portal Azure](https://portal.azure.com/) UI, siga as instruções enumeradas no [acesso de dados grant a um](concepts-access-policies.md) artigo ambiental. Ao selecionar o utilizador, pode procurar o registo de identidade ou aplicação gerido pelo seu nome ou por ID.
 
-- Para conceder acesso através do Azure CLI, executar o seguinte comando. Reveja [aqui](/cli/azure/ext/timeseriesinsights/tsi/access-policy) a documentação para obter a lista completa de comandos disponíveis para gerir o acesso.
+- Para conceder acesso através do Azure CLI, executar o seguinte comando. Reveja [aqui](/cli/azure/tsi/access-policy) a documentação para obter a lista completa de comandos disponíveis para gerir o acesso.
 
    ```azurecli-interactive
    az tsi access-policy create --name "ap1" --environment-name "env1" --description "some description" --principal-object-id "aGuid" --roles Reader Contributor --resource-group "rg1"
@@ -148,7 +148,7 @@ Esta secção descreve os cabeçalhos e parâmetros comuns de pedidos HTTP utili
 
 Os cabeçalhos de pedido necessários são descritos abaixo.
 
-| Cabeçalho de pedido exigido | Descrição |
+| Cabeçalho de pedido exigido | Description |
 | --- | --- |
 | Autorização | Para autenticar com a Azure Time Series Insights, um símbolo de portador OAuth 2.0 válido deve ser passado no [cabeçalho de autorização](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate). |
 
@@ -157,7 +157,7 @@ Os cabeçalhos de pedido necessários são descritos abaixo.
 
 Os cabeçalhos de pedido opcionais são descritos abaixo.
 
-| Cabeçalho de pedido opcional | Descrição |
+| Cabeçalho de pedido opcional | Description |
 | --- | --- |
 | Tipo de conteúdo | só `application/json` é suportado. |
 | x-ms-cliente-pedido-id | Um pedido de identificação do cliente. O serviço regista este valor. Permite que o serviço rastreie a operação através dos serviços. |
@@ -166,7 +166,7 @@ Os cabeçalhos de pedido opcionais são descritos abaixo.
 
 Os cabeçalhos de resposta opcionais mas recomendados são descritos abaixo.
 
-| Cabeçalho de resposta | Descrição |
+| Cabeçalho de resposta | Description |
 | --- | --- |
 | Tipo de conteúdo | Só `application/json` é apoiado. |
 | x-ms-request-id | ID de pedido gerado pelo servidor. Pode ser usado para contactar a Microsoft para investigar um pedido. |

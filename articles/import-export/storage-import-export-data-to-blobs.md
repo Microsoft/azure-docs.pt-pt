@@ -9,12 +9,12 @@ ms.date: 03/15/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 74f5565ba9dfa48dabfe56c25e3ef30a8caafe14
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 39eb6c164751ebdfa293798850a8d663fe988b82
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563288"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875688"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utilizar o serviço Azure Import/Export para importar dados para a Azure Blob Storage
 
@@ -166,7 +166,7 @@ Utilize os seguintes passos para criar um trabalho de importação no Azure CLI.
 
 ### <a name="create-a-job"></a>Criar uma tarefa
 
-1. Utilize o comando [de adicionar extensão az](/cli/azure/extension#az_extension_add) para adicionar a extensão [de importação e exportação az:](/cli/azure/ext/import-export/import-export)
+1. Utilize o comando [de adicionar extensão az](/cli/azure/extension#az_extension_add) para adicionar a extensão [de importação e exportação az:](/cli/azure/import-export)
 
     ```azurecli
     az extension add --name import-export
@@ -184,19 +184,19 @@ Utilize os seguintes passos para criar um trabalho de importação no Azure CLI.
     az storage account create --resource-group myierg --name myssdocsstorage --https-only
     ```
 
-1. Para obter uma lista dos locais para os quais pode enviar discos, utilize o comando [da lista de localização de importação e exportação az:](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list)
+1. Para obter uma lista dos locais para os quais pode enviar discos, utilize o comando [da lista de localização de importação e exportação az:](/cli/azure/import-export/location#az_import_export_location_list)
 
     ```azurecli
     az import-export location list
     ```
 
-1. Utilize o comando [de localização de importação e exportação az](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) para obter localizações para a sua região:
+1. Utilize o comando [de localização de importação e exportação az](/cli/azure/import-export/location#az_import_export_location_show) para obter localizações para a sua região:
 
     ```azurecli
     az import-export location show --location "West US"
     ```
 
-1. Executar os [seguintes az importação-exportação criar](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) comando para criar um trabalho de importação:
+1. Executar os [seguintes az importação-exportação criar](/cli/azure/import-export#az_import_export_create) comando para criar um trabalho de importação:
 
     ```azurecli
     az import-export create \
@@ -223,13 +223,13 @@ Utilize os seguintes passos para criar um trabalho de importação no Azure CLI.
    > [!TIP]
    > Em vez de especificar um endereço de e-mail para um único utilizador, forneça um e-mail de grupo. Isto garante que recebe notificações mesmo que um administrador saia.
 
-1. Utilize o comando [da lista de importação e exportação az](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) para ver todos os postos de trabalho para o grupo de recursos myierg:
+1. Utilize o comando [da lista de importação e exportação az](/cli/azure/import-export#az_import_export_list) para ver todos os postos de trabalho para o grupo de recursos myierg:
 
     ```azurecli
     az import-export list --resource-group myierg
     ```
 
-1. Para atualizar o seu trabalho ou cancelar o seu trabalho, executar o comando [az de atualização de importação e exportação:](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update)
+1. Para atualizar o seu trabalho ou cancelar o seu trabalho, executar o comando [az de atualização de importação e exportação:](/cli/azure/import-export#az_import_export_update)
 
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true

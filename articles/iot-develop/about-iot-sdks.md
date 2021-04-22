@@ -1,17 +1,17 @@
 ---
 title: Visão geral das opções SDK do dispositivo Azure IoT
 description: Saiba qual o dispositivo Azure IoT SDK para usar com base no seu papel de desenvolvimento e tarefas.
-author: elhorton
-ms.author: elhorton
+author: philmea
+ms.author: philmea
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
-ms.openlocfilehash: c9624e9a23d005185429c82199324ac570cbd63e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c35a9045bf809c03630fbb7c57f9d31e7b143422
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102607735"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876462"
 ---
 # <a name="overview-of-azure-iot-device-sdks"></a>Visão geral dos SDKs de dispositivoS Azure IoT
 

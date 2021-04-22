@@ -2,17 +2,17 @@
 title: Resolução de problemas ConstrainedAllocationFailed ao implementar um serviço Cloud (clássico) para Azure | Microsoft Docs
 description: Este artigo mostra como resolver uma exceção CondicionadaallocationFailed ao implementar um serviço Cloud (clássico) para Azure.
 services: cloud-services
-author: mibufo
-ms.author: v-mibufo
+author: mamccrea
+ms.author: mamccrea
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: 346e7eb77039ab80e6f9dffb8ea8360198040504
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4a92246f81ddd10840bb0dcf7edf2b01853fd148
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738293"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876603"
 ---
 # <a name="troubleshoot-constrainedallocationfailed-when-deploying-a-cloud-service-classic-to-azure"></a>Resolução de problemas ConstrainedAllocationFailed ao implementar um serviço cloud (clássico) para Azure
 
@@ -20,7 +20,7 @@ Neste artigo, você vai resolver falhas de alocação onde os serviços Azure Cl
 
 Quando implementa casos num serviço Cloud (clássico) ou adiciona novas instâncias de funções web ou de trabalhador, o Microsoft Azure atribui recursos de computação.
 
-Pode ocasionalmente receber erros durante estas operações mesmo antes de atingir o limite de subscrição do Azure.
+Ocasionalmente, poderá receber erros durante estas operações mesmo antes de atingir o limite da subscrição do Azure.
 
 > [!TIP]
 > A informação também pode ser útil quando planeia a implantação dos seus serviços.
@@ -35,7 +35,7 @@ Ao inspecionar os registos do seu serviço Cloud (clássico), verá a seguinte e
 
 |Tipo de Exceção  |Mensagem de Erro  |
 |---------|---------|
-|ConstrangimentoAllocationFailed     |A operação Azure `{Operation ID}` ' '' falhou com código Compute.ConstrainedAllocationFailed. Detalhes: A atribuição falhou; incapaz de satisfazer constrangimentos a pedido. A implementação do novo serviço solicitada está vinculada a um Grupo de Afinidade, tem como destino uma Rede Virtual ou há uma implementação existente neste serviço alojado. Qualquer uma destas condições limita a nova implantação a recursos específicos da Azure. Reforce mais tarde ou tente reduzir o tamanho de VM ou o número de instâncias de função. Em alternativa, se possível, remova as restrições mencionadas anteriormente ou tente implementar numa região diferente.|
+|ConstrainedAllocationFailed     |A operação Azure `{Operation ID}` ' '' falhou com código Compute.ConstrainedAllocationFailed. Detalhes: A atribuição falhou; incapaz de satisfazer constrangimentos a pedido. A implementação do novo serviço solicitada está vinculada a um Grupo de Afinidade, tem como destino uma Rede Virtual ou há uma implementação existente neste serviço alojado. Qualquer uma destas condições limita a nova implantação a recursos específicos da Azure. Reforce mais tarde ou tente reduzir o tamanho de VM ou o número de instâncias de função. Em alternativa, se possível, remova as restrições mencionadas anteriormente ou tente implementar numa região diferente.|
 
 ## <a name="cause"></a>Causa
 

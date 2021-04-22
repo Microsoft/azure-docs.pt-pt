@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 11/20/2020
 ms.author: jrasnick
 ms.custom: azure-synapse, devx-track-azurecli
-ms.openlocfilehash: 532c06cc49f9fddab09c6678ee5fff9fe32347cb
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 712405ec7ba61e05bb587efc3e6393192d820e97
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565938"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865500"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-with-azure-cli"></a>Quickstart: Criar uma piscina Sinapse SQL com Azure CLI
 
@@ -77,43 +77,43 @@ Crie a piscina SQL. Este exemplo utiliza o DW100c como o objetivo de serviço, q
 > [!NOTE]
 > Precisa de um espaço de trabalho previamente criado. Para obter mais informações, consulte [Quickstart: Crie um espaço de trabalho sinapse Azure com Azure CLI](../quickstart-create-workspace-cli.md).
 
-Utilize a [piscina az sinapse sql criar](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_create) comando para criar a piscina SQL:
+Utilize a [piscina az sinapse sql criar](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_create) comando para criar a piscina SQL:
 
 ```azurecli
 az synapse sql pool create --resource-group myResourceGroup --name mySampleDataWarehouse \
    --performance-level "DW1000c" --workspace-name testsynapseworkspace
 ```
 
-Para obter mais informações sobre as opções de [parâmetros, consulte a piscina de sql az sinaapse.](/cli/azure/ext/synapse/synapse/sql/pool)
+Para obter mais informações sobre as opções de [parâmetros, consulte a piscina de sql az sinaapse.](/cli/azure/synapse/sql/pool)
 
-Você pode ver suas piscinas SQL usando o comando [da lista de piscinas az sinapse sql:](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_list)
+Você pode ver suas piscinas SQL usando o comando [da lista de piscinas az sinapse sql:](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_list)
 
 ```azurecli
 az synapse sql pool list --resource-group myResourceGroup --workspace-name testsynapseworkspace
 ```
 
-Utilize o comando [de az sinapse sql pool](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_update) para atualizar uma piscina existente:
+Utilize o comando [de az sinapse sql pool](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_update) para atualizar uma piscina existente:
 
 ```azurecli
 az synapse sql pool update --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-Use o comando de pausa da [piscina az sinapse sql](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_pause) para interromper a sua piscina:
+Use o comando de pausa da [piscina az sinapse sql](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_pause) para interromper a sua piscina:
 
 ```azurecli
 az synapse sql pool pause --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-Utilize o comando de currículo da [piscina az sinapse sql](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_resume) para iniciar uma piscina pausada:
+Utilize o comando de currículo da [piscina az sinapse sql](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_resume) para iniciar uma piscina pausada:
 
 ```azurecli
 az synapse sql pool resume --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-Para remover uma piscina SQL existente, utilize o comando de eliminação da [piscina az sinapse sql:](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_delete)
+Para remover uma piscina SQL existente, utilize o comando de eliminação da [piscina az sinapse sql:](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_delete)
 
 ```azurecli
 az synapse sql pool delete --resource-group myResourceGroup --name mySampleDataWarehouse \

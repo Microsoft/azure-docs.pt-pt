@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d391586ade9e9a58344f9b1666802a453770152a
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: ff4a29cd2da98d6782d2e3bae5078e92bc43eaca
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94386575"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107880363"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação C#. Neste início rápido, irá aprender a instanciar um cliente, a enviar um pedido e a imprimir a resposta.
 
@@ -27,7 +27,7 @@ Aqui estão algumas coisas de que irá precisar antes de executar este início r
 * [Visual Studio Code 2017](https://code.visualstudio.com/download)
   * [C# para o Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
   * [Gestor de Pacotes NuGet](https://github.com/jmrog/vscode-nuget-package-manager)
-* [SDK .NET Core](https://www.microsoft.com/net/download)
+* [SDK .NET Core](https://dotnet.microsoft.com/download)
 
 [!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
 
@@ -416,7 +416,7 @@ Este exemplo utiliza os parâmetros `answer_count`, `promote` e `safe_search` pa
 
 3. Execute a aplicação.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando tiver terminado de fazer o que quer neste projeto, não se esqueça de remover a sua chave de subscrição do código da aplicação.
 

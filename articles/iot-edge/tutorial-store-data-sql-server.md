@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 709c7bf352635ffb1c17f6cb24aee59dcae2e033
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: bd64c95bcf59cef27aa988712315403c00a5dfd7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479768"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871260"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na periferia com bases de dados do SQL Server
 
@@ -51,7 +51,7 @@ Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para 
 Este tutorial utiliza um módulo Azure Functions para enviar dados para o SqL Server. Para desenvolver um módulo IoT Edge com Funções Azure, instale os seguintes pré-requisitos adicionais na sua máquina de desenvolvimento:
 
 * [C# para extensão visual Studio Code (alimentado pela OmniSharp) para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [SDK de .NET Core 2.1](https://www.microsoft.com/net/download).
+* [SDK de .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1).
 
 ## <a name="create-a-function-project"></a>Criar um projeto de função
 

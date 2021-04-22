@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: e8b2842300e43a9de88cc0b9b3ae9ce6cd754612
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 723d3d3bfb36b17ebdacf9d5961b10071a12ab42
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94535848"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863466"
 ---
 # <a name="quickstart-use-connectorc-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Utilize o Conector/C++ para ligar e consultar dados na Base de Dados Azure para o MySQL
 
@@ -26,7 +26,7 @@ Este guia de introdução utiliza os recursos criados em qualquer um dos guias s
 - [Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 Também tem de:
-- Instalar o [.NET Framework](https://www.microsoft.com/net/download)
+- Instalar o [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework)
 - Instalar [Estúdio Visual](https://www.visualstudio.com/downloads/)
 - Instalar o [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 
 - Instalar o [Boost](https://www.boost.org/)

@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 88082c441dafdc7571f2b9775bfc07ebe3ca5aa4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4427071edf237d82e8a99d44678d77d23e180fff
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98730511"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865248"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Mover recursos numa configuração de Controlo de Manutenção para outra região
 
@@ -61,7 +61,7 @@ Antes de começar a mover os recursos associados a uma configuração de Control
         ```
         Get-AzConfigurationAssignment -ResourceGroupName $rgName -ResourceName $vmName -ProviderName Microsoft.Compute -ResourceType virtualMachines | Format-Table Name
         ```
-3. Para recuperar as configurações de manutenção utilizando o comando de atribuição de manutenção CLI [az:](/cli/azure/ext/maintenance/maintenance/assignment)
+3. Para recuperar as configurações de manutenção utilizando o comando de atribuição de manutenção CLI [az:](/cli/azure/maintenance/assignment)
 
     - Para anfitriões dedicados Azure:
 

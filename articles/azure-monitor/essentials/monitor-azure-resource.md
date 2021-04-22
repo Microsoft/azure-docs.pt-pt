@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 203af340a8bd48bdb6dee70f92c2ecc39708b8e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cb778d826ef094d71fd27f3c10bc1f2c292baa47
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732334"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862404"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorizar os recursos do Azure com o Azure Monitor
 Quando você tem aplicações críticas e processos de negócio contando com recursos Azure, você quer monitorizar esses recursos para sua disponibilidade, desempenho e funcionamento. Este artigo descreve os dados de monitorização gerados pelos recursos da Azure e como pode utilizar as funcionalidades do Azure Monitor para analisar e alertar sobre estes dados.
@@ -131,7 +131,7 @@ O Azure Monitor Logs consolida registos e métricas de vários serviços e outra
 Pode aceder aos dados de monitorização recolhidos a partir de uma linha de comando ou incluir num script utilizando a interface de linha [de comando Azure PowerShell](/powershell/azure/) ou [Azure Command Line Interface](/cli/azure/). 
 
 - Consulte [a referência de métricas CLI](/cli/azure/monitor/metrics) para aceder a dados métricos do CLI.
-- Consulte [a referência CLI Log Analytics](/cli/azure/ext/log-analytics/monitor/log-analytics) para aceder aos dados do Azure Monitor Logs utilizando uma consulta de registo a partir do CLI.
+- Consulte [a referência CLI Log Analytics](/cli/azure/monitor/log-analytics) para aceder aos dados do Azure Monitor Logs utilizando uma consulta de registo a partir do CLI.
 - Consulte [a referência das métricas Azure PowerShell](/powershell/module/azurerm.insights/get-azurermmetric) para aceder a dados métricos da Azure PowerShell.
 - Consulte [a referência de consulta de registos Azure PowerShell](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery) para aceder aos dados do Azure Monitor Logs utilizando uma consulta de registo da Azure PowerShell.
 

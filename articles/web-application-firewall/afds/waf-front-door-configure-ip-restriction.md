@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 12/22/2020
 ms.author: tyao
-ms.openlocfilehash: 65e378c0380804c13e4b42d855aede7781b93592
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 32bf7a5ecc93fa23c8c704dc346048c26c086121
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211673"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107860856"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configure uma regra de restrição IP com uma firewall de aplicação web para a porta frontal Azure
 
@@ -95,7 +95,7 @@ Crie um perfil da Porta Frontal Azure seguindo as instruções descritas no [Qui
 
 ### <a name="create-a-waf-policy"></a>Criar uma política de WAF
 
-Crie uma política WAF utilizando o comando da [política de waf-porta frontal da rede az.](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-create) No exemplo que se segue, substitua o nome de política *IPAllowPolicyExampleCLI* por um nome de política único.
+Crie uma política WAF utilizando o comando da [política de waf-porta frontal da rede az.](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_create) No exemplo que se segue, substitua o nome de política *IPAllowPolicyExampleCLI* por um nome de política único.
 
 ```azurecli-interactive 
 az network front-door waf-policy create \
@@ -105,7 +105,7 @@ az network front-door waf-policy create \
   ```
 ### <a name="add-a-custom-ip-access-control-rule"></a>Adicione uma regra de controlo de acesso IP personalizada
 
-Utilize a regra personalizada da [waf-policy da porta frontal az](/cli/azure/ext/front-door/network/front-door/waf-policy/rule#ext-front-door-az-network-front-door-waf-policy-rule-create) para adicionar uma regra de controlo de acesso IP personalizada para a política WAF que acabou de criar.
+Utilize a regra personalizada da [waf-policy da porta frontal az](/cli/azure/network/front-door/waf-policy/rule#az_network_front_door_waf_policy_rule_create) para adicionar uma regra de controlo de acesso IP personalizada para a política WAF que acabou de criar.
 
 Nos seguintes exemplos:
 -  Substitua *o IPAllowPolicyExampleCLI* pela sua política única criada anteriormente.
@@ -138,7 +138,7 @@ az network front-door waf-policy rule match-condition add \
   ```
                                                    
 ### <a name="find-the-id-of-a-waf-policy"></a>Encontre o ID de uma política da WAF 
-Encontre o ID de uma política da WAF utilizando o comando de [exibição de waf-policy de porta frontal da rede az.](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-show) Substitua *o IPAllowPolicyExampleCLI* no exemplo seguinte com a sua política única que criou anteriormente.
+Encontre o ID de uma política da WAF utilizando o comando de [exibição de waf-policy de porta frontal da rede az.](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_show) Substitua *o IPAllowPolicyExampleCLI* no exemplo seguinte com a sua política única que criou anteriormente.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -148,7 +148,7 @@ Encontre o ID de uma política da WAF utilizando o comando de [exibição de waf
 
 ### <a name="link-a-waf-policy-to-an-azure-front-door-front-end-host"></a>Ligue uma política da WAF a um anfitrião frontal da Porta frontal Azure
 
-Desave o ID da porta frontal Azure, *FirewallPolicyLink,* para o ID da política, utilizando o comando [de atualização da porta frontal da rede Az.](/cli/azure/ext/front-door/network/front-door#ext-front-door-az-network-front-door-update) Substitua *o IPAllowPolicyExampleCLI* pela sua política única que criou anteriormente.
+Desave o ID da porta frontal Azure, *FirewallPolicyLink,* para o ID da política, utilizando o comando [de atualização da porta frontal da rede Az.](/cli/azure/network/front-door#az_network_front_door_update) Substitua *o IPAllowPolicyExampleCLI* pela sua política única que criou anteriormente.
 
    ```azurecli
    az network front-door update \

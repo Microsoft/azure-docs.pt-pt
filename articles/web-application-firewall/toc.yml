@@ -154,7 +154,7 @@
     - name: CLI do Azure
       items:
         - name: Front Door
-          href: /cli/azure/ext/front-door/network
+          href: /cli/azure/network
         - name: Gateway de Aplicação
           href: /cli/azure/network/application-gateway
         - name: CDN
