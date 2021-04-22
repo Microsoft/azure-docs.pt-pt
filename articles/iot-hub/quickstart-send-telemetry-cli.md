@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: a34fd5480ae47678f250dbf888005c396ba32f38
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 843db24707b8c826fe48e9d50aa7ec5bc135399f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792152"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863610"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT e monitorizá-lo com o Azure CLI
 
@@ -94,7 +94,7 @@ Nesta secção, você usa o CLI Azure para criar um grupo de recursos e um Hub I
 Nesta secção, cria-se um dispositivo simulado na primeira sessão de CLI. O dispositivo simulado envia telemetria do dispositivo para o seu hub IoT. Na segunda sessão de CLI, monitoriza eventos e telemetria e envia uma mensagem nuvem-dispositivo para o dispositivo simulado.
 
 Para criar e iniciar um dispositivo simulado:
-1. Executar o comando [az iot hub dispositivo-identidade criar](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) comando na primeira sessão CLI. Isto cria a identidade do dispositivo simulado. 
+1. Executar o comando [az iot hub dispositivo-identidade criar](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) comando na primeira sessão CLI. Isto cria a identidade do dispositivo simulado. 
 
     *Seu Nome YourIotHub.* Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. 
 
@@ -104,7 +104,7 @@ Para criar e iniciar um dispositivo simulado:
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName} 
     ```
 
-1. Executar o [comando simulação do dispositivo az iot](/cli/azure/ext/azure-iot/iot/device#ext-azure-iot-az-iot-device-simulate) na primeira sessão CLI.  Isto inicia o dispositivo simulado. O dispositivo envia telemetria para o seu hub IoT e recebe mensagens do mesmo.  
+1. Executar o [comando simulação do dispositivo az iot](/cli/azure/iot/device#az_iot_device_simulate) na primeira sessão CLI.  Isto inicia o dispositivo simulado. O dispositivo envia telemetria para o seu hub IoT e recebe mensagens do mesmo.  
 
     *Seu Nome YourIotHub.* Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. 
 
@@ -113,7 +113,7 @@ Para criar e iniciar um dispositivo simulado:
     ```
 
 Para monitorizar um dispositivo:
-1. Na segunda sessão de CLI, executar o comando [az iot hub monitor-events.](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) Isto começa a monitorizar o dispositivo simulado. A saída mostra a telemetria que o dispositivo simulado envia para o hub IoT.
+1. Na segunda sessão de CLI, executar o comando [az iot hub monitor-events.](/cli/azure/iot/hub#az_iot_hub_monitor_events) Isto começa a monitorizar o dispositivo simulado. A saída mostra a telemetria que o dispositivo simulado envia para o hub IoT.
 
     *Seu Nome YourIotHub.* Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. 
 
@@ -136,7 +136,7 @@ Nesta secção, utilize a segunda sessão de CLI para enviar uma mensagem ao dis
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. Na segunda sessão de CLI, executar o [comando de envio de mensagem c2d do dispositivo az iot.](/cli/azure/ext/azure-iot/iot/device/c2d-message#ext-azure-iot-az-iot-device-c2d-message-send) Isto envia uma mensagem nuvem-para-dispositivo do seu hub IoT para o dispositivo simulado. A mensagem inclui uma corda e dois pares de valores-chave.  
+1. Na segunda sessão de CLI, executar o [comando de envio de mensagem c2d do dispositivo az iot.](/cli/azure/iot/device/c2d-message#az_iot_device_c2d-message-send) Isto envia uma mensagem nuvem-para-dispositivo do seu hub IoT para o dispositivo simulado. A mensagem inclui uma corda e dois pares de valores-chave.  
 
     *Seu Nome YourIotHub.* Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. 
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: references_regions, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: c9c09914e30bdeae809924bc4256c773f42abd52
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 8a74b5e463045e92e703ef6932f92b84d4709f36
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479944"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864127"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre um fluxo de dispositivo ioT Hub utilizando uma aplicação de procuração C (pré-visualização)
 
@@ -120,7 +120,7 @@ Para este arranque rápido, utilize o [dispositivo Azure IoT SDK para C](iot-hub
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
-É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta secção, utilize a Azure Cloud Shell com a [extensão IoT](/cli/azure/ext/azure-iot/iot) para registar um dispositivo simulado.
+É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta secção, utilize a Azure Cloud Shell com a [extensão IoT](/cli/azure/iot) para registar um dispositivo simulado.
 
 1. Para criar a identidade do dispositivo, executar o seguinte comando em Cloud Shell:
 

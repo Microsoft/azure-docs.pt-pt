@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 01/14/2021
-ms.openlocfilehash: be51d4db6c98b63fcb1c9c60df045b494536d78f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4999bd93f338ca7b34b141b88e06e4a769a4aaa1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766531"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876439"
 ---
 Nas secções seguintes, configura-se um terminal e utiliza o Azure CLI para criar um hub IoT. Para configurar um terminal que executa os comandos Azure CLI, pode utilizar o Azure Cloud Shell baseado no navegador ou utilizar um terminal local.
 * Para utilizar a Cloud Shell, vá à secção seguinte: [Lance a Cloud Shell](#launch-the-cloud-shell). 
@@ -97,7 +97,7 @@ Para criar um hub IoT e um grupo de recursos:
 Nesta secção, você cria um dispositivo IoT simulado que está ligado ao seu hub IoT. 
 
 Para criar um dispositivo simulado:
-1. Executar o comando [az iot hub dispositivo-identidade criar](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) comando na sua concha CLI. Isto cria a identidade do dispositivo simulado. 
+1. Executar o comando [az iot hub dispositivo-identidade criar](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) comando na sua concha CLI. Isto cria a identidade do dispositivo simulado. 
 
     *Seu Nome YourIotHub.* Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. 
 
@@ -107,7 +107,7 @@ Para criar um dispositivo simulado:
     az iot hub device-identity create --device-id myDevice --hub-name {YourIoTHubName} 
     ```
 
-1.  Executar o comando [de programa de programa de ligação az iot- identidade de ligação.](/cli/azure/ext/azure-iot/iot/hub/device-identity/connection-string#ext_azure_iot_az_iot_hub_device_identity_connection_string_show) 
+1.  Executar o comando [de programa de programa de ligação az iot- identidade de ligação.](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) 
 
     ```azurecli
     az iot hub device-identity connection-string show --device-id myDevice --hub-name {YourIoTHubName}

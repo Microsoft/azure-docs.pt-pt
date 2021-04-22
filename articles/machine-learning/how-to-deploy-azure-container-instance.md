@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 1eaf58f4f951547e6e4e461803e79844f99e630a
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 845a146d9e3f920f3313a80f1bb8c845cb781f37
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501744"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875544"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implementar um modelo no Azure Container Instances
 
@@ -94,7 +94,7 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aci-deploy-config.md)]
 
-Para obter mais informações, consulte a referência de implantação do [modelo az ml.](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) 
+Para obter mais informações, consulte a referência de implantação do [modelo az ml.](/cli/azure/ml/model#az_ml_model_deploy) 
 
 ## <a name="using-vs-code"></a>Utilizar o VS Code
 

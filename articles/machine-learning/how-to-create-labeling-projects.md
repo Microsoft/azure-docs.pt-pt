@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 62801d40295762b0066f0d2887d7d528ee7b7c2a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ff1783dd31b8139940e56d24ae82866b428838b1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656827"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861162"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -53,11 +53,7 @@ Para criar um projeto, **selecione Adicionar o projeto.** Dê ao projeto um nome
 * Escolha **classificação de imagem multiclasse** para projetos quando pretende aplicar apenas uma *etiqueta* de um conjunto de rótulos para uma imagem.
 * Escolha **classificação de imagem Multi-label** para projetos quando pretende aplicar *uma ou mais* etiquetas de um conjunto de rótulos para uma imagem. Por exemplo, uma foto de um cão pode ser rotulada com *cão* e *durante o dia.*
 * Escolha **a identificação de objetos (Caixa de Delimitação)** para projetos quando pretende atribuir uma etiqueta e uma caixa de delimitação a cada objeto dentro de uma imagem.
-* Escolha **a Segmentação de Exemplo (Polygon)(Preview)** para projetos quando pretende atribuir uma etiqueta e desenhar um polígono em torno de cada objeto dentro de uma imagem.
-
-> [!IMPORTANT]
-> A Segmentação de Exemplo (Polygon) está em visualização pública.
-> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* Escolha **a Segmentação de Exemplo (Polygon)** para projetos quando pretende atribuir uma etiqueta e desenhar um polígono em torno de cada objeto dentro de uma imagem.
 
 Selecione **a seguir** quando estiver pronto para continuar.
 

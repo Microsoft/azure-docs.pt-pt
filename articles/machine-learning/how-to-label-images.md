@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5ba399418d8f93204b168c1058be20ffc775ef70
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8f1d648c38760865752c87624dfcb112933650c7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096970"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872628"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Identifie imagens em um projeto de rotulagem 
 
@@ -74,11 +74,6 @@ Os algoritmos de aprendizagem automática podem ser desencadeados. Se estes algo
 * Para modelos de identificação de objetos, pode ver caixas e etiquetas já presentes.  Corrija qualquer que esteja incorreta antes de enviar a página.
 
 * Para modelos de segmentação, pode ver polígonos e rótulos já presentes.  Corrija qualquer que esteja incorreta antes de enviar a página. 
-
-    > [!IMPORTANT]
-    > As funcionalidades listadas com (pré-visualização) estão em pré-visualização pública.   
-    > A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 Especialmente no início de um projeto de rotulagem, o modelo de machine learning só pode ser preciso o suficiente para pré-lobel um pequeno subconjunto de imagens. Uma vez rotuladas estas imagens, o projeto de rotulagem voltará à rotulagem manual para recolher mais dados para a próxima ronda de formação de modelos. Com o passar do tempo, o modelo ficará mais confiante sobre uma maior proporção de imagens, resultando em tarefas mais pré-escritas mais tarde no projeto.
 

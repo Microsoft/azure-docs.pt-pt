@@ -3,12 +3,12 @@ title: 'Quickstart: Criar uma planta com Azure CLI'
 description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, definir e implantar artefactos utilizando o Azure CLI.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: fbe5c12f1c94d4b59dbdc2a97b6a4cb9af5a2328
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 506877eddd78ce54681bd4870e1d9040b4738c27
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563672"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877413"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Quickstart: Definir e Atribuir uma Planta Azure com Azure CLI
 
@@ -117,7 +117,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
      > [!NOTE]
      > Utilize o nome de ficheiro _blueprint.jsquando_ importar as definições do seu projeto.
-     > Este nome de ficheiro é usado quando se chama [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import).
+     > Este nome de ficheiro é usado quando se chama [az blueprint import](/cli/azure/blueprint#az_blueprint_import).
 
      O objeto blueprint é criado na subscrição padrão por padrão por padrão. Para especificar o grupo de gestão, utilize **o grupo de gestão de parâmetros**. Para especificar a subscrição, utilize **a subscrição do** parâmetro .
 

@@ -677,7 +677,7 @@
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.streamanalytics/allversions
     - name: CLI do Azure
-      href: /cli/azure/ext/stream-analytics/stream-analytics
+      href: /cli/azure/stream-analytics
     - name: Incorporações do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

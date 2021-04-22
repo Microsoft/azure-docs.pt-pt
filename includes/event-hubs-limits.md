@@ -45,7 +45,7 @@ Consulte este [documento](../articles/event-hubs/event-hubs-dedicated-cluster-cr
 | Funcionalidade | Standard | Dedicada |
 | --- |:---|:---|
 | Largura de banda | 20 TUs (até 40 TUs) | 20 CUs |
-| Espaços de nomes |  1 | 50 por CU |
+| Espaços de nomes |  100 por subscrição | 50 por CU (100 por subscrição) |
 | Hubs de Eventos |  10 por espaço de nome | 1000 por espaço de nome |
 | Eventos ingressos | Pagar por milhão de eventos | Incluídos |
 | Tamanho da mensagem | 1 Milhão de Bytes | 1 Milhão de Bytes |

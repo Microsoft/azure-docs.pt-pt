@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 2778f52b312e5d2fda7879b834fcd204285b7144
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5ac525ae062efca25601c9e63a5c8f16f2be29be
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628956"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861233"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Criar e gerir um exemplo de cálculo de aprendizagem automática Azure
 
@@ -93,7 +93,7 @@ Para obter mais informações sobre as classes, métodos e parâmetros utilizado
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-Para obter mais informações, consulte o [az ml computetarget criar referência de computação.](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance)
+Para obter mais informações, consulte o [az ml computetarget criar referência de computação.](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_computeinstance)
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -181,7 +181,7 @@ Nos exemplos abaixo, o nome da instância computacional é **exemplo**
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    Para obter mais informações, consulte [a az ml computetarget stop computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    Para obter mais informações, consulte [a az ml computetarget stop computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop).
 
 * Iniciar 
 
@@ -189,7 +189,7 @@ Nos exemplos abaixo, o nome da instância computacional é **exemplo**
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    Para obter mais informações, consulte [a az ml computetarget start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    Para obter mais informações, consulte [a az ml computetarget start computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_start).
 
 * Reiniciar 
 
@@ -197,7 +197,7 @@ Nos exemplos abaixo, o nome da instância computacional é **exemplo**
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    Para obter mais informações, consulte [a az ml computetarget restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    Para obter mais informações, consulte [a az ml computetarget restart computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart).
 
 * Eliminar
 
@@ -205,7 +205,7 @@ Nos exemplos abaixo, o nome da instância computacional é **exemplo**
     az ml computetarget delete -n instance -v
     ```
 
-    Para obter mais informações, consulte [az ml computetarget eliminar a computação](/cli/azure/ext/azure-cli-ml/ml/computetarget#ext-azure-cli-ml-az-ml-computetarget-delete).
+    Para obter mais informações, consulte [az ml computetarget eliminar a computação](/cli/azure/ml/computetarget#az_ml_computetarget_delete).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 

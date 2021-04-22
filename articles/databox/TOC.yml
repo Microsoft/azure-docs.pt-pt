@@ -238,7 +238,7 @@
     - name: Referência
       items:
         - name: CLI do Azure
-          href: /cli/azure/ext/databox/databox
+          href: /cli/azure/databox
         - name: Azure PowerShell
           href: /powershell/module/az.databox
         - name: APIs do .NET

@@ -7,12 +7,12 @@ ms.date: 3/12/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: bbc07a7ee3f996c778cfc1b9d1764f10a613c50b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b0a37400d02ff324e7191bb0b04243d7f16090bd
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782950"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877161"
 ---
 # <a name="open-service-mesh-aks-add-on-preview"></a>Open Service Mesh Addon AKS (Pré-visualização)
 

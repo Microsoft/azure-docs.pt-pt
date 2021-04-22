@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 0ea4e3ae0113608203dad63f636ae4adb4eeff9b
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 5e13c97427736d60f300d2d7b502c6f3e15fb481
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107737519"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861450"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configure Azure Private Link para um espaço de trabalho de aprendizagem de máquinas Azure
 
@@ -66,7 +66,7 @@ ws = Workspace.create(name='myworkspace',
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-A [extensão Azure CLI para machine learning](reference-azure-machine-learning-cli.md) fornece o espaço de trabalho [az ml criar](/cli/azure/ext/azure-cli-ml/ml/workspace#ext_azure_cli_ml_az_ml_workspace_create) comando. Os seguintes parâmetros para este comando podem ser usados para criar um espaço de trabalho com uma rede privada, mas requer uma rede virtual existente:
+A [extensão Azure CLI para machine learning](reference-azure-machine-learning-cli.md) fornece o espaço de trabalho [az ml criar](/cli/azure/ml/workspace#az_ml_workspace_create) comando. Os seguintes parâmetros para este comando podem ser usados para criar um espaço de trabalho com uma rede privada, mas requer uma rede virtual existente:
 
 * `--pe-name`: O nome do ponto final privado que é criado.
 * `--pe-auto-approval`: Se as ligações privadas ao espaço de trabalho devem ser automaticamente aprovadas.
@@ -116,7 +116,7 @@ Para obter mais informações sobre as classes e métodos utilizados neste exemp
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-A [extensão Azure CLI para machine learning](reference-azure-machine-learning-cli.md) fornece o comando de [az ml workspace private-endpoint.](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add)
+A [extensão Azure CLI para machine learning](reference-azure-machine-learning-cli.md) fornece o comando de [az ml workspace private-endpoint.](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_add)
 
 ```azurecli
 az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval true --pe-vnet-name myvnet
@@ -153,7 +153,7 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-A [extensão Azure CLI para machine learning](reference-azure-machine-learning-cli.md) fornece o comando de [exclusão do espaço de trabalho az ml.](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete)
+A [extensão Azure CLI para machine learning](reference-azure-machine-learning-cli.md) fornece o comando de [exclusão do espaço de trabalho az ml.](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_delete)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -192,7 +192,7 @@ ws.update(allow_public_access_when_behind_vnet=True)
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-A [extensão Azure CLI para machine learning](reference-azure-machine-learning-cli.md) fornece o comando de [atualização do espaço de trabalho az ml.](/cli/azure/ext/azure-cli-ml/ml/workspace#ext_azure_cli_ml_az_ml_workspace_update) Para permitir o acesso do público ao espaço de trabalho, adicione o parâmetro `--allow-public-access true` .
+A [extensão Azure CLI para machine learning](reference-azure-machine-learning-cli.md) fornece o comando de [atualização do espaço de trabalho az ml.](/cli/azure/ml/workspace#az_ml_workspace_update) Para permitir o acesso do público ao espaço de trabalho, adicione o parâmetro `--allow-public-access true` .
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 44b2534d7aeb12f4819a6c42cfb29d057ce26ddc
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 708ad8bbfec9e3fd0176c53c111b5b5b25a5318f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259035"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862242"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -126,7 +126,7 @@ Verifique também as definições de firewall da sua conta de armazenamento. Se 
 
 ### <a name="add-a-blob-storage-target-with-azure-cli"></a>Adicione um alvo de armazenamento de bolhas com Azure CLI
 
-Utilize a interface [az hpc-cache blob-storage-target adicionar](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-add) interface para definir um alvo de armazenamento Azure Blob.
+Utilize a interface [az hpc-cache blob-storage-target adicionar](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_add) interface para definir um alvo de armazenamento Azure Blob.
 
 > [!NOTE]
 > Os comandos Azure CLI exigem atualmente que crie um caminho de espaço de nome quando adicionar um alvo de armazenamento. Isto é diferente do processo utilizado com a interface do portal Azure.
@@ -229,7 +229,7 @@ Quando terminar, clique **em OK** para adicionar o alvo de armazenamento.
 
 [Configurar o Azure CLI para a cache Azure HPC](./az-cli-prerequisites.md).
 
-Utilize o comando Azure CLI [az hpc-cache nfs-storage-target adicionar](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) para criar o alvo de armazenamento.
+Utilize o comando Azure CLI [az hpc-cache nfs-storage-target adicionar](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_add) para criar o alvo de armazenamento.
 
 > [!NOTE]
 > Os comandos Azure CLI exigem atualmente que crie um caminho de espaço de nome quando adicionar um alvo de armazenamento. Isto é diferente do processo utilizado com a interface do portal Azure.
@@ -240,7 +240,7 @@ Forneça estes valores para além do nome cache e do grupo de recursos cache:
 * ``--nfs3-target`` - O endereço IP do seu sistema de armazenamento NFS. (Pode utilizar aqui um nome de domínio totalmente qualificado se o seu cache tiver acesso a um servidor DNS que possa resolver o nome.)
 * ``--nfs3-usage-model`` - Um dos perfis de caching de dados, descritos em [Escolha um modelo de utilização,](#choose-a-usage-model)acima.
 
-  Verifique os nomes dos modelos de utilização com a [lista de modelos de utilização az-cache de](/cli/azure/ext/hpc-cache/hpc-cache/usage-model#ext-hpc-cache-az-hpc-cache-usage-model-list)comando.
+  Verifique os nomes dos modelos de utilização com a [lista de modelos de utilização az-cache de](/cli/azure/hpc-cache/usage-model#az_hpc_cache_usage_model_list)comando.
 
 * ``--junction`` - O parâmetro de junção liga o caminho do ficheiro virtual voltado para o cliente com uma trajetória de exportação no sistema de armazenamento.
 
@@ -350,13 +350,13 @@ Leia [os alvos de armazenamento editar](hpc-cache-edit-storage.md) para saber ma
 
 [Configurar o Azure CLI para a cache Azure HPC](./az-cli-prerequisites.md).
 
-Utilize a opção [az hpc-cache-target-target](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) para mostrar os alvos de armazenamento existentes para uma cache. Forneça o nome da cache e o grupo de recursos (a não ser que o tenha definido globalmente).
+Utilize a opção [az hpc-cache-target-target](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage-target-list) para mostrar os alvos de armazenamento existentes para uma cache. Forneça o nome da cache e o grupo de recursos (a não ser que o tenha definido globalmente).
 
 ```azurecli
 az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
 ```
 
-Use [az hpc-cache-target-target para](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) ver detalhes sobre um alvo de armazenamento particular. (Especificar o alvo de armazenamento pelo nome.)
+Use [az hpc-cache-target-target para](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage-target-list) ver detalhes sobre um alvo de armazenamento particular. (Especificar o alvo de armazenamento pelo nome.)
 
 Exemplo:
 

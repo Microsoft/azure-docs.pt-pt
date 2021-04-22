@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 8a18a47331eb5d4a9ed5578cca320beef5e0ba45
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6a98571f513e25d801acd4f4a9c2901dcd56fabc
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766992"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869226"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização no Azure Monitor
 
@@ -48,7 +48,7 @@ Clique no nome de uma solução para abrir a sua página de resumo. Esta página
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Utilize o comando [da lista de soluções de análise de registos](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution#ext-log-analytics-solution-az-monitor-log-analytics-solution-list) do monitor az para listar as soluções de monitorização instaladas na sua subscrição.   Antes de executar o `list` comando, siga os pré-requisitos encontrados na [Instalação de uma solução de monitorização](#install-a-monitoring-solution).
+Utilize o comando [da lista de soluções de análise de registos](/cli/azure/monitor/log-analytics/solution#az_monitor_log_analytics_solution_list) do monitor az para listar as soluções de monitorização instaladas na sua subscrição.   Antes de executar o `list` comando, siga os pré-requisitos encontrados na [Instalação de uma solução de monitorização](#install-a-monitoring-solution).
 
 ```azurecli
 # List all log-analytics solutions in the current subscription.
@@ -142,7 +142,7 @@ Os membros da comunidade podem submeter soluções de gestão aos modelos Azure 
 
 Quando instalar uma solução, deve selecionar um [espaço de trabalho Log Analytics](../logs/manage-access.md) onde a solução será instalada e onde os seus dados serão recolhidos.  Com o Azure CLI, gere espaços de trabalho utilizando os comandos de referência do [espaço de trabalho de monitorização de log-analytics az](/cli/azure/monitor/log-analytics/workspace) monitor.  Acompanhe o processo descrito no [espaço de trabalho do Log Analytics e na conta Dem automação](#log-analytics-workspace-and-automation-account) para ligar um espaço de trabalho e conta.
 
-Utilize a [solução de análise de registos](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution) do monitor az para instalar uma solução de monitorização.  Os parâmetros nos suportes quadrados são opcionais.
+Utilize a [solução de análise de registos](/cli/azure/monitor/log-analytics/solution) do monitor az para instalar uma solução de monitorização.  Os parâmetros nos suportes quadrados são opcionais.
 
 ```azurecli
 az monitor log-analytics solution create --name
@@ -241,7 +241,7 @@ Para remover uma solução instalada utilizando o portal, localize-a na [lista d
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para remover uma solução instalada utilizando o CLI Azure, utilize o comando [de eliminação da solução de registo do monitor az.](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution#ext-log-analytics-solution-az-monitor-log-analytics-solution-delete)
+Para remover uma solução instalada utilizando o CLI Azure, utilize o comando [de eliminação da solução de registo do monitor az.](/cli/azure/monitor/log-analytics/solution#az_monitor_log_analytics_solution_delete)
 
 ```azurecli
 az monitor log-analytics solution delete --name

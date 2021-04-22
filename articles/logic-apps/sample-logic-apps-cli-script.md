@@ -7,16 +7,16 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
-ms.openlocfilehash: b81d9b4a637965dd103d8fa89305424686a0c72c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8086ce0e5964d4e37a5ffc3082d5f2856058e4e5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789920"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875490"
 ---
 # <a name="azure-cli-script-sample---create-a-logic-app"></a>Azure CLI script sample - crie uma app lógica
 
-Este script cria uma aplicação lógica de amostra através da [extensão Azure CLI Logic Apps](/cli/azure/ext/logic/logic)( `az logic` ). Para obter um guia detalhado para criar e gerir aplicações lógicas através do Azure CLI, consulte o [quickstart das Aplicações Lógicas para o Azure CLI](quickstart-logic-apps-azure-cli.md).
+Este script cria uma aplicação lógica de amostra através da [extensão Azure CLI Logic Apps](/cli/azure/logic)( `az logic` ). Para obter um guia detalhado para criar e gerir aplicações lógicas através do Azure CLI, consulte o [quickstart das Aplicações Lógicas para o Azure CLI](quickstart-logic-apps-azure-cli.md).
 
 > [!WARNING]
 > A extensão Azure CLI Logic Apps é atualmente *experimental* e *não coberta pelo apoio ao cliente.* Utilize com cuidado esta extensão CLI, especialmente se optar por utilizar a extensão em ambientes de produção.
@@ -198,7 +198,7 @@ Este script de amostra utiliza os seguintes comandos para criar um novo grupo de
 | Comando | Notas |
 | ------- | ----- |
 | [`az group create`](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual os recursos da sua aplicação lógica são armazenados. |
-| [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create) | Cria uma aplicação lógica baseada no fluxo de trabalho definido no `--definition` parâmetro. |
+| [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_workflow_create) | Cria uma aplicação lógica baseada no fluxo de trabalho definido no `--definition` parâmetro. |
 | [`az group delete`](/cli/azure/vm/extension) | Elimina um grupo de recursos e todos os seus recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes

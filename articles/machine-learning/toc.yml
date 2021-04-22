@@ -437,9 +437,6 @@
         - name: Utilizar ML automatizado com o Databricks
           displayName: automl
           href: how-to-configure-databricks-automl-environment.md
-        - name: Utilizar destinos de computação remota
-          displayName: automl automated auto ml
-          href: how-to-auto-train-remote.md
         - name: Preparar automaticamente um modelo de previsão
           displayName: time series
           href: how-to-auto-train-forecast.md
@@ -622,7 +619,7 @@
       displayName: 'environments, curated environments'
       href: resource-curated-environments.md
     - name: CLI do Azure
-      href: /cli/azure/ext/azure-cli-ml/ml
+      href: /cli/azure/ml
 - name: Recursos
   items:
     - name: Notas de versão

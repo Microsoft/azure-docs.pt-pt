@@ -827,7 +827,7 @@
     - name: Incorporações do Azure Policy
       href: policy-reference.md
     - name: CLI do Azure
-      href: /cli/azure/ext/datafactory/datafactory
+      href: /cli/azure/datafactory
 - name: Recursos
   items:
     - name: Documentos técnicos

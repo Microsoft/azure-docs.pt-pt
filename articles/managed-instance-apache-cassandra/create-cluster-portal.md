@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: e42f85bb79dcb1bfe14cacbbfda3576888b841c9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 315b505e9de853fbe4663eacdfe929149dbaa458
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481333"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873150"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Quickstart: Criar uma instância gerida azure para o cluster Apache Cassandra a partir do portal Azure (Preview)
  

@@ -9,12 +9,12 @@ ms.date: 03/12/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 5a731aab924e63eac468a22862f35aeff76bc068
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 69d8910ffe0e45c4c47a035d5c32e71f19d9e04a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593974"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870680"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-partner-agreement-with-the-latest-apis"></a>Criar programaticamente subscrições do Azure para um Contrato de Parceiro da Microsoft com as APIs mais recentes
 
@@ -363,7 +363,7 @@ Transmita o *resellerId* opcional copiado no segundo passo na chamada `New-AzSub
 
 Primeiro, instale a extensão ao executar `az extension add --name account` e `az extension add --name alias`.
 
-Execute o comando [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create). 
+Execute o comando [az account alias create](/cli/azure/account/alias#az_account_alias_create). 
 
 ```azurecli
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --display-name "Dev Team Subscription" --workload "Production"

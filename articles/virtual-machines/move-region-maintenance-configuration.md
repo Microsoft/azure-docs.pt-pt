@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 91a6adecc9cf0db56fa4c433f388b05aa1bdef6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f833f3eb9e3d94da6178a0a9a9cf4f95ec0682e7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98202917"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865374"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>Mover uma configuração de Controlo de Manutenção para outra região
 
@@ -38,7 +38,7 @@ Antes de começar a mover uma configuração de controlo de manutenção:
 
 ## <a name="prepare-and-move"></a>Preparar e mover 
 
-1. Recupere todas as configurações de manutenção em cada subscrição. Executar o comando da [lista de configuração de manutenção](/cli/azure/ext/maintenance/maintenance/configuration#ext-maintenance-az-maintenance-configuration-list) CLI az para o fazer, substituindo $subId pelo seu ID de subscrição.
+1. Recupere todas as configurações de manutenção em cada subscrição. Executar o comando da [lista de configuração de manutenção](/cli/azure/maintenance/configuration#az_maintenance_configuration_list) CLI az para o fazer, substituindo $subId pelo seu ID de subscrição.
 
     ```
     az maintenance configuration list --subscription $subId --query "[*].{Name:name, Location:location, ResGroup:resourceGroup}" --output table

@@ -3,12 +3,12 @@ title: Configurar o GitHub Enterprise Server na sua nuvem privada Azure VMware S
 description: Saiba como configurar o GitHub Enterprise Server na sua nuvem privada Azure VMware Solution.
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 59a76c3976f6fcda88423b7b78344f2abed1ea84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ff7ab87d7401cd3faaecf149fb1b07be3f8db42
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100382026"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862944"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Configurar o GitHub Enterprise Server na sua nuvem privada Azure VMware Solution
 
@@ -229,6 +229,6 @@ Neste artigo, criamos uma nova instância do GitHub Enterprise Server, o equival
 
 Agora que cobriu a criação do GitHub Enterprise Server na sua nuvem privada Azure VMware Solution, talvez queira saber mais sobre: 
 
-- [Começar com as ações do GitHub.](https://docs.github.com/en/actions)
-- [Aderir ao programa beta.](https://resources.github.com/beta-signup/)
-- [Administração do GitHub Enterprise Server](https://githubtraining.github.io/admin-training/#/00_getting_started).
+- [Como começar com as ações do GitHub](https://docs.github.com/en/actions)
+- [Como aderir ao programa beta](https://resources.github.com/beta-signup/)
+- [Administração do GitHub Enterprise Server](https://githubtraining.github.io/admin-training/#/00_getting_started)

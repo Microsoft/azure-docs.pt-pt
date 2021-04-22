@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eec4fb6e9907b36908a87c09aceabd0dd1a678
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 8c18dd231a708030e3a454ab8708e3f0f11dbecf
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075171"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861828"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os utilizadores desbloqueiem a sua conta ou repôs palavras-passe utilizando o reset da palavra-passe de autosserviço do Azure Ative Directory
 
@@ -37,7 +37,7 @@ Neste tutorial, ficará a saber como:
 
 Para terminar este tutorial, precisa dos seguintes recursos e privilégios:
 
-* Um inquilino da Azure AD em funcionamento com pelo menos uma licença de AD Azure gratuita ou com licença de julgamento habilitada. No nível Gratuito, o SSPR só funciona para utilizadores em nuvem em Azure AD.
+* Um inquilino da Azure AD em funcionamento com pelo menos uma licença de AD Azure gratuita ou com licença de julgamento habilitada. No nível Gratuito, o SSPR só funciona para utilizadores em nuvem em Azure AD. A alteração da palavra-passe é suportada no nível Livre, mas o reset da palavra-passe não é. 
     * Para tutoriais posteriores nesta série, você precisará de um Azure AD Premium P1 ou uma licença de teste para a gravação de senha no local.
     * Se necessário, [crie gratuitamente uma conta Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Uma conta com privilégios *de Administrador Global.*

@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: cbc147cb0aabc0540e3a91c99243aa88a8cca146
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 6f8f775e474b47cbfd5f3b4aca8987a009a7f6e1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210797"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874140"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é o machine learning automatizado (AutoML)?
 
@@ -92,7 +92,7 @@ Utilizando **a Azure Machine Learning,** pode conceber e executar as suas experi
     
 1. **Especificar a origem e o formato dos dados de formação rotulados:** Matrizes numpiadas ou dataframe pandas
 
-1. **Configure o alvo de computação para a formação de modelos,** tais como o seu [computador local, Azure Machine Learning Computes, VMs remotos ou Azure Databricks](how-to-set-up-training-targets.md).  Saiba mais sobre formação automatizada [num recurso remoto.](how-to-auto-train-remote.md)
+1. **Configure o alvo de computação para a formação de modelos,** tais como o seu [computador local, Azure Machine Learning Computes, VMs remotos ou Azure Databricks](how-to-set-up-training-targets.md).
 
 1. **Configure os parâmetros automatizados de aprendizagem automática** que determinam quantas iterações sobre diferentes modelos, configurações de hiperparímetros, pré-processamento/caracterização avançada, e quais as métricas a analisar na determinação do melhor modelo.  
 1. **Submeta o treino.**
@@ -106,8 +106,6 @@ O diagrama que se segue ilustra este processo.
 Também pode verificar as informações de execução [registadas, que contêm métricas recolhidas](how-to-understand-automated-ml.md) durante a execução. O ensaio de treino produz um objeto serializado Python `.pkl` (ficheiro) que contém o modelo e o pré-processamento de dados.
 
 Enquanto a construção de modelos é automatizada, também pode [aprender a importância ou as características relevantes](how-to-configure-auto-train.md#explain) para os modelos gerados.
-
-Aprenda a utilizar um [alvo de computação remota.](how-to-auto-train-remote.md)
 
 
 

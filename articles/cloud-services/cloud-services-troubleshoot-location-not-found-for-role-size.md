@@ -2,17 +2,17 @@
 title: Localização de resolução de problemasNotFoundForRoleSize ao implementar um serviço cloud (clássico) para Azure | Microsoft Docs
 description: Este artigo mostra como resolver uma exceção LocalizaçãoNotFoundForRoleSize ao implementar um serviço Cloud (clássico) para Azure.
 services: cloud-services
-author: mibufo
-ms.author: v-mibufo
+author: mamccrea
+ms.author: mamccrea
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: 2ed889bea715ff5a26bf8e918789429e57fa31b2
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 54af2387ec0ff6c8f86f96821baad17736e8d85b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109667"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877971"
 ---
 # <a name="troubleshoot-locationnotfoundforrolesize-when-deploying-a-cloud-service-classic-to-azure"></a>Localização de resolução de problemasNotFoundForRoleSize ao implementar um serviço cloud (clássico) para Azure
 
@@ -20,7 +20,7 @@ Neste artigo, irá resolver problemas de falhas de atribuição onde o tamanho d
 
 Quando implementa casos num serviço Cloud (clássico) ou adiciona novas instâncias de funções web ou de trabalhador, o Microsoft Azure atribui recursos de computação.
 
-Pode ocasionalmente receber erros durante estas operações mesmo antes de atingir o limite de subscrição do Azure.
+Ocasionalmente, poderá receber erros durante estas operações mesmo antes de atingir o limite da subscrição do Azure.
 
 > [!TIP]
 > A informação também pode ser útil quando planeia a implantação dos seus serviços.
@@ -35,7 +35,7 @@ Ao inspecionar os registos do seu serviço Cloud (clássico), verá a seguinte e
 
 |Tipo de Exceção  |Mensagem de Erro  |
 |---------|---------|
-|LocalizaçãoNotFoundForrolesize     |A operação `{Operation ID}` ' ' ' falhou: 'O nível VM solicitado não está atualmente disponível na Região ( `{Region ID}` ) para esta subscrição. Por favor, tente outro nível ou desloque-se para outro local.'.|
+|LocationNotFoundForRoleSize     |A operação `{Operation ID}` ' ' ' falhou: 'O nível VM solicitado não está atualmente disponível na Região ( `{Region ID}` ) para esta subscrição. Por favor, tente outro nível ou desloque-se para outro local.'.|
 
 ## <a name="cause"></a>Causa
 

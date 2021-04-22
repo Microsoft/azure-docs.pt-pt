@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: wiassaf
 ms.date: 03/10/2021
-ms.openlocfilehash: 3ce07af74c3f01fd78ef15ab0e7d43b91361e556
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b7084ef045d14b9715c41bb9ffa483d1f2f7bedf
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784484"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865158"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copie uma cópia transaccionalmente consistente de uma base de dados na Base de Dados Azure SQL
 
@@ -218,7 +218,7 @@ Para gerir a cópia da base de dados utilizando o portal Azure, também necessit
 
    Microsoft.Resources/subscrições/recursos/read Microsoft.Resources/subscriptions/resources/write Microsoft.Resources/deployments/read Microsoft.Resources/deployments/write Microsoft.Resources/deployments/operationstatuses/read
 
-Se quiser ver as operações em execução no grupo de recursos no portal, operações em vários fornecedores de recursos, incluindo operações SQL, necessitará destas funções adicionais de Azure:
+Se pretender ver as operações em implementação no grupo de recursos no portal, operações em vários fornecedores de recursos, incluindo operações SQL, necessitará destas permissões adicionais:
 
    Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
 

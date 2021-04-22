@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: af050ae95b4ab161028229299a8de5ed3426430b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 08bf165254c8759a978b406b3e9a990a41ab7a30
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482838"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873216"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerir dados exportados
 
@@ -87,7 +87,7 @@ Comece por preparar o seu ambiente para a CLI do Azure:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-1. Depois de iniciar sessão, para ver as exportações atuais, utilize o comando [az costmanagement export list](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_list):
+1. Depois de iniciar sessão, para ver as exportações atuais, utilize o comando [az costmanagement export list](/cli/azure/costmanagement/export#az_costmanagement_export_list):
 
    ```azurecli
    az costmanagement export list --scope "subscriptions/00000000-0000-0000-0000-000000000000"
@@ -110,7 +110,7 @@ Comece por preparar o seu ambiente para a CLI do Azure:
    az storage account create --resource-group TreyNetwork --name cmdemo
    ```
 
-1. Execute o comando [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create) para criar a exportação:
+1. Execute o comando [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) para criar a exportação:
 
    ```azurecli
    az costmanagement export create --name DemoExport --type ActualCost \
@@ -124,14 +124,14 @@ Comece por preparar o seu ambiente para a CLI do Azure:
 
    Este exemplo utiliza `MonthToDate`. A exportação cria um ficheiro de exportação diariamente para os seus custos acumulados no mês. Os dados mais recentes são agregados a partir das exportações diárias anteriores deste mês.
 
-1. Para ver os detalhes da operação de exportação, utilize o comando [az costmanagement export show](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_show):
+1. Para ver os detalhes da operação de exportação, utilize o comando [az costmanagement export show](/cli/azure/costmanagement/export#az_costmanagement_export_show):
 
    ```azurecli
    az costmanagement export show --name DemoExport \
       --scope "subscriptions/00000000-0000-0000-0000-000000000000"
    ```
 
-1. Utilize o comando [az costmanagement export update](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_update) para atualizar uma exportação:
+1. Utilize o comando [az costmanagement export update](/cli/azure/costmanagement/export#az_costmanagement_export_update) para atualizar uma exportação:
 
    ```azurecli
    az costmanagement export update --name DemoExport
@@ -143,7 +143,7 @@ Comece por preparar o seu ambiente para a CLI do Azure:
 >[!NOTE]
 >Inicialmente, a execução da exportação pode demorar entre 12 e 24 horas. No entanto, a apresentação dos dados nos ficheiros exportados pode demorar mais tempo.
 
-Pode utilizar o comando [az costmanagement export delete](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_delete) para eliminar uma exportação:
+Pode utilizar o comando [az costmanagement export delete](/cli/azure/costmanagement/export#az_costmanagement_export_delete) para eliminar uma exportação:
 
 ```azurecli
 az costmanagement export delete --name DemoExport --scope "subscriptions/00000000-0000-0000-0000-000000000000"

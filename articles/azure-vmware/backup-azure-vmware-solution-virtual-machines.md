@@ -3,12 +3,12 @@ title: Backup VMs de Solução VMware Azure com Servidor de Backup Azure
 description: Configure o seu ambiente de Solução VMware Azure para fazer backup de máquinas virtuais utilizando o Servidor de Backup Azure.
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.openlocfilehash: 163065556b7dbc979d68613744ea827c209d9fda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92affbf883215f0d051115fb64e9e7bf7a1430b3
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102618921"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871782"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Backup VMs de Solução VMware Azure com Servidor de Backup Azure
 
@@ -358,5 +358,5 @@ Pode restaurar ficheiros individuais a partir de um ponto de recuperação de VM
 
 Agora que cobriu o backup dos VMs da Solução VMware Azure com o Azure Backup Server, talvez queira saber mais sobre: 
 
-- [Resolução de problemas ao configurar cópias de segurança no Azure Backup Server](../backup/backup-azure-mabs-troubleshoot.md).
-- [Gestão do ciclo de vida da Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
+- [Resolução de problemas ao configurar backups no Azure Backup Server](../backup/backup-azure-mabs-troubleshoot.md)
+- [Gestão do ciclo de vida da Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md)

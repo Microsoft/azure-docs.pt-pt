@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: aa67a858d0396badc25a625b23dc2f2fdf1bdff9
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 61488b88b00206cb78beed4fe773bf9377848701
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551378"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861054"
 ---
 # <a name="np-series"></a>Série NP 
 As máquinas virtuais da série NP são alimentadas por [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) FPGAs para acelerar cargas de trabalho, incluindo inferência de machine learning, transcoding de vídeo e pesquisa de bases de dados & análise. Os VMs da série NP também são alimentados por CPUs Intel Xeon 8171M (Skylake) com toda a velocidade do relógio turbo core de 3,2 GHz.
@@ -135,6 +135,15 @@ Para desativar Host_Mem(SB): sudo xbutil host_mem --desativar
 **Q:** Como posso consultar a informação plp? 
 
 **A:** Precisa executar consulta xbutil e olhar para a porção inferior. 
+
+**Q:** Se eu criar o meu próprio VM e implementar o XRT manualmente, que alterações adicionais preciso fazer? 
+
+**A:** Na /opt/xilinx/xrt/setup.sh adicionar uma entrada para XRT_INI_PATH que aponta para /opt/xilinx/xrt/xrt.ini
+
+ 
+O conteúdo de /opt/xilinx/xrt/xrt.ini deve conter: <br>
+[Tempo de execução]<br>
+ert=falso <br>
 
 ## <a name="other-sizes"></a>Outros tamanhos
 

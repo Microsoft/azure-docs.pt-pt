@@ -3,12 +3,12 @@ title: Conceitos - Atualizações e atualizações em nuvem privadas
 description: Conheça os principais processos e funcionalidades de upgrade na Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: 9810de40944f70a4efb7ec81d17868ffdf256c7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ced5832a6d994f6cbc7e659d44ce4f6ac88681d0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104586153"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876819"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Atualizações e atualizações privadas de nuvem Azure VMware
 
@@ -61,8 +61,8 @@ Em momentos de falha, a Azure VMware Solution pode restaurar estes componentes a
 
 Agora que cobriu os principais processos e funcionalidades de upgrade na Azure VMware Solution, talvez queira saber mais sobre:
 
-- [Como criar uma nuvem privada.](tutorial-create-private-cloud.md)
-- [Como ativar o recurso Azure VMware Solution](enable-azure-vmware-solution.md).
+- [Como criar uma nuvem privada](tutorial-create-private-cloud.md)
+- [Como ativar o recurso Azure VMware Solution](enable-azure-vmware-solution.md)
 
 <!-- LINKS - external -->
 

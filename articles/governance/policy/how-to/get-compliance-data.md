@@ -1,14 +1,14 @@
 ---
 title: Obtenha dados de conformidade com a política
 description: Avaliações e efeitos da Política Azure determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos Azure.
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.topic: how-to
-ms.openlocfilehash: cdd23d685750fb8a5d3803f4b6030e7e67bbddce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1a9a7fcbbcbd7f490b2f665b40c7ed922ec61ee
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598546"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864600"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenha dados de conformidade dos recursos da Azure
 
@@ -35,6 +35,8 @@ As avaliações das políticas e iniciativas atribuídas acontecem em resultado 
 - Uma política ou iniciativa já atribuída a um âmbito é atualizada. O ciclo de avaliação e o timing para este cenário é o mesmo que para uma nova atribuição a um âmbito.
 
 - Um recurso é implementado ou atualizado dentro de um âmbito com uma atribuição através de Azure Resource Manager, REST API ou um SDK suportado. Neste cenário, o evento de efeito (apêndice, auditoria, negação, implementação) e informação de estado conforme para o recurso individual fica disponível no portal e SDKs cerca de 15 minutos depois. Este evento não causa uma avaliação de outros recursos.
+
+- Uma subscrição (tipo de `Microsoft.Resource/subscriptions` recurso) é criada ou movida dentro de uma [hierarquia de grupo de gestão](../../management-groups/overview.md) com uma definição de política atribuída direcionando o tipo de recurso de subscrição. A avaliação dos efeitos suportados pela subscrição (auditoria, auditoriaIfNotExist, deployIfNotExists, modificar), registar registos e quaisquer ações de reparação demoram cerca de 30 minutos.
 
 - É criada, atualizada ou eliminada [uma isenção de política.](../concepts/exemption-structure.md) Neste cenário, a atribuição correspondente é avaliada para o âmbito de isenção definido.
 

@@ -7,19 +7,19 @@ manager: femila
 ms.topic: reference
 ms.service: media-services
 ms.custom: subject-monitoring
-ms.date: 03/17/2021
-ms.openlocfilehash: 4e4c65966ec8a6a5b47d5f68596f6d2d496fda17
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.date: 04/21/2021
+ms.openlocfilehash: 3fd7b8013ec67d718f308ccd1b72a6f90012e02e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835511"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873060"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Referência de dados dos Serviços de Mídia de Monitorização
 
 Este artigo abrange os dados que são úteis para a monitorização dos Serviços de Comunicação Social. Para obter mais informações sobre todas as métricas da plataforma suportadas no Azure Monitor, [reveja as métricas suportadas com o Azure Monitor](../../../azure-monitor/essentials/metrics-supported.md).
 
-## <a name="media-services-metrics"></a>Métricas de Serviços de Mídia
+## <a name="metrics"></a>Métricas
 
 As métricas são recolhidas a intervalos regulares, quer o valor mude ou não. São úteis para alertar porque podem ser amostrados com frequência, e um alerta pode ser disparado rapidamente com uma lógica relativamente simples.
 
@@ -40,12 +40,13 @@ Deve também rever [as quotas e limites de conta.](../limits-quotas-constraints-
 
 Para obter mais informações sobre as dimensões métricas, consulte [métricas multidimensionais.](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics)
 
-<!--**PLACEHOLDER** for dimensions table.-->
-OutputFormat, HttpStatusCode, ErrorCode, TrackName
+Os serviços de comunicação têm as seguintes dimensões métricas.  São autoexplicativos com base nas métricas que suportam.  Consulte as [ligações métricas](#metrics) acima para obter mais informações.   
+- OutputFormat
+- HttpStatusCode 
+- CódigoDoErro 
+- Nome de track 
 
 ## <a name="resource-logs"></a>Registos do recurso
-
-## <a name="media-services-resource-logs"></a>Registos de recursos dos Serviços de Mídia
 
 Os registos de recursos fornecem dados ricos e frequentes sobre o funcionamento de um recurso Azure. Para mais informações, consulte [Como recolher e consumir dados de registo dos seus recursos Azure.](../../../azure-monitor/essentials/platform-logs-overview.md)
 

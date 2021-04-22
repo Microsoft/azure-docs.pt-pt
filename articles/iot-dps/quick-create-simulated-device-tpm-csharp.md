@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: b2648382fb19fafcfc342379aa9da974f6f8d1ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 43ad18173c96c506c0df87a01fc7452065442bc9
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90528424"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868668"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e providenciar um dispositivo TPM simulado utilizando o dispositivo C# SDK para serviço de provisionamento de dispositivos IoT Hub
 
@@ -37,7 +37,7 @@ Este artigo vai demonstrar as inscrições individuais.
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento 
 
-1. Certifique-se de que tem o [.NET Core 2.1 SDK ou posteriormente](https://www.microsoft.com/net/download/windows) instalado na sua máquina. 
+1. Certifique-se de que tem o [.NET Core 2.1 SDK ou posteriormente](https://dotnet.microsoft.com/download) instalado na sua máquina. 
 
 1. Verifique se `git` está instalado no computador e que é adicionado às variáveis de ambiente às quais a janela de comandos pode aceder. Veja as [ferramentas de cliente Git da Software Freedom Conservancy](https://git-scm.com/download/) relativamente à mais recente versão das ferramentas de `git` a instalar, que incluem o **Git Bash**, a aplicação de linha de comandos que pode utilizar para interagir com o seu repositório Git local. 
 

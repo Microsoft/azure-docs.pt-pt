@@ -9,12 +9,12 @@ ms.date: 03/24/2021
 ms.custom:
 - template-quickstart
 - devx-track-azurecli
-ms.openlocfilehash: 9af5f276e49e9eb2756dc544db353c75c99bc5a9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b40407f4c4fb81bbf76bd0b552f3c9f2c827232a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105938065"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871535"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-azure-cli"></a>Quickstart: Criar uma fábrica de dados Azure utilizando o Azure CLI
 
@@ -73,7 +73,7 @@ Este quickstart utiliza uma conta de Armazenamento Azure, que inclui um recipien
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-Para criar uma fábrica de dados Azure, executar a [fábrica de datafactory az criar](/cli/azure/ext/datafactory/datafactory/factory#ext_datafactory_az_datafactory_factory_create) comando:
+Para criar uma fábrica de dados Azure, executar a [fábrica de datafactory az criar](/cli/azure/datafactory/factory#az_datafactory_factory_create) comando:
 
 ```azurecli
 az datafactory factory create --resource-group ADFQuickStartRG \
@@ -83,7 +83,7 @@ az datafactory factory create --resource-group ADFQuickStartRG \
 > [!IMPORTANT]
 > Substitua `ADFTutorialFactory` por um nome de fábrica de dados globalmente único, por exemplo, ADFTutorialFactorySP1127.
 
-Pode ver a fábrica de dados que criou utilizando o comando de demonstração de [fábrica de dados az:](/cli/azure/ext/datafactory/datafactory/factory#ext_datafactory_az_datafactory_factory_show)
+Pode ver a fábrica de dados que criou utilizando o comando de demonstração de [fábrica de dados az:](/cli/azure/datafactory/factory#az_datafactory_factory_show)
 
 ```azurecli
 az datafactory factory show --resource-group ADFQuickStartRG \
@@ -94,7 +94,7 @@ az datafactory factory show --resource-group ADFQuickStartRG \
 
 Em seguida, crie um serviço ligado e dois conjuntos de dados.
 
-1. Obtenha o fio de ligação para a sua conta de armazenamento utilizando o comando [de série de ligação de ligação da conta az:](/cli/azure/ext/datafactory/datafactory/factory#ext_datafactory_az_datafactory_factory_show)
+1. Obtenha o fio de ligação para a sua conta de armazenamento utilizando o comando [de série de ligação de ligação da conta az:](/cli/azure/datafactory/factory#az_datafactory_factory_show)
 
    ```azurecli
    az storage account show-connection-string --resource-group ADFQuickStartRG \
@@ -115,7 +115,7 @@ Em seguida, crie um serviço ligado e dois conjuntos de dados.
    }
    ```
 
-1. Criar um serviço ligado, `AzureStorageLinkedService` denominado, utilizando o [comando de criação de serviço de ligação az datafactory:](/cli/azure/ext/datafactory/datafactory/linked-service#ext_datafactory_az_datafactory_linked_service_create)
+1. Criar um serviço ligado, `AzureStorageLinkedService` denominado, utilizando o [comando de criação de serviço de ligação az datafactory:](/cli/azure/datafactory/linked-service#az_datafactory_linked_service_create)
 
    ```azurecli
    az datafactory linked-service create --resource-group ADFQuickStartRG \
@@ -146,7 +146,7 @@ Em seguida, crie um serviço ligado e dois conjuntos de dados.
    }
    ```
 
-1. Crie um conjunto de dados de entrada nomeado `InputDataset` utilizando o conjunto de [dados az-factory criar](/cli/azure/ext/datafactory/datafactory/dataset#ext_datafactory_az_datafactory_dataset_create) comando:
+1. Crie um conjunto de dados de entrada nomeado `InputDataset` utilizando o conjunto de [dados az-factory criar](/cli/azure/datafactory/dataset#az_datafactory_dataset_create) comando:
 
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
@@ -177,7 +177,7 @@ Em seguida, crie um serviço ligado e dois conjuntos de dados.
    }
    ```
 
-1. Criar um conjunto de dados de saída nomeado `OutputDataset` utilizando o conjunto de [dados az criar](/cli/azure/ext/datafactory/datafactory/dataset#ext_datafactory_az_datafactory_dataset_create) comando:
+1. Criar um conjunto de dados de saída nomeado `OutputDataset` utilizando o conjunto de [dados az criar](/cli/azure/datafactory/dataset#az_datafactory_dataset_create) comando:
 
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
@@ -243,7 +243,7 @@ Finalmente, criar e executar o oleoduto.
    }
    ```
 
-1. Criar um gasoduto nomeado `Adfv2QuickStartPipeline` utilizando o [gasoduto az datafactory criar](/cli/azure/ext/datafactory/datafactory/pipeline#ext_datafactory_az_datafactory_pipeline_create) comando:
+1. Criar um gasoduto nomeado `Adfv2QuickStartPipeline` utilizando o [gasoduto az datafactory criar](/cli/azure/datafactory/pipeline#az_datafactory_pipeline_create) comando:
 
    ```azurecli
    az datafactory pipeline create --resource-group ADFQuickStartRG \
@@ -251,7 +251,7 @@ Finalmente, criar e executar o oleoduto.
        --pipeline @Adfv2QuickStartPipeline.json
    ```
 
-1. Executar o gasoduto utilizando o comando [de criação de gasoduto az:](/cli/azure/ext/datafactory/datafactory/pipeline#ext_datafactory_az_datafactory_pipeline_create_run)
+1. Executar o gasoduto utilizando o comando [de criação de gasoduto az:](/cli/azure/datafactory/pipeline#az_datafactory_pipeline_create_run)
 
    ```azurecli
    az datafactory pipeline create-run --resource-group ADFQuickStartRG \
@@ -260,7 +260,7 @@ Finalmente, criar e executar o oleoduto.
 
    Este comando devolve uma identificação de execução. Copie-o para utilização no comando seguinte.
 
-1. Verifique se o gasoduto foi bem sucedido utilizando o comando [de espetáculo de gasoduto azfactory:](/cli/azure/ext/datafactory/datafactory/pipeline-run#ext_datafactory_az_datafactory_pipeline_run_show)
+1. Verifique se o gasoduto foi bem sucedido utilizando o comando [de espetáculo de gasoduto azfactory:](/cli/azure/datafactory/pipeline-run#az_datafactory_pipeline_run_show)
 
    ```azurecli
    az datafactory pipeline-run show --resource-group ADFQuickStartRG \
@@ -277,7 +277,7 @@ Todos os recursos neste quickstart fazem parte do mesmo grupo de recursos. Para 
 az group delete --name ADFQuickStartRG
 ```
 
-Se estiver a usar este grupo de recursos para qualquer outra coisa, em vez disso, elimine os recursos individuais. Por exemplo, para remover o serviço ligado, utilize o comando [de eliminação de serviços de eliminação de dados az.](/cli/azure/ext/datafactory/datafactory/linked-service#ext_datafactory_az_datafactory_linked_service_delete)
+Se estiver a usar este grupo de recursos para qualquer outra coisa, em vez disso, elimine os recursos individuais. Por exemplo, para remover o serviço ligado, utilize o comando [de eliminação de serviços de eliminação de dados az.](/cli/azure/datafactory/linked-service#az_datafactory_linked_service_delete)
 
 Neste arranque rápido, criou os seguintes ficheiros JSON:
 

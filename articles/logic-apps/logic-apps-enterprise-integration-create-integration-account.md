@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/04/2020
-ms.openlocfilehash: 9a7a0795a15de52c34b8591c4224c3ca5883445c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ae5ca6ac822dabd32b6463c3a742901f32b34323
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772078"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862260"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Criar e gerir contas de integração para integrações empresariais B2B no Azure Logic Apps.
 
@@ -93,7 +93,7 @@ Pode criar uma conta de integração utilizando os comandos Azure CLI nesta sec�
 
 Use estes comandos para criar uma conta de integração.
 
-1. Para adicionar a extensão da [conta de integração lógica az,](/cli/azure/ext/logic/logic/integration-account) utilize o comando [de adicionar extensão az:](/cli/azure/extension#az_extension_add)
+1. Para adicionar a extensão da [conta de integração lógica az,](/cli/azure/logic/integration-account) utilize o comando [de adicionar extensão az:](/cli/azure/extension#az_extension_add)
 
    ```azurecli
    az extension add –-name logic
@@ -105,13 +105,13 @@ Use estes comandos para criar uma conta de integração.
    az group create --name myresourcegroup --location westus
    ```
 
-   Para listar as contas de integração de um grupo de recursos, utilize o comando [da lista de conta de integração lógica az:](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_list)
+   Para listar as contas de integração de um grupo de recursos, utilize o comando [da lista de conta de integração lógica az:](/cli/azure/logic/integration-account#az_logic_integration_account_list)
 
    ```azurecli
    az logic integration-account list --resource-group myresourcegroup
    ```
 
-1. Para criar uma conta de integração, executar a [conta de integração lógica az criar](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_create) comando:
+1. Para criar uma conta de integração, executar a [conta de integração lógica az criar](/cli/azure/logic/integration-account#az_logic_integration_account_create) comando:
 
    ```azurecli
    az logic integration-account create --resource-group myresourcegroup \
@@ -123,13 +123,13 @@ Use estes comandos para criar uma conta de integração.
    > [!TIP]
    > Para criar uma conta de integração dentro de um [ambiente de serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)selecione o ISE como a localização. Para obter mais informações, consulte [Criar contas de integração num ISE.](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)
 
-   Para visualizar uma conta de integração específica, utilize o comando [az logic integration-account show:](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_show)
+   Para visualizar uma conta de integração específica, utilize o comando [az logic integration-account show:](/cli/azure/logic/integration-account#az_logic_integration_account_show)
 
    ```azurecli
    az logic integration-account show --name integration_account_01 --resource-group myresourcegroup
    ```
 
-   Pode alterar o seu SKU, ou nível de preços, utilizando o comando [de atualização da conta de integração lógica az:](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_update)
+   Pode alterar o seu SKU, ou nível de preços, utilizando o comando [de atualização da conta de integração lógica az:](/cli/azure/logic/integration-account#az_logic_integration_account_update)
 
    ```azurecli
    az logic integration-account update --sku name=Basic --name integration_account_01 \
@@ -142,14 +142,14 @@ Use estes comandos para criar uma conta de integração.
    * [Limites e configuração de Apps lógicas](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
    * [Preços de Aplicações Lógicas](https://azure.microsoft.com/pricing/details/logic-apps/)
 
-Para importar uma conta de integração utilizando um ficheiro JSON, utilize o comando [de importação de conta de integração lógica az:](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_import)
+Para importar uma conta de integração utilizando um ficheiro JSON, utilize o comando [de importação de conta de integração lógica az:](/cli/azure/logic/integration-account#az_logic_integration_account_import)
 
 ```azurecli
 az logic integration-account import --name integration_account_01 \
     --resource-group myresourcegroup --input-path integration.json
 ```
 
-Pode eliminar uma conta de integração utilizando o comando [de eliminação de conta de integração lógica az:](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_delete)
+Pode eliminar uma conta de integração utilizando o comando [de eliminação de conta de integração lógica az:](/cli/azure/logic/integration-account#az_logic_integration_account_delete)
 
 ```azurecli
 az logic integration-account delete --name integration_account_01 --resource-group myresourcegroup

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10ab1c487095fe1587a3c665d8a06e0d5cbab7e0
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: df2f3593f904c5c6c6c9af0ae635a2e152f9eb82
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275894"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871080"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Quickstart: Use o Azure Storage SDK v11 para .NET para gerir uma fila
 
@@ -31,19 +31,19 @@ Em seguida, transfira e instale o .NET Core 2.0 referente ao seu sistema operati
 
 ### <a name="windows"></a>Windows
 
-- Instale o [.NET Core para Windows](https://www.microsoft.com/net/download/windows) ou o [.NET Framework](https://www.microsoft.com/net/download/windows) (incluído no Visual Studio para Windows)
+- Instale [.NET Core SDK para Windows](https://dotnet.microsoft.com/download) ou a [Estrutura .NET](https://dotnet.microsoft.com/download/dotnet-framework) (incluído no Estúdio Visual para Windows)
 - Instale o [Visual Studio para Windows](https://www.visualstudio.com/). Se estiver a utilizar o .NET Core, instalar o Visual Studio é opcional.
 
 Para obter informações sobre como escolher entre o .NET Core e o .NET Framework, veja [Escolher entre o .NET Core e o .NET Framework para aplicações de servidor](/dotnet/standard/choosing-core-framework-server).
 
 ### <a name="linux"></a>Linux
 
-- Instale o [.NET Core para Linux](https://www.microsoft.com/net/download/linux)
+- Instale [.NET Core SDK para Linux](/dotnet/core/install/linux)
 - Opcionalmente, instale o [Visual Studio Code](https://www.visualstudio.com/) e a [extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 ### <a name="macos"></a>macOS
 
-- Instale o [.NET Core para macOS](https://www.microsoft.com/net/download/macos).
+- Instale [.NET Core SDK para macOS](https://dotnet.microsoft.com/download).
 - Opcionalmente, instale o [Visual Studio para Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
@@ -283,4 +283,4 @@ Neste arranque rápido, aprendeu a adicionar mensagens a uma fila, a espreitar m
 > [!div class="nextstepaction"]
 > [Comunicar entre aplicações com armazenamento de fila Azure](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
-- Para saber mais sobre o .NET Core, veja [Introdução ao .NET em 10 minutos](https://www.microsoft.com/net/learn/get-started/).
+- Para saber mais sobre o .NET Core, veja [Introdução ao .NET em 10 minutos](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).

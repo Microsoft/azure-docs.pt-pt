@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 6cb85bc1da7d98d3e2ad46229588a91d971ce014
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9794c5f048b8795652e4b31e0134b36a77715abe
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567295"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873384"
 ---
 # <a name="azure-monitor-logs-overview"></a>Descrição geral dos Registos do Azure Monitor
 Azure Monitor Logs é uma característica do Azure Monitor que recolhe e organiza dados de registo e desempenho a partir de [recursos monitorizados.](../monitor-reference.md) Dados de diferentes fontes, como [registos](../essentials/platform-logs-overview.md) de plataformas a partir de serviços Azure, dados de registo e desempenho de [agentes de máquinas virtuais,](../agents/agents-overview.md)e dados de utilização e desempenho de aplicações podem ser consolidados num único espaço de trabalho para que possam ser [analisados](../app/app-insights-overview.md) em conjunto usando uma linguagem de consulta sofisticada que é capaz de analisar rapidamente milhões de registos. Pode realizar uma consulta simples que apenas recupera um conjunto específico de registos ou realiza análises de dados sofisticadas para identificar padrões críticos nos seus dados de monitorização. Trabalhe com consultas de registo e seus resultados interativamente usando Log Analytics, use-os em regras de alerta para ser notificado proativamente de problemas, ou visualizar os seus resultados em um livro ou painel de instrumentos.
@@ -29,7 +29,7 @@ A tabela a seguir descreve algumas das diferentes formas de utilização de Regi
 | **Alerta** | Configure uma [regra de alerta de registo](../alerts/alerts-log.md) que envia uma notificação ou toma [medidas automatizadas](../alerts/action-groups.md) quando os resultados da consulta correspondem a um resultado específico. |
 | **Visualizar** | Resultados da consulta de pinos renderizados como tabelas ou gráficos para um [painel de instrumentos Azure](../../azure-portal/azure-portal-dashboards.md).<br>Crie um [livro para](../visualize/workbooks-overview.md) combinar com vários conjuntos de dados num relatório interativo. <br>Exporte os resultados de uma consulta ao [Power BI](../visualize/powerbi.md) para utilizar diferentes visualizações e partilhar com utilizadores fora do Azure.<br>Exporte os resultados de uma consulta à [Grafana](../visualize/grafana-plugin.md) para alavancar o seu dashboarding e combinar com outras fontes de dados.|
 | **Informações** | Informações [de](../monitor-reference.md#insights-and-core-solutions) suporte que proporcionam uma experiência de monitorização personalizada para aplicações e serviços específicos.  |
-| **Recuperar** | Consulta de registo de acesso resulta de uma linha de comando utilizando [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>A consulta de registo de acesso resulta de uma linha de comando utilizando [cmdlets PowerShell](/powershell/module/az.operationalinsights).<br>A consulta de registo de acesso resulta de uma aplicação personalizada utilizando [a API REST](https://dev.loganalytics.io/). |
+| **Recuperar** | Consulta de registo de acesso resulta de uma linha de comando utilizando [Azure CLI](/cli/azure/monitor/log-analytics).<br>A consulta de registo de acesso resulta de uma linha de comando utilizando [cmdlets PowerShell](/powershell/module/az.operationalinsights).<br>A consulta de registo de acesso resulta de uma aplicação personalizada utilizando [a API REST](https://dev.loganalytics.io/). |
 | **Exportar** | Configure [a exportação automatizada de dados de registo](./logs-data-export.md) para a conta de armazenamento Azure ou para a Azure Event Hubs.<br>Construa um fluxo de trabalho para recuperar dados de registo e copiá-los para um local externo usando [As Aplicações Lógicas.](./logicapp-flow-connector.md) |
 
 ![Visão geral dos registos](media/data-platform-logs/logs-overview.png)
