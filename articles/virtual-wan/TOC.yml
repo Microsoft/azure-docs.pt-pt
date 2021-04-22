@@ -117,6 +117,8 @@
           href: virtual-wan-site-to-site-portal.md
         - name: Ligar um gateway de rede virtual a uma WAN Virtual
           href: connect-virtual-network-gateway-vwan.md
+        - name: Realizar uma captura de pacotes
+          href: virtual-wan-site-to-site-packet-capture.md
         - name: Configurar política IPsec personalizada
           href: virtual-wan-custom-ipsec-portal.md
         - name: Configurar regras NAT
@@ -188,7 +190,7 @@
     - name: REST
       href: /rest/api/azure
     - name: CLI do Azure
-      href: /cli/azure/ext/virtual-wan
+      href: /cli/azure/
     - name: SDK Python
       href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations'
 - name: Recursos

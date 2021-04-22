@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para backup Azure
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para cópia de segurança Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: sample
 author: v-amallick
 ms.author: v-amallick
 ms.service: backup
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: f5376e03361f977cb0d79fd7968d0f40867cf08c
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 62a2fd3093770685edbde6de0519895b51778b7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501924"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878003"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-backup"></a>Controlos de conformidade regulamentar da política Azure para backup Azure
 

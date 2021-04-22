@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/07/2020
 ms.author: allensu
-ms.openlocfilehash: 5088b4e50899a2643488103ba29a7e36a7f256ea
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 036052dc45b8d029dac6e137b3a878b75e6e015c
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778360"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873402"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Quickstart: Criar um ponto final privado utilizando O Azure CLI
 
@@ -185,9 +185,9 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>Configure a zona privada do DNS
 
-Nesta secção, você vai criar e configurar a zona privada de DNS usando [a zona privada de dns da rede Az criar](/cli/azure/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
+Nesta secção, você vai criar e configurar a zona privada de DNS usando [a zona privada de dns da rede Az criar](/cli/azure/network/private-dns/zone#az_network_private_dns_zone_create).  
 
-Você usará [a rede az rede privada-dns link vnet criar](/cli/azure/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) para criar a ligação de rede virtual para a zona dns.
+Você usará [a rede az rede privada-dns link vnet criar](/cli/azure/network/private-dns/link/vnet#az_network_private_dns_link_vnet_create) para criar a ligação de rede virtual para a zona dns.
 
 Você vai criar um grupo de zona dns com [rede az-end dns-zone-group criar](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
 

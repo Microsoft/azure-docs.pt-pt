@@ -4,12 +4,12 @@ description: Saiba como identificar e interagir com casos BareMetal no portal Az
 ms.topic: how-to
 ms.subservice: workloads
 ms.date: 04/06/2021
-ms.openlocfilehash: a7fdc17aa4271915f7dc02aaa2d7a688016bf892
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: e67ede85608f2a33dcc179005f0090ca2ce6a640
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579198"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871656"
 ---
 # <a name="connect-baremetal-infrastructure-instances-in-azure"></a>Ligar instâncias de infraestrutura BareMetal em Azure
 
@@ -83,7 +83,7 @@ Durante a implementação dos seus casos BareMetal, um novo [grupo de recursos A
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para ver todas as suas instâncias BareMetal, execute o comando [da lista de baremetalinsance az](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_list) para o seu grupo de recursos:
+Para ver todas as suas instâncias BareMetal, execute o comando [da lista de baremetalinsance az](/cli/azure/baremetalinstance#az_baremetalinstance_list) para o seu grupo de recursos:
 
 ```azurecli
 az baremetalinstance list --resource-group DSM05A-T550 –output table
@@ -127,7 +127,7 @@ Além disso, no lado direito, você encontrará o nome [do grupo de colocação 
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para ver detalhes de um caso BareMetal, executar o comando [do show de baremetalinstance az:](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_show)
+Para ver detalhes de um caso BareMetal, executar o comando [do show de baremetalinstance az:](/cli/azure/baremetalinstance#az_baremetalinstance_show)
 
 ```azurecli
 az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
@@ -159,7 +159,7 @@ A eliminação de etiquetas também funciona da mesma forma que para os VMs. A a
 
 A atribuição de tags a casos BareMetal funciona da mesma forma que a atribuição de tags para máquinas virtuais. Tal como acontece com os VMs, as etiquetas existem nos metadados Azure. As etiquetas têm as mesmas restrições para os casos BareMetal do que para os VMs.
 
-Para adicionar tags a uma instância BareMetal, executar o comando [de atualização de az baremetalinstance:](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_update)
+Para adicionar tags a uma instância BareMetal, executar o comando [de atualização de az baremetalinstance:](/cli/azure/baremetalinstance#az_baremetalinstance_update)
 
 ```azurecli
 az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --set tags.Dept=Finance tags.Status=Normal
@@ -197,7 +197,7 @@ Quando reiniciares uma instância BareMetal, vais sentir um atraso. Durante este
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para reiniciar uma instância BareMetal, utilize o comando de reinício da [baremetalinização az:](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_restart)
+Para reiniciar uma instância BareMetal, utilize o comando de reinício da [baremetalinização az:](/cli/azure/baremetalinstance#az_baremetalinstance_restart)
 
 ```azurecli
 az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01

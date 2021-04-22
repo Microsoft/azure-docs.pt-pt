@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 23615daf4a07e02b01bbd5a9cdf57ec9a81a2b76
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
-ms.translationtype: HT
+ms.openlocfilehash: 241b7c0c07d1fbaa6a43c6be4b264424612f538a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347408"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869046"
 ---
 ::: zone target="docs"
 
@@ -52,11 +52,11 @@ Inicie sessão no Portal do Azure em [https://aka.ms/azuredataboxfromdiskdocs](h
 
 > [!div class="checklist"]
 >
-> - **Rever pré-requisitos** : Verifique o número de discos e cabos, o sistema operativo e outro software.
-> - **Ligar e desbloquear** : Ligue o dispositivo e desbloqueie o disco para copiar os dados.
-> - **Copiar dados para o disco e validar** : Copie os dados para os discos nas pastas pré-criadas.
-> - **Devolver os discos** : Devolva os discos para o centro de dados do Azure onde os dados são carregados para a sua conta de armazenamento.
-> - **Verificar os dados no Azure** : Verifique se os dados foram carregados para a sua conta de armazenamento antes de os eliminar do servidor de dados de origem.
+> - **Rever pré-requisitos**: Verifique o número de discos e cabos, o sistema operativo e outro software.
+> - **Ligar e desbloquear**: Ligue o dispositivo e desbloqueie o disco para copiar os dados.
+> - **Copiar dados para o disco e validar**: Copie os dados para os discos nas pastas pré-criadas.
+> - **Devolver os discos**: Devolva os discos para o centro de dados do Azure onde os dados são carregados para a sua conta de armazenamento.
+> - **Verificar os dados no Azure**: Verifique se os dados foram carregados para a sua conta de armazenamento antes de os eliminar do servidor de dados de origem.
 
 ::: zone-end
 
@@ -94,7 +94,7 @@ Utilize estes comandos do CLI do Azure para criar um trabalho do Data Box Disk.
    az storage account create --resource-group databox-rg --name databoxtestsa
    ```
 
-1. Execute o comando [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) para criar um trabalho do Data Box com o SKU DataBoxDisk:
+1. Execute o comando [az databox job create](/cli/azure/databox/job#az_databox_job_create) para criar um trabalho do Data Box com o SKU DataBoxDisk:
 
    ```azurecli
    az databox job create --resource-group databox-rg --name databoxdisk-job \
@@ -104,37 +104,37 @@ Utilize estes comandos do CLI do Azure para criar um trabalho do Data Box Disk.
        --storage-account databoxtestsa --expected-data-size 1
    ```
 
-1. Execute o comando [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update) para atualizar um trabalho, como neste exemplo, em que altera o nome e o e-mail de contacto:
+1. Execute o comando [az databox job update](/cli/azure/databox/job#az_databox_job_update) para atualizar um trabalho, como neste exemplo, em que altera o nome e o e-mail de contacto:
 
    ```azurecli
    az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
    ```
 
-   Execute o comando [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) para obter informações sobre o trabalho:
+   Execute o comando [az databox job show](/cli/azure/databox/job#az_databox_job_show) para obter informações sobre o trabalho:
 
    ```azurecli
    az databox job show --resource-group databox-rg --name databox-job
    ```
 
-   Utilize o comando [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list) para ver todos os trabalhos do Data Box para um grupo de recursos:
+   Utilize o comando [az databox job list]( /cli/azure/databox/job#az_databox_job_list) para ver todos os trabalhos do Data Box para um grupo de recursos:
 
    ```azurecli
    az databox job list --resource-group databox-rg
    ```
 
-   Execute o comando [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) para cancelar um trabalho:
+   Execute o comando [az databox job cancel](/cli/azure/databox/job#az_databox_job_cancel) para cancelar um trabalho:
 
    ```azurecli
    az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
    ```
 
-   Execute o comando [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) para eliminar um trabalho:
+   Execute o comando [az databox job delete](/cli/azure/databox/job#az_databox_job_delete) para eliminar um trabalho:
 
    ```azurecli
    az databox job delete –resource-group databox-rg --name databox-job
    ```
 
-1. Utilize o comando [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) para listar as credenciais para um trabalho do Data Box:
+1. Utilize o comando [az databox job list-credentials]( /cli/azure/databox/job#az_databox_job_list_credentials) para listar as credenciais para um trabalho do Data Box:
 
    ```azurecli
    az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
@@ -170,7 +170,7 @@ Este passo demora cerca de 5 minutos.
 
 O tempo de conclusão desta operação depende do tamanho dos dados.
 
-1. A unidade contém as pastas *PageBlob* , *BlockBlob* , *AzureFile* , *ManagedDisk* e *DataBoxDiskImport*. Arraste e cole para copiar os dados que têm de ser importados como blobs de blocos para a pasta *BlockBlob*. Da mesma forma, arraste e cole os dados como VHD/VHDX para a pasta *PageBlob* e os dados adequados para *AzureFile*. Copie os VHDs que pretende carregar como discos geridos para uma pasta em *ManagedDisk*.
+1. A unidade contém as pastas *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk* e *DataBoxDiskImport*. Arraste e cole para copiar os dados que têm de ser importados como blobs de blocos para a pasta *BlockBlob*. Da mesma forma, arraste e cole os dados como VHD/VHDX para a pasta *PageBlob* e os dados adequados para *AzureFile*. Copie os VHDs que pretende carregar como discos geridos para uma pasta em *ManagedDisk*.
 
     É criado um contentor na conta de armazenamento do Azure para cada subpasta nas pastas *BlockBlob* e *PageBlob*. É criada uma partilha de ficheiros para uma subpasta em *AzureFile*.
 

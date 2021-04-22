@@ -1,14 +1,14 @@
 ---
 title: Entenda como os efeitos funcionam
 description: As definições de Política Azure têm vários efeitos que determinam como a conformidade é gerida e reportada.
-ms.date: 02/17/2021
+ms.date: 04/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 67445b3d0d63b3827f82822de00412bdab67c5ab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e0d6eb5fb37ecf1b13edd945de52398b1e12f192
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741825"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861558"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos da Política Azure
 
@@ -64,7 +64,8 @@ Um efeito de apêndice tem apenas um conjunto **de detalhes,** que é necessári
 
 ### <a name="append-examples"></a>Exemplos de apêndice
 
-Exemplo 1: Par de **campo/valor** único usando **\[\*\]** um não-pseudónimo com um **valor** de matriz para definir [regras](definition-structure.md#aliases) IP numa conta de armazenamento. Quando o **\[\*\]** não-pseudónimo é uma matriz, o efeito anexa o **valor** como toda a matriz. Se a matriz já existe, um evento de negação ocorre do conflito.
+Exemplo 1: Par de **campo/valor** único usando um **\[\*\]** 
+ não-pseudónimo com um **valor** de matriz para definir [regras](definition-structure.md#aliases) IP numa conta de armazenamento. Quando o **\[\*\]** não-pseudónimo é uma matriz, o efeito anexa o **valor** como toda a matriz. Se a matriz já existe, um evento de negação ocorre do conflito.
 
 ```json
 "then": {
@@ -518,7 +519,7 @@ Os **detalhes** da propriedade do efeito Modificar têm todas as subpropriedades
   - Esta propriedade deve incluir uma variedade de cordas que correspondam ao ID da função de controlo de acesso baseado em funções, acessível pela subscrição. Para obter mais informações, consulte [a remediação - configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
   - O papel definido deve incluir todas as operações concedidas ao [papel de contribuinte.](../../../role-based-access-control/built-in-roles.md#contributor)
 - **conflitoFeito** (opcional)
-  - Determina qual a definição de política "ganha" no caso de mais de uma definição de política modificar a mesma propriedade ou quando a operação Modificar não funciona no pseudónimo especificado.
+  - Determina qual a definição de política "ganha" se mais de uma definição de política modificar a mesma propriedade ou quando a operação Modificar não funciona no pseudónimo especificado.
     - Para recursos novos ou atualizados, a definição de política com _negação_ tem precedência. Definições de política com _auditoria_ saltam todas as **operações.** Se mais do que uma definição política _tiver negado,_ o pedido é negado como um conflito. Se todas as definições políticas tiverem _auditoria,_ nenhuma das **operações** das definições de política conflituosa será processada.
     - Para os recursos existentes, se mais do que uma definição política _tiver de negar,_ o estatuto de conformidade é _Conflito._ Se uma ou menos definições de política _tiverem de negar,_ cada atribuição devolve um estatuto de _conformidade de incumprimento_.
   - Valores disponíveis: _auditoria,_ _negação,_ _deficientes._

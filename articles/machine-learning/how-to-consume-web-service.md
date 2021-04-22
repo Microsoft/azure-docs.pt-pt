@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: e9fb801fce3e47fc83febeddd6f331ce2af207e6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8cab9331cdd4c15ab76b7c33f956be15ec2259ef
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506978"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861198"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como serviço Web
 
@@ -77,7 +77,7 @@ Existem várias formas de recuperar esta informação para serviços web implant
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Se souber o nome do serviço implantado, utilize o comando [de espetáculo de serviço az ml:](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show)
+Se souber o nome do serviço implantado, utilize o comando [de espetáculo de serviço az ml:](/cli/azure/ml/service#az_ml_service_show)
 
 ```azurecli
 az ml service show -n <service-name>

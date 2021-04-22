@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 6cc20a362ceebe56beb0d2baa48ea479d3b322a7
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a9478948cd5232c863014631acb884cd637a2f7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067648"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864024"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT e lê-lo com uma aplicação de back-end (C)
 
@@ -114,7 +114,7 @@ No entanto, neste arranque rápido, você vai preparar um ambiente de desenvolvi
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
-É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta secção, utilizará o Azure Cloud Shell com a [extensão IoT](/cli/azure/ext/azure-iot/iot) para registar um dispositivo simulado.
+É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta secção, utilizará o Azure Cloud Shell com a [extensão IoT](/cli/azure/iot) para registar um dispositivo simulado.
 
 1. Executar o seguinte comando em Azure Cloud Shell para criar a identidade do dispositivo.
 
@@ -183,7 +183,7 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Ler a telemetria a partir do seu hub
 
-Nesta secção, utilizará o Azure Cloud Shell com a [extensão IoT](/cli/azure/ext/azure-iot/iot) para monitorizar as mensagens do dispositivo que são enviadas pelo dispositivo simulado.
+Nesta secção, utilizará o Azure Cloud Shell com a [extensão IoT](/cli/azure/iot) para monitorizar as mensagens do dispositivo que são enviadas pelo dispositivo simulado.
 
 1. Com o Azure Cloud Shell, execute o seguinte comando para se ligar e ler mensagens do hub IoT:
 

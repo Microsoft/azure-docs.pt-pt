@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 04/08/2021
-ms.openlocfilehash: 1c9434d137114560b5585b081961497412dfbf69
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 375a8f6613ff90edd3df635c8236196aab62b6ac
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770260"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861144"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster de serviço Azure Kubernetes
 
@@ -198,7 +198,7 @@ Para obter mais informações sobre as classes, métodos e parâmetros utilizado
 az ml computetarget create aks -n myaks
 ```
 
-Para obter mais informações, consulte o [computação az ml para criar referência aks.](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks)
+Para obter mais informações, consulte o [computação az ml para criar referência aks.](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -275,7 +275,7 @@ Para fixar o cluster existente ao seu espaço de trabalho, utilize o seguinte co
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-Para obter mais informações, consulte a referência [aks attach aks.](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
+Para obter mais informações, consulte a referência [aks attach aks.](/cli/azure/ml/computetarget/attach#az_ml_computetarget_attach_aks)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

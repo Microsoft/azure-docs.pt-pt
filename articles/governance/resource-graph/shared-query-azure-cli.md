@@ -3,12 +3,12 @@ title: 'Quickstart: Criar uma consulta partilhada com o Azure CLI'
 description: Neste arranque rápido, siga os passos para ativar a extensão do Gráfico de Recurso para O Azure CLI e crie uma consulta partilhada.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: ec1b010771790339a13777624f04c7bd2db01f11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2befc2b6895cd9d2c797fc8ed0e28a27eb6e73e8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99594388"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870558"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Quickstart: Criar uma consulta partilhada de gráficos de recurso usando O Azure CLI
 
@@ -58,7 +58,7 @@ Com a extensão Azure CLI adicionada ao seu ambiente de eleição, é hora de um
    az group create --name 'resource-graph-queries' --location 'westus2'
    ```
 
-1. Crie a consulta partilhada Azure Resource Graph utilizando o comando de partilha de extensão e gráfico `graph` [az gráfico:](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_create)
+1. Crie a consulta partilhada Azure Resource Graph utilizando o comando de partilha de extensão e gráfico `graph` [az gráfico:](/cli/azure/graph/shared-query#az_graph_shared_query_create)
 
    ```azurecli-interactive
    # Create the Azure Resource Graph shared query
@@ -68,14 +68,14 @@ Com a extensão Azure CLI adicionada ao seu ambiente de eleição, é hora de um
       --resource-group 'resource-graph-queries'
    ```
 
-1. Listar as consultas partilhadas no novo grupo de recursos. O comando [da lista de consultas partilhadas az gráfico](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_list) devolve uma série de valores.
+1. Listar as consultas partilhadas no novo grupo de recursos. O comando [da lista de consultas partilhadas az gráfico](/cli/azure/graph/shared-query#az_graph_shared_query_list) devolve uma série de valores.
 
    ```azurecli-interactive
    # List all the Azure Resource Graph shared queries in a resource group
    az graph shared-query list --resource-group 'resource-graph-queries'
    ```
 
-1. Para obter apenas um único resultado de consulta partilhada, use o comando [de show de consulta partilhada de gráficos az.](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_show)
+1. Para obter apenas um único resultado de consulta partilhada, use o comando [de show de consulta partilhada de gráficos az.](/cli/azure/graph/shared-query#az_graph_shared_query_show)
 
    ```azurecli-interactive
    # Show a specific Azure Resource Graph shared query
@@ -83,7 +83,7 @@ Com a extensão Azure CLI adicionada ao seu ambiente de eleição, é hora de um
       --name 'Summarize resources by location'
    ```
 
-1. Executar a consulta partilhada em Azure CLI com a `{{shared-query-uri}}` sintaxe num comando [de consulta de gráfico az.](/cli/azure/ext/resource-graph/graph#ext_resource_graph_az_graph_query)
+1. Executar a consulta partilhada em Azure CLI com a `{{shared-query-uri}}` sintaxe num comando [de consulta de gráfico az.](/cli/azure/graph#az_graph_query)
    Primeiro, copie o `id` campo do resultado do comando `show` anterior. Substitua `shared-query-uri` o texto no exemplo pelo valor do `id` campo, mas deixe o ambiente e os `{{` `}}` caracteres.
 
    ```azurecli-interactive
@@ -100,7 +100,7 @@ Outra forma de encontrar consultas partilhadas do Gráfico de Recurso é atravé
 
 Se desejar remover a consulta partilhada do Gráfico de Recurso, o grupo de recursos e a extensão do seu ambiente Azure CLI, pode fazê-lo utilizando os seguintes comandos:
 
-- [az gráfico compartilhado-consulta excluir](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_delete)
+- [az gráfico compartilhado-consulta excluir](/cli/azure/graph/shared-query#az_graph_shared_query_delete)
 - [az group delete](/cli/azure/group#az_group_delete)
 - [extensão az remover](/cli/azure/extension#az_extension_remove)
 

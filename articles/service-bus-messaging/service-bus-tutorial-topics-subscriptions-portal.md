@@ -6,12 +6,12 @@ ms.author: spelluru
 ms.date: 10/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d0a94f346f9d3cf7a05a1ca6e1b37d4d008f3e75
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a7b03727c574dcee1cd56144a521f36de6dc48c6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179668"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861378"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: atualizar inventário utilizando o portal do Azure e tópicos/subscrições
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][] antes
 Para concluir este tutorial, confirme que tem instalada:
 
 - [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior.
-- [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
+- [SDK NET Core](https://dotnet.microsoft.com/download), versão 2.0 ou posterior.
 
 ## <a name="service-bus-topics-and-subscriptions"></a>Tópicos e subscrições do Service Bus
 

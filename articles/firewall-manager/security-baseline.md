@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bec5cafaf7d506d9ab25228c680d00af91dbf3d0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7cb37de7c5f101ea5f72ff87ccdf94e5925a95d4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200143"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864420"
 ---
 # <a name="azure-security-baseline-for-azure-firewall-manager"></a>Linha de segurança Azure para Azure Firewall Manager
 
@@ -338,7 +338,7 @@ Aplique etiquetas nos seus recursos Azure, grupos de recursos e subscrições pa
 
 **Orientação**: Remova os recursos do Azure Firewall Manager quando já não forem necessários para minimizar a superfície de ataque. Os utilizadores podem gerir os seus recursos Azure Firewall Manager através do portal Azure, CLI ou REST APIs.
 
-- [Política de Firewall Azure CLI](/cli/azure/ext/azure-firewall/network/firewall/policy)
+- [Política de Firewall Azure CLI](/cli/azure/network/firewall/policy)
 
 - [Rede Azure CLI](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
@@ -557,7 +557,7 @@ Além disso, marque os recursos com etiquetas e crie um sistema de nomenclatura 
 
 - [Referência do modelo de política de firewall Azure](/azure/templates/microsoft.network/firewallpolicies)
 
-- [Política de Firewall Azure CLI](/cli/azure/ext/azure-firewall/network/firewall/policy)
+- [Política de Firewall Azure CLI](/cli/azure/network/firewall/policy)
 
 - [Ilustração da implementação de guarda-costas na zona de desembarque em escala empresarial](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
 

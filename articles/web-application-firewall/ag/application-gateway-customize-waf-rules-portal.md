@@ -4,15 +4,15 @@ description: Este artigo fornece informações sobre como personalizar as regras
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 04/21/2021
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: c4635333614ee1c0fd0322c29a659380fb4315c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ab122d178e5390a53e5a3a39f1b7763b298dc6d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74048368"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878331"
 ---
 # <a name="customize-web-application-firewall-rules-using-the-azure-portal"></a>Personalize as regras de Firewall de aplicações web usando o portal Azure
 
@@ -21,7 +21,7 @@ O Azure Application Gateway Web Application Firewall (WAF) fornece proteção pa
 >[!NOTE]
 > Se o seu gateway de aplicação não estiver a utilizar o nível WAF, a opção de atualizar o gateway de aplicação para o nível WAF aparece no painel direito. 
 
-![Ativar a WAF][fig1]
+:::image type="content" source="../media/application-gateway-customize-waf-rules-portal/1.png" alt-text="Ativar a WAF"::: 
 
 ## <a name="view-rule-groups-and-rules"></a>Ver grupos de regras e regras
 
@@ -37,16 +37,13 @@ O Azure Application Gateway Web Application Firewall (WAF) fornece proteção pa
 > [!IMPORTANT]
 > Tenha cuidado ao desativar quaisquer grupos ou regras de regras. Isto pode expô-lo a riscos de segurança aumentados.
 
-Quando está a desativar regras, pode desativar um grupo inteiro de regras ou regras específicas sob um ou mais grupos de regras. 
-
 **Desativar grupos de regras ou regras específicas**
 
    1. Procure as regras ou grupos de regras que pretende desativar.
    2. Selecione as caixas de verificação para as regras que pretende desativar. 
    3. Selecione a ação no topo da página (ativar/desativar) para as regras selecionadas.
-   2. Selecione **Guardar**. 
-
-![Guardar alterações][3]
+   2. Selecione **Guardar**.
+    :::image type="content" source="../media/application-gateway-customize-waf-rules-portal/figure3.png" alt-text="Salvar regras de desativadas"::: 
 
 ## <a name="mandatory-rules"></a>Regras obrigatórias
 
@@ -66,6 +63,3 @@ CRS 3.x específico:
 ## <a name="next-steps"></a>Passos seguintes
 
 Depois de configurar as suas regras desativadas, pode aprender a ver os seus registos WAF. Para mais informações, consulte os [diagnósticos do Application Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
-
-[fig1]: ../media/application-gateway-customize-waf-rules-portal/1.png
-[3]: ../media/application-gateway-customize-waf-rules-portal/figure3.png

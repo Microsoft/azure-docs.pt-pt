@@ -1,17 +1,17 @@
 ---
 title: Configure para o seu painel Azure IoT Central | Microsoft Docs
 description: Como construtor, aprenda a configurar o painel de aplicações Azure IoT Central padrão com azulejos.
-author: TheJasonAndrew
-ms.author: v-anjaso
+author: philmea
+ms.author: philmea
 ms.date: 12/19/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 73c78f514f974b97eb178177f12dc4ceff7ede63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a8ba765a966409c06dbba636932f7777624f6d4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97797014"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864258"
 ---
 # <a name="configure-the-application-dashboard"></a>Configure o painel de aplicações
 

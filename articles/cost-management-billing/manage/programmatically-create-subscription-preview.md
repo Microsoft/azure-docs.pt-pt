@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9f20659e772f6321f4d3953f0e55192c833e78b9
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d3247a86795b9661196c3264c60b06e7c61d6e23
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310602"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877913"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Criar subscrições do Azure através de programação com APIs de pré-visualização
 
@@ -198,7 +198,7 @@ Para ver uma lista completa de todos os parâmetros, veja [New-AzSubscription](/
 
 Primeiro, instale a extensão de pré-visualização ao executar `az extension add --name subscription`.
 
-Execute o comando [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create) abaixo, substituindo `<enrollmentAccountObjectId>` pelo `name` que copiou no primeiro passo (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Para especificar proprietários, veja [como obter IDs de objeto de utilizador](grant-access-to-create-subscription.md#userObjectId).
+Execute o comando [az account create](/cli/azure/account#-ext-subscription-az-account-create) abaixo, substituindo `<enrollmentAccountObjectId>` pelo `name` que copiou no primeiro passo (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Para especificar proprietários, veja [como obter IDs de objeto de utilizador](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurecli-interactive
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
@@ -213,7 +213,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `owner-upn`    | Não       | String | O endereço de e-mail de qualquer utilizador a adicionar como Proprietário de RBAC do Azure na subscrição quando esta é criada. Pode utilizar o parâmetro em vez de `owner-object-id`.|
 | `owner-spn` | Não       | String | O ID da aplicação de qualquer principal de serviço a adicionar como Proprietário de RBAC do Azure na subscrição quando esta é criada. Pode utilizar o parâmetro em vez de `owner-object-id`. Quando utilizar o parâmetro, o principal de serviço tem de ter [acesso de leitura ao diretório](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
-Para ver uma lista completa de todos os parâmetros, veja [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create).
+Para ver uma lista completa de todos os parâmetros, veja [az account create](/cli/azure/account#-ext-subscription-az-account-create).
 
 ---
 

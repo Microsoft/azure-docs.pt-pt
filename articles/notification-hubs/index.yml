@@ -9,12 +9,12 @@ metadata:
   author: sethmanheim
   ms.author: sethm
   ms.date: 03/11/2020
-  ms.openlocfilehash: 89a4b291490ae5fe1cb13c254f6350c0a03e255e
-  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+  ms.openlocfilehash: 8a4419dc0c5b33d56cf83cb33e35c9b5eb31663e
+  ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/09/2021
-  ms.locfileid: "102508882"
+  ms.lasthandoff: 04/22/2021
+  ms.locfileid: "107868200"
 landingContent:
 - title: Acerca do Hubs de Notificação do Azure
   linkLists:
@@ -73,7 +73,7 @@ landingContent:
     - text: PowerShell
       url: /powershell/module/az.notificationhubs/
     - text: CLI
-      url: /cli/azure/ext/notification-hub/notification-hub
+      url: /cli/azure/notification-hub
 - title: Recursos
   linkLists:
   - linkListType: concept

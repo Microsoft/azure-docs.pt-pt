@@ -9,12 +9,12 @@ metadata:
   author: shortpatti
   ms.author: v-patsho
   ms.date: 04/20/2021
-  ms.openlocfilehash: 8c754c7855848db3119d987a4147b08cd3aa2115
-  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+  ms.openlocfilehash: 54a304e145d995e484f149488fbf5d4f0ad7854f
+  ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/20/2021
-  ms.locfileid: "107765346"
+  ms.lasthandoff: 04/22/2021
+  ms.locfileid: "107878061"
 landingContent:
 - title: Acerca do Azure VMware Solution
   linkLists:
@@ -163,7 +163,7 @@ landingContent:
     - text: API REST
       url: /rest/api/avs
     - text: CLI do Azure
-      url: /cli/azure/ext/vmware/vmware
+      url: /cli/azure/vmware
     - text: Azure PowerShell
       url: /powershell/module/az.vmware
     - text: Fornecedor Terraform Azure

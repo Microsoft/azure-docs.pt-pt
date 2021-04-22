@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: b34beb65bb8c4136887651d8365c937b17718572
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a831aa7b2f3b0d438d9db8fefa3d26428fea3680
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103471908"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862602"
 ---
 # <a name="manage-your-cache"></a>Gerencie a sua cache
 
@@ -60,13 +60,13 @@ Para reativar uma cache parada, clique no botão **Iniciar.** Não é necessári
 
 [Configurar o Azure CLI para a cache Azure HPC](./az-cli-prerequisites.md).
 
-Suspenda temporariamente uma cache com o comando [de paragem az hpc-cache.](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) Esta ação só é válida quando o estado de uma cache é **saudável** ou **degradado.**
+Suspenda temporariamente uma cache com o comando [de paragem az hpc-cache.](/cli/azure/hpc-cache#az_hpc_cache_stop) Esta ação só é válida quando o estado de uma cache é **saudável** ou **degradado.**
 
 A cache coloca automaticamente o seu conteúdo nos alvos de armazenamento antes de parar. Este processo pode demorar algum tempo, mas garante a consistência dos dados.
 
 Quando a ação estiver concluída, o estado da cache muda para **"Stop".**
 
-Reativar uma cache parada com [arranque az hpc-cache](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-start).
+Reativar uma cache parada com [arranque az hpc-cache](/cli/azure/hpc-cache#az_hpc_cache_start).
 
 Quando emite o comando de arranque ou paragem, a linha de comando mostra uma mensagem de estado "Running" até que a operação esteja concluída.
 
@@ -115,7 +115,7 @@ Para lavar a cache, clique no botão **Flush** e, em seguida, clique em **Sim** 
 
 [Configurar o Azure CLI para a cache Azure HPC](./az-cli-prerequisites.md).
 
-Utilize [o flush az hpc-cache](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) para forçar a cache a escrever todos os dados alterados para os alvos de armazenamento.
+Utilize [o flush az hpc-cache](/cli/azure/hpc-cache#az_hpc_cache_flush) para forçar a cache a escrever todos os dados alterados para os alvos de armazenamento.
 
 Exemplo:
 
@@ -163,9 +163,9 @@ Clique no botão **Deabos para** iniciar a atualização do software. O estado d
 
 [Configurar o Azure CLI para a cache Azure HPC](./az-cli-prerequisites.md).
 
-No Azure CLI, novas informações de software são incluídas no final do relatório de estado da cache. (Use [az hpc-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) para verificar.) Procure a cadeia "upgradeStatus" na mensagem.
+No Azure CLI, novas informações de software são incluídas no final do relatório de estado da cache. (Use [az hpc-cache show](/cli/azure/hpc-cache#az_hpc_cache_show) para verificar.) Procure a cadeia "upgradeStatus" na mensagem.
 
-Utilize [a az hpc-cache upgrade-firmware](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-upgrade-firmware) para aplicar a atualização, se existir alguma.
+Utilize [a az hpc-cache upgrade-firmware](/cli/azure/hpc-cache#az_hpc_cache_upgrade-firmware) para aplicar a atualização, se existir alguma.
 
 Se não houver atualização disponível, esta operação não tem qualquer efeito.
 
@@ -227,7 +227,7 @@ Depois de parar a cache, clique no botão **Eliminar** para remover permanenteme
 
 [Configurar o Azure CLI para a cache Azure HPC](./az-cli-prerequisites.md).
 
-Utilize o comando Azure CLI [az hpc-cache para](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) remover permanentemente a cache.
+Utilize o comando Azure CLI [az hpc-cache para](/cli/azure/hpc-cache#az_hpc_cache_delete) remover permanentemente a cache.
 
 Exemplo:
 ```azurecli

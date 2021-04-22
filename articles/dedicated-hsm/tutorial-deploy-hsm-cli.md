@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: fa1c01c2d9da19ec1f60878de83a509b7cf561e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b845ecabe74040e154886476a8ba28efecc99325
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606832"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868866"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Tutorial: Implantação de HSMs numa rede virtual existente utilizando o Azure CLI
 
@@ -102,7 +102,7 @@ az network vnet subnet create \
 
 Depois de configurar a sua rede, utilize estes comandos Azure CLI para abastecer os seus HSMs.
 
-1. Utilize o [comando az dedicado-hsm criar](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) comando para providenciar o primeiro HSM. O HSM é nomeado hsm1. Substitua a sua subscrição:
+1. Utilize o [comando az dedicado-hsm criar](/cli/azure/dedicated-hsm#az_dedicated_hsm_create) comando para providenciar o primeiro HSM. O HSM é nomeado hsm1. Substitua a sua subscrição:
 
    ```azurecli
    az dedicated-hsm create --location westus --name hsm1 --resource-group myRG --network-profile-network-interfaces \
@@ -111,7 +111,7 @@ Depois de configurar a sua rede, utilize estes comandos Azure CLI para abastecer
 
    Esta implementação deve demorar aproximadamente 25 a 30 minutos a ser completada com a maior parte desse tempo sendo os dispositivos HSM.
 
-1. Para ver um HSM atual, executar o comando [az dedicado-hsm show:](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show)
+1. Para ver um HSM atual, executar o comando [az dedicado-hsm show:](/cli/azure/dedicated-hsm#az_dedicated_hsm_show)
 
    ```azurecli
    az dedicated-hsm show --resource group myRG --name hsm1
@@ -124,19 +124,19 @@ Depois de configurar a sua rede, utilize estes comandos Azure CLI para abastecer
         /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
    ```
 
-1. Execute o comando [da lista az dedicado-hsm](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) para ver detalhes sobre os seus HSMs atuais:
+1. Execute o comando [da lista az dedicado-hsm](/cli/azure/dedicated-hsm#az_dedicated_hsm_list) para ver detalhes sobre os seus HSMs atuais:
 
    ```azurecli
    az dedicated-hsm list --resource-group myRG
    ```
 
-Há outros comandos que podem ser úteis. Utilize o comando [de atualização az dedicado ao hsm](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) para atualizar um HSM:
+Há outros comandos que podem ser úteis. Utilize o comando [de atualização az dedicado ao hsm](/cli/azure/dedicated-hsm#az_dedicated_hsm_update) para atualizar um HSM:
 
 ```azurecli
 az dedicated-hsm update --resource-group myRG –name hsm1
 ```
 
-Para eliminar um HSM, utilize o comando [az dedicado-hsm eliminar:](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete)
+Para eliminar um HSM, utilize o comando [az dedicado-hsm eliminar:](/cli/azure/dedicated-hsm#az_dedicated_hsm_delete)
 
 ```azurecli
 az dedicated-hsm delete --resource-group myRG –name hsm1
@@ -256,7 +256,7 @@ az group delete \
 Após completar os passos no tutorial, são fornecidos recursos dedicados ao HSM e tem uma rede virtual com HSMs necessários e componentes de rede adicionais para permitir a comunicação com o HSM.  Está agora em posição de felicitar esta implantação com mais recursos, conforme exigido pela sua arquitetura de implantação preferida. Para obter mais informações sobre como ajudar a planear a sua implantação, consulte os documentos do Concepts.
 Recomenda-se um desenho com dois HSMs numa região primária que aborde a disponibilidade ao nível da cremalheira, e dois HSMs numa região secundária que aborde a disponibilidade regional. 
 
-* [Alta Disponibilidade](high-availability.md)
+* [Elevada Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)
 * [Rede](networking.md)
 * [Suportabilidade](supportability.md)

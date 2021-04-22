@@ -3,12 +3,12 @@ title: Visão geral do parceiro no rodapé (Azure Event Grid)
 description: Fornece uma visão geral de como você pode embarcar como um parceiro de Grade de Eventos.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: d16337eada829a817110abf7842f763972d0718f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 40d0afe0aaeb40412948eb304a36a3627566551b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109344"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869694"
 ---
 # <a name="partner-onboarding-overview-azure-event-grid"></a>Visão geral do parceiro no rodapé (Azure Event Grid)
 
@@ -153,7 +153,7 @@ Depois de publicar no ponto final do espaço de nome do parceiro, recebe uma res
   * [Modelo ARM](/azure/templates/microsoft.eventgrid/allversions)
   * [Esquema de modelo de ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [APIs REST](/azure/templates/microsoft.eventgrid/2020-04-01-preview/partnernamespaces)
-  * [Extensão CLI](/cli/azure/ext/eventgrid/)
+  * [Extensão CLI](/cli/azure/)
 
 ### <a name="sdks"></a>SDKs
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 7d2a21a30cefbc6e83e48c29d81191323387b8f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aca75d1abed5470d51de22f9285459381f684bd
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101705548"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868596"
 ---
 # <a name="quickstart-create-and-provision-an-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e providenciar um dispositivo X.509 utilizando o dispositivo C# SDK para serviço de provisionamento de dispositivos IoT Hub
 
@@ -45,7 +45,7 @@ Este artigo vai demonstrar as inscrições individuais.
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
-1. Certifique-se de que tem o [.NET Core 3.0.0 SDK ou posteriormente](https://www.microsoft.com/net/download/windows) instalado na sua máquina. Pode utilizar o seguinte comando para verificar a sua versão.
+1. Certifique-se de que tem o [.NET Core 3.1 SDK ou posteriormente](https://dotnet.microsoft.com/download) instalado na sua máquina. Pode utilizar o seguinte comando para verificar a sua versão.
 
     ```bash
     dotnet --info

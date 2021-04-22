@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 01/28/2021
 ms.author: victorh
-ms.openlocfilehash: c976ea236ae1d37cc0a543b10a9de55609035632
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa7123a1c4dea5fcede3e94250576f6677671176
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98986756"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872250"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configurar um gateway de aplicações com rescisão de TLS usando o portal Azure
 
@@ -36,7 +36,7 @@ Inscreva-se no portal Azure em [https://portal.azure.com](https://portal.azure.c
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
-Nesta secção, você usa [o Certificado Novo-Auto-Assinado](/powershell/module/pkiclient/new-selfsignedcertificate) para criar um certificado auto-assinado. Faça o upload do certificado para o portal Azure quando criar o ouvinte para o gateway de aplicação.
+Nesta secção, você usa [o Certificado Novo-Auto-Assinado](/powershell/module/pki/new-selfsignedcertificate) para criar um certificado auto-assinado. Faça o upload do certificado para o portal Azure quando criar o ouvinte para o gateway de aplicação.
 
 No seu computador local, abra uma janela Windows PowerShell como administrador. Executar o seguinte comando para criar o certificado:
 
@@ -56,7 +56,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Utilize [exporte-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) com a impressão digital que foi devolvida para exportar um ficheiro pfx do certificado. Certifique-se de que a sua palavra-passe tem 4 - 12 caracteres de comprimento:
+Utilize [exporte-PfxCertificate](/powershell/module/pki/export-pfxcertificate) com a impressão digital que foi devolvida para exportar um ficheiro pfx do certificado. Certifique-se de que a sua palavra-passe tem 4 - 12 caracteres de comprimento:
 
 
 ```powershell

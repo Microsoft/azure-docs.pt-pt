@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.custom: devx-track-js
-ms.openlocfilehash: a655199d854462285ca98a2d8f454c483c061f99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d54b4b048632324a58708f893a4778a56137916
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92316660"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876084"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Tecido de serviço para código de estúdio visual
 
@@ -48,7 +48,7 @@ Devem ser instalados os seguintes pré-requisitos para o desenvolvimento de Java
 
 Os seguintes pré-requisitos devem ser instalados para o desenvolvimento .NET Core/C#:
 
-* [.NET Core](https://www.microsoft.com/net/learn/get-started) (versão 2.0.0 ou posterior)
+* [.NET Core](https://dotnet.microsoft.com/download) (versão 2.0.0 ou posterior)
 * [C# para Código de Estúdio Visual (alimentado por OmniSharp) extensão do código VS](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Precisava de depurar os serviços C#. Pode instalar-se clicando no ícone Extensões na Barra de **Atividade** no Código VS e procurando a extensão, ou a partir do Mercado de Código VS.
 
 ## <a name="setup"></a>Configuração

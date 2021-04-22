@@ -3,12 +3,12 @@ title: Implementar Gestor de Tráfego para equilibrar cargas de trabalho da Solu
 description: Saiba como integrar o Traffic Manager com a Azure VMware Solution para equilibrar as cargas de trabalho das aplicações em vários pontos finais em diferentes regiões.
 ms.topic: how-to
 ms.date: 02/08/2021
-ms.openlocfilehash: 46570c5a61fc0a641d83126fd0f8ef35b3dc42cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 029bb9512bd19effd1c7aeb5104c7bb6d7ccdca5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99988600"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876927"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Implementar Gestor de Tráfego para equilibrar cargas de trabalho da Solução VMware Azure
 
@@ -132,7 +132,7 @@ Os seguintes passos verificam a configuração do segmento NSX-T no ambiente Azu
 
 Agora que cobriu a integração do Azure Traffic Manager com a Azure VMware Solution, talvez queira saber:
 
-- [Utilização do Gateway de Aplicações Azure na Solução Azure VMware](protect-azure-vmware-solution-with-application-gateway.md).
-- [Métodos de encaminhamento do Gestor de Tráfego](../traffic-manager/traffic-manager-routing-methods.md).
-- [Combinando serviços de equilíbrio de carga em Azure.](../traffic-manager/traffic-manager-load-balancing-azure.md)
-- [Medição do desempenho do Gestor de Tráfego.](../traffic-manager/traffic-manager-performance-considerations.md)
+- [Utilização do Gateway de Aplicações Azure na Solução VMware Azure](protect-azure-vmware-solution-with-application-gateway.md)
+- [Métodos de encaminhamento do Gestor de Tráfego](../traffic-manager/traffic-manager-routing-methods.md)
+- [Combinação de serviços de equilíbrio de carga em Azure](../traffic-manager/traffic-manager-load-balancing-azure.md)
+- [Medição do desempenho do Gestor de Tráfego](../traffic-manager/traffic-manager-performance-considerations.md)

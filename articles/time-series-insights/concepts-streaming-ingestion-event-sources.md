@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 499cb3c978a67f9ef71e6ad9dd03be9f05b45729
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: e0d40a4e0e376a42841bd8df5d76e5c83d11b1e3
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726975"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865487"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Fontes de eventos Azure Time Series Insights Gen2
 
@@ -29,7 +29,7 @@ Os eventos devem ser enviados como UTF-8 codificado JSON.
 
 A fonte do evento é a ligação entre o seu hub e o ambiente Azure Time Series Insights Gen2, e um recurso de tipo separado é criado no seu grupo de `Time Series Insights event source` recursos. O IoT Hub ou os recursos do Event Hub podem viver na mesma subscrição Azure que o ambiente Azure Time Series Insights Gen2 ou uma subscrição diferente. No entanto, é uma boa prática alojar o seu ambiente Azure Time Series Insights e o IoT Hub ou Event Hub dentro da mesma região do Azure.
 
-Pode utilizar o [portal Azure](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI,](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/event-source) [modelos Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md)e a [API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) para criar, editar ou remover as fontes de eventos do seu ambiente.
+Pode utilizar o [portal Azure](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI,](/cli/azure/tsi/event-source) [modelos Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md)e a [API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) para criar, editar ou remover as fontes de eventos do seu ambiente.
 
 > [!WARNING]
 > Não restringir o acesso público à Internet a um hub ou fonte de eventos utilizado pela Time Series Insights ou a ligação necessária será quebrada.
