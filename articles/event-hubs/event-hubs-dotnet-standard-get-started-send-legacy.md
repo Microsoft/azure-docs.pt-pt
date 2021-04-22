@@ -4,12 +4,12 @@ description: Este artigo fornece uma passagem para a criação de uma aplicaçã
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f289b920b036629e5c518ce3c9e8ec521b1497c3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 00eadbed23b702e77aefaf34b174bd1e6800c307
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310109"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877467"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Enviar eventos para ou receber eventos de Azure Event Hubs usando .NET Core (Microsoft.Azure.EventHubs)
 Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando a biblioteca **Microsoft.Azure.EventHubs** .NET Core.
@@ -24,7 +24,7 @@ Para completar este arranque rápido, precisa dos seguintes pré-requisitos:
 
 - **Subscrição do Microsoft Azure**. Para utilizar os serviços Azure, incluindo os Azure Event Hubs, precisa de uma subscrição.  Se não tiver uma conta Azure existente, pode inscrever-se para um [teste gratuito](https://azure.microsoft.com/free/) ou utilizar os benefícios do seu assinante MSDN quando [criar uma conta.](https://azure.microsoft.com)
 - [Microsoft Visual Studio 2019](https://www.visualstudio.com).
-- [ferramentas do .NET Core Visual Studio 2015 ou 2017](https://www.microsoft.com/net/core). 
+- [.NET Core SDK](https://dotnet.microsoft.com/download). 
 - **Crie um espaço de nomes de Centros de Eventos e um centro de eventos.** O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nome e um centro de eventos, siga o procedimento [neste artigo](event-hubs-create.md). Em seguida, obtenha a **cadeia de ligação para o espaço de nome do centro do evento** seguindo as instruções do artigo: Obter a cadeia de [ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Utilize a cadeia de ligação mais tarde neste arranque rápido.
 
 ## <a name="send-events"></a>Enviar eventos 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/08/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 54582456e5c55f7cbe513f8ab83fbc87ef6a3931
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 6aa3e2b84c4349e2134ddeb2a60fd193f56f84e8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285416"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875972"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Linha de segurança Azure para firewall de aplicação web Azure
 
@@ -88,7 +88,7 @@ Aplicar regras e grupos de regras às políticas Azure Web Application Firewall 
 
 - [Política da WAF no Gateway de Aplicações](/cli/azure/network/application-gateway/waf-policy)
 
-- [Política da WAF na Porta da Frente](/cli/azure/ext/front-door/network/front-door/waf-policy)
+- [Política da WAF na Porta da Frente](/cli/azure/network/front-door/waf-policy)
 
 **Responsabilidade**: Cliente
 

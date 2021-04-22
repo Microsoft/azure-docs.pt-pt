@@ -3,12 +3,12 @@ title: Proteja o seu VMS de Solução VMware Azure com integração do Centro de
 description: Proteja os VMS da Solução VMware Azure com as ferramentas de segurança nativas da Azure do painel do Centro de Segurança Azure.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 7292ea4486a61f5b0cfd8f656d2763a3ce655e79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d04f0ac3e3934442ce5b6d5fbf4b53e18b3dff18
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578251"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877521"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteja o seu VMS de Solução VMware Azure com integração do Centro de Segurança Azure
 
@@ -242,6 +242,6 @@ Pode criar consultas ou utilizar a consulta pré-definida disponível no Azure S
 
 Agora que cobriu como proteger os seus VMs de Solução VMware Azure, talvez queira saber:
 
-- Utilização do [painel Azure Defender](../security-center/azure-defender-dashboard.md).
-- [Deteção avançada de ataques em vários estágios em Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md).
-- [Gestão do ciclo de vida da Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
+- Usando o [painel Azure Defender](../security-center/azure-defender-dashboard.md)
+- [Deteção avançada de ataques em vários palcos em Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md)
+- [Gestão do ciclo de vida da Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md)
