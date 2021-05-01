@@ -14,7 +14,7 @@ ms.locfileid: "106092777"
 
 Uma definição de política pode ser dinâmica para reduzir o número de definições políticas que são necessárias através da utilização de [parâmetros.](../concepts/definition-structure.md#parameters) O parâmetro é definido durante a atribuição de políticas. Os parâmetros têm um conjunto de propriedades pré-definidas que descrevem o parâmetro e como é usado.
 
-## <a name="sample-1-string-parameters"></a>Amostra 1: Parâmetros de corda
+## <a name="sample-1-string-parameters"></a>Amostra 1: Parâmetros de texto
 
 Esta definição de política utiliza dois parâmetros, **tagName** e **tagValue,** para definir o que a atribuição de políticas procura em recursos. Este formato permite que a definição de política seja usada para qualquer número de combinações de etiquetas e valor de etiqueta, mas apenas manter uma definição de política única.
 
