@@ -70,7 +70,7 @@ Para configurar o seu ambiente local, terá de clonar o repositório, mudar para
 
 O portal de desenvolvedores requer a API Management REST API para gerir o conteúdo.
 
-### <a name="configdesignjson-file"></a>config.design.jsno arquivo
+### <a name="configdesignjson-file"></a>config.design.json arquivo
 
 Vá à `src` pasta e abra o `config.design.json` ficheiro.
 
